@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Deezer
+Comment=Website Shortcut
+Exec=firefox https://www.deezer.com/en/
+Icon=/home/joppe/AppImages/icons/Deezer.png
+Terminal=false
+Type=Application

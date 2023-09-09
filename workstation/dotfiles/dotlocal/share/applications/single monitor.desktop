@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=single monitor
+Comment=turn off secondary monitor 
+Icon=/home/joppe/Scripts/icons/monitor.png
+Exec=/home/joppe/Scripts/single-monitor.sh
+Terminal=false
+Categories=Scripts

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=DarkOrbit
+Comment=DarkOrbit
+Icon=/home/joppe/AppImages/icons/DarkOrbit.png
+Exec=/home/joppe/AppImages/DarkOrbit-Client-2.8.0.AppImage
+Terminal=false
+Categories=Applications

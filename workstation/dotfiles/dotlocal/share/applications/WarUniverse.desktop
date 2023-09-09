@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=WarUniverse
+Comment=WarUniverse
+Icon=/home/joppe/Games/Java/WarUniverse/WarUniverse.png
+Exec=java -jar /home/joppe/Games/Java/WarUniverse/WarUniverse.1.23.174.jar
+Terminal=false
+Categories=Applications
+
