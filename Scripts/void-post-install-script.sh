@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # post install script for void linux
+# NOTE TO SELF: MAKE SURE TO SETUP YOUR GIT ACCOUNT AND SSH KEY BEFORE RUNNING THIS SCRIPT!!
 
 set -x
 
@@ -82,12 +83,12 @@ feh	\
 strawberry	\
 qbittorrent	\
   # system tools
+nano	\
 socklog-void	\
 wireguard-dkms	\
 wireguard-tools	\
 pass	\
 pass-otp	\
-python3-pip	\
 neofetch	\
 lm_sensors	\
 unzip	\
@@ -127,6 +128,34 @@ virt-manager	\
 dnsmasq	\
 iptables	\
 
+# installing pip and python packages/dependencies
+
+echo "installing pip and python packages/dependencies..."
+
+xbps-install -Sy 	\
+python3	\
+python3-pip	\
+python3-psutil	\
+python3-setuptools	\
+python3-usb	\
+python3-crcmod	\
+python3-hid	\
+python3-docopt	\
+python3-Pillow	\
+python3-smbus	\
+libusb	\
+python3-setuptools
+
+python -m venv /home/joppe/python-venv
+/home/joppe/python-venv/bin/python -m pip install dbus-next
+/home/joppe/python-venv/bin/python -m pip install liquidctl
+
+# setting up permissions for liquidctl
+
+echo "setting up permissions for liquidctl..."
+
+
+
 # creating user directories
 
 echo "creating user directories..."
@@ -165,11 +194,47 @@ mkswap -U clear /swapfile
 swapon /swapfile
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
-# configure grub?
+# configure grub
+
+echo "configuring grub..."
+
+kernel parameters!!
+theming?
+update-grub
 
 # git cloning configs from repo and symlinking them to directories
 
 echo "git cloning configs from repo and copying them to directories..."
+
+git clone git@github.com:juipeltje/configs.git
+rm /home/joppe/.bashrc
+ln -s /home/joppe/repos/configs/dotfiles/.bashrc /home/joppe/
+ln -s /home/joppe/repos/configs/workstation/dotfiles/.Xresources /home/joppe
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/qtile/ /home/joppe/.config/
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/alacritty/ /home/joppe/.config/
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/rofi/ /home/joppe/.config/
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/dunst/ /home/joppe/.config/
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/picom/ /home/joppe/.config/
+cp -r /home/joppe/repos/configs/workstation/config-files/etc/X11/xorg.conf.d /etc/X11/
+cp -r /home/joppe/repos/configs/workstation/config-files/etc/pipewire /etc/
+cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm.conf /etc/lightdm/
+cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
+cp -rf /home/joppe/repos/configs/config-files/etc/elogind /etc/
+
+# installing fonts
+
+echo "installing fonts..."
+
+cp -r /home/joppe/repos/configs/config-files/usr/share/fonts/Mononoki-Nerd-Font /usr/share/fonts/
+cp -r /home/joppe/repos/configs/config-files/usr/share/fonts/Ubuntu-Nerd-Font /usr/share/fonts/
+
+# installing themes
+
+echo "installing themes..."
+
+cp -r /home/joppe/repos/configs/config-files/usr/share/themes/Gruvbox-Material-Dark /usr/share/themes/
+cp -r /home/joppe/repos/configs/config-files/usr/share/themes/Nordic /usr/share/themes/
+cp -r /home/joppe/repos/configs/config-files/usr/share/icons/capitaine-cursors-light /usr/share/icons/
 
 # enabling runit services
 
