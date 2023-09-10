@@ -154,7 +154,7 @@ python -m venv /home/joppe/python-venv
 
 echo "setting up permissions for liquidctl..."
 
-
+cp /home/joppe/repos/configs/workstation/config-files/etc/udev/rules.d/71-liquidctl.rules /etc/udev/rules.d/
 
 # creating user directories
 
