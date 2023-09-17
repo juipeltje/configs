@@ -93,11 +93,13 @@ neofetch	\
 lm_sensors	\
 unzip	\
 tar	\
+xz	\
 7zip	\
 gparted	\
 htop	\
-git	\
 perl	\
+curl	\
+wget	\
 cronie	\
 openrgb	\
 corectrl	\
@@ -128,6 +130,15 @@ virt-manager	\
 dnsmasq	\
 iptables	\
 
+# setting up xbps-src
+
+echo "setting up xbps-src..."
+
+git clone https://github.com/void-linux/void-packages.git
+cd void-packages
+./xbps-src binary-bootstrap
+cd
+
 # installing pip and python packages/dependencies
 
 echo "installing pip and python packages/dependencies..."
@@ -149,12 +160,6 @@ python3-setuptools
 python -m venv /home/joppe/python-venv
 /home/joppe/python-venv/bin/python -m pip install dbus-next
 /home/joppe/python-venv/bin/python -m pip install liquidctl
-
-# setting up permissions for liquidctl
-
-echo "setting up permissions for liquidctl..."
-
-cp /home/joppe/repos/configs/workstation/config-files/etc/udev/rules.d/71-liquidctl.rules /etc/udev/rules.d/
 
 # creating user directories
 
@@ -198,15 +203,22 @@ echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
 echo "configuring grub..."
 
-kernel parameters!!
-theming?
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4"/GRUB_CMDLINE_LINUX_DEFAULT="amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=4"/' /etc/default/grub
+sed -i 's/#GRUB_GFXMODE=1920x1080x32/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
+wget https://github.com/AdisonCavani/distro-grub-themes/raw/master/themes/void-linux.tar -P /home/joppe/Downloads
+mkdir /home/joppe/Downloads/void-grub-theme
+tar -xvf /home/joppe/Downloads/void-linux.tar -C /home/joppe/Downloads/void-grub-theme
+mkdir /boot/grub/themes
+cp -r /home/joppe/Downloads/void-grub-theme /boot/grub/themes/void
+echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >> /etc/default/grub
 update-grub
 
 # git cloning configs from repo and symlinking them to directories
 
 echo "git cloning configs from repo and copying them to directories..."
 
-git clone git@github.com:juipeltje/configs.git
+mkdir /home/joppe/repos
+git clone git@github.com:juipeltje/configs.git /home/joppe/repos/configs
 rm /home/joppe/.bashrc
 ln -s /home/joppe/repos/configs/dotfiles/.bashrc /home/joppe/
 ln -s /home/joppe/repos/configs/workstation/dotfiles/.Xresources /home/joppe
@@ -225,16 +237,37 @@ cp -rf /home/joppe/repos/configs/config-files/etc/elogind /etc/
 
 echo "installing fonts..."
 
-cp -r /home/joppe/repos/configs/config-files/usr/share/fonts/Mononoki-Nerd-Font /usr/share/fonts/
-cp -r /home/joppe/repos/configs/config-files/usr/share/fonts/Ubuntu-Nerd-Font /usr/share/fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Mononoki.zip -P /home/joppe/Downloads/
+mkdir /home/joppe/Downloads/Mononoki-Nerd-Font
+unzip /home/joppe/Downloads/Mononoki.zip -d /home/joppe/Downloads/Mononoki-Nerd-Font/
+cp -r /home/joppe/Downloads/Mononoki-Nerd-Font /usr/share/fonts/
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Ubuntu.zip -P /home/joppe/Downloads/
+mkdir /home/joppe/Downloads/Ubuntu-Nerd-Font 
+unzip /home/joppe/Downloads/Ubuntu.zip -d /home/joppe/Downloads/Ubuntu-Nerd-Font/
+cp -r /home/joppe/Downloads/Ubuntu-Nerd-Font /usr/share/fonts/
 
 # installing themes
 
 echo "installing themes..."
 
-cp -r /home/joppe/repos/configs/config-files/usr/share/themes/Gruvbox-Material-Dark /usr/share/themes/
-cp -r /home/joppe/repos/configs/config-files/usr/share/themes/Nordic /usr/share/themes/
+wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic.tar.xz -P /home/joppe/Downloads
+tar -xvf /home/joppe/Downloads/Nordic.tar.xz -C /home/joppe/Downloads
+cp -r /home/joppe/Downloads/Nordic /usr/share/themes
+mkdir -p /home/joppe/kvantum-themes/Nordic
+wget https://raw.githubusercontent.com/EliverLara/Nordic/master/kde/kvantum/Nordic/Nordic.kvconfig -P /home/joppe/kvantum-themes/Nordic/
+wget https://raw.githubusercontent.com/EliverLara/Nordic/master/kde/kvantum/Nordic/Nordic.svg -P /home/joppe/kvantum-themes/Nordic/
+git clone https://github.com/TheGreatMcPain/gruvbox-material-gtk /home/joppe/gruvbox-material-gtk
+cp -r /home/joppe/gruvbox-material-gtk/themes/Gruvbox-Material-Dark /usr/share/themes/
+cp -r /home/joppe/gruvbox-material-gtk/icons/Gruvbox-Material-Dark /usr/share/icons/
+wget https://github.com/theglitchh/Gruvbox-Kvantum/releases/download/v1.1/gruvbox-kvantum-v1.1.zip -P /home/joppe/Downloads
+unzip gruvbox-kvantum-v1.1.zip -d /home/joppe/kvantum-themes/
 cp -r /home/joppe/repos/configs/config-files/usr/share/icons/capitaine-cursors-light /usr/share/icons/
+
+# setting up permissions for liquidctl
+
+echo "setting up permissions for liquidctl..."
+
+wget https://raw.githubusercontent.com/liquidctl/liquidctl/main/extra/linux/71-liquidctl.rules -P /etc/udev/rules.d/
 
 # enabling runit services
 
