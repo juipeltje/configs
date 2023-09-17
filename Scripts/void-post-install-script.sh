@@ -100,6 +100,7 @@ htop	\
 perl	\
 curl	\
 wget	\
+openssh	\
 cronie	\
 openrgb	\
 corectrl	\
@@ -263,6 +264,11 @@ wget https://github.com/theglitchh/Gruvbox-Kvantum/releases/download/v1.1/gruvbo
 unzip gruvbox-kvantum-v1.1.zip -d /home/joppe/kvantum-themes/
 cp -r /home/joppe/repos/configs/config-files/usr/share/icons/capitaine-cursors-light /usr/share/icons/
 
+wget https://github.com/eromatiya/lightdm-webkit2-theme-glorious/releases/download/v2.0.5/lightdm-webkit2-theme-glorious-2.0.5.tar.gz -P /home/joppe/Downloads/
+mkdir /home/joppe/Downloads/lightdm-webkit2-theme-glorious
+tar -xvf /home/joppe/Downloads/lightdm-webkit2-theme-glorious-2.0.5.tar.gz -C /home/joppe/Downloads/lightdm-webkit2-theme-glorious/
+cp -r /home/joppe/Downloads/lightdm-webkit2-theme-glorious /usr/share/lightdm-webkit/themes/glorious
+
 # setting up permissions for liquidctl
 
 echo "setting up permissions for liquidctl..."
@@ -280,5 +286,14 @@ ln -s /etc/sv/ntpd /var/service/
 ln -s /etc/sv/socklog-unix /var/service/
 ln -s /etc/sv/nanoklogd /var/service/
 ln -s /etc/sv/libvirtd /var/service/
-ln -s /etc/sv/lightdm /var/service/
 ln -s /etc/sv/cronie /var/service/
+ln -s /etc/sv/lightdm /var/service/
+sv down lightdm
+
+# fixing any ownership issues for the user's home folder
+
+echo "fixing any ownership issues for the user's home folder..."
+
+chown joppe /home/joppe
+
+echo "Finished!! You can now reboot your machine."
