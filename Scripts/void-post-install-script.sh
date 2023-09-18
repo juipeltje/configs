@@ -153,7 +153,8 @@ python3-docopt	\
 python3-Pillow	\
 python3-smbus	\
 libusb	\
-python3-setuptools
+python3-setuptools	\
+python3-devel	\
 sleep 1
 python -m venv /home/joppe/python-venv
 sleep 1
