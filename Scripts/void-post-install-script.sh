@@ -176,11 +176,9 @@ touch /etc/modules-load.d/i2c.conf && echo "i2c-dev" >> /etc/modules-load.d/i2c.
 sleep 1
 touch /etc/modules-load.d/i2c-piix4.conf && echo "i2c-piix4" >> /etc/modules-load.d/i2c-piix4.conf
 
-# creating additional groups and adding the user to it
+# adding the user to additional groups
 
-echo "creating additional groups and adding the user to it..."
-sleep 1
-groupadd --system i2c
+echo "adding the user to additional groups..."
 sleep 1
 usermod -aG i2c,kvm,libvirt,bluetooth,socklog joppe
 
