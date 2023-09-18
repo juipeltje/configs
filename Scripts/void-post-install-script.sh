@@ -131,7 +131,7 @@ echo "setting up xbps-src..."
 sleep 1
 git clone https://github.com/void-linux/void-packages.git /home/joppe/void-packages
 sleep 1
-cd void-packages
+cd /home/joppe/void-packages
 sleep 1
 sudo -u joppe ./xbps-src binary-bootstrap
 sleep 1
