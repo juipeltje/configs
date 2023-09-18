@@ -37,7 +37,7 @@ xbps-install -Sy \
 xorg	\
 vulkan-loader	\
 mesa	\
-mesa-32-bit	\
+mesa-32bit	\
 mesa-dri	\
 mesa-dri-32bit	\
 mesa-vaapi	\
