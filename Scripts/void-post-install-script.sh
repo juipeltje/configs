@@ -93,7 +93,6 @@ xz	\
 7zip	\
 gparted	\
 htop	\
-perl	\
 curl	\
 wget	\
 openssh	\
@@ -154,7 +153,7 @@ python3-Pillow	\
 python3-smbus	\
 libusb	\
 python3-setuptools	\
-python3-devel	\
+python3-devel
 sleep 1
 python -m venv /home/joppe/python-venv
 sleep 1
