@@ -129,11 +129,11 @@ iptables	\
 
 echo "setting up xbps-src..."
 sleep 1
-git clone https://github.com/void-linux/void-packages.git
+git clone https://github.com/void-linux/void-packages.git /home/joppe/void-packages
 sleep 1
 cd void-packages
 sleep 1
-./xbps-src binary-bootstrap
+sudo -u joppe ./xbps-src binary-bootstrap
 sleep 1
 cd
 
