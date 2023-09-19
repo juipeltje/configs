@@ -6,24 +6,24 @@
 set -xe
 
 echo "starting void linux post install script..."
-sleep 1
+sleep 2
 
 # update package manager
 
 echo "updating package manager..."
-sleep 1
+sleep 2
 xbps-install -uy xbps
 
 # updating the system
 
 echo "performing system update..."
-sleep 1
+sleep 2
 xbps-install -Suy
 
 # enabling additional repositories
 
 echo "enabling additional repositories..."
-sleep 1
+sleep 2
 xbps-install -Sy \
 void-repo-multilib	\
 void-repo-multilib-nonfree	\
@@ -32,7 +32,7 @@ void-repo-nonfree
 # installing packages
 
 echo "installing packages..."
-sleep 1
+sleep 2
 xbps-install -Sy \
 xorg	\
 vulkan-loader	\
@@ -127,7 +127,7 @@ iptables	\
 # setting up xbps-src
 
 echo "setting up xbps-src..."
-sleep 1
+sleep 2
 sudo -u joppe git clone https://github.com/void-linux/void-packages.git /home/joppe/void-packages
 sleep 1
 cd /home/joppe/void-packages
@@ -139,7 +139,7 @@ cd
 # installing pip and python packages/dependencies
 
 echo "installing pip and python packages/dependencies..."
-sleep 1
+sleep 2
 xbps-install -Sy 	\
 python3	\
 python3-pip	\
@@ -164,14 +164,14 @@ sleep 1
 # creating user directories
 
 echo "creating user directories..."
-sleep 1
+sleep 2
 xdg-user-dirs-update
 
 
 # setting up additional kernel modules for openrgb 
 
 echo "setting up additional kernel modules for openrgb..."
-sleep 1
+sleep 2
 touch /etc/modules-load.d/i2c.conf && echo "i2c-dev" >> /etc/modules-load.d/i2c.conf
 sleep 1
 touch /etc/modules-load.d/i2c-piix4.conf && echo "i2c-piix4" >> /etc/modules-load.d/i2c-piix4.conf
@@ -179,13 +179,13 @@ touch /etc/modules-load.d/i2c-piix4.conf && echo "i2c-piix4" >> /etc/modules-loa
 # adding the user to additional groups
 
 echo "adding the user to additional groups..."
-sleep 1
+sleep 2
 usermod -aG i2c,kvm,libvirt,bluetooth,socklog joppe
 
 # setting up flatpak and flathub
 
 echo "setting up flatpak and flathub..."
-sleep 1
+sleep 2
 xbps-install -Sy flatpak
 sleep 1 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -193,7 +193,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 # setting up swapfile
 
 echo "setting up swapfile..."
-sleep 1
+sleep 2
 dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
 sleep 1
 chmod 0600 /swapfile
@@ -207,7 +207,7 @@ echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 # configure grub
 
 echo "configuring grub..."
-sleep 1
+sleep 2
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4"/GRUB_CMDLINE_LINUX_DEFAULT="amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=4"/' /etc/default/grub
 sleep 1
 sed -i 's/#GRUB_GFXMODE=1920x1080x32/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
@@ -229,10 +229,10 @@ update-grub
 # git cloning configs from repo and symlinking them to directories
 
 echo "git cloning configs from repo and copying them to directories..."
+sleep 2
+sudo -u joppe mkdir /home/joppe/repos
 sleep 1
-mkdir /home/joppe/repos
-sleep 1
-git clone git@github.com:juipeltje/configs.git /home/joppe/repos/configs
+sudo -u joppe git clone git@github.com:juipeltje/configs.git /home/joppe/repos/configs
 sleep 1
 rm /home/joppe/.bashrc
 sleep 1
@@ -263,7 +263,7 @@ cp -rf /home/joppe/repos/configs/config-files/etc/elogind /etc/
 # installing fonts
 
 echo "installing fonts..."
-sleep 1
+sleep 2
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Mononoki.zip -P /home/joppe/Downloads/
 sleep 1
 mkdir /home/joppe/Downloads/Mononoki-Nerd-Font
@@ -283,7 +283,7 @@ cp -r /home/joppe/Downloads/Ubuntu-Nerd-Font /usr/share/fonts/
 # installing themes
 
 echo "installing themes..."
-sleep 1
+sleep 2
 wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic.tar.xz -P /home/joppe/Downloads
 sleep 1
 tar -xvf /home/joppe/Downloads/Nordic.tar.xz -C /home/joppe/Downloads
@@ -319,19 +319,19 @@ cp -r /home/joppe/Downloads/lightdm-webkit2-theme-glorious /usr/share/lightdm-we
 # setting up permissions for liquidctl
 
 echo "setting up permissions for liquidctl..."
-sleep 1
+sleep 2
 wget https://raw.githubusercontent.com/liquidctl/liquidctl/main/extra/linux/71-liquidctl.rules -P /etc/udev/rules.d/
 
 # setting up weekly cronjob for SSD trimming
 
 echo "setting up weekly cronjob for SSD trimming..."
-sleep 1
+sleep 2
 cp /home/joppe/repos/configs/Scripts/fstrim.sh /etc/cron.weekly/
 
 # enabling runit services
 
 echo "enabling runit services..."
-sleep 1
+sleep 2
 ln -s /etc/sv/NetworkManager /var/service/
 sleep 1
 ln -s /etc/sv/dbus /var/service/
@@ -356,13 +356,13 @@ sv down lightdm
 # fixing any ownership issues for the user's home folder
 
 echo "fixing any ownership issues for the user's home folder..."
-sleep 1
+sleep 2
 chown -R joppe /home/joppe
 
 # fixing dbus issues in window manager session
 
 echo "fixing dbus issues in window manager session..."
-sleep 1
+sleep 2
 sed -i 's/Exec=qtile start/Exec=dbus-launch --exit-with-session qtile start/' /usr/share/xsessions/qtile.desktop
 
 echo "Finished!! You can now reboot your machine."
