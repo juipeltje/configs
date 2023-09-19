@@ -252,7 +252,7 @@ ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/dunst/ /home/jopp
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/picom/ /home/joppe/.config/
 sleep 1
-mkdir -P /home/joppe/.local/share
+mkdir -p /home/joppe/.local/share
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/joppe/.local/share/
 sleep 1
