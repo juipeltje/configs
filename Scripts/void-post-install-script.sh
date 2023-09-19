@@ -240,6 +240,8 @@ ln -s /home/joppe/repos/configs/dotfiles/.bashrc /home/joppe/
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/.Xresources /home/joppe
 sleep 1
+mkdir /home/joppe/.config
+sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/qtile/ /home/joppe/.config/
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/alacritty/ /home/joppe/.config/
@@ -249,6 +251,10 @@ sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/dunst/ /home/joppe/.config/
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotconfig/picom/ /home/joppe/.config/
+sleep 1
+mkdir -P /home/joppe/.local/share
+sleep 1
+ln -s /home/joppe/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/joppe/.local/share/
 sleep 1
 cp -r /home/joppe/repos/configs/workstation/config-files/etc/X11/xorg.conf.d /etc/X11/
 sleep 1
