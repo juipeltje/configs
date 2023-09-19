@@ -310,7 +310,7 @@ cp -r /home/joppe/gruvbox-material-gtk/icons/Gruvbox-Material-Dark /usr/share/ic
 sleep 1
 wget https://github.com/theglitchh/Gruvbox-Kvantum/releases/download/v1.1/gruvbox-kvantum-v1.1.zip -P /home/joppe/Downloads
 sleep 1
-unzip gruvbox-kvantum-v1.1.zip -d /home/joppe/kvantum-themes/
+unzip /home/joppe/Downloads/gruvbox-kvantum-v1.1.zip -d /home/joppe/kvantum-themes/
 sleep 1
 cp -r /home/joppe/repos/configs/config-files/usr/share/icons/capitaine-cursors-light /usr/share/icons/
 sleep 1
