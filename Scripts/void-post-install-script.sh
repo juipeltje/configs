@@ -12,7 +12,7 @@ sleep 2
 
 echo "updating package manager..."
 sleep 2
-xbps-install -uy xbps
+xbps-install -Suy xbps
 
 # updating the system
 
@@ -355,7 +355,6 @@ sleep 1
 ln -s /etc/sv/cronie /var/service/
 sleep 1
 ln -s /etc/sv/lightdm /var/service/
-sv down lightdm
 
 # fixing any ownership issues for the user's home folder
 
