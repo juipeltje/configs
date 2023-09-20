@@ -354,8 +354,6 @@ ln -s /etc/sv/libvirtd /var/service/
 sleep 1
 ln -s /etc/sv/cronie /var/service/
 sleep 1
-ln -s /etc/sv/sshd /var/service/
-sleep 1
 ln -s /etc/sv/lightdm /var/service/
 sv down lightdm
 
