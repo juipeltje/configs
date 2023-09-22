@@ -1,0 +1,66 @@
+window:
+#   dimensions:
+#     columns: 132
+#     lines: 49
+#   position: 
+#     x: 1720
+#     y: 720
+#   opacity: 0.76
+   opacity: 1
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+     family: Mononoki Nerd Font
+     style: Regular
+  bold: 
+     family: Mononoki Nerd Font
+     style: Bold
+  italic:
+     family: Mononoki Nerd Font
+     style: Italic
+  bold_italic:
+     family: Mononoki Nerd Font
+     style: Bold Italic
+  size: 11.0
+
+import:
+  # uncomment the flavour you want below:
+#  - ~/.config/alacritty/nord/nord.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+   - ~/.config/alacritty/gruvbox-material/gruvbox-material.yml
+#colors:
+#  primary:
+#    background: '#1d1f21'
+#    foreground: '#c5c8c6'
+#  normal:
+#    black:   '#1d1f21'
+#    red:     '#cc6666'
+#    green:   '#b5bd68'
+#    yellow:  '#f0c674'
+#    blue:    '#81a2be'
+#    magenta: '#b294bb'
+#    cyan:    '#5294E2'
+#    white:   '#c5c8c6'
+#  bright:
+#    black:   '#666666'
+#    red:     '#d54e53'
+#    green:   '#b9ca4a'
+#    yellow:  '#e7c547'
+#    blue:    '#7aa6da'
+#    magenta: '#c397d8'
+#    cyan:    '#5294E2'
+#    white:   '#eaeaea'
+
+cursor:
+  style:
+    shape: Underline
+    blinking: On
+    blink_interval: 500
+
