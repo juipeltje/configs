@@ -258,7 +258,7 @@ ln -s /home/joppe/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/j
 sleep 1
 cp -r /home/joppe/repos/configs/workstation/config-files/etc/X11/xorg.conf.d /etc/X11/
 sleep 1
-cp -r /home/joppe/repos/configs/workstation/config-files/etc/pipewire /etc/
+cp -r /home/joppe/repos/configs/config-files/etc/pipewire /etc/
 sleep 1
 cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm.conf /etc/lightdm/
 sleep 1
@@ -296,6 +296,10 @@ tar -xvf /home/joppe/Downloads/Nordic.tar.xz -C /home/joppe/Downloads
 sleep 1
 cp -r /home/joppe/Downloads/Nordic /usr/share/themes
 sleep 1
+mkdir /home/joppe/.local/share/themes
+sleep 1
+cp -r /home/joppe/Downloads/Nordic /home/joppe/.local/share/themes/
+sleep 1
 mkdir -p /home/joppe/kvantum-themes/Nordic
 sleep 1
 wget https://raw.githubusercontent.com/EliverLara/Nordic/master/kde/kvantum/Nordic/Nordic.kvconfig -P /home/joppe/kvantum-themes/Nordic/
@@ -306,7 +310,13 @@ git clone https://github.com/TheGreatMcPain/gruvbox-material-gtk /home/joppe/gru
 sleep 1
 cp -r /home/joppe/gruvbox-material-gtk/themes/Gruvbox-Material-Dark /usr/share/themes/
 sleep 1
+cp -r /home/joppe/gruvbox-material-gtk/themes/Gruvbox-Material-Dark /home/joppe/.local/share/themes/
+sleep 1
 cp -r /home/joppe/gruvbox-material-gtk/icons/Gruvbox-Material-Dark /usr/share/icons/
+sleep 1
+mkdir /home/joppe/.local/share/icons
+sleep 1
+cp -r /home/joppe/gruvbox-material-gtk/icons/Gruvbox-Material-Dark /home/joppe/.local/share/icons/
 sleep 1
 wget https://github.com/theglitchh/Gruvbox-Kvantum/releases/download/v1.1/gruvbox-kvantum-v1.1.zip -P /home/joppe/Downloads
 sleep 1
