@@ -1,0 +1,1 @@
+*/2 * * * * /usr/local/sbin/battery.sh
