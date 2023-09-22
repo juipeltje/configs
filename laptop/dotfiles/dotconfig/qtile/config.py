@@ -35,7 +35,7 @@ keys = [
   
   # Rofi power menu, application launcher, and window switcher
   
-  Key([mod], "Escape", lazy.spawn("rofi -theme-str 'window {width: 10%;}' -show power-menu -modi 'power-menu:/home/joppe/Scripts/rofi-power-menu.sh --confirm='") ), 
+  Key([mod], "Escape", lazy.spawn("rofi -theme-str 'window {width: 10%;}' -show power-menu -modi 'power-menu:/home/joppe/repos/configs/Scripts/rofi-power-menu.sh --confirm='") ), 
   Key([mod], "space", lazy.spawn("rofi -show drun -show-icons -icon-theme Papirus-Dark") ), 
   Key([mod], "Tab", lazy.spawn("rofi -show window -show-icons -icon-theme Papirus-Dark") ), 
   
@@ -63,8 +63,8 @@ keys = [
 
   # Start/stop picom keybindings for playing games
   
-  Key([mod], "g", lazy.spawn("/home/joppe/Scripts/start-gamemode.sh") ), 
-  Key([mod], "p", lazy.spawn("/home/joppe/Scripts/stop-gamemode.sh") ), 
+  Key([mod], "g", lazy.spawn("/home/joppe/repos/configs/Scripts/start-gamemode.sh") ), 
+  Key([mod], "p", lazy.spawn("/home/joppe/repos/configs/Scripts/stop-gamemode.sh") ), 
 
   # Reload config and restart qtile
 
@@ -470,7 +470,7 @@ ds5_icon = widget.TextBox(
             padding=2)
 
 ds5_bat = widget.GenPollText(
-            func=lambda: subprocess.check_output("/home/joppe/Scripts/controller-battery.sh", shell=True, text=True).strip(),
+            func=lambda: subprocess.check_output("/home/joppe/repos/configs/Scripts/controller-battery.sh", shell=True, text=True).strip(),
             update_interval=60,
             fontsize=16,
             **widget_defaults,
