@@ -155,11 +155,9 @@ libusb	\
 python3-setuptools	\
 python3-devel
 sleep 1
-python -m venv /home/joppe/python-venv
+pip install dbus-next
 sleep 1
-/home/joppe/python-venv/bin/python -m pip install dbus-next
-sleep 1
-/home/joppe/python-venv/bin/python -m pip install liquidctl
+pip install liquidctl
 
 # creating user directories
 

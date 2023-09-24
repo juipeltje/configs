@@ -145,19 +145,11 @@ python3	\
 python3-pip	\
 python3-psutil	\
 python3-setuptools	\
-python3-usb	\
-python3-crcmod	\
-python3-hid	\
-python3-docopt	\
 python3-Pillow	\
-python3-smbus	\
 libusb	\
-python3-setuptools	\
-python3-devel
+python3-setuptools
 sleep 1
-python -m venv /home/joppe/python-venv
-sleep 1
-/home/joppe/python-venv/bin/python -m pip install dbus-next
+pip install dbus-next
 
 # creating user directories
 
