@@ -262,7 +262,7 @@ cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm.conf /etc/ligh
 sleep 1
 cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
 sleep 1
-cp -rf /home/joppe/repos/configs/config-files/etc/elogind /etc/
+cp -rf /home/joppe/repos/configs/workstation/config-files/etc/elogind /etc/
 
 # installing fonts
 

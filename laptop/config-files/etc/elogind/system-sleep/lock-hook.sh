@@ -7,7 +7,7 @@ export XAUTHORITY="$userhome/.Xauthority"
 export DISPLAY=":0.0"
 case "${1}" in
   pre)
-    su $username -c "/home/joppe/repos/configs/Scripts/screenlocker.sh" &
+    su $username -c "/home/joppe/repos/configs/Scripts/screenlocker-laptop.sh" &
     sleep 1;
     ;;
 esac
