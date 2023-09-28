@@ -149,7 +149,7 @@ python3-Pillow	\
 libusb	\
 python3-setuptools
 sleep 1
-pip install dbus-next
+sudo -u joppe pip install dbus-next
 
 # creating user directories
 
