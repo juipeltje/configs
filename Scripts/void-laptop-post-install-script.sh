@@ -3,7 +3,7 @@
 # post install script for void linux
 # NOTE TO SELF: MAKE SURE TO SETUP YOUR GIT ACCOUNT AND SSH KEY BEFORE RUNNING THIS SCRIPT!!
 
-set -xe
+set -e
 
 echo "starting void linux post install script..."
 sleep 2
