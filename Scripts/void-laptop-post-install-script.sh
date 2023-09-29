@@ -303,6 +303,14 @@ unzip /home/joppe/Downloads/gruvbox-kvantum-v1.1.zip -d /home/joppe/kvantum-them
 sleep 1
 cp -r /home/joppe/repos/configs/config-files/usr/share/icons/capitaine-cursors-light /usr/share/icons/
 sleep 1
+mkdir /usr/share/icons/default
+sleep 1
+touch /usr/share/icons/default/index.theme
+sleep 1
+echo "[icon theme]" >> /usr/share/icons/default/index.theme
+sleep 1
+echo "Inherits=capitaine-cursors-light" >> /usr/share/icons/default/index.theme
+sleep 1
 wget https://github.com/eromatiya/lightdm-webkit2-theme-glorious/releases/download/v2.0.5/lightdm-webkit2-theme-glorious-2.0.5.tar.gz -P /home/joppe/Downloads/
 sleep 1
 mkdir /home/joppe/Downloads/lightdm-webkit2-theme-glorious
