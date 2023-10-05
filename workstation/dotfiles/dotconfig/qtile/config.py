@@ -584,6 +584,8 @@ screens = [
 
 ]
 
+cursor_warp = True
+
 floating_layout = layout.Floating(**layout_theme)
 
 
