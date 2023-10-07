@@ -41,4 +41,4 @@ i3lock \
 --verif-font "Ubuntu Nerd Font Medium"	\
 --layout-font "Ubuntu Nerd Font Medium"	\
 --greeter-font "Ubuntu Nerd Font Medium"	\
---image /home/joppe/Pictures/wallpapers/games/Gravity-rush-3.jpg  \
+--image /home/joppe/Pictures/wallpapers/games/Gravity-Rush/gravity-rush-3.jpg
