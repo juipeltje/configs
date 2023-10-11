@@ -32,6 +32,14 @@ keys = [
   # Open a webbrowser
 
   Key([mod], "w", lazy.spawn(webbrowser) ),
+
+  # Open pavucontrol
+
+  Key([mod], "a", lazy.spawn("pavucontrol") ),
+
+  # Open Deezer in firefox tab
+
+  Key([mod], "d", lazy.spawn("firefox -new-window https://www.deezer.com/en/") ),
   
   # Rofi power menu, application launcher, and window switcher
   
@@ -130,14 +138,14 @@ mouse = [
 
 groups = [
 
-  Group("1", layout="monadtall", label=""),
-  Group("2", layout="monadtall", label=""),
-  Group("3", layout="monadtall", label=""),
-  Group("4", layout="monadtall", label=""),
-  Group("5", layout="monadtall", label=""),
-  Group("6", layout="monadtall", label=""),
-  Group("7", layout="monadtall", label=""),
-  Group("8", layout="monadtall", label=""),
+  Group("1", layout="monadtall", label="1"),
+  Group("2", layout="monadtall", label="2"),
+  Group("3", layout="monadtall", label="3"),
+  Group("4", layout="monadtall", label="4"),
+  Group("5", layout="monadtall", label="5"),
+  Group("6", layout="monadtall", label="6"),
+  Group("7", layout="monadtall", label="7"),
+  Group("8", layout="monadtall", label="8"),
 
 ]
 
@@ -273,11 +281,11 @@ groupbox = widget.GroupBox(
             use_mouse_wheel=False,
             urgent_alert_method='text',
             urgent_text='ea6962',
-            fontsize=33,
-            spacing=0,
-            padding_x=-5,
+            fontsize=16,
+            spacing=None,
+            padding_x=1,
             highlight_color=['000000', 'a89984'],
-            highlight_method='line',
+            highlight_method='default',
             inactive='928374',
             active='dfbf8e',
             this_current_screen_border='8ec07c',
@@ -285,18 +293,18 @@ groupbox = widget.GroupBox(
             this_screen_border='8ec07c',
             other_current_screen_border='d3869b',
             borderwidth=4,
-            font="Ubuntu Nerd Font Medium",
+            font="Ubuntu Nerd Font Bold",
             padding=4)
 
 groupbox2 = widget.GroupBox(
             use_mouse_wheel=False,
             urgent_alert_method='text',
             urgent_text='ea6962',
-            fontsize=33,
-            spacing=0,
-            padding_x=-5,
+            fontsize=16,
+            spacing=None,
+            padding_x=1,
             highlight_color=['000000', 'a89984'],
-            highlight_method='line',
+            highlight_method='default',
             inactive='928374',
             active='dfbf8e',
             this_current_screen_border='d3869b',
@@ -304,7 +312,7 @@ groupbox2 = widget.GroupBox(
             this_screen_border='d3869b',
             other_current_screen_border='8ec07c',
             borderwidth=4,
-            font="Ubuntu Nerd Font Medium",
+            font="Ubuntu Nerd Font Bold",
             padding=4)
 
 l_icon = widget.CurrentLayoutIcon(
