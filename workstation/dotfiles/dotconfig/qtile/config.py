@@ -19,15 +19,20 @@ def autostart():
 
 mod = "mod4"
 terminal = "alacritty"
-webbrowser = "firefox" 
+webbrowser = "firefox"
+file_manager = "pcmanfm" 
 
 # Keybindings
 
 keys = [
 
-  # Open terminal
+  # Open a terminal
   
-  Key([mod], "t", lazy.spawn(terminal) ), 
+  Key([mod], "t", lazy.spawn(terminal) ),
+
+  # Open a file manager
+
+  Key([mod], "f", lazy.spawn(file_manager) ),
 
   # Open a webbrowser
 
@@ -85,7 +90,7 @@ keys = [
 
   # Toggle fullscreen
 
-  Key([mod], "f", lazy.window.toggle_fullscreen() ),
+  Key([mod, "shift"], "f", lazy.window.toggle_fullscreen() ),
 
   # Grow windows 
 
