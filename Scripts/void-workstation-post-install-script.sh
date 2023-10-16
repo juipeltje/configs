@@ -154,10 +154,6 @@ python3-smbus	\
 libusb	\
 python3-setuptools	\
 python3-devel
-sleep 1
-sudo -u joppe pip install dbus-next
-sleep 1
-sudo -u joppe pip install liquidctl
 
 # creating user directories
 
