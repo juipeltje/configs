@@ -175,7 +175,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 echo "setting up swapfile..."
 sleep 2
-dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
+# dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
+dd if=/dev/zero of=/swapfile bs=1M count=24k status=progress
 sleep 1
 chmod 0600 /swapfile
 sleep 1

@@ -145,19 +145,11 @@ python3	\
 python3-pip	\
 python3-psutil	\
 python3-setuptools	\
-python3-usb	\
-python3-crcmod	\
-python3-hid	\
-python3-docopt	\
 python3-Pillow	\
-python3-smbus	\
 libusb	\
-python3-setuptools	\
-python3-devel
+python3-setuptools
 sleep 1
 sudo -u joppe pip install dbus-next
-sleep 1
-sudo -u joppe pip install liquidctl
 
 # creating user directories
 
@@ -165,20 +157,11 @@ echo "creating user directories..."
 sleep 2
 xdg-user-dirs-update
 
-
-# setting up additional kernel modules for openrgb 
-
-echo "setting up additional kernel modules for openrgb..."
-sleep 2
-touch /etc/modules-load.d/i2c.conf && echo "i2c-dev" >> /etc/modules-load.d/i2c.conf
-sleep 1
-touch /etc/modules-load.d/i2c-piix4.conf && echo "i2c-piix4" >> /etc/modules-load.d/i2c-piix4.conf
-
 # adding the user to additional groups
 
 echo "adding the user to additional groups..."
 sleep 2
-usermod -aG i2c,kvm,libvirt,bluetooth,socklog joppe
+usermod -aG kvm,libvirt,bluetooth,socklog joppe
 
 # setting up flatpak and flathub
 
@@ -187,21 +170,6 @@ sleep 2
 xbps-install -Sy flatpak
 sleep 1 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-# setting up swapfile
-
-echo "setting up swapfile..."
-sleep 2
-# dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
-dd if=/dev/zero of=/swapfile bs=1M count=48k status=progress
-sleep 1
-chmod 0600 /swapfile
-sleep 1
-mkswap -U clear /swapfile
-sleep 1
-swapon /swapfile
-sleep 1
-echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
 # configure grub
 
@@ -338,18 +306,6 @@ sleep 1
 tar -xvf /home/joppe/Downloads/lightdm-webkit2-theme-glorious-2.0.5.tar.gz -C /home/joppe/Downloads/lightdm-webkit2-theme-glorious/
 sleep 1
 cp -r /home/joppe/Downloads/lightdm-webkit2-theme-glorious /usr/share/lightdm-webkit/themes/glorious
-
-# setting up permissions for liquidctl
-
-echo "setting up permissions for liquidctl..."
-sleep 2
-wget https://raw.githubusercontent.com/liquidctl/liquidctl/main/extra/linux/71-liquidctl.rules -P /etc/udev/rules.d/
-
-# setting up weekly cronjob for SSD trimming
-
-echo "setting up weekly cronjob for SSD trimming..."
-sleep 2
-cp /home/joppe/repos/configs/Scripts/fstrim.sh /etc/cron.weekly/
 
 # enabling runit services
 
