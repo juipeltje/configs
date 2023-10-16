@@ -221,8 +221,6 @@ mkdir -p /home/joppe/.local/share
 sleep 1
 ln -s /home/joppe/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/joppe/.local/share/
 sleep 1
-cp -r /home/joppe/repos/configs/workstation/config-files/etc/X11/xorg.conf.d /etc/X11/
-sleep 1
 cp -r /home/joppe/repos/configs/config-files/etc/pipewire /etc/
 sleep 1
 cp -rf /home/joppe/repos/configs/config-files/etc/lightdm/lightdm.conf /etc/lightdm/
