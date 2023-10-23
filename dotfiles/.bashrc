@@ -7,7 +7,7 @@
 
 alias ls='ls --color=auto'
 alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
-alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update && pip freeze > /home/joppe/requirements.txt && pip install -r /home/joppe/requirements.txt --upgrade && rm /home/joppe/requirements.txt' 
+alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update' 
 alias do-script='/usr/local/sbin/darkorbit-afk-script.sh'
 alias set-msr='sudo /usr/local/sbin/msr.sh'
 alias CPUWorker1='xmrig-mo --config /home/joppe/CPUWorker1/config.json'

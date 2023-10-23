@@ -562,10 +562,10 @@ screens = [
     battery,
     spacer
 
-         ], 30, 
+         ], 38, 
             background="#282828ff",
             margin=[10,10,0,10],
-            border_width=[4,4,4,4],
+            border_width=[0,0,0,0],
             border_color="#dfbf8eff"), ),
   
  Screen(top=bar.Bar([
@@ -603,10 +603,10 @@ screens = [
     battery,
     spacer
 
-         ], 30,
+         ], 38,
             background="#282828ff",
             margin=[10,10,0,10],
-            border_width=[4,4,4,4],
+            border_width=[0,0,0,0],
             border_color="#dfbf8eff"), ),  
 
 ]
