@@ -1,0 +1,107 @@
+// waybar config
+
+{
+
+  // bar size/position
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 4,
+
+  // choose the order of the modules
+  "modules-left": ["clock#time", "clock#date", "tray", "hyprland/workspaces", "hyprland/window"],
+  "modules-right": ["mpris", "custom/kernel"],
+
+  // modules configuration
+  "clock#time": {
+    "interval": 60,
+    "format": "   {:%H:%M}",
+    "timezone": "Europe/Amsterdam"
+  },
+
+  "clock#date": {
+    "interval": 60,
+    "format": "   {:%d-%m-%Y}",
+    "timezone": "Europe/Amsterdam"
+  },
+
+  "tray": {
+    "icon-size": "25",
+    "show-passive-items": false,
+    "spacing": 4,
+    "reverse-direction": false
+  },
+
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{name}",
+    "show-special": false,
+    "sort-by-number": true
+  },
+
+  "hyprland/window": {
+    "format": " {title}",
+    "max-length": 20
+  },
+
+  "mpris": {
+    "player": "playerctld",
+    "interval": 5,
+    "format": "󰝚 {title} - {artist}",
+    "max-length": 20
+  },
+
+  "custom/kernel": {
+    "exec": "uname -r",
+    "interval": "once",
+    "format": "   {} "
+  },
+
+//  "custom/cpu": {
+//    "exec":
+//    "interval": 5,
+//    "format": "󰻠 {}"
+//  },
+
+//  "custom/gpu": {
+//    "exec":
+//    "interval": 5,
+//    "format": " {}"
+//  },
+
+//  "custom/water": {
+//    "exec":
+//    "interval": 5,
+//    "format": "󰖌 {}"
+//  },
+
+//  "custom/pump": {
+//    "exec":
+//    "interval": 5,
+//    "format": "󱩃 {}"
+//  },
+
+//  "custom/fans": {
+//    "exec":
+//    "interval": 5,
+//    "format": "󰈐 {}"
+//  },
+
+//  "custom/memory": {
+//    "exec":
+//    "interval": 5,
+//    "format": "󰍛  {}"
+//  },
+
+//  "custom/DualSense": {
+//    "exec":
+//    "interval": 60,
+//    "format": "󰖺 {}"
+//  },
+
+}
+  
