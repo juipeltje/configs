@@ -8,24 +8,20 @@ window#waybar {
 }
 
 #workspaces button {
-    background-color: #fe8019;
-    color: #282828;
-    border-radius: 10px;
-    margin: 5px;
+    background-color: #282828;
+    color: #dfbf8e;
 }
 
 #workspaces button.active {
-    background-color: #dfbf8e;
-    color: #282828;
-    border-radius: 10px;
-    margin: 5px;
+    background-color: #282828;
+    color: #dfbf8e;
+    border-bottom: 4px solid #dfbf8e;
+    border-radius: 0px;
 }
 
 #workspaces button.empty {
-    background-color: #a89984;
-    color: #282828; 
-    border-radius: 10px;
-    margin: 5px;
+    background-color: #282828;
+    color: #dfbf8e; 
 }
 
 

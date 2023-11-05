@@ -7,7 +7,8 @@
 
 alias ls='ls --color=auto'
 alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
-alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update' 
+alias nix-update='nix-channel --update && nix-env --upgrade'
+alias hypr='dbus-launch --exit-with-session nixGL Hyprland' 
 alias do-script='/usr/local/sbin/darkorbit-afk-script.sh'
 alias set-msr='sudo /usr/local/sbin/msr.sh'
 alias CPUWorker1='xmrig-mo --config /home/joppe/CPUWorker1/config.json'
