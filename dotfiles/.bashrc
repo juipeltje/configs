@@ -6,9 +6,11 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
 alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
 alias nix-update='nix-channel --update && nix-env --upgrade'
-alias hypr='dbus-launch --exit-with-session nixGL Hyprland' 
+alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update && nix-channel --update && nix-env --upgrade'
+alias hypr='dbus-launch --exit-with-session nixVulkanIntel Hyprland' 
 alias do-script='/usr/local/sbin/darkorbit-afk-script.sh'
 alias set-msr='sudo /usr/local/sbin/msr.sh'
 alias CPUWorker1='xmrig-mo --config /home/joppe/CPUWorker1/config.json'

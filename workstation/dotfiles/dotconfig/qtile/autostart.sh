@@ -8,9 +8,6 @@ xrandr --output DisplayPort-0 --primary --mode 3440x1440 --rate 165.00 --output 
 picom &
 dunst &
 pipewire &
-sleep 1
-wireplumber &
-pipewire-pulse &
 playerctld daemon &
 /usr/bin/lxpolkit &
 liquidctl initialize all &

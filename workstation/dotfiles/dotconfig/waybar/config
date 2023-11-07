@@ -46,14 +46,14 @@
 
   "hyprland/window": {
     "format": "<span font='16' rise='-2000'></span> {title}",
-    "max-length": 25
+    "max-length": 40
   },
 
   "mpris": {
     "player": "playerctld",
     "interval": 5,
     "format": "<span font='16' rise='-2000'>󰝚</span> {title} - {artist}",
-    "max-length": 25
+    "max-length": 40
   },
 
   "custom/kernel": {
