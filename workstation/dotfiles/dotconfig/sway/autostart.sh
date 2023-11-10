@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# autostart script for hyprland
+# autostart script for swayfx
 
-hyprpaper &
-waybar -c /home/joppe/.config/waybar/hyprland-config -s /home/joppe/.config/waybar/hyprland-style.css &
-hyprctl setcursor capitaine-cursors-light 24 &
-mako -c /home/joppe/.config/mako/hyprland-config &
+swaybg -i /home/joppe/Pictures/Wallpapers/Games/Nier/nier2.png -m fill &
+waybar -c /home/joppe/.config/waybar/sway-config -s /home/joppe/.config/waybar/sway-style.css &
+mako -c /home/joppe/.config/mako/sway-config &
 pipewire &
 playerctld daemon &
 /usr/bin/lxpolkit &

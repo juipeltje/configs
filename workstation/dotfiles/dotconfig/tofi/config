@@ -50,7 +50,7 @@ input-background-padding = 0
 input-background-corner-radius = 0
 
 # default result text theme
-default-result-color = #665c54
+default-result-color = #dfbf8e
 default-result-background = #00000000
 default-result-background-padding = 0
 default-result-background-corner-radius = 0
