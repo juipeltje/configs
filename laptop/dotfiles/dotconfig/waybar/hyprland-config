@@ -13,8 +13,7 @@
 
   // choose the order of the modules
   "modules-left": ["clock#time", "clock#date", "tray", "hyprland/workspaces", "hyprland/window"],
-  "modules-right": ["mpris", "custom/kernel", "custom/cpu", "custom/gpu", "custom/water", "custom/pump", "custom/fans", "custom/memory",
-                    "custom/DualSense"],
+  "modules-right": ["mpris", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 
   // modules configuration
   "clock#time": {
@@ -74,24 +73,6 @@
     "format": "<span font='16' rise='-2000'></span>{}"
   },
 
-  "custom/water": {
-    "exec": "/home/joppe/repos/configs/Scripts/waybar/water-temp.sh",
-    "interval": 5,
-    "format": "<span font='18' rise='-3000'>󰖌</span>{}"
-  },
-
-  "custom/pump": {
-    "exec": "/home/joppe/repos/configs/Scripts/waybar/pump.sh",
-    "interval": 5,
-    "format": " <span font='16' rise='-2000'>󱩃</span> {}"
-  },
-
-  "custom/fans": {
-    "exec": "/home/joppe/repos/configs/Scripts/waybar/fans.sh",
-    "interval": 5,
-    "format": " <span font='16' rise='-2000'>󰈐</span> {}"
-  },
-
   "custom/memory": {
     "exec": "/home/joppe/repos/configs/Scripts/waybar/memory.sh",
     "interval": 5,
@@ -102,6 +83,22 @@
     "exec": "/home/joppe/repos/configs/Scripts/dualsense-bat.sh",
     "interval": 60,
     "format": " <span font='16' rise='-2000'>󰖺</span> {} "
+  },
+
+  "battery": {
+    "bat": 0,
+    "adapter": 0,
+    "interval": 60,
+    "states": {
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-time": "{H}:{M}",
+    "format-charging": "<span font='16' rise='-2000'>󰂄</span> {capacity}% {time} ",
+    "format-discharging": "<span font='16' rise='-2000'>󰂍</span> {capacity}% {time} ",
+    "format-full": "<span font='16' rise='-2000'>󰁹</span> {capacity}% {time} ",
+    "format-critical": "<span font='16' rise='-2000'>󱃍</span> {capacity}% {time} ",
+    "max-length": 25
   },
 
 }

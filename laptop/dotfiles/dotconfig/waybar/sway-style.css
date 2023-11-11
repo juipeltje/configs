@@ -24,5 +24,9 @@ window#waybar {
     color: #dfbf8e; 
 }
 
+#battery.critical {
+    color: #ea6962;
+}
+
 
     
