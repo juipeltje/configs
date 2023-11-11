@@ -1,0 +1,71 @@
+# tofi config
+
+# font 
+font = "Ubuntu Nerd Font Medium"
+font-size = 16
+
+# window theme
+horizontal = false
+anchor = center
+width = 600
+height = 360
+background-color = #282828
+outline-width = 0
+border-width = 4
+border-color = #dfbf8e
+corner-radius = 10
+padding-top = 4
+padding-bottom = 4
+padding-left = 4
+padding-right = 4
+clip-to-padding = true
+prompt-text = ""
+prompt-padding = 8
+placeholder-text = "__"
+num-results = 0
+result-spacing = 4
+horizontal = false
+min-input-width = 0
+text-cursor-style = underscore
+text-cursor-color = #ffffff
+text-cursor-background = #00000000
+text-cursor-thickness = 2
+
+# prompt theme
+prompt-color = #ffffff
+prompt-background = #00000000
+prompt-background-padding = 0
+prompt-background-corner-radius = 0
+
+# placeholder text theme
+placeholder-color = #ffffff
+placeholder-background = #00000000
+placeholder-background-padding = 0
+placeholder-background-corner-radius = 0
+
+# input text theme
+input-color = #ffffff
+input-background = #00000000
+input-background-padding = 0
+input-background-corner-radius = 0
+
+# default result text theme
+default-result-color = #dfbf8e
+default-result-background = #00000000
+default-result-background-padding = 0
+default-result-background-corner-radius = 0
+
+# selected text theme
+selection-color = #282828
+selection-background = #dfbf8e
+selection-background-padding = 4
+selection-background-corner-radius = 10
+
+# behaviour
+hide-cursor = false
+text-cursor = true
+history = true
+require-match = true
+drun-launch = true
+
+

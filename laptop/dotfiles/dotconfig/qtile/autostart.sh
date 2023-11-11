@@ -4,9 +4,6 @@
 
 /home/joppe/.fehbg &
 pipewire &
-sleep 1
-wireplumber &
-pipewire-pulse &
 picom &
 dunst &
 playerctld daemon &
