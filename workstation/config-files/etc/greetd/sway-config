@@ -1,0 +1,9 @@
+# sway config to be used specifically for greetd
+
+exec "regreet; swaymsg exit"
+
+# set resolution/refreshrate
+
+output DP-1 resolution 3440x1440@164.999Hz position 0,0
+
+include /etc/sway/config.d/*
