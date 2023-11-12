@@ -80,6 +80,10 @@ exec /home/joppe/.config/sway/autostart.sh
 
 ## input configuration
 
+input "1267:12608:MSFT0001:00_04F3:3140_Touchpad" {
+  tap enabled
+}
+
 ## keybindings
 
 # open a terminal
@@ -174,11 +178,6 @@ bindsym $mod+Shift+Down resize grow height 50px
 
 bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
-
-# enable/disable adaptive sync with keybinds
-
-bindsym $mod+Control+a exec sway output DP-1 adaptive_sync on
-bindsym $mod+Control+v exec sway output DP-1 adaptive_sync off
 
 # define the workspace names
 

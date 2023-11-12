@@ -64,13 +64,7 @@ network-manager-applet	\
 blueman	\
 papirus-folders	\
 papirus-icon-theme	\
-lightdm	\
-lightdm-gtk3-greeter	\
-lightdm-webkit2-greeter	\
 elogind	\
-dbus-elogind    \
-dbus-elogind-libs       \
-dbus-elogind-x11        \
 pipewire	\
 wireplumber	\
 playerctl	\

@@ -1,0 +1,15 @@
+# sway config to be used specifically for greetd
+
+exec "regreet; swaymsg exit"
+
+# set resolution/refreshrate
+
+output eDP-1 resolution 1920x1080@60.001Hz position 0,0
+
+# input configuration
+
+input "1267:12608:MSFT0001:00_04F3:3140_Touchpad" {
+  tap enabled
+}
+
+include /etc/sway/config.d/*
