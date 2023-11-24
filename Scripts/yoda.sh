@@ -44,7 +44,6 @@ Options:
   --usb-port <port>        Filter devices by USB port in bus
   -v, --verbose            Output additional information
   -g, --debug              Show debug information on stderr
-  --hid <module>           Override API for USB HIDs: usb, hid or hidraw
   --legacy-690lc           Use Asetek 690LC in legacy mode (old Krakens)
   --version                Display the version number
   --help                   Show this message
@@ -62,7 +61,7 @@ Changelog:
   0.0.2  Add low-pass filter and basic error handling.
   0.0.1  Generalization of krakencurve-poc 0.0.2 to multiple devices.
 
-Copyright (C) 2020–2022  Jonas Malaco
+Copyright Jonas Malaco and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
 """
 
