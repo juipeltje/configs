@@ -14,7 +14,7 @@ fit = "Contain"
 
 # The entries defined in this section will be passed to the session as environment variables when it is started
 [env]
-ENV_VARIABLE = "GTK_USE_PORTAL=0"
+# ENV_VARIABLE = "GTK_USE_PORTAL=0"
 
 [GTK]
 # Whether to use the dark theme
