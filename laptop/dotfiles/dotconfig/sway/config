@@ -44,14 +44,13 @@ for_window [floating] border pixel 4
 gaps inner 10px
 gaps top 0px
 
-# class			   border   backgr.text	 indicator  child_border	
+# class			   border   backgr.text	 indicator  child_border
 client.focused		   #dfbf8e  #dfbf8e	 #dfbf8e    #dfbf8e
-client.focused_inactive    #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
+client.focused_inactive    #665c54  #665c54      #665c54    #665c54
 client.focused_tab_title   #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
 client.unfocused           #665c54  #665c54      #665c54    #665c54
 client.urgent              #ea6962  #ea6962      #ea6962    #ea6962
-client.placeholder         #282828  #282828      #282828    #282828
-client.background          #282828
+client.placeholder         #665c54  #665c54      #665c54    #665c54
 
 # move minimized windows into scratchpad (enable/disable)
 
