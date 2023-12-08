@@ -21,13 +21,13 @@ fit = "Contain"
 application_prefer_dark_theme = false
 
 # Cursor theme name
-cursor_theme_name = "capitaine-cursors-light"
+cursor_theme_name = "phinger-cursors-light"
 
 # Font name and size
 font_name = "Ubuntu Nerd Font Medium 12"
 
 # Icon theme name
-icon_theme_name = "Gruvbox-Material-Dark"
+icon_theme_name = "Mint-Y-Sand"
 
 # GTK theme name
 theme_name = "Gruvbox-Material-Dark"
