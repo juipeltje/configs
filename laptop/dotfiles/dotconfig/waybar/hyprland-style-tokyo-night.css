@@ -4,7 +4,7 @@ window#waybar {
     font-size: 16px;
     background-color: #1a1b26;
     color: #a9b1d6;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 #workspaces button {
@@ -12,17 +12,20 @@ window#waybar {
     color: #a9b1d6;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     background-color: #1a1b26;
     color: #a9b1d6;
-    border-bottom: 2px solid #a9b1d6;
+    border-bottom: 4px solid #a9b1d6;
     border-radius: 0px;
 }
 
-#workspaces button.visible {
+#workspaces button.empty {
     background-color: #1a1b26;
     color: #a9b1d6; 
 }
 
+#battery.critical {
+    color: #f7768e;
+}
 
     

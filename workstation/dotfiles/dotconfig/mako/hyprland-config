@@ -39,9 +39,9 @@ anchor=top-right
 
 # Gruvbox-Material
 
-background-color=#282828
-text-color=#dfbf8e
-border-color=#dfbf8e
+# background-color=#282828
+# text-color=#dfbf8e
+# border-color=#dfbf8e
 
 
 # Nordic
@@ -50,3 +50,8 @@ border-color=#dfbf8e
 # text-color=#8fbcbb
 # border-color=#8fbcbb
 
+# Tokyo-Night
+
+background-color=#1a1b26
+text-color=#a9b1d6
+border-color=#a9b1d6

@@ -2,7 +2,7 @@
 
 # autostart script for swayfx
 
-swaybg -i /home/joppe/Pictures/Wallpapers/Games/Nier/nier2.png -m fill &
+swaybg -i /home/joppe/Pictures/Wallpapers/Kerst/Kerst1.jpg -m fill &
 waybar -c /home/joppe/.config/waybar/sway-config -s /home/joppe/.config/waybar/sway-style.css &
 mako -c /home/joppe/.config/mako/sway-config &
 pipewire &

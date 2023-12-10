@@ -49,12 +49,12 @@ gaps top 0px
 # Gruvbox-Material
 
 # class			   border   backgr.text	 indicator  child_border
-client.focused		   #dfbf8e  #dfbf8e	 #dfbf8e    #dfbf8e
-client.focused_inactive    #665c54  #665c54      #665c54    #665c54
-client.focused_tab_title   #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
-client.unfocused           #665c54  #665c54      #665c54    #665c54
-client.urgent              #ea6962  #ea6962      #ea6962    #ea6962
-client.placeholder         #665c54  #665c54      #665c54    #665c54
+# client.focused		   #dfbf8e  #dfbf8e	 #dfbf8e    #dfbf8e
+# client.focused_inactive    #665c54  #665c54      #665c54    #665c54
+# client.focused_tab_title   #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
+# client.unfocused           #665c54  #665c54      #665c54    #665c54
+# client.urgent              #ea6962  #ea6962      #ea6962    #ea6962
+# client.placeholder         #665c54  #665c54      #665c54    #665c54
 
 # Nordic
 
@@ -65,6 +65,16 @@ client.placeholder         #665c54  #665c54      #665c54    #665c54
 # client.unfocused           #4c566a  #4c566a      #4c566a    #4c566a
 # client.urgent              #bf616a  #bf616a      #bf616a    #bf616a
 # client.placeholder         #4c566a  #4c566a      #4c566a    #4c566a
+
+# Tokyo-Night
+
+# class                    border   backgr.text  indicator  child_border
+client.focused             #a9b1d6  #a9b1d6      #a9b1d6    #a9b1d6
+client.focused_inactive    #565f89  #565f89      #565f89    #565f89
+client.focused_tab_title   #a9b1d6  #a9b1d6      #a9b1d6    #a9b1d6
+client.unfocused           #565f89  #565f89      #565f89    #565f89
+client.urgent              #f7768e  #f7768e      #f7768e    #f7768e
+client.placeholder         #565f89  #565f89      #565f89    #565f89
 
 # move minimized windows into scratchpad (enable/disable)
 
@@ -168,6 +178,10 @@ bindsym $mod+Down focus down
 # toggle floating window
 
 bindsym $mod+Shift+space floating toggle
+
+# drag floating windows and resize them with the mouse
+
+floating_modifier $mod normal
 
 # toggle fullscreen
 

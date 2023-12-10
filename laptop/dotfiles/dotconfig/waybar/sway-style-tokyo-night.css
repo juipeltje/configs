@@ -15,13 +15,17 @@ window#waybar {
 #workspaces button.focused {
     background-color: #1a1b26;
     color: #a9b1d6;
-    border-bottom: 2px solid #a9b1d6;
+    border-bottom: 4px solid #a9b1d6;
     border-radius: 0px;
 }
 
 #workspaces button.visible {
     background-color: #1a1b26;
     color: #a9b1d6; 
+}
+
+#battery.critical {
+    color: #f7768e;
 }
 
 
