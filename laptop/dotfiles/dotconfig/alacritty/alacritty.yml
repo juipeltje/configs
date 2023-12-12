@@ -30,11 +30,8 @@ font:
 import:
   # uncomment the flavour you want below:
 #  - ~/.config/alacritty/nord/nord.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
-   - ~/.config/alacritty/gruvbox-material/gruvbox-material.yml
+#  - ~/.config/alacritty/gruvbox-material/gruvbox-material.yml
+   - ~/.config/alacritty/tokyo-night/tokyo-night.yml
 #colors:
 #  primary:
 #    background: '#1d1f21'

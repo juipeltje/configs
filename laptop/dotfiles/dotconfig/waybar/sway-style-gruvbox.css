@@ -1,0 +1,32 @@
+window#waybar {
+    font-family: UbuntuNerdFont;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #282828;
+    color: #dfbf8e;
+    border-radius: 20px;
+}
+
+#workspaces button {
+    background-color: #282828;
+    color: #dfbf8e;
+}
+
+#workspaces button.focused {
+    background-color: #282828;
+    color: #dfbf8e;
+    border-bottom: 2px solid #dfbf8e;
+    border-radius: 0px;
+}
+
+#workspaces button.visible {
+    background-color: #282828;
+    color: #dfbf8e; 
+}
+
+#battery.critical {
+    color: #ea6962;
+}
+
+
+    

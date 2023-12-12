@@ -2,30 +2,30 @@ window#waybar {
     font-family: UbuntuNerdFont;
     font-weight: 500;
     font-size: 16px;
-    background-color: #282828;
-    color: #dfbf8e;
+    background-color: #1a1b26;
+    color: #a9b1d6;
     border-radius: 10px;
 }
 
 #workspaces button {
-    background-color: #282828;
-    color: #dfbf8e;
+    background-color: #1a1b26;
+    color: #a9b1d6;
 }
 
 #workspaces button.active {
-    background-color: #282828;
-    color: #dfbf8e;
-    border-bottom: 4px solid #dfbf8e;
+    background-color: #1a1b26;
+    color: #a9b1d6;
+    border-bottom: 2px solid #a9b1d6;
     border-radius: 0px;
 }
 
 #workspaces button.empty {
-    background-color: #282828;
-    color: #dfbf8e; 
+    background-color: #1a1b26;
+    color: #a9b1d6; 
 }
 
 #battery.critical {
-    color: #ea6962;
+    color: #f7768e;
 }
 
     
