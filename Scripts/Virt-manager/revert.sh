@@ -24,4 +24,4 @@ modprobe amdgpu
 # echo 1 > /sys/class/vtconsole/vtcon1/bind
 
 # Restart display manager
-systemctl start lightdm.service
+sv start greetd

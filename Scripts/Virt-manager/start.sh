@@ -3,7 +3,7 @@
 set -x
 
 # stop display manager
-systemctl stop lightdm.service
+sv stop greetd
 
 # Unbind VTconsoles: might not be needed
 # echo 0 > /sys/class/vtconsole/vtcon0/bind
