@@ -48,7 +48,7 @@ keys = [
   
   # Rofi power menu, application launcher, and window switcher
   
-  Key([mod], "Escape", lazy.spawn("rofi -theme-str 'window {width: 10%;}' -show power-menu -modi 'power-menu:/home/joppe/repos/configs/Scripts/rofi-power-menu.sh --confirm='") ), 
+  Key([mod], "Escape", lazy.spawn("/home/joppe/repos/configs/Scripts/rofi-powermenu-qtile.sh") ), 
   Key([mod], "space", lazy.spawn("rofi -show drun -show-icons -icon-theme Papirus-Dark") ), 
   Key([mod], "Tab", lazy.spawn("rofi -show window -show-icons -icon-theme Papirus-Dark") ), 
   

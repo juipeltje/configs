@@ -1,6 +1,6 @@
 configuration{
     modi: "run,drun,window";
-    icon-theme: "Gruvbox-Material-Dark";
+    icon-theme: "Papirus-Dark";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
@@ -14,4 +14,4 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "gruvbox-material"
+@theme "tokyo-night"

@@ -1,139 +1,150 @@
-# i3 config file (v4)
+#### i3 config
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Ubuntu Nerd Font Medium 11
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+## variables
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id dex --autostart --environment i3
-
-# autostart
-exec_always --no-startup-id /home/joppe/.config/polybar/launch.sh
-exec /home/joppe/Scripts/wm-autostart.sh
+set $mod Mod4
+set $terminal alacritty
+set $file_manager pcmanfm
+set $webbrowser firefox
 
 # window settings
+
 default_border pixel 4
 for_window [floating] border pixel 4
 gaps inner 10px
 gaps top 48px
 
+# color themes
+
+# Gruvbox-Material
+
 # class			   border   backgr.text	 indicator  child_border	
-client.focused		   #dfbf8e  #dfbf8e	 #dfbf8e    #dfbf8e
-client.focused_inactive    #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
-client.focused_tab_title   #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
-client.unfocused           #665c54  #665c54      #665c54    #665c54
-client.urgent              #ea6962  #ea6962      #ea6962    #ea6962
-client.placeholder         #282828  #282828      #282828    #282828
-client.background          #282828
+# client.focused	     #dfbf8e  #dfbf8e	   #dfbf8e    #dfbf8e
+# client.focused_inactive    #665c54  #665c54      #665c54    #665c54
+# client.focused_tab_title   #dfbf8e  #dfbf8e      #dfbf8e    #dfbf8e
+# client.unfocused           #665c54  #665c54      #665c54    #665c54
+# client.urgent              #ea6962  #ea6962      #ea6962    #ea6962
+# client.placeholder         #665c54  #665c54      #665c54    #665c54
 
-# Screenlocker?
+# Nordic
 
-# rofi power menu
-bindsym Mod4+Escape exec "rofi -theme-str 'window {width: 10%;}' -show power-menu -modi 'power-menu:/home/joppe/Scripts/rofi-power-menu.sh --confirm='"
+# class                    border   backgr.text  indicator  child_border
+# client.focused             #8fbcbb  #8fbcbb      #8fbcbb    #8fbcbb
+# client.focused_inactive    #4c566a  #4c566a      #4c566a    #4c566a
+# client.focused_tab_title   #8fbcbb  #8fbcbb      #8fbcbb    #8fbcbb
+# client.unfocused           #4c566a  #4c566a      #4c566a    #4c566a
+# client.urgent              #bf616a  #bf616a      #bf616a    #bf616a
+# client.placeholder         #4c566a  #4c566a      #4c566a    #4c566a
+
+# Tokyo-Night
+
+# class                    border   backgr.text  indicator  child_border
+client.focused             #a9b1d6  #a9b1d6      #a9b1d6    #a9b1d6
+client.focused_inactive    #565f89  #565f89      #565f89    #565f89
+client.focused_tab_title   #a9b1d6  #a9b1d6      #a9b1d6    #a9b1d6
+client.unfocused           #565f89  #565f89      #565f89    #565f89
+client.urgent              #f7768e  #f7768e      #f7768e    #f7768e
+client.placeholder         #565f89  #565f89      #565f89    #565f89
+
+# autostart
+
+exec_always --no-startup-id /home/joppe/.config/polybar/launch.sh
+exec /home/joppe/.config/i3/autostart.sh
+
+## keybindings
+
+# open a terminal
+
+bindsym $mod+t exec $terminal
+
+# open a file manager
+
+bindsym $mod+f exec $file_manager
+
+# open a webbrowser
+
+bindsym $mod+w exec $webbrowser
+
+# open pavucontrol
+
+bindsym $mod+a exec pavucontrol
+
+# open Deezer in a firefox window
+
+bindsym $mod+d exec $webbrowser -new-window https://www.deezer.com/en/
+
+# open rofi application launcher
+
+bindsym $mod+space exec "rofi -show drun -show-icons -icon-theme Papirus-Dark"
+
+# open rofi powermenu
+
+bindsym $mod+Escape exec /home/joppe/repos/configs/Scripts/rofi-powermenu.sh
+
+# Dunst notification history and close all notifications
+
+bindsym $mod+n exec dunstctl history-pop
+bindsym $mod+c exec dunstctl close-all
 
 # play/pause/previous/next keyboard controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
-bindsym XF86AudioNext exec --no-startup-id playerctl next 
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-# start/stop picom keybindings for playing games
-bindsym Mod4+g exec /home/joppe/Scripts/start-gamemode.sh
-bindsym Mod4+p exec /home/joppe/Scripts/stop-gamemode.sh
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
-# Dunst notification history and closing the notifications
-bindsym Mod4+n exec dunstctl history-pop
-bindsym Mod4+c exec dunstctl close-all 
+# reload i3 config and exit i3
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+bindsym $mod+Control+r reload
+bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod4
+# kill a window
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+bindsym $mod+q kill
 
-# start a terminal
-bindsym Mod4+t exec alacritty
+# switch focused window
 
-# kill focused window
-bindsym Mod4+q kill
+bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
 
-# start program launcher
-bindsym Mod4+space exec "rofi -show drun -show-icons -icon-theme Papirus-Dark"
+# toggle floating window
 
-# rofi window switcher
-bindsym Mod1+Tab exec "rofi -show window -show-icons -icon-theme Papirus-Dark"
+bindsym $mod+Shift+space floating toggle
 
-# change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right						
+# drag floating windows and resize them with the mouse
 
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+floating_modifier $mod
 
-# move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
+# toggle fullscreen
 
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $mod+Shift+f fullscreen
 
-# split in horizontal orientation
-bindsym Mod4+h split h
+# move the focused window
 
-# split in vertical orientation
-bindsym Mod4+v split v
+bindsym $mod+Control+Right move right
+bindsym $mod+Control+Left move left
+bindsym $mod+Control+Up move up
+bindsym $mod+Control+Down move down
 
-# enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
+# Resize windows
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+bindsym $mod+Shift+Right resize grow width 50px
+bindsym $mod+Shift+Left resize shrink width 50px
+bindsym $mod+Shift+Up resize shrink height 50px
+bindsym $mod+Shift+Down resize grow height 50px
 
-# toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+# send window to scratchpad and toggle scratchpad
 
-# change focus between tiling / floating windows
-bindsym Mod4+z focus mode_toggle
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
 
-# focus the parent container
-bindsym Mod4+a focus parent
+# define the workspace names
 
-# focus the child container
-#bindsym Mod4+d focus child
-
-# move the currently focused window to the scratchpad
-bindsym Mod4+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod4+minus scratchpad show
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -142,63 +153,56 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
 
-# switch to workspace
-bindsym Mod4+Mod2+KP_1 workspace number $ws1
-bindsym Mod4+Mod2+KP_2 workspace number $ws2
-bindsym Mod4+Mod2+KP_3 workspace number $ws3
-bindsym Mod4+Mod2+KP_4 workspace number $ws4
-bindsym Mod4+Mod2+KP_5 workspace number $ws5
-bindsym Mod4+Mod2+KP_6 workspace number $ws6
-bindsym Mod4+Mod2+KP_7 workspace number $ws7
-bindsym Mod4+Mod2+KP_8 workspace number $ws8
-# bindsym Mod4+Mod2+KP_9 workspace number $ws9
-# bindsym Mod4+Mod2+KP_0 workspace number $ws10
+# switch to workspaces
 
-# move focused container to workspace
-bindsym Mod4+Mod2+Shift+KP_End move container to workspace number $ws1
-bindsym Mod4+Mod2+Shift+KP_Down move container to workspace number $ws2
-bindsym Mod4+Mod2+Shift+KP_Next move container to workspace number $ws3
-bindsym Mod4+Mod2+Shift+KP_Left move container to workspace number $ws4
-bindsym Mod4+Mod2+Shift+KP_Begin move container to workspace number $ws5
-bindsym Mod4+Mod2+Shift+KP_Right move container to workspace number $ws6
-bindsym Mod4+Mod2+Shift+KP_Home move container to workspace number $ws7
-bindsym Mod4+Mod2+Shift+KP_Up move container to workspace number $ws8
-# bindsym Mod4+Mod2+Shift+KP_Prior move container to workspace number $ws9
-# bindsym Mod4+Mod2+Shift+KP_Insert move container to workspace number $ws10
+bindsym $mod+KP_End workspace number $ws1
+bindsym $mod+KP_Down workspace number $ws2
+bindsym $mod+KP_Next workspace number $ws3
+bindsym $mod+KP_Left workspace number $ws4
+bindsym $mod+KP_Begin workspace number $ws5
+bindsym $mod+KP_Right workspace number $ws6
+bindsym $mod+KP_Home workspace number $ws7
+bindsym $mod+KP_Up workspace number $ws8
 
-# reload the configuration file
-bindsym Mod4+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# move window to workspace
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+bindsym $mod+Shift+KP_End move container to workspace number $ws1
+bindsym $mod+Shift+KP_Down move container to workspace number $ws2
+bindsym $mod+Shift+KP_Next move container to workspace number $ws3
+bindsym $mod+Shift+KP_Left move container to workspace number $ws4
+bindsym $mod+Shift+KP_Begin move container to workspace number $ws5
+bindsym $mod+Shift+KP_Right move container to workspace number $ws6
+bindsym $mod+Shift+KP_Home move container to workspace number $ws7
+bindsym $mod+Shift+KP_Up move container to workspace number $ws8
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+# define monitor names
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+set $DP-0 "DisplayPort-0"
+set $DP-1 "DisplayPort-1"
 
-        # back to normal: Enter or Escape or Mod1+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Mod4+r mode "default"
-}
+# bind workspaces to monitors
 
-bindsym Mod4+r mode "resize"
+workspace $ws1 output $DP-1
+workspace $ws2 output $DP-0
+workspace $ws3 output $DP-0
+workspace $ws4 output $DP-0
+workspace $ws5 output $DP-0
+workspace $ws6 output $DP-0
+workspace $ws7 output $DP-0
+workspace $ws8 output $DP-0
+
+# choose how the windows will be split when opening a new window
+
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+# switch between the different layout styles
+
+bindsym $mod+Control+s layout stacking
+bindsym $mod+Control+w layout tabbed
+bindsym $mod+Control+e layout toggle split
+
+# whether mouse should follow output, or not follow
+
+mouse_warping output
