@@ -18,6 +18,9 @@ alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias autotiling-master='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2'
 alias autotiling-dwindle='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61' 
 alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'
+alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
+alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
+alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
 # PS1="\[\e[0;34m\][\u@\h \W]\$ \[\e[m\]"
 PS1="\[\e[0;31m\] \u  \W  \[\e[m\]"

@@ -84,7 +84,7 @@ scratchpad_minimize disable
 
 # default wallpaper
 
-# output * bg /path/to/wallpaper
+output "*" bg /home/joppe/Pictures/Wallpapers/japan/tokyo1.png fill
 
 # monitor configuration
 

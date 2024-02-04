@@ -1,0 +1,31 @@
+import = ["/home/joppe/.config/alacritty/tokyo-night/tokyo-night.toml"]
+
+[cursor]
+style = { shape = "Underline", blinking = "On" }
+blink_interval = 500
+
+[font]
+size = 18.0
+
+[font.bold]
+family = "Mononoki Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Mononoki Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Mononoki Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Mononoki Nerd Font"
+style = "Regular"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+opacity = 1
