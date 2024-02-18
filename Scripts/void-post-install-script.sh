@@ -36,6 +36,7 @@ packages=(
 	"libreoffice-i18n-nl"
 	"libreoffice-i18n-en-US"
 	"pcmanfm"
+	"ranger"
 	"lxappearance"
 	"qt5ct"
 	"qt6ct"

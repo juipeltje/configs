@@ -114,6 +114,10 @@ bindsym $mod+t exec $terminal
 
 bindsym $mod+f exec $file_manager
 
+# open ranger in alacritty
+
+bindsym $mod+r exec alacritty -e ranger
+
 # open a webbrowser
 
 bindsym $mod+w exec $webbrowser
