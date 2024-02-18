@@ -193,6 +193,8 @@ configs_laptop() {
 	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/tofi /home/$user/.config/
 	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/polybar /home/$user/.config/
 	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/waybar /home/$user/.config/
+	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/mpv /home/$user/.config/
+        sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/ranger /home/$user/.config/
 	sudo -u $user mkdir -p /home/$user/.local/share
 	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotlocal/share/rofi /home/$user/.local/share/
 	cp -r /home/$user/repos/configs/laptop/config-files/etc/X11/xorg.conf.d /etc/X11/
@@ -262,12 +264,12 @@ grub() {
 
 cleanup() {
 	systemctl disable xdm.service 
-	zypper rm -u -y icewm icewm-default icewm-theme-branding lightdm liblightdm-gobject-1-0 lightdm-gtk-greeter \
+	zypper rm -uy icewm icewm-default icewm-theme-branding lightdm liblightdm-gobject-1-0 lightdm-gtk-greeter \
 	lightdm-gtk-greeter-branding-openSUSE lightdm-gtk-greeter-lang lightdm-lang hplip hplip-hpijs hplip-sane \
 	hplip-udev-rules OpenPrintingPPDs-hpijs xterm-bin xterm-resize rxvt-unicode sax3 
 	swapoff /dev/zram0
 	systemctl disable --now zramswap.service
-	zypper remove -u systemd-zram-service
+	zypper rm -uy systemd-zram-service
 }
 
 echo "This script will use a git ssh clone to install dotfiles on the system. please confirm you have setup your git account"
@@ -340,7 +342,7 @@ then
 	echo "removing unwanted packages..."
 	cleanup
 	systemctl disable tlp.service
-	zypper rm -u -y tlp tlp-rdw 
+	zypper rm -uy tlp tlp-rdw 
 	echo "fixing potential ownership issues with the user's home folder..."
 	chown -R $user /home/$user
 	echo "Finished!! You can now reboot your machine."
@@ -399,7 +401,7 @@ then
 	echo "removing unwanted packages..."
 	cleanup
 	systemctl disable tlp.service
-        zypper rm -u -y tlp tlp-rdw 
+        zypper rm -uy tlp tlp-rdw 
         echo "fixing potential ownership issues with the user's home folder..."
         chown -R $user /home/$user
         echo "Finished!! You can now reboot your machine."		
