@@ -3,7 +3,7 @@
 # post install script for gecko linux
 # NOTE TO SELF: MAKE SURE TO SETUP YOUR SSH KEY AND IT'S PERMISSIONS TO 400 BEFORE RUNNING THIS SCRIPT!!
 
-set -ex
+set -e
 
 # Arrays
 
@@ -90,6 +90,7 @@ packages=(
 	"mako"
 	"waybar"
 	"greetd"
+	"gtkgreet"
 	# "python3-dbus-next"
 	"fastfetch"
 	"mint-y-icon-theme"
@@ -117,7 +118,6 @@ laptop_packages=(
 
 OBS_packages=(
 	"swayfx" 
-	"regreet" 
 	"nwg-look" 
 	"tofi" 
 	"prismlauncher" 
@@ -137,7 +137,6 @@ OBS_desktop() {
 
 OBS() {
 	zypper addrepo https://download.opensuse.org/repositories/home:smolsheep/openSUSE_Tumbleweed/home:smolsheep.repo
-	zypper addrepo https://download.opensuse.org/repositories/home:jubalh/openSUSE_Tumbleweed/home:jubalh.repo
 	zypper addrepo https://download.opensuse.org/repositories/home:getchoo/openSUSE_Tumbleweed/home:getchoo.repo
 	zypper addrepo https://download.opensuse.org/repositories/home:bfein/openSUSE_Tumbleweed/home:bfein.repo
 	zypper addrepo https://download.opensuse.org/repositories/home:kwk/openSUSE_Tumbleweed/home:kwk.repo
@@ -175,7 +174,7 @@ configs_desktop() {
 	sudo -u $user ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/ranger /home/$user/.config/
 	sudo -u $user mkdir -p /home/$user/.local/share
 	sudo -u $user ln -s /home/$user/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/$user/.local/share/
-	cp -f /home/$user/repos/configs/workstation/config-files/etc/greetd /etc/
+	cp -rf /home/$user/repos/configs/workstation/config-files/etc/greetd /etc/
 }
 
 configs_laptop() {
@@ -198,7 +197,7 @@ configs_laptop() {
 	sudo -u $user mkdir -p /home/$user/.local/share
 	sudo -u $user ln -s /home/$user/repos/configs/laptop/dotfiles/dotlocal/share/rofi /home/$user/.local/share/
 	cp -r /home/$user/repos/configs/laptop/config-files/etc/X11/xorg.conf.d /etc/X11/
-	cp -f /home/$user/repos/configs/laptop/config-files/etc/greetd /etc/
+	cp -rf /home/$user/repos/configs/laptop/config-files/etc/greetd /etc/
 	cp -f /home/$user/repos/configs/laptop/config-files/etc/tlp.conf /etc/
 }
 

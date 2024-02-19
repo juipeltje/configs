@@ -1,6 +1,6 @@
 # sway config to be used specifically for greetd
 
-exec "regreet; swaymsg exit"
+exec "gtkgreet -l; swaymsg exit"
 
 # set resolution/refreshrate
 
