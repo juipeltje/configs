@@ -101,6 +101,7 @@ packages=(
 	"i3"
 	"libqt5-qtwayland"
 	"ranger"
+	"opi"
 )
 
 desktop_packages=(
@@ -232,13 +233,13 @@ fonts_and_themes() {
 }
 
 services() {
-	systemctl enable bluetooth.service
-	systemctl enable libvirtd.service
-	systemctl enable greetd.service
+	systemctl enable bluetooth
+	systemctl enable libvirtd
+	systemctl enable greetd
 }
 
 laptop_services() {
-	systemctl enable tlp.service
+	systemctl enable tlp
 }	
 
 swapfile() {
@@ -314,9 +315,6 @@ then
 	zypper dup -y
 	zypper install -y "${packages[@]}"
 	zypper install -y "${desktop_packages[@]}"
-	echo "installing OBS packages..."
-	OBS
-	OBS_desktop
 	echo "installing config files..."
 	configs
 	configs_desktop
@@ -352,8 +350,6 @@ then
         zypper dup -y
         zypper install -y "${packages[@]}"
         zypper install -y "${laptop_packages[@]}"
-        echo "installing OBS packages..."
-        OBS
         echo "installing config files..."
         configs
         configs_laptop
@@ -386,8 +382,6 @@ then
 	zypper --gpg-auto-import-keys refresh
         zypper dup -y
 	zypper install -y "${packages[@]}"
-        echo "installing OBS packages..."
-        OBS
         echo "installing config files..."
         configs
         configs_desktop
