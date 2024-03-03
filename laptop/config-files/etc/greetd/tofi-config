@@ -1,0 +1,108 @@
+# tofi config
+
+# font 
+font = "Ubuntu Nerd Font Medium"
+font-size = 16
+
+# window theme
+horizontal = false
+anchor = center
+width = 400
+height = 400
+outline-width = 0
+border-width = 4
+corner-radius = 20
+padding-top = 10
+padding-bottom = 10
+padding-left = 10
+padding-right = 10
+clip-to-padding = true
+prompt-text = ""
+prompt-padding = 4
+placeholder-text = "__"
+num-results = 0
+result-spacing = 10
+horizontal = false
+min-input-width = 0
+text-cursor-style = underscore
+text-cursor-thickness = 2
+
+# prompt theme
+prompt-background-padding = 0
+prompt-background-corner-radius = 0
+
+# placeholder text theme
+placeholder-background-padding = 0
+placeholder-background-corner-radius = 0
+
+# input text theme
+input-background-padding = 0
+input-background-corner-radius = 0
+
+# default result text theme
+default-result-background-padding = 0
+default-result-background-corner-radius = 0
+
+# selected text theme
+selection-background-padding = 4
+selection-background-corner-radius = 10
+
+# behaviour
+hide-cursor = false
+text-cursor = true
+history = true
+require-match = true
+drun-launch = true
+
+# color themes
+
+# Gruvbox-Material
+
+# background-color = #282828
+# border-color = #dfbf8e
+# text-cursor-color = #ffffff
+# text-cursor-background = #00000000
+# prompt-color = #ffffff
+# prompt-background = #00000000
+# placeholder-color = #ffffff
+# placeholder-background = #00000000
+# input-color = #ffffff
+# input-background = #00000000
+# default-result-color = #dfbf8e
+# default-result-background = #00000000
+# selection-color = #282828
+# selection-background = #dfbf8e
+
+# Nordic
+
+# background-color = #2e3440
+# border-color = #8fbcbb
+# text-cursor-color = #ffffff
+# text-cursor-background = #00000000
+# prompt-color = #ffffff
+# prompt-background = #00000000
+# placeholder-color = #ffffff
+# placeholder-background = #00000000
+# input-color = #ffffff
+# input-background = #00000000
+# default-result-color = #8fbcbb
+# default-result-background = #00000000
+# selection-color = #2e3440
+# selection-background = #8fbcbb
+
+# Tokyo-Night
+
+background-color = #1a1b26
+border-color = #a9b1d6
+text-cursor-color = #ffffff
+text-cursor-background = #00000000
+prompt-color = #ffffff
+prompt-background = #00000000
+placeholder-color = #ffffff
+placeholder-background = #00000000
+input-color = #ffffff
+input-background = #00000000
+default-result-color = #a9b1d6
+default-result-background = #00000000
+selection-color = #1a1b26
+selection-background = #a9b1d6
