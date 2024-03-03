@@ -12,7 +12,7 @@ set $launcher tofi-drun
 
 # cursor theme and size
 
-seat seat0 xcursor_theme "capitaine-cursors-light" 24
+seat seat0 xcursor_theme "phinger-cursors-light" 24
  
 # corner radius
 
@@ -116,6 +116,10 @@ bindsym $mod+t exec $terminal
 # open a file manager
 
 bindsym $mod+f exec $file_manager
+
+# open ranger in a terminal
+
+bindsym $mod+r exec $terminal -e ranger
 
 # open a webbrowser
 

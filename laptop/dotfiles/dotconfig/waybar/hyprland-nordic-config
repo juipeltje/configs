@@ -58,7 +58,7 @@
   "custom/kernel": {
     "exec": "uname -r",
     "interval": "once",
-    "format": "<span style='color:#8fbcbb;' font='16' rise='-2000'></span>  {}"
+    "format": "<span style='color:#8fbcbb;' font='16' rise='-2000'></span>  {}"
   },
 
   "custom/cpu": {

@@ -8,7 +8,7 @@ case $op in
         reboot)
                 ;&
         suspend)
-                loginctl $op
+                systemctl $op
                 ;;
         lock)
 		swaylock
