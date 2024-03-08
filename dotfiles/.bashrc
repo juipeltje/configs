@@ -6,15 +6,22 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
-alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
-alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update'
-alias xq='xbps-query -Rs'
-alias xi='sudo xbps-install -S'
-alias xr='sudo xbps-remove -R'
-alias xc='sudo xbps-remove -Oo'
-alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
-alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
+# void aliases 
+# alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
+# alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
+# alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update'
+# alias xq='xbps-query -Rs'
+# alias xi='sudo xbps-install -S'
+# alias xr='sudo xbps-remove -R'
+# alias xc='sudo xbps-remove -Oo'
+#
+# opensuse aliases
+alias zs='zypper se'
+alias zi='sudo zypper in'
+alias zr='sudo zypper rm -u'
+#
+alias vpn-up='wg-quick up /etc/wireguard/frmr002-bebr102.conf'
+alias vpn-down='wg-quick down /etc/wireguard/frmr002-bebr102.conf'
 alias autotiling-master='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2'
 alias autotiling-dwindle='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61' 
 alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'

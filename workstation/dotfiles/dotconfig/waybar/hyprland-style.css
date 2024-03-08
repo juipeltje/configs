@@ -4,7 +4,7 @@ window#waybar {
     font-size: 16px;
     background-color: #1a1b26;
     color: #a9b1d6;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 #workspaces button {
@@ -15,7 +15,7 @@ window#waybar {
 #workspaces button.active {
     background-color: #1a1b26;
     color: #a9b1d6;
-    border-bottom: 4px solid #a9b1d6;
+    border-bottom: 2px solid #a9b1d6;
     border-radius: 0px;
 }
 

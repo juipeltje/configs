@@ -1,0 +1,23 @@
+# config for wofi
+
+show=drun
+width=400
+height=400
+prompt=
+normal_window=true
+allow_images=true
+allow_markup=false
+term=alacritty
+exec_search=false
+hide_scroll=true
+matching=contains
+insensitive=true
+location=center
+columns=1
+sort_order=default
+gtk_dark=false
+search=
+monitor=DP-1
+orientation=vertical
+image_size=32
+

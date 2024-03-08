@@ -1,0 +1,42 @@
+# Hyprland greeter config
+
+# monitor settings
+
+  monitor=DP-1,3440x1440@165,0x1080,1
+  monitor=DP-2,2560x1080@75,0x0,1
+
+# Execute your favorite apps at launch
+
+  exec-once = GTK_THEME=Tokyonight-Dark gtkgreet -l -b /usr/share/backgrounds/WallpaperDog-10730444.jpg -s /etc/greetd/gtkgreet.css; hyprctl dispatch exit
+
+# set the cursor size
+
+  env = XCURSOR_SIZE,24
+
+input {
+
+        # set the keyboard layout
+
+        kb_layout = us
+
+        # changes the behaviour of the cursor regarding window focus
+
+        follow_mouse = 1
+
+        # set the mouse sensitivity
+
+        sensitivity = 0
+
+}
+
+# keybindings
+
+  # variables
+
+  $mainMod = SUPER
+  
+  # open wofi powermenu
+
+  bind = $mainMod, escape, exec, /etc/greetd/wofi-powermenu-greeter.sh
+
+
