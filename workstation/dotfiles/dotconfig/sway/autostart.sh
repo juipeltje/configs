@@ -5,7 +5,6 @@
 /home/joppe/test-autotiling/bin/python /home/joppe/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2 &
 waybar -c /home/joppe/.config/waybar/sway-config -s /home/joppe/.config/waybar/sway-style.css &
 mako -c /home/joppe/.config/mako/sway-config &
-pipewire &
 playerctld daemon &
 /usr/bin/lxpolkit &
 liquidctl initialize all &
