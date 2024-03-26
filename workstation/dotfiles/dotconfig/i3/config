@@ -83,7 +83,7 @@ bindsym $mod+space exec "rofi -show drun -show-icons -icon-theme Papirus-Dark"
 
 # open rofi powermenu
 
-bindsym $mod+Escape exec /home/joppe/repos/configs/Scripts/rofi-powermenu.sh
+bindsym $mod+Escape exec /home/joppe/repos/configs/Scripts/rofi-powermenu-i3.sh
 
 # Dunst notification history and close all notifications
 

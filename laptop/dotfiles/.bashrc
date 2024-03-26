@@ -15,19 +15,18 @@ alias ls='ls --color=auto'
 # alias xr='sudo xbps-remove -R'
 # alias xc='sudo xbps-remove -Oo'
 #
-# opensuse aliases
-alias zs='zypper se'
-alias zi='sudo zypper in'
-alias zr='sudo zypper rm -u'
+# NixOS aliases
+alias rebuild='sudo nixos-rebuild boot -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix'
+alias rebuild-switch='sudo nixos-rebuild switch -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix'
+alias update='sudo nixos-rebuild switch -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix --upgrade'
+alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
+alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
 #
 alias vpn-up='wg-quick up /etc/wireguard/frmr002-bebr102.conf'
 alias vpn-down='wg-quick down /etc/wireguard/frmr002-bebr102.conf'
 alias autotiling-master='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2'
 alias autotiling-dwindle='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61' 
 alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'
-alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
-alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
-alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
 # PS1="\[\e[0;34m\][\u@\h \W]\$ \[\e[m\]"
 PS1="\[\e[0;31m\] \u  \W  \[\e[m\]"

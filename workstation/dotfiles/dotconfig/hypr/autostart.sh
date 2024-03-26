@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # autostart script for hyprland
 
@@ -7,7 +7,7 @@ waybar -c /home/joppe/.config/waybar/hyprland-config -s /home/joppe/.config/wayb
 hyprctl setcursor phinger-cursors-light 24 &
 mako -c /home/joppe/.config/mako/hyprland-config &
 playerctld daemon &
-/usr/bin/lxpolkit &
+lxsession &
 liquidctl initialize all &
 sleep 2
 liquidctl --match kraken set pump speed 100 &

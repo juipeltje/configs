@@ -1,23 +1,42 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # script for pulling my dotfiles in for nixos
-# NOTE TO SELF: MAKE SURE TO SETUP YOUR SSH KEY AND IT'S PERMISSIONS TO 400 BEFORE RUNNING THIS SCRIPT!!
 
 set -e
 
 # Functions
 
+remove_defaults() {
+	rm -f /home/$user/.bashrc
+	rm -f /home/$user/.bash_profile
+	rm -f /home/$user/.Xresources
+	rm -rf /home/$user/.config/qtile
+	rm -rf /home/$user/.config/alacritty
+	rm -rf /home/$user/.config/rofi
+	rm -rf /home/$user/.config/dunst
+	rm -rf /home/$user/.config/picom
+	rm -rf /home/$user/.config/hypr
+	rm -rf /home/$user/.config/mako
+	rm -rf /home/$user/.config/i3
+	rm -rf /home/$user/.config/sway
+	rm -rf /home/$user/.config/tofi
+	rm -rf /home/$user/.config/polybar
+	rm -rf /home/$user/.config/waybar
+	rm -rf /home/$user/.config/mpv
+	rm -rf /home/$user/.config/ranger
+	rm -rf /home/$user/.config/wofi
+	rm -rf /home/$user/.local/share/rofi
+} 
+
 configs() {
-	git clone git@github.com:juipeltje/configs.git /home/$user/repos/configs
-        rm /home/$user/.bashrc
-        ln -s /home/$user/repos/configs/dotfiles/.bashrc /home/$user/
 	ln -s /home/$user/repos/configs/dotfiles/.bash_profile /home/$user/
 	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-i3 /home/$user/
 	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-qtile /home/$user/
 }
 
 configs_desktop() {
-	ln -s /home/$user/repos/configs/workstation/dotfiles/.Xresources /home/$user
+	ln -s /home/$user/repos/configs/workstation/dotfiles/.bashrc /home/$user/
+	ln -s /home/$user/repos/configs/workstation/dotfiles/.Xresources /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/alacritty /home/$user/.config/
@@ -33,12 +52,14 @@ configs_desktop() {
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/waybar /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/mpv /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/ranger /home/$user/.config/
+	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/wofi /home/$user/.config/
 	mkdir -p /home/$user/.local/share
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotlocal/share/rofi /home/$user/.local/share/
 }
 
 configs_laptop() {
-	ln -s /home/$user/repos/configs/laptop/dotfiles/.Xresources /home/$user
+	ln -s /home/$user/repos/configs/laptop/dotfiles/.bashrc /home/$user/
+	ln -s /home/$user/repos/configs/laptop/dotfiles/.Xresources /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/alacritty /home/$user/.config/
@@ -54,12 +75,13 @@ configs_laptop() {
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/waybar /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/mpv /home/$user/.config/
         ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/ranger /home/$user/.config/
+	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/wofi /home/$user/.config/
 	mkdir -p /home/$user/.local/share
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotlocal/share/rofi /home/$user/.local/share/
 }
 
-echo "This script will use a git ssh clone to install dotfiles on the system. please confirm you have setup your git account"
-echo "and ssh key before proceeding with the script."
+echo "This script will install dotfiles on the system. please confirm you have already made a git clone"
+echo "of the repo before proceeding with this script."
 
 echo "1) confirm"
 echo "2) exit script"
@@ -96,18 +118,24 @@ echo "continuing post-install script with settings for '$device'"
 
 if [ $device -eq 1 ]
 then
+	echo "removing default configs..."
+	remove_defaults
 	echo "installing config files..."
 	configs
 	configs_desktop
 	echo "Finished!! Enjoy your dots :)"
 elif [ $device -eq 2 ]
 then
+	echo "removing default configs..."
+        remove_defaults
         echo "installing config files..."
         configs
         configs_laptop
         echo "Finished!! Enjoy your dots :)"
 elif [ $device -eq 3 ]
 then
+	echo "removing default configs..."
+        remove_defaults
         echo "installing config files..."
         configs
         configs_desktop
