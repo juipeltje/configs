@@ -47,7 +47,7 @@ let
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       # Include the home-manager module
       <home-manager/nixos>
     ];
