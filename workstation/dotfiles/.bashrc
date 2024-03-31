@@ -22,8 +22,7 @@ alias update='sudo nixos-rebuild switch -I nixos-config=/home/joppe/repos/config
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
 #
-alias vpn-up='wg-quick up /etc/wireguard/frmr002-bebr102.conf'
-alias vpn-down='wg-quick down /etc/wireguard/frmr002-bebr102.conf'
+alias alsa-store='alsactl --file ~/.config/asound.state store'
 alias autotiling-master='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2'
 alias autotiling-dwindle='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61' 
 alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'

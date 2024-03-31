@@ -2,10 +2,6 @@
 
 { config, pkgs, ... }:
 
-let
-  stable = import <nixos-stable> { config = { allowUnfree = true; }; };
-in 
-
 let 
     HyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
       # Hyprland greeter config
@@ -74,14 +70,18 @@ let
   # "resume_offset=$youroffsethere", then rebuild the system again. 
   swapDevices = [ { device = "/swapfile"; size = 48*1024; } ];
   boot = {
-  resumeDevice = "/dev/disk/by-uuid/ce7c1e16-7e50-434f-b727-7c242f2d51ea";
-  kernelParams = [ "resume_offset=217263104" "amd_iommu=on" "iommu=pt" ];
+    resumeDevice = "/dev/disk/by-uuid/ce7c1e16-7e50-434f-b727-7c242f2d51ea";
+    kernelParams = [ "resume_offset=217263104" "amd_iommu=on" "iommu=pt" ];
   };
   
-  # Define your hostname and enable networkmanager.
+  # Define your hostname and enable networkmanager + vpn.
   networking = {
     hostName = "NixOS-Rig";
     networkmanager.enable = true;
+  };
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad;
   };
 
   # Set your time zone.
@@ -105,7 +105,7 @@ let
   # Select kernel version to run/kernel modules to load and add extra modprobe configs.
   boot = { 
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = [ "i2c-dev" "i2c-piix4" "vfio" "vfio_pci" "vfio_iommu_type1" ];
+    kernelModules = [ "vfio" "vfio_pci" "vfio_iommu_type1" ];
     extraModprobeConfig = "options vfio-pci ids=10de:1287,10de:0e0f";
   };
 
@@ -209,11 +209,13 @@ let
     sway.extraPackages = [ ];
     xwayland.enable = true;
     waybar.enable = true;
-    waybar.package = stable.pkgs.waybar;
+    waybar.package = pkgs.waybar;
   };
 
-  # Enabling Git, Firefox, Htop, Steam, and corectrl.
+  # Enabling Nano, Git, Firefox, Htop, Steam, and corectrl.
   programs = {
+    nano.enable = true;
+    nano.syntaxHighlight = true;
     git.enable = true;
     firefox.enable = true;
     htop.package = pkgs.htop;
@@ -224,11 +226,17 @@ let
     corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
   };
   
-  # Enable Vulkan for 32-bit applications.
-  hardware.opengl.driSupport32Bit = true;
+  # Enable Vulkan.
+  hardware.opengl = { 
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # Enable OpenRGB and i2c support.
-  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+  };
   hardware.i2c.enable = true;
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -269,6 +277,13 @@ let
       style.package = pkgs.libsForQt5.qtstyleplugins;
       style.name = "gtk2";
     };
+
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
+    };
  
     # The state version is required and should stay at the version you
     # originally installed.
@@ -289,7 +304,6 @@ let
   # Networking
   networkmanagerapplet
   transmission-gtk
-  wireguard-tools
   # Terminal
   alacritty
   # File managers/utilities
@@ -334,7 +348,7 @@ let
   # Emulators
   duckstation
   pcsx2
-  rpcs3
+  #stable.rpcs3
   dolphin-emu
   # Benchmarking
   s-tui
@@ -352,14 +366,12 @@ let
   xdotool
   polybar
   hyprpaper
+  mpvpaper
   appimage-run
   distrobox
   monero-gui
   vscodium-fhs
   ];
-
-  # Enable udev rules for installed programs.
-  services.udev.packages = [ pkgs.openrgb ];
 
   # Enable gnupg
   programs.gnupg.agent = {
@@ -416,7 +428,8 @@ let
     };
   };
 
-
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
