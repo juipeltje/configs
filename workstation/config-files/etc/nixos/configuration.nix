@@ -10,7 +10,6 @@ let
       monitor=DP-1,3440x1440@165,0x1080,1
       monitor=DP-2,disable
       #monitor=DP-2,2560x1080@75,0x0,1
-
       # Execute your favorite apps at launch
       exec-once = ${pkgs.greetd.regreet}/bin/regreet; hyprctl dispatch exit
 
@@ -48,8 +47,6 @@ let
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # Include the home-manager module
-      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -348,7 +345,7 @@ let
   # Emulators
   duckstation
   pcsx2
-  #stable.rpcs3
+  stable.rpcs3
   dolphin-emu
   # Benchmarking
   s-tui
