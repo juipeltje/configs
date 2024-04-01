@@ -1,5 +1,5 @@
 {
-  description = "workstation flake";
+  description = "laptop flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -20,7 +20,7 @@
         };
       };
     in {
-    nixosConfigurations.NixOS-Rig = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.NixOS-Lappie = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [ 
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })

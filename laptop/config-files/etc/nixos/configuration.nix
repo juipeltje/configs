@@ -206,7 +206,7 @@ let
     sway.extraPackages = [ ];
     xwayland.enable = true;
     waybar.enable = true;
-    waybar.package = stable.pkgs.waybar;
+    waybar.package = pkgs.waybar;
   };
 
   # Enabling Nano, Git, Firefox, Htop, Steam, and corectrl.
