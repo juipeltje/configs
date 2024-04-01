@@ -1,10 +1,6 @@
-# NixOS workstation config
+# NixOS laptop config
 
 { config, pkgs, ... }:
-
-let
-  stable = import <nixos-stable> { config = { allowUnfree = true; }; };
-in 
 
 let 
     HyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
@@ -53,9 +49,7 @@ let
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      # Include the home-manager module
-      <home-manager/nixos>
+      ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -76,8 +70,8 @@ let
   # "resume_offset=$youroffsethere", then rebuild the system again. 
   swapDevices = [ { device = "/swapfile"; size = 24*1024; } ];
   boot = {
-  # resumeDevice = "/dev/disk/by-uuid/ce7c1e16-7e50-434f-b727-7c242f2d51ea";
-  kernelParams = [ ];
+    resumeDevice = "/dev/disk/by-uuid/5bc94b90-7a94-427a-8ec0-e9a3cbe82917";
+    kernelParams = [ "resume_offset=11720704" ];
   };
   
   # Define your hostname and enable networkmanager.
@@ -215,8 +209,10 @@ let
     waybar.package = stable.pkgs.waybar;
   };
 
-  # Enabling Git, Firefox, Htop, Steam, and corectrl.
+  # Enabling Nano, Git, Firefox, Htop, Steam, and corectrl.
   programs = {
+    nano.enable = true;
+    nano.syntaxHighlight = true;
     git.enable = true;
     firefox.enable = true;
     htop.package = pkgs.htop;
@@ -226,9 +222,12 @@ let
     corectrl.enable = true;
     corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
   };
-  
-  # Enable Vulkan for 32-bit applications.
-  hardware.opengl.driSupport32Bit = true;
+
+  # Enable Vulkan.
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+  };  
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.joppe = {
@@ -288,7 +287,6 @@ let
   # Networking
   networkmanagerapplet
   transmission-gtk
-  wireguard-tools
   # Terminal
   alacritty
   # File managers/utilities
@@ -354,6 +352,7 @@ let
   distrobox
   vscodium-fhs
   brightnessctl
+  pulsemixer
   ];
 
   # Enable gnupg
@@ -407,6 +406,9 @@ let
 
   # Firewall settings 
   networking.firewall.enable = false;
+  
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

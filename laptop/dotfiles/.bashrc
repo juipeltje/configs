@@ -16,14 +16,12 @@ alias ls='ls --color=auto'
 # alias xc='sudo xbps-remove -Oo'
 #
 # NixOS aliases
-alias rebuild='sudo nixos-rebuild boot -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix'
-alias rebuild-switch='sudo nixos-rebuild switch -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix'
-alias update='sudo nixos-rebuild switch -I nixos-config=/home/joppe/repos/configs/laptop/config-files/etc/nixos/configuration.nix --upgrade'
+alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/laptop/config-files/etc/nixos/'
+alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/laptop/config-files/etc/nixos/'
+alias update='sudo nix flake update /home/joppe/repos/configs/laptop/config-files/etc/nixos/ && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/laptop/config-files/etc/nixos/'
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
 #
-alias vpn-up='wg-quick up /etc/wireguard/frmr002-bebr102.conf'
-alias vpn-down='wg-quick down /etc/wireguard/frmr002-bebr102.conf'
 alias autotiling-master='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2'
 alias autotiling-dwindle='~/test-autotiling/bin/python ~/test-autotiling/test-autotiling.py --splitratio 1.61' 
 alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'

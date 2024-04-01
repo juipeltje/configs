@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # autostart script for swayfx
 
@@ -6,5 +6,5 @@ swaymsg output "*" bg /home/joppe/Pictures/wallpapers/games/Gravity-Rush/gravity
 waybar -c /home/joppe/.config/waybar/sway-config -s /home/joppe/.config/waybar/sway-style.css &
 mako -c /home/joppe/.config/mako/sway-config &
 playerctld daemon &
-/usr/bin/lxpolkit &
+lxsession &
 nm-applet &

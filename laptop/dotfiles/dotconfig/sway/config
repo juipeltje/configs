@@ -6,7 +6,7 @@ set $mod Mod4
 set $terminal alacritty
 set $file_manager pcmanfm
 set $webbrowser firefox 
-set $launcher tofi-drun
+set $launcher wofi
 
 ## appearance
 
@@ -139,7 +139,7 @@ bindsym $mod+space exec $launcher
 
 # open tofi powermenu
 
-bindsym $mod+Escape exec /home/joppe/repos/configs/Scripts/tofi-powermenu-sway.sh
+bindsym $mod+Escape exec /home/joppe/repos/configs/Scripts/wofi-powermenu-sway.sh
 
 # Mako notification history and close all notifications
 
