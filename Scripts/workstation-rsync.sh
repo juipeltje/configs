@@ -7,7 +7,7 @@ user=joppe
 
 # rsync command
 rsync -avR --delete-before \
-/home/$user/.icons \
+/6TB-HDD \
 /home/$user/.mozilla/firefox/j5fcylj2.default-default \
 /home/$user/.password-store \
 /home/$user/.ssh \

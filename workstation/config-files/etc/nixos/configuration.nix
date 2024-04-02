@@ -253,11 +253,16 @@ let
       userEmail = "joppe4444@outlook.com";
     };
     
+    home.pointerCursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-light";
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+    };
+    
     gtk = {
       enable = true;
-      cursorTheme.package = pkgs.phinger-cursors;
-      cursorTheme.name = "phinger-cursors-light";
-      cursorTheme.size = 24;
       font.package = pkgs.nerdfonts;
       font.name = "Ubuntu Nerd Font Medium";
       font.size = 11;

@@ -9,7 +9,6 @@ set -e
 remove_defaults() {
 	rm -f /home/$user/.bashrc
 	rm -f /home/$user/.bash_profile
-	rm -f /home/$user/.Xresources
 	rm -rf /home/$user/.config/qtile
 	rm -rf /home/$user/.config/alacritty
 	rm -rf /home/$user/.config/rofi
@@ -36,7 +35,6 @@ configs() {
 
 configs_desktop() {
 	ln -s /home/$user/repos/configs/workstation/dotfiles/.bashrc /home/$user/
-	ln -s /home/$user/repos/configs/workstation/dotfiles/.Xresources /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/alacritty /home/$user/.config/
@@ -59,7 +57,6 @@ configs_desktop() {
 
 configs_laptop() {
 	ln -s /home/$user/repos/configs/laptop/dotfiles/.bashrc /home/$user/
-	ln -s /home/$user/repos/configs/laptop/dotfiles/.Xresources /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/alacritty /home/$user/.config/
