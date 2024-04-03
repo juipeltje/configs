@@ -47,6 +47,8 @@ let
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Import home-manager settings
+      ./home-manager.nix
     ];
 
   # Bootloader.
@@ -105,6 +107,11 @@ let
     kernelModules = [ "vfio" "vfio_pci" "vfio_iommu_type1" ];
     extraModprobeConfig = "options vfio-pci ids=10de:1287,10de:0e0f";
   };
+  
+  # Bash settings
+  programs.bash.promptInit = ''
+    PS1="\[\e[0;31m\] \u  \W  \[\e[m\]"
+  '';
 
   # Enable the X11 windowing system, configure X11 keymap, X11 window managers, Kodi, and X11 config files.
   services.xserver = {
@@ -242,54 +249,6 @@ let
     description = "joppe";
     extraGroups = [ "networkmanager" "wheel" "libvirt" "kvm" "i2c"];
     packages = with pkgs; [];
-  };
-
-  # Home-manager settings
-  home-manager.users.joppe = { pkgs, ... }: { 
-    home.packages = [ ];
-    programs.git = {
-      enable = true;
-      userName = "juipeltje";
-      userEmail = "joppe4444@outlook.com";
-    };
-    
-    home.pointerCursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-light";
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
-    
-    gtk = {
-      enable = true;
-      font.package = pkgs.nerdfonts;
-      font.name = "Ubuntu Nerd Font Medium";
-      font.size = 11;
-      theme.package = pkgs.tokyonight-gtk-theme;
-      theme.name = "Tokyonight-Dark-BL";
-      iconTheme.package = pkgs.cinnamon.mint-y-icons;
-      iconTheme.name = "Mint-Y-Aqua";
-      
-    };
-
-    qt = {
-      enable = true;
-      platformTheme = "gtk";
-      style.package = pkgs.libsForQt5.qtstyleplugins;
-      style.name = "gtk2";
-    };
-
-    dconf.settings = {
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
-      };
-    };
- 
-    # The state version is required and should stay at the version you
-    # originally installed.
-    home.stateVersion = "23.11";
   };
 
   # Environment variables
