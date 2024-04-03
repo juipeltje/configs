@@ -7,8 +7,6 @@ set -e
 # Functions
 
 remove_defaults() {
-	rm -f /home/$user/.bashrc
-	rm -f /home/$user/.bash_profile
 	rm -rf /home/$user/.config/qtile
 	rm -rf /home/$user/.config/alacritty
 	rm -rf /home/$user/.config/rofi
@@ -28,13 +26,11 @@ remove_defaults() {
 } 
 
 configs() {
-	ln -s /home/$user/repos/configs/dotfiles/.bash_profile /home/$user/
 	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-i3 /home/$user/
 	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-qtile /home/$user/
 }
 
 configs_desktop() {
-	ln -s /home/$user/repos/configs/workstation/dotfiles/.bashrc /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/alacritty /home/$user/.config/
@@ -56,7 +52,6 @@ configs_desktop() {
 }
 
 configs_laptop() {
-	ln -s /home/$user/repos/configs/laptop/dotfiles/.bashrc /home/$user/
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/qtile /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/alacritty /home/$user/.config/
