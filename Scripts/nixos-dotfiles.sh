@@ -8,7 +8,6 @@ set -e
 
 remove_defaults() {
 	rm -rf /home/$user/.config/qtile
-	rm -rf /home/$user/.config/alacritty
 	rm -rf /home/$user/.config/rofi
 	rm -rf /home/$user/.config/dunst
 	rm -rf /home/$user/.config/picom
@@ -25,15 +24,9 @@ remove_defaults() {
 	rm -rf /home/$user/.local/share/rofi
 } 
 
-configs() {
-	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-i3 /home/$user/
-	ln -s /home/$user/repos/configs/dotfiles/.xinitrc-qtile /home/$user/
-}
-
 configs_desktop() {
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/qtile /home/$user/.config/
-	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/alacritty /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/rofi /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/dunst /home/$user/.config/
 	ln -s /home/$user/repos/configs/workstation/dotfiles/dotconfig/picom /home/$user/.config/
@@ -54,7 +47,6 @@ configs_desktop() {
 configs_laptop() {
 	mkdir -p /home/$user/.config
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/qtile /home/$user/.config/
-	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/alacritty /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/rofi /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/dunst /home/$user/.config/
 	ln -s /home/$user/repos/configs/laptop/dotfiles/dotconfig/picom /home/$user/.config/
@@ -113,7 +105,6 @@ then
 	echo "removing default configs..."
 	remove_defaults
 	echo "installing config files..."
-	configs
 	configs_desktop
 	echo "Finished!! Enjoy your dots :)"
 elif [ $device -eq 2 ]
@@ -121,7 +112,6 @@ then
 	echo "removing default configs..."
         remove_defaults
         echo "installing config files..."
-        configs
         configs_laptop
         echo "Finished!! Enjoy your dots :)"
 elif [ $device -eq 3 ]
@@ -129,7 +119,6 @@ then
 	echo "removing default configs..."
         remove_defaults
         echo "installing config files..."
-        configs
         configs_desktop
         echo "Finished!! Enjoy your dots :)"
 else
