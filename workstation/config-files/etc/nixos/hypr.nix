@@ -14,10 +14,13 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     settings = {
       # Monitor settings
-      monitor = "DP-1,3440x1440@165,0x1080,1";
-      monitor = "DP-2,2560x1080@75,0x0,1";
+      monitor = [
+        "DP-1,3440x1440@165,0x1080,1"
+        "DP-2,2560x1080@75,0x0,1"
+      ];
 
       # Autostart programs
       exec-once = [ "~/.config/hypr/autostart.sh" ];
@@ -49,10 +52,10 @@ in
         # col.inactive_border = rgb(4c566a)
         
         # Tokyo-Night
-        col.active_border = "rgb(a9b1d6)";
-        col.inactive_border = "rgb(565f89)";
+        "col.active_border" = "rgb(a9b1d6)";
+        "col.inactive_border" = "rgb(565f89)";
 
-        layout = master;
+        layout = "master";
       };
 
       # Decoration settings
@@ -60,7 +63,7 @@ in
         rounding = 10;
         drop_shadow = false;
         shadow_range = 4;
-        col.shadow = "rgba(1a1a1aee)";
+        "col.shadow" = "rgba(1a1a1aee)";
         dim_special = 1.0;
         blur = {
           enabled = false;
@@ -154,7 +157,7 @@ in
         "${Mod}, SPACE, exec, wofi"
 
         # open wofi powermenu
-        "${Mod}, escape, exec, /home/joppe/repos/configs/Scripts/wofi-powermenu-hyprland.sh"
+        "${Mod}, escape, exec, ~/.config/hypr/wofi-powermenu.sh"
 
         # Mako notification history and close all notifications
         "${Mod}, N, exec, makoctl restore"
@@ -233,16 +236,18 @@ in
 
       # Workspace rules/bind workspaces to monitors
       workspace = [
-        1, monitor:DP-2
-        2, monitor:DP-1
-        3, monitor:DP-1
-        4, monitor:DP-1
-        5, monitor:DP-1
-        6, monitor:DP-1
-        7, monitor:DP-1
-        8, monitor:DP-1
-        special:scratchpad, on-created-empty:${terminal}
+        "1, monitor:DP-2"
+        "2, monitor:DP-1"
+        "3, monitor:DP-1"
+        "4, monitor:DP-1"
+        "5, monitor:DP-1"
+        "6, monitor:DP-1"
+        "7, monitor:DP-1"
+        "8, monitor:DP-1"
+        "special:scratchpad, on-created-empty:${terminal}"
       ];
+    };
+  };
 
   # Autostart script
   xdg.configFile = {
@@ -251,8 +256,6 @@ in
       executable = true;
       text = ''
         #!/usr/bin/env bash
-        
-        # autostart script for hyprland
 
         hyprpaper &
         waybar -c ~/.config/waybar/hyprland-config -s ~/.config/waybar/hyprland-style.css &
@@ -277,6 +280,33 @@ in
         preload = /home/joppe/Pictures/Wallpapers/hyprland/wall2.png
         wallpaper = DP-1,/home/joppe/Pictures/Wallpapers/hyprland/wall2.png
         wallpaper = DP-2,/home/joppe/Pictures/Wallpapers/hyprland/wall2.png
+      '';
+    };
+    
+    # Wofi powermenu script
+    "hypr/wofi-powermenu.sh" = {
+      enable = true;
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+
+        op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | wofi --show dmenu --width 10% | awk '{print tolower($2)}' )
+
+        case $op in
+                poweroff)
+                        ;&
+                reboot)
+                        ;&
+                suspend)
+                        systemctl $op
+                        ;;
+                lock)
+                        swaylock
+                        ;;
+                logout)
+                        hyprctl dispatch exit
+                        ;;
+        esac
       '';
     };
   };
