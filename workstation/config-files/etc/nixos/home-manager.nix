@@ -11,6 +11,7 @@
       ./theming.nix
       ./bash.nix
       ./alacritty.nix
+      ./hypr.nix
       ./xinitrc.nix
       ./dunst.nix
       ./virt-manager.nix
