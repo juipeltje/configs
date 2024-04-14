@@ -11,6 +11,7 @@
       ./theming.nix
       ./bash.nix
       ./alacritty.nix
+      ./i3.nix
       ./hypr.nix
       ./xinitrc.nix
       ./dunst.nix
