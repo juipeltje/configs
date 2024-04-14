@@ -41,7 +41,11 @@ in
       };
  
       # Window settings
-      window.border = 4;
+      window = { 
+        border = 4;
+        titlebar = false;
+      };
+
       floating.border = 4;
       gaps = {
         inner = 10;
@@ -90,6 +94,7 @@ in
           indicator = "#565f89";
           childBorder = "#565f89";
         };
+      };
       
       # Autostart
       startup = [
@@ -98,114 +103,119 @@ in
       ]; 
      
       # Keybindings
-      # Open a terminal
-      "${mod}+t" = "exec ${terminal}";
+      keybindings = {
+        # Open a terminal
+        "${mod}+t" = "exec ${terminal}";
 
-      # open a file manager
-      "${mod}+f" = "exec ${file_manager}";
+        # open a file manager
+        "${mod}+f" = "exec ${file_manager}";
 
-      # open a webbrowser
-      "${mod}+w" = "exec ${webbrowser}";
+        # open a webbrowser
+        "${mod}+w" = "exec ${webbrowser}";
 
-      # open pavucontrol
-      "${mod}+a" = "exec pavucontrol";
+        # open pavucontrol
+        "${mod}+a" = "exec pavucontrol";
 
-      # open Deezer in a firefox window
-      "${mod}+d" = "exec ${webbrowser} -new-window https://www.deezer.com/en/";
+        # open Deezer in a firefox window
+        "${mod}+d" = "exec ${webbrowser} -new-window https://www.deezer.com/en/";
 
-      # open rofi application launcher
-      "${mod}+space" = "exec rofi -show drun -show-icons -icon-theme Papirus-Dark";
+        # open rofi application launcher
+        "${mod}+space" = "exec rofi -show drun -show-icons -icon-theme Papirus-Dark";
 
-      # open rofi powermenu
-      "${mod}+Escape" = "exec ~/.config/i3/rofi-powermenu.sh";
+        # open rofi powermenu
+        "${mod}+Escape" = "exec ~/.config/i3/rofi-powermenu.sh";
 
-      # Dunst notification history and close all notifications
-      "${mod}+n" = "exec dunstctl history-pop";
-      "${mod}+c" = "exec dunstctl close-all";
+        # Dunst notification history and close all notifications
+        "${mod}+n" = "exec dunstctl history-pop";
+        "${mod}+c" = "exec dunstctl close-all";
 
-      # play/pause/previous/next keyboard controls
-      "XF86AudioPlay" = "exec playerctl play-pause";
-      "XF86AudioNext" = "exec playerctl next";
-      "XF86AudioPrev" = "exec playerctl previous";
+        # play/pause/previous/next keyboard controls
+        "XF86AudioPlay" = "exec playerctl play-pause";
+        "XF86AudioNext" = "exec playerctl next";
+        "XF86AudioPrev" = "exec playerctl previous";
 
-      # reload i3 config and exit i3
-      "${mod}+Control+r" = "reload";
-      "${mod}+Control+q" = "exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'";
+        # reload i3 config and exit i3
+        "${mod}+Control+r" = "reload";
+        "${mod}+Control+q" = "exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'";
 
-      # kill a window
-      "${mod}+q" = "kill";
+        # kill a window
+        "${mod}+q" = "kill";
 
-      # switch focused window
-      "${mod}+Right" = "focus right";
-      "${mod}+Left" = "focus left";
-      "${mod}+Up" = "focus up";
-      "${mod}+Down" = "focus down";
+        # switch focused window
+        "${mod}+Right" = "focus right";
+        "${mod}+Left" = "focus left";
+        "${mod}+Up" = "focus up";
+        "${mod}+Down" = "focus down";
 
-      # toggle floating window
-      "${mod}+Shift+space" = "floating toggle";
+        # toggle floating window
+        "${mod}+Shift+space" = "floating toggle";
 
-      # drag floating windows and resize them with the mouse
-      floating.modifier = ${mod};
+        # toggle fullscreen
+        "${mod}+Shift+f" = "fullscreen";
 
-      # toggle fullscreen
-      "${mod}+Shift+f" = "fullscreen";
+        # move the focused window
+        "${mod}+Control+Right" = "move right";
+        "${mod}+Control+Left" = "move left";
+        "${mod}+Control+Up" = "move up";
+        "${mod}+Control+Down" = "move down";
 
-      # move the focused window
-      "${mod}+Control+Right" = "move right";
-      "${mod}+Control+Left" = "move left";
-      "${mod}+Control+Up" = "move up";
-      "${mod}+Control+Down" = "move down";
+        # Resize windows
+        "${mod}+Shift+Right" = "resize grow width 50px";
+        "${mod}+Shift+Left" = "resize shrink width 50px";
+        "${mod}+Shift+Up" = "resize shrink height 50px";
+        "${mod}+Shift+Down" = "resize grow height 50px";
 
-      # Resize windows
-      "${mod}+Shift+Right" = "resize grow width 50px";
-      "${mod}+Shift+Left" = "resize shrink width 50px";
-      "${mod}+Shift+Up" = "resize shrink height 50px";
-      "${mod}+Shift+Down" = "resize grow height 50px";
-
-      # send window to scratchpad and toggle scratchpad
-      "${mod}+Shift+s" = "move scratchpad";
-      "${mod}+s" = "scratchpad show";
+        # send window to scratchpad and toggle scratchpad
+        "${mod}+Shift+s" = "move scratchpad";
+        "${mod}+s" = "scratchpad show";
          
-      # switch to workspaces
-      "${mod}+KP_End" = "workspace number ${ws1}";
-      "${mod}+KP_Down" = "workspace number ${ws2}";
-      "${mod}+KP_Next" = "workspace number ${ws3}";
-      "${mod}+KP_Left" = "workspace number ${ws4}";
-      "${mod}+KP_Begin" = "workspace number ${ws5}";
-      "${mod}+KP_Right" = "workspace number ${ws6}";
-      "${mod}+KP_Home" = "workspace number ${ws7}";
-      "${mod}+KP_Up" = "workspace number ${ws8}";
+        # switch to workspaces
+        "${mod}+KP_End" = "workspace number ${ws1}";
+        "${mod}+KP_Down" = "workspace number ${ws2}";
+        "${mod}+KP_Next" = "workspace number ${ws3}";
+        "${mod}+KP_Left" = "workspace number ${ws4}";
+        "${mod}+KP_Begin" = "workspace number ${ws5}";
+        "${mod}+KP_Right" = "workspace number ${ws6}";
+        "${mod}+KP_Home" = "workspace number ${ws7}";
+        "${mod}+KP_Up" = "workspace number ${ws8}";
 
-      # move window to workspace
-      "${mod}+Shift+KP_End" = "move container to workspace number ${ws1}";
-      "${mod}+Shift+KP_Down" = "move container to workspace number ${ws2}";
-      "${mod}+Shift+KP_Next" = "move container to workspace number ${ws3}";
-      "${mod}+Shift+KP_Left" = "move container to workspace number ${ws4}";
-      "${mod}+Shift+KP_Begin" = "move container to workspace number ${ws5}";
-      "${mod}+Shift+KP_Right" = "move container to workspace number ${ws6}";
-      "${mod}+Shift+KP_Home" = "move container to workspace number ${ws7}";
-      "${mod}+Shift+KP_Up" = "move container to workspace number ${ws8}";
+        # move window to workspace
+        "${mod}+Shift+KP_End" = "move container to workspace number ${ws1}";
+        "${mod}+Shift+KP_Down" = "move container to workspace number ${ws2}";
+        "${mod}+Shift+KP_Next" = "move container to workspace number ${ws3}";
+        "${mod}+Shift+KP_Left" = "move container to workspace number ${ws4}";
+        "${mod}+Shift+KP_Begin" = "move container to workspace number ${ws5}";
+        "${mod}+Shift+KP_Right" = "move container to workspace number ${ws6}";
+        "${mod}+Shift+KP_Home" = "move container to workspace number ${ws7}";
+        "${mod}+Shift+KP_Up" = "move container to workspace number ${ws8}";
+
+        # choose how the windows will be split when opening a new window
+        "${mod}+h" = "splith";
+        "${mod}+v" = "splitv";
+
+        # switch between the different layout styles
+        "${mod}+Control+s" = "layout stacking";
+        "${mod}+Control+w" = "layout tabbed";
+        "${mod}+Control+e" = "layout toggle split";
+      };
+
+      # Drag floating windows and resize them with the mouse
+      floating.modifier = "${mod}";
 
       # bind workspaces to monitors
       workspaceOutputAssign = [
-        "${ws1}" = "${DP-1}";
-        "${ws2}" = "${DP-0}";
-        "${ws3}" = "${DP-0}";
-        "${ws4}" = "${DP-0}";
-        "${ws5}" = "${DP-0}";
-        "${ws6}" = "${DP-0}";
-        "${ws7}" = "${DP-0}";
-        "${ws8}" = "${DP-0}";
+        { output = "${DP-1}"; workspace = "${ws1}"; }
+        { output = "${DP-0}"; workspace = "${ws2}"; }
+        { output = "${DP-0}"; workspace = "${ws3}"; }
+        { output = "${DP-0}"; workspace = "${ws4}"; }
+        { output = "${DP-0}"; workspace = "${ws5}"; }
+        { output = "${DP-0}"; workspace = "${ws6}"; }
+        { output = "${DP-0}"; workspace = "${ws7}"; }
+        { output = "${DP-0}"; workspace = "${ws8}"; } 
       ];
-
-      # choose how the windows will be split when opening a new window
-      "${mod}+h" = "splith";
-      "${mod}+v" = "splitv";
-
-      # switch between the different layout styles
-      "${mod}+Control+s" = "layout stacking";
-      "${mod}+Control+w" = "layout tabbed";
-      "${mod}+Control+e" = "layout toggle split";
+      
+      bars = [ ];
+    };
   };
 
   # Autostart script

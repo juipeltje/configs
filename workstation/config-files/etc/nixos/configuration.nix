@@ -309,7 +309,7 @@ let
   # Emulators
   duckstation
   pcsx2
-  stable.rpcs3
+  rpcs3
   dolphin-emu
   # Benchmarking
   s-tui
@@ -325,7 +325,7 @@ let
   wget
   lxde.lxsession
   xdotool
-  polybar
+  polybarFull
   hyprpaper
   mpvpaper
   appimage-run
