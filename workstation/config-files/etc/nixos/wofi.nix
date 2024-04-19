@@ -10,6 +10,7 @@
       show = "drun";
       width = 400;
       height = 400;
+      prompt = "";
       normal_window = true;
       allow_images = true;
       allow_markup = false;
@@ -81,7 +82,7 @@
               background-color: #a9b1d6;
               color: #1a1b26;
       }
-    ''
+    '';
   };
 }
        

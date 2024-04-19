@@ -7,17 +7,18 @@
   home-manager.users.joppe = { pkgs, ... }: {
     home.packages = [ ];
     imports = [
-      ./git.nix
-      ./theming.nix
-      ./bash.nix
       ./alacritty.nix
-      ./i3.nix
-      ./swayfx.nix
-      ./hypr.nix
-      ./xinitrc.nix
+      ./bash.nix
       ./dunst.nix
+      ./git.nix
+      ./hypr.nix
+      ./i3.nix
+      ./mpv.nix
+      ./swayfx.nix
+      ./theming.nix
       ./virt-manager.nix
       ./wofi.nix
+      ./xinitrc.nix
       ./yazi.nix
     ];
 
