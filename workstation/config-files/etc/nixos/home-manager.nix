@@ -17,6 +17,7 @@
       ./xinitrc.nix
       ./dunst.nix
       ./virt-manager.nix
+      ./wofi.nix
       ./yazi.nix
     ];
 
