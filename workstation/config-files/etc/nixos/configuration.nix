@@ -13,31 +13,17 @@ let
       # Execute your favorite apps at launch
       exec-once = ${pkgs.greetd.regreet}/bin/regreet; hyprctl dispatch exit
 
-      # set the cursor size
+      # Env variables/set cursor size
       env = XCURSOR_SIZE,24
 
       input {
-
-        # set the keyboard layout
-        kb_layout = us
-
-        # changes the behaviour of the cursor regarding window focus
         follow_mouse = 1
-
-        # set the mouse sensitivity
         sensitivity = 0
-
       }
 
       misc {
-
-        # disable the random hyprland logo / anime girl background :(
 	disable_hyprland_logo = true
-
-        # disable the hyprland splash rendering
 	disable_splash_rendering = true
-
-        # enforce any of the 3 default wallpapers. setting this to 0 disables the anime background. -1 means "random" [-1 -3]
 	force_default_wallpaper = 0
       }
     '';
@@ -68,6 +54,7 @@ let
   # the "resumeDevice" line, uncomment it, and then enter the offset in "kernelParams" as
   # "resume_offset=$youroffsethere", then rebuild the system again. 
   swapDevices = [ { device = "/swapfile"; size = 48*1024; } ];
+  
   boot = {
     resumeDevice = "/dev/disk/by-uuid/ce7c1e16-7e50-434f-b727-7c242f2d51ea";
     kernelParams = [ "resume_offset=217263104" "amd_iommu=on" "iommu=pt" ];
@@ -78,6 +65,7 @@ let
     hostName = "NixOS-Rig";
     networkmanager.enable = true;
   };
+  
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad;
@@ -124,6 +112,7 @@ let
       i3.extraPackages = [ ];
       qtile.enable = true;
     };
+    
     displayManager = { 
       startx.enable = true;
       session = [
@@ -133,6 +122,7 @@ let
             ${pkgs.xorg.xinit}/bin/startx ~/.xinitrc-i3
           '';
         }
+
         { manage = "window";
           name = "qtile-startx";
           start = ''
@@ -141,10 +131,12 @@ let
         }
       ];
     };
+    
     desktopManager = {
       kodi.package = pkgs.kodi;
       kodi.enable = true;
     };
+    
     videoDrivers = [ "amdgpu" ];
     deviceSection = ''
        Option "TearFree" "true"
@@ -184,6 +176,7 @@ let
       };
     };
   };
+
   programs.regreet = {
     enable = true;
     settings = {
@@ -191,6 +184,7 @@ let
         path = /greeter-wallpapers/1.jpg;
         fit = "Contain";
       };
+      
       GTK = {
         application_prefer_dark_theme = false;
         cursor_theme_name = "phinger-cursors-light";
@@ -198,6 +192,7 @@ let
         icon_theme_name = "Mint-Y-Sand";
         theme_name = "Tokyonight-Dark-BL";
       };
+
       commands = {
         reboot = [ "systemctl" "reboot" ];
         poweroff = [ "systemctl" "poweroff" ];
@@ -241,6 +236,7 @@ let
     enable = true;
     motherboard = "amd";
   };
+  
   hardware.i2c.enable = true;
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -270,6 +266,8 @@ let
   # File managers/utilities
   pcmanfm
   ranger
+  yazi
+  ueberzugpp
   unzip
   gnutar
   xz
@@ -332,6 +330,7 @@ let
   distrobox
   monero-gui
   vscodium-fhs
+  autotiling
   ];
 
   # Enable gnupg
@@ -350,6 +349,7 @@ let
     package = pkgs.bluez;
     enable = true;
   };
+ 
   services.blueman.enable = true;
   
   # enable virt-manager, libvirtd daemon, and podman.

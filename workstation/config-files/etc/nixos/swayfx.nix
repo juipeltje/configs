@@ -26,7 +26,8 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = ${pkgs.swayfx};
+    systemd.enable = false;
+    package = "${pkgs.swayfx}";
     config = {
       # Font settings
       fonts = {
@@ -48,7 +49,11 @@ in
         titlebar = false;
       };
 
-      floating.border = 4;
+      floating = {
+        border = 4;
+        titlebar = false;
+      };
+
       gaps = {
         inner = 10;
         top = 0;
@@ -100,7 +105,7 @@ in
       
       # Output settings (wallpaper/monitors)
       output = {
-        * = {
+        "*" = {
           bg = "~/Pictures/Wallpapers/japan/tokyo1.png fill";
         };
 
@@ -129,8 +134,8 @@ in
         # open a file manager
         "${mod}+f" = "exec ${file_manager}";
 
-        # open ranger 
-        "${mod}+r" = "exec ${terminal} -e ranger";
+        # open yazi 
+        "${mod}+y" = "exec ${terminal} -e yazi";
 
         # open a webbrowser
         "${mod}+w" = "exec ${webbrowser}";
@@ -278,7 +283,7 @@ in
       text = ''
         #!/usr/bin/env bash
 
-        #~/test-autotiling/bin/python /home/joppe/test-autotiling/test-autotiling.py --splitratio 1.61 --limit 2 &
+        autotiling --splitratio 1.61 --limit 2 &
         waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style.css &
         mako -c ~/.config/mako/sway-config &
         playerctld daemon &

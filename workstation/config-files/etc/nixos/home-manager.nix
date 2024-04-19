@@ -12,10 +12,12 @@
       ./bash.nix
       ./alacritty.nix
       ./i3.nix
+      ./swayfx.nix
       ./hypr.nix
       ./xinitrc.nix
       ./dunst.nix
       ./virt-manager.nix
+      ./yazi.nix
     ];
 
     # The state version is required and should stay at the version you
