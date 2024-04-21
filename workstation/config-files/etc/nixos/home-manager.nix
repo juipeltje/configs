@@ -14,6 +14,7 @@
       ./hypr.nix
       ./i3.nix
       ./mpv.nix
+      ./polybar.nix
       ./rofi.nix
       ./swayfx.nix
       ./theming.nix

@@ -22,7 +22,7 @@
     };
   };
 
-  xdg.dataFile.".local/share/rofi/themes/tokyo-night.rasi" = {
+  xdg.configFile."rofi/tokyo-night.rasi" = {
     enable = true;
     text = ''
       * {
