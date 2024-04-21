@@ -141,8 +141,8 @@ in
         # open a file manager
         "${Mod}, F, exec, ${file_manager}"
 
-        # open ranger in alacritty
-        "${Mod}, R, exec, ${terminal} -e ranger"
+        # open terminal file manager
+        "${Mod}, R, exec, ${terminal} -e yazi"
 
         # open a webbrowser
         "${Mod}, W, exec, ${webbrowser}"
@@ -269,6 +269,7 @@ in
         ~/repos/configs/Scripts/yoda --match commander control sync with "(40,40),(50,45),(55,50),(60,60),(65,70),(70,80),(80,90),(85,100)" on k10temp.tctl &
         nm-applet &
         openrgb &
+        xrandr --output DP-1 --primary &
         alsactl --file ~/.config/asound.state restore &
       '';
     };

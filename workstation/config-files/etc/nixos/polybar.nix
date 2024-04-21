@@ -4,8 +4,6 @@
 
 {
 
-# polybar config.ini
-
   xdg.configFile = {
     "polybar/config.ini" = {
       enable = true;

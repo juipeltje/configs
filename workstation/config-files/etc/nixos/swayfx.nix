@@ -134,14 +134,17 @@ in
         # open a file manager
         "${mod}+f" = "exec ${file_manager}";
 
-        # open yazi 
+        # open terminal file manager 
         "${mod}+y" = "exec ${terminal} -e yazi";
 
         # open a webbrowser
         "${mod}+w" = "exec ${webbrowser}";
 
         # open pavucontrol
-        "${mod}+a" = "exec pavucontrol";
+        "${mod}+p" = "exec pavucontrol";
+
+        # restore alsa sound settings
+        "${mod}+a" = "exec alsactl --file ~/.config/asound.state restore";
 
         # open Deezer in a firefox window
         "${mod}+d" = "exec ${webbrowser} -new-window https://www.deezer.com/en/";
@@ -176,9 +179,6 @@ in
 
         # toggle floating window
         "${mod}+Shift+space" = "floating toggle";
-
-        # drag floating windows and resize them with the mouse
-        #floating_modifier $mod normal
 
         # toggle fullscreen
         "${mod}+Shift+f" = "fullscreen";
@@ -238,14 +238,14 @@ in
 
       # bind workspaces to monitors
       workspaceOutputAssign = [
-        { output = "DP-2"; workspace = "${ws1}"; }
+        { output = "DP-1"; workspace = "${ws1}"; }
         { output = "DP-1"; workspace = "${ws2}"; }
         { output = "DP-1"; workspace = "${ws3}"; }
         { output = "DP-1"; workspace = "${ws4}"; }
         { output = "DP-1"; workspace = "${ws5}"; }
         { output = "DP-1"; workspace = "${ws6}"; }
         { output = "DP-1"; workspace = "${ws7}"; }
-        { output = "DP-1"; workspace = "${ws8}"; }
+        { output = "DP-2"; workspace = "${ws8}"; }
       ];
      
       bars = [ ];
@@ -295,6 +295,7 @@ in
         nm-applet &
         openrgb &
         xrandr --output DP-1 --primary &
+        alsactl --file ~/.config/asound.state restore &
       '';
     };
 
