@@ -31,7 +31,7 @@ text-alignment=left
 default-timeout=5000
 ignore-timeout=1
 max-visible=5
-output="DP-1"
+output=
 layer=top
 anchor=top-right
 

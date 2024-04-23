@@ -6,6 +6,12 @@
 
   programs.yazi = {
     enable = true;
+    keymap = {
+      manager.append_keymap = [
+        { exec = "shell --confirm 'swaymsg output \"*\" background $0 fill && cp -f $0 ~/Pictures/sway/background.jpg'"; on = [ "<C-w>" ]; }
+      ];
+    };
+
     settings = {
       manager = {
         show_hidden = true;

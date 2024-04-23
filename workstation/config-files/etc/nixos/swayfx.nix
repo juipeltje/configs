@@ -106,7 +106,7 @@ in
       # Output settings (wallpaper/monitors)
       output = {
         "*" = {
-          bg = "~/Pictures/Wallpapers/japan/tokyo1.png fill";
+          bg = "~/Pictures/sway/background.jpg fill";
         };
 
         DP-1 = {

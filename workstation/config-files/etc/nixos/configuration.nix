@@ -277,6 +277,7 @@ let
   # Notifications
   dunst
   mako
+  libnotify
   # Run launchers
   rofi
   wofi

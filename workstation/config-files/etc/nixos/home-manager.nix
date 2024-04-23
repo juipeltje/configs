@@ -13,6 +13,7 @@
       ./git.nix
       ./hypr.nix
       ./i3.nix
+      ./mako.nix
       ./mpv.nix
       ./polybar.nix
       ./rofi.nix
