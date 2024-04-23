@@ -247,6 +247,9 @@ in
         { output = "DP-1"; workspace = "${ws7}"; }
         { output = "DP-2"; workspace = "${ws8}"; }
       ];
+
+      # whether mouse should follow output, container, or not follow
+      focus.mouseWarping = "container";
      
       bars = [ ];
     };
