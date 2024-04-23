@@ -16,6 +16,7 @@
       ./mako.nix
       ./mpv.nix
       ./polybar.nix
+      ./qtile.nix
       ./rofi.nix
       ./swayfx.nix
       ./theming.nix

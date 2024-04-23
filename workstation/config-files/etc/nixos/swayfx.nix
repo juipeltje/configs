@@ -285,7 +285,7 @@ in
 
         autotiling --splitratio 1.61 --limit 2 &
         waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style.css &
-        mako -c ~/.config/mako/sway-config &
+        mako &
         playerctld daemon &
         lxsession &
         liquidctl initialize all &

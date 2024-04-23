@@ -260,7 +260,7 @@ in
         hyprpaper &
         waybar -c ~/.config/waybar/hyprland-config -s ~/.config/waybar/hyprland-style.css &
         hyprctl setcursor phinger-cursors-light 24 &
-        mako -c ~/.config/mako/hyprland-config &
+        mako &
         playerctld daemon &
         lxsession &
         liquidctl initialize all &
