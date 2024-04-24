@@ -6,8 +6,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Gaming
+      ./gaming.nix
       # greeter settings
       ./greeter.nix
+      # Wayland settings
+      ./wayland.nix
       # X11 settings
       ./x11.nix
       # Import home-manager settings
@@ -97,19 +101,8 @@
       };
     };
   };
-  
-  # Enable wayland compositors, Xwayland, and waybar.
-  programs = {
-    hyprland.enable = true;
-    sway.package = pkgs.swayfx;
-    sway.enable = true;
-    sway.extraPackages = [ ];
-    xwayland.enable = true;
-    waybar.enable = true;
-    waybar.package = pkgs.waybar;
-  };
 
-  # Enabling Nano, Git, Firefox, Htop, Steam, and corectrl.
+  # Enable Nano, Git, Firefox, and Htop.
   programs = {
     nano.enable = true;
     nano.syntaxHighlight = true;
@@ -117,16 +110,6 @@
     firefox.enable = true;
     htop.package = pkgs.htop;
     htop.enable = true;
-    steam.enable = true;
-    gamemode.enable = true;
-    corectrl.enable = true;
-    corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
-  };
-  
-  # Enable Vulkan.
-  hardware.opengl = { 
-    driSupport = true;
-    driSupport32Bit = true;
   };
 
   # Enable OpenRGB and i2c support.
@@ -156,80 +139,79 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  # Networking
-  networkmanagerapplet
-  transmission-gtk
-  # Terminal
-  alacritty
-  # File managers/utilities
-  pcmanfm
-  ranger
-  yazi
-  ueberzugpp
-  unzip
-  gnutar
-  xz
-  p7zip
-  # E-mail
-  thunderbird
-  # Notifications
-  dunst
-  mako
-  libnotify
-  # Run launchers
-  rofi
-  wofi
-  # Office suite
-  libreoffice
-  # Multimedia
-  alsa-utils
-  pavucontrol
-  playerctl
-  mpv
-  feh
-  deadbeef-with-plugins
-  # Fetch tools
-  neofetch
-  fastfetch
-  # Theming/Fonts
-  tokyonight-gtk-theme
-  phinger-cursors
-  cinnamon.mint-y-icons
-  nerdfonts
-  # Python
-  (python312.withPackages (subpkgs: with subpkgs; [ liquidctl docopt psutil ]))
-  # Wine/Gaming
-  bottles
-  heroic
-  mangohud
-  prismlauncher
-  # Emulators
-  duckstation
-  pcsx2
-  rpcs3
-  dolphin-emu
-  # Benchmarking
-  s-tui
-  stress-ng
-  unigine-heaven
-  unigine-valley
-  unigine-superposition
-  # Other
-  lm_sensors
-  (pass.withExtensions (subpkgs: with subpkgs; [ pass-otp ]))
-  gparted
-  curl
-  wget
-  lxde.lxsession
-  xdotool
-  polybarFull
-  hyprpaper
-  mpvpaper
-  appimage-run
-  distrobox
-  monero-gui
-  vscodium-fhs
-  autotiling
+    # Networking
+    networkmanagerapplet
+    transmission-gtk
+  
+    # Terminal
+    alacritty
+  
+    # File managers/utilities
+    pcmanfm
+    ranger
+    yazi
+    ueberzugpp
+    unzip
+    gnutar
+    xz
+    p7zip
+  
+    # E-mail
+    thunderbird
+  
+    # Notifications
+    dunst
+    mako
+    libnotify
+  
+    # Run launchers
+    rofi
+    wofi
+  
+    # Office suite
+    libreoffice
+  
+    # Multimedia
+    alsa-utils
+    pavucontrol
+    playerctl
+    mpv
+    feh
+    deadbeef-with-plugins
+  
+    # Fetch tools
+    neofetch
+    fastfetch
+  
+    # Theming/Fonts
+    tokyonight-gtk-theme
+    phinger-cursors
+    cinnamon.mint-y-icons
+    nerdfonts
+  
+    # Python
+    (python312.withPackages (subpkgs: with subpkgs; [ liquidctl docopt psutil ]))
+  
+    # Benchmarking
+    s-tui
+    stress-ng
+  
+    # Other
+    lm_sensors
+    (pass.withExtensions (subpkgs: with subpkgs; [ pass-otp ]))
+    gparted
+    curl
+    wget
+    lxde.lxsession
+    xdotool
+    polybarFull
+    hyprpaper
+    mpvpaper
+    appimage-run
+    distrobox
+    monero-gui
+    vscodium-fhs
+    autotiling
   ];
 
   # Enable gnupg
