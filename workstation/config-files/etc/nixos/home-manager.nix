@@ -21,6 +21,7 @@
       ./swayfx.nix
       ./theming.nix
       ./virt-manager.nix
+      ./waybar.nix
       ./wofi.nix
       ./xinitrc.nix
       ./yazi.nix
