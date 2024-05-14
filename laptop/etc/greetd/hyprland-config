@@ -1,44 +1,25 @@
-#### Hyprland greeter config
+# Hyprland laptop greeter config
 
 # monitor settings
-
 monitor=eDP-1,1920x1080@60,0x0,1
 
 # Execute your favorite apps at launch
-
-exec-once = GTK_THEME=Tokyonight-Dark gtkgreet -l -b /usr/share/backgrounds/gravity-rush-3.jpg -s /etc/greetd/gtkgreet.css; hyprctl dispatch exit
+exec-once = regreet; hyprctl dispatch exit
 
 # set the cursor size
-
 env = XCURSOR_SIZE,24
 
+# Input settings
 input {
-
-        # set the keyboard layout
-
-        kb_layout = us
-
-        # changes the behaviour of the cursor regarding window focus
-
         follow_mouse = 1
-
-        # set the mouse sensitivity
-
         sensitivity = 0
-
         touchpad {
-                   # tapping the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively.
-
                    tap-to-click = true
                  }
 }
  
-## keybindings
-
-# variables
-
-$mainMod = SUPER
-
-# open wofi powermenu
-
-bind = $mainMod, escape, exec, /etc/greetd/wofi-powermenu-greeter.sh
+misc {
+	disable_hyprland_logo = true
+	disable_splash_rendering = true
+	force_default_wallpaper = 0
+}

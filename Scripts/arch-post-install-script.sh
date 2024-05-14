@@ -136,15 +136,16 @@ desktop_packages=(
 )
 
 laptop_packages=(
-	# Power management/Screen brightness
+	# Power management/Screen brightness/Volume control
 	"tlp"
 	"brightnessctl"
+	"pulsemixer"
 )
 
 aur_packages=(
-	"swayfx" 
-	"prismlauncher" 
-	"swaylock-effects" 
+	"swayfx"
+	"prismlauncher"
+	"swaylock-effects"
 )
 
 options_1=(
@@ -169,7 +170,7 @@ services() {
 
 laptop_services() {
 	systemctl enable tlp
-}	
+}
 
 swapfile() {
 	chmod 0600 /swapfile
@@ -189,11 +190,6 @@ grub() {
 	rm -r /home/$user/Downloads/arch-linux.tar
 	swap_uuid=$(cat /etc/fstab | tail -n5 | head -n1 | awk '{print $1}')
 	swap_offset=$(filefrag -v /swapfile | head -n 4 | tail -n 1 | awk '{print $4}' | sed 's/\..//')
-}
-
-greeter() {
-	rm -f /etc/greetd/config.toml
-	wget -P /etc/greetd https://raw.githubusercontent.com/juipeltje/configs/main/workstation/config-files/etc/greetd/config.toml
 }
 
 rm_default_configs() {
@@ -217,7 +213,44 @@ rm_default_configs() {
 }
 
 configs() {
+	sudo -u $user git clone https://github.com/juipeltje/configs /home/$user/configs
+	sudo -u $user cp -rf /home/$user/configs/common/home/.bash_profile /home/$user/
+	sudo -u $user cp -rf /home/$user/configs/common/home/.xinitrc-i3 /home/$user/
+	sudo -u $user cp -rf /home/$user/configs/common/home/.xinitrc-qtile /home/$user/
+	sudo -u $user mkdir -p /home/$user/.config
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/alacritty /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/dunst /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/git /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/hypr /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/i3 /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/mako /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/mpv /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/pipewire /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/rofi /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/sway /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/tofi /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/wofi /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/common/home/dotconfig/yazi /home/$user/.config/
+	cp -f /home/$user/configs/common/etc/greetd/config.toml /etc/greetd/
+}
 
+configs_desktop() {
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/hypr/* /home/$user/.config/hypr/
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/i3/* /home/$user/.config/i3/
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/polybar /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/qtile /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/sway/* /home/$user/.config/sway/
+	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/waybar /home/$user/.config/
+}
+
+configs_laptop() {
+	sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/hypr/* /home/$user/.config/hypr/
+        sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/i3/* /home/$user/.config/i3/
+        sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/polybar /home/$user/.config/
+        sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/qtile /home/$user/.config/
+	sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/sway/* /home/$user/.config/sway/
+        sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/waybar /home/$user/.config/
+}
 
 echo "This script will install both global system configurations as well as dotfiles in the user's home folder. \
 Confirm you understand this keeping in mind that something could go wrong and brick your system."
