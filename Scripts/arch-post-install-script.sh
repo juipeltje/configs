@@ -185,7 +185,7 @@ grub() {
 	tar -xf /home/$user/Downloads/arch-linux.tar -C /home/$user/Downloads/arch-grub-theme
 	mkdir -p /boot/grub/themes
 	cp -r /home/$user/Downloads/arch-grub-theme /boot/grub/themes/arch
-	sed -i 's|#GRUB_THEME="/path/to/gfxtheme"|GRUB_THEME=/boot/grub/themes/arch/theme.txt|' /etc/default/grub
+	sed -i 's|^#GRUB_THEME.*|GRUB_THEME=/boot/grub/themes/arch/theme.txt|' /etc/default/grub
 	rm -r /home/$user/Downloads/arch-grub-theme
 	rm -r /home/$user/Downloads/arch-linux.tar
 	swap_uuid=$(cat /etc/fstab | tail -n5 | head -n1 | awk '{print $1}')
@@ -286,6 +286,13 @@ do
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
         		pacman -S --noconfirm --needed "${desktop_packages[@]}"
+			echo "creating user directories..."
+			sudo -u $user xdg-user-dirs-update
+			echo "installing config files..."
+			rm_default_configs
+			configs
+			configs_desktop
+			cp -rf /home/$user/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
         		echo "adding user to groups..."
         		usermod -aG kvm,libvirt $user
         		echo "adding kernel modules to load on boot..."
@@ -298,12 +305,9 @@ do
 			swapfile
         		echo "configuring grub..."
         		grub
-        		sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 quiet\"/GRUB_CMDLINE_LINUX_DEFAULT=\"amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=3\"/" /etc/default/grub
-        		sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=3\"/" /etc/default/grub
+        		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
-        		echo "setting up greeter..."
-			greeter
-        		wget -P /etc/greetd https://raw.githubusercontent.com/juipeltje/configs/main/workstation/config-files/etc/greetd/hyprland-config
         		echo "enabling systemd services..."
         		services
         		echo "Finished!! You can now reboot your machine."
@@ -315,7 +319,12 @@ do
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
         		pacman -S --noconfirm --needed "${laptop_packages[@]}"
-        		echo "installing config files..."
+			echo "creating user directories..."
+                        sudo -u $user xdg-user-dirs-update
+                        echo "installing config files..."
+                        rm_default_configs
+                        configs
+			configs_laptop
         		echo "adding user to groups..."
         		usermod -aG kvm,libvirt $user
         		echo "setting up swapfile..."
@@ -323,8 +332,8 @@ do
 			swapfile
         		echo "configuring grub..."
         		grub
-        		sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 quiet\"/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff loglevel=3\"/" /etc/default/grub
-        		sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE=1920x1080x32,auto/' /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff loglevel=3\"/" /etc/default/grub
+        		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
         		echo "setting up battery script and crontab for auto-hibernate when battery is low..."
         		echo "enabling systemd services..."
@@ -338,7 +347,12 @@ do
 			echo "installing packages..."
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
-        		echo "installing config files..."
+			echo "creating user directories..."
+                        sudo -u $user xdg-user-dirs-update
+                        echo "installing config files..."
+                        rm_default_configs
+                        configs
+                        configs_desktop
         		echo "adding user to groups..."
         		usermod -aG kvm,libvirt $user
         		echo "enabling systemd services..."
