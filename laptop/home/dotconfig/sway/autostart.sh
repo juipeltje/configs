@@ -2,9 +2,9 @@
 
 # autostart script for swayfx
 
-swaymsg output "*" bg /home/joppe/Pictures/wallpapers/games/Gravity-Rush/gravity-rush-3.jpg fill &
-waybar -c /home/joppe/.config/waybar/sway-config -s /home/joppe/.config/waybar/sway-style.css &
-mako -c /home/joppe/.config/mako/sway-config &
+autotiling --splitratio 1.61 --limit 2 &
+waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style.css &
+mako &
 playerctld daemon &
 lxsession &
 nm-applet &

@@ -17,6 +17,7 @@ input {
         sensitivity = 0
 }
 
+# Miscellaneous settings
 misc {
 	disable_hyprland_logo = true
 	disable_splash_rendering = true

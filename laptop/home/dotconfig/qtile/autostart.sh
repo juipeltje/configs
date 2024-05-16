@@ -2,11 +2,10 @@
 
 # script for autostarting applications in qtile
 
-/home/joppe/.fehbg &
-pipewire &
-picom &
+~/.fehbg &
+#picom &
 dunst &
 playerctld daemon &
-/usr/bin/lxpolkit &
+lxsession &
 xset s off -dpms &
 nm-applet &

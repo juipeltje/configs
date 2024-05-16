@@ -34,6 +34,7 @@ packages=(
         "lib32-libva-mesa-driver"
         "mesa-vdpau"
         "lib32-mesa-vdpau"
+	"corectrl"
         "steam"
         "gamemode"
         "lib32-gamemode"
@@ -85,6 +86,7 @@ packages=(
         "pavucontrol"
         "playerctl"
         "mpv"
+	"kodi"
         "feh"
 
         # Fetch tools
@@ -143,9 +145,38 @@ laptop_packages=(
 )
 
 aur_packages=(
+	# Theming
+	"phinger-cursors"
+	"nordic-theme"
+	"gruvbox-material-gtk-theme-git"
+	"tokyonight-gtk-theme-git"
+	"everforest-gtk-theme-git"
+	"mint-y-icons"
+
+	# Multimedia
+	"deadbeef"
+	"deadbeef-mpris2-plugin"
+	"ueberzugpp"
+
+	# SwayFX with autotiling
 	"swayfx"
-	"prismlauncher"
-	"swaylock-effects"
+	"autotiling"
+
+	# Gaming
+	"bottles"
+	"heroic-games-launcher-bin"
+	"prismlauncher-bin"
+
+	# Emulators
+	"duckstation"
+	"pcsx2-latest-bin"
+	"rpcs3-bin"
+	"vita3k-bin"
+
+	# Benchmarking
+	"unigine-heaven"
+	"unigine-valley"
+	"unigine-superposition"
 )
 
 options_1=(
@@ -241,6 +272,8 @@ configs_desktop() {
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/qtile /home/$user/.config/
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/sway/* /home/$user/.config/sway/
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/waybar /home/$user/.config/
+	cp -f /home/$user/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
+	cp -f /home/$user/configs/workstation/etc/greetd/hyprland-config /etc/greetd/
 }
 
 configs_laptop() {
@@ -250,114 +283,153 @@ configs_laptop() {
         sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/qtile /home/$user/.config/
 	sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/sway/* /home/$user/.config/sway/
         sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/waybar /home/$user/.config/
+	cp -f /home/$user/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
+	cp -f /home/$user/configs/laptop/etc/greetd/hyprland-config /etc/greetd/
+	cp -rf /home/$user/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
 }
 
-echo "This script will install both global system configurations as well as dotfiles in the user's home folder. \
+aur() {
+	pacman -S --needed base-devel
+	sudo -u $user git clone https://aur.archlinux.org/paru.git /home/$user/paru
+	cd /home/$user/paru
+	sudo -u $user makepkg -si
+	cd
+	paru -S --noconfirm "${aur_packages[@]}"
+}
+
+startx() {
+	echo "[Desktop Entry]
+	Name=Qtile (startx)
+	Comment=Qtile session started with startx for regreet display manager
+	Exec=startx ~/.xinitrc-qtile
+	Type=Application
+	Keywords=wm;tiling" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "[Desktop Entry]
+	Name=i3 (startx)
+	Comment=i3 session started with startx for regreet display manager
+	Exec=startx ~/.xinitrc-i3
+	Type=Application
+	Keywords=wm;tiling" >> /usr/share/xsessions/i3-startx.desktop
+}
+
+echo "This script will install both global system configurations as well as dotfiles in the user's home folder.
 Confirm you understand this keeping in mind that something could go wrong and brick your system."
 
 select opt_1 in "${options_1[@]}"
 do
 	case $opt_1 in
 		"1 - confirm") 
-                	echo "continuing with post-install script..." 
+                	echo "Continuing with post-install script..." 
 		   	break
 		   	;;
 		"2 - exit script") 
-			echo "exiting post-install script..."
+			echo "Exiting post-install script..."
 	           	exit 68 
 		   	;;
 	esac
 done
 
-echo "please enter the username of your machine. this will be used as a variable in the install script"
+echo "Please enter the username of your machine. this will be used as a variable in the install script."
 
 read user;
 
-echo "continuing post-install script as '$user'..."
+echo "Continuing post-install script as '$user'..."
 
-echo "one last question: are you using a desktop, laptop, or virtual machine?"
+echo "One last question: are you using a desktop, laptop, or virtual machine?"
 
 select opt_2 in "${options_2[@]}"
 do
 	case $opt_2 in
 		"1 - desktop")
-			echo "continuing post-install script with settings for desktop"
-			echo "installing packages..."
+			echo "Continuing post-install script with settings for desktop"
+			echo "Installing packages..."
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
         		pacman -S --noconfirm --needed "${desktop_packages[@]}"
-			echo "creating user directories..."
+			echo "Creating user directories..."
 			sudo -u $user xdg-user-dirs-update
-			echo "installing config files..."
+			echo "Installing config files..."
 			rm_default_configs
 			configs
 			configs_desktop
 			cp -rf /home/$user/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
-        		echo "adding user to groups..."
+        		echo "Adding user to groups..."
         		usermod -aG kvm,libvirt $user
-        		echo "adding kernel modules to load on boot..."
+        		echo "Adding kernel modules to load on boot..."
         		echo "i2c-dev" >> /etc/modules-load.d/i2c.conf
         		echo "i2c-piix4" >> /etc/modules-load.d/i2c-piix4.conf
         		echo "options vfio-pci ids=10de:1287,10de:0e0f" >> /etc/modprobe.d/vfio.conf
         		mkinitcpio -P
-        		echo "setting up swapfile..."
+        		echo "Setting up swapfile..."
 			dd if=/dev/zero of=/swapfile bs=1M count=48k status=progress
 			swapfile
-        		echo "configuring grub..."
+        		echo "Configuring grub..."
         		grub
         		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=3\"/" /etc/default/grub
         		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
-        		echo "enabling systemd services..."
+        		echo "Enabling systemd services..."
         		services
-        		echo "Finished!! You can now reboot your machine."
+			echo "Installing paru and aur packages..."
+			aur
+			echo "Setting up desktop entries for startx..."
+			startx
+        		echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
 			exit 69
 			;;
 		"2 - laptop")
-			echo "continuing post-install script with settings for laptop..."
-			echo "installing packages..."
+			echo "Continuing post-install script with settings for laptop..."
+			echo "Installing packages..."
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
         		pacman -S --noconfirm --needed "${laptop_packages[@]}"
-			echo "creating user directories..."
+			echo "Creating user directories..."
                         sudo -u $user xdg-user-dirs-update
-                        echo "installing config files..."
+                        echo "Installing config files..."
                         rm_default_configs
                         configs
 			configs_laptop
-        		echo "adding user to groups..."
+        		echo "Adding user to groups..."
         		usermod -aG kvm,libvirt $user
-        		echo "setting up swapfile..."
+        		echo "Setting up swapfile..."
 			dd if=/dev/zero of=/swapfile bs=1M count=24k status=progress
 			swapfile
-        		echo "configuring grub..."
+        		echo "Configuring grub..."
         		grub
         		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff loglevel=3\"/" /etc/default/grub
         		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
-        		echo "setting up battery script and crontab for auto-hibernate when battery is low..."
-        		echo "enabling systemd services..."
+        		echo "Setting up battery script and crontab for auto-hibernate when battery is low..."
+        		echo "Enabling systemd services..."
         		services
         		laptop_services
-        		echo "Finished!! You can now reboot your machine."
+			echo "Installing paru and aur packages..."
+                        aur
+			echo "Setting up desktop entries for startx..."
+                        startx
+			echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
 			exit 69
 			;;
 		"3 - virtual machine")
-			echo "continuing post-install script with settings for virtual machine..."
-			echo "installing packages..."
+			echo "Continuing post-install script with settings for virtual machine..."
+			echo "Installing packages..."
         		pacman -Syu --noconfirm
         		pacman -S --noconfirm --needed "${packages[@]}"
-			echo "creating user directories..."
+			echo "Creating user directories..."
                         sudo -u $user xdg-user-dirs-update
-                        echo "installing config files..."
+                        echo "Installing config files..."
                         rm_default_configs
                         configs
                         configs_desktop
-        		echo "adding user to groups..."
+        		echo "Adding user to groups..."
         		usermod -aG kvm,libvirt $user
-        		echo "enabling systemd services..."
+        		echo "Enabling systemd services..."
         		services
-        		echo "Finished!! You can now reboot your machine."
+			echo "Installing paru and aur packages..."
+                        aur
+			echo "Setting up desktop entries for startx..."
+                        startx
+			echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
 			exit 69
 			;;
 	esac
