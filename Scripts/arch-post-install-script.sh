@@ -286,6 +286,7 @@ configs_laptop() {
 	cp -f /home/$user/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
 	cp -f /home/$user/configs/laptop/etc/greetd/hyprland-config /etc/greetd/
 	cp -rf /home/$user/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
+	cp -f /home/$user/configs/laptop/etc/tlp.conf /etc/
 }
 
 aur() {
