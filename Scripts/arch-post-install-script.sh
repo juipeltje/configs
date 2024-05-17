@@ -4,6 +4,9 @@
 
 set -e
 
+# Variables
+PS3="\[\e[0;34m\]->\[\e[m\]"
+
 # Arrays
 
 packages=(
@@ -245,6 +248,7 @@ rm_default_configs() {
 
 configs() {
 	sudo -u $user git clone https://github.com/juipeltje/configs /home/$user/configs
+	sudo -u $user cp -f /home/$user/configs/common/home/.Xresources /home/$user/
 	sudo -u $user cp -rf /home/$user/configs/common/home/.bash_profile /home/$user/
 	sudo -u $user cp -rf /home/$user/configs/common/home/.xinitrc-i3 /home/$user/
 	sudo -u $user cp -rf /home/$user/configs/common/home/.xinitrc-qtile /home/$user/
@@ -266,6 +270,7 @@ configs() {
 }
 
 configs_desktop() {
+	sudo -u $user cp -f /home/$user/configs/workstation/home/.bashrc /home/$user/
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/hypr/* /home/$user/.config/hypr/
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/i3/* /home/$user/.config/i3/
 	sudo -u $user cp -rf /home/$user/configs/workstation/home/dotconfig/polybar /home/$user/.config/
@@ -277,6 +282,7 @@ configs_desktop() {
 }
 
 configs_laptop() {
+	sudo -u $user cp -f /home/$user/configs/laptop/home/.bashrc /home/$user/
 	sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/hypr/* /home/$user/.config/hypr/
         sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/i3/* /home/$user/.config/i3/
         sudo -u $user cp -rf /home/$user/configs/laptop/home/dotconfig/polybar /home/$user/.config/
@@ -293,7 +299,7 @@ aur() {
 	pacman -S --needed base-devel
 	sudo -u $user git clone https://aur.archlinux.org/paru.git /home/$user/paru
 	cd /home/$user/paru
-	sudo -u $user makepkg -si
+	makepkg -si
 	cd
 	paru -S --noconfirm "${aur_packages[@]}"
 }
@@ -327,6 +333,9 @@ do
 			echo "Exiting post-install script..."
 	           	exit 68 
 		   	;;
+		*)
+			echo "Invalid option, please try again."
+			;;
 	esac
 done
 
@@ -371,11 +380,9 @@ do
         		grub-mkconfig -o /boot/grub/grub.cfg
         		echo "Enabling systemd services..."
         		services
-			echo "Installing paru and aur packages..."
-			aur
 			echo "Setting up desktop entries for startx..."
 			startx
-        		echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
+        		echo -e "\033[0;32mFinished!! You can now reboot your machine.\033[0m"
 			exit 69
 			;;
 		"2 - laptop")
@@ -404,11 +411,9 @@ do
         		echo "Enabling systemd services..."
         		services
         		laptop_services
-			echo "Installing paru and aur packages..."
-                        aur
 			echo "Setting up desktop entries for startx..."
                         startx
-			echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
+			echo -e "\033[0;32mFinished!! You can now reboot your machine.\033[0m"
 			exit 69
 			;;
 		"3 - virtual machine")
@@ -426,12 +431,13 @@ do
         		usermod -aG kvm,libvirt $user
         		echo "Enabling systemd services..."
         		services
-			echo "Installing paru and aur packages..."
-                        aur
 			echo "Setting up desktop entries for startx..."
                         startx
-			echo -e "'\033[0;32m'Finished!! You can now reboot your machine.'\033[0m'"
+			echo -e "\033[0;32mFinished!! You can now reboot your machine.\033[0m"
 			exit 69
+			;;
+		*)
+			echo "Invalid option, please try again."
 			;;
 	esac
 done
