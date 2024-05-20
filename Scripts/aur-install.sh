@@ -28,7 +28,7 @@ aur_packages=(
         "ueberzugpp"
 
         # SwayFX with autotiling
-        "swayfx"
+        # "swayfx"
         "autotiling"
 
         # Gaming
@@ -40,7 +40,7 @@ aur_packages=(
         "duckstation"
         "pcsx2-latest-bin"
         "rpcs3-bin"
-        "vita3k-bin"
+        # "vita3k-bin"
 
         # Benchmarking
         "unigine-heaven"
@@ -57,14 +57,20 @@ options_1=(
 
 aur() {
 	pacman -S --needed base-devel
-        git clone https://aur.archlinux.org/paru.git
-        cd paru
-        makepkg -si
+        sudo -u ${user} git clone https://aur.archlinux.org/paru.git /home/${user}/paru
+        cd /home/${user}/paru
+        sudo -u ${user} makepkg -si
         cd
-        paru -S --noconfirm "${aur_packages[@]}"
+        sudo -u ${user} paru -S --noconfirm --needed "${aur_packages[@]}"
 }
 
-echo -e "${bright_cyan}This script will install the paru aur helper and install a list of defined aur packages as your current user.
+echo -e "${bright_cyan}before we begin, what is your username? this will be used as a variable in the script.${color_reset}"
+
+read user;
+
+echo -e "${bright_cyan}Continuing as '${user}'...${color_reset}"
+
+echo -e "${bright_cyan}This script will install the paru aur helper and install a list of defined aur packages.
 Confirm you understand this keeping in mind that something could go wrong and brick your system.
 Installation will begin after confirming.${color_reset}"
 

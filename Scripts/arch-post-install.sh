@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # post install script for arch linux
 
@@ -152,14 +152,14 @@ laptop_packages=(
 )
 
 options_1=(
-	"1 - confirm"
-      	"2 - exit script"
+	"confirm"
+      	"exit script"
 )
 
 options_2=(
-	"1 - desktop"
-	"2 - laptop"
-	"3 - virtual machine"
+	"desktop"
+	"laptop"
+	"virtual machine"
 )
 
 # Functions
@@ -167,8 +167,11 @@ options_2=(
 services() {
 	systemctl enable fstrim
 	systemctl enable sshd
-	systemctl enable libvirtd
 	systemctl enable greetd
+}
+
+desktop_services() {
+	systemctl enable libvirtd
 }
 
 laptop_services() {
@@ -264,7 +267,7 @@ configs_laptop() {
 	cp -f /home/${user}/configs/laptop/etc/tlp.conf /etc/
 }
 
-startx() {
+desktop_entries() {
 	echo "[Desktop Entry]
 	Name=Qtile (startx)
 	Comment=Qtile session started with startx for regreet display manager
@@ -285,11 +288,11 @@ Confirm you understand this keeping in mind that something could go wrong and br
 select opt_1 in "${options_1[@]}"
 do
 	case ${opt_1} in
-		"1 - confirm") 
+		"confirm") 
                 	echo -e "${bright_cyan}Continuing with post-install script...${color_reset}" 
 		   	break
 		   	;;
-		"2 - exit script") 
+		"exit script") 
 			echo -e "${bright_cyan}Exiting post-install script...${color_reset}"
 	           	exit 68 
 		   	;;
@@ -310,7 +313,7 @@ echo -e "${bright_cyan}One last question: are you using a desktop, laptop, or vi
 select opt_2 in "${options_2[@]}"
 do
 	case ${opt_2} in
-		"1 - desktop")
+		"desktop")
 			echo -e "${bright_cyan}Continuing post-install script with settings for desktop${color_reset}"
 
 			# Install packages
@@ -349,22 +352,23 @@ do
 			# Grub
 			echo -e "${bright_cyan}Configuring grub...${color_reset}"
         		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=3\"/" /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=3\"/" /etc/default/grub
         		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
 
 			# Services
 			echo -e "${bright_cyan}Enabling systemd services...${color_reset}"
         		services
+			desktop_services
 
-			# Startx
-			echo -e "${bright_cyan}Setting up desktop entries for startx...${color_reset}"
-			startx
+			# Desktop entries
+			echo -e "${bright_cyan}Setting up desktop entries...${color_reset}"
+			desktop_entries
 
 			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
-		"2 - laptop")
+		"laptop")
 			echo -e "${bright_cyan}Continuing post-install script with settings for laptop...${color_reset}"
 
 			# Install packages
@@ -384,8 +388,8 @@ do
 			configs_laptop
 
 			# Add user to groups
-			echo -e "${bright_cyan}Adding user to groups...${color_reset}"
-        		usermod -aG kvm,libvirt ${user}
+			# echo -e "${bright_cyan}Adding user to groups...${color_reset}"
+        		# usermod -aG kvm,libvirt ${user}
 
 			# Swap
 			echo -e "${bright_cyan}Setting up swapfile...${color_reset}"
@@ -395,7 +399,7 @@ do
 			# Grub
 			echo -e "${bright_cyan}Configuring grub...${color_reset}"
         		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=$swap_uuid resume_offset=$swap_offset amdgpu.ppfeaturemask=0xffffffff loglevel=3\"/" /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff loglevel=3\"/" /etc/default/grub
         		sed -i 's/^GRUB_GFXMODE.*/GRUB_GFXMODE=1920x1080x32,auto/' /etc/default/grub
         		grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -407,14 +411,14 @@ do
         		services
         		laptop_services
 
-			# Startx
-			echo -e "${bright_cyan}Setting up desktop entries for startx...${color_reset}"
-                        start
+			# Desktop entries
+			echo -e "${bright_cyan}Setting up desktop entries...${color_reset}"
+                        desktop_entries
 
 			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
-		"3 - virtual machine")
+		"virtual machine")
 			echo -e "${bright_cyan}Continuing post-install script with settings for virtual machine...${color_reset}"
 
 			# Install packages
@@ -433,16 +437,16 @@ do
                         configs_desktop
 
 			# Add user to groups
-			echo -e "${bright_cyan}Adding user to groups...${color_reset}"
-        		usermod -aG kvm,libvirt ${user}
+			# echo -e "${bright_cyan}Adding user to groups...${color_reset}"
+        		# usermod -aG kvm,libvirt ${user}
 
 			# Services
 			echo -e "${bright_cyan}Enabling systemd services...${color_reset}"
         		services
 
-			# Startx
-			echo -e "${bright_cyan}Setting up desktop entries for startx...${color_reset}"
-                        startx
+			# Desktop entries
+			echo -e "${bright_cyan}Setting up desktop entries...${color_reset}"
+                        desktop_entries
 
 			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
