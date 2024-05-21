@@ -9,7 +9,7 @@ color_reset="\033[0m"
 green="\033[0;32m"
 red="\033[0;31m"
 bright_green="\033[0;92m"
-PS3=$'\e[0;96m'"->"$'\e[m'
+PS3=$'\e[0;92m'"->"$'\e[m'
 
 # Arrays
 
@@ -144,6 +144,7 @@ packages=(
 	"elogind"
         "socklog-void"
         "cronie"
+	"curl"
 )
 
 desktop_packages=(
@@ -171,7 +172,7 @@ src_packages=(
         "mononoki-nerd-font-ttf"
         "nordic-gtk"
         "gruvbox-material-gtk"
-        "tokyo-night-gtk"
+        # "tokyo-night-gtk"
         "phinger-cursors"
         "mint-y-icons"
         "fastfetch"
@@ -200,7 +201,7 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg mononoki-nerd-font-ttf
         sudo -u ${user} ./xbps-src pkg nordic-gtk
         sudo -u ${user} ./xbps-src pkg gruvbox-material-gtk
-        sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
+        # sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
         sudo -u ${user} ./xbps-src pkg fastfetch
@@ -226,10 +227,6 @@ services() {
         ln -s /etc/sv/nanoklogd /var/service/
         ln -s /etc/sv/libvirtd /var/service/
         ln -s /etc/sv/cronie /var/service/
-}
-
-desktop_services() {
-	ln -s /etc/sv/libvirtd /var/service/
 }
 
 laptop_services() {
@@ -309,7 +306,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar /home/${user}/.config/
 	cp -f /home/${user}/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
 	cp -f /home/${user}/configs/workstation/etc/greetd/hyprland-config /etc/greetd/
-	cp -rf /home/${user}/repos/configs/workstation/etc/elogind /etc/
+	cp -rf /home/${user}/configs/workstation/etc/elogind /etc/
 }
 
 configs_laptop() {
@@ -324,7 +321,7 @@ configs_laptop() {
 	cp -f /home/${user}/configs/laptop/etc/greetd/hyprland-config /etc/greetd/
 	cp -rf /home/${user}/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
 	cp -f /home/${user}/configs/laptop/etc/tlp.conf /etc/
-	cp -rf /home/${user}/repos/configs/laptop/etc/elogind /etc/
+	cp -rf /home/${user}/configs/laptop/etc/elogind /etc/
 }
 
 pipewire() {
@@ -454,7 +451,6 @@ do
 			# Services
 			echo -e "${bright_green}Enabling runit services...${color_reset}"
         		services
-			desktop_services
 
 			# Desktop entries
 			echo -e "${bright_green}Setting up desktop entries...${color_reset}"
