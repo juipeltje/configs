@@ -24,6 +24,7 @@ packages=(
         # Xorg/Window managers
         "xorg-minimal"
         "xf86-video-amdgpu"
+	"xrandr"
         "xdotool"
         "i3"
         "qtile"
@@ -404,8 +405,9 @@ do
         		xbps_src
         		xbps_src_desktop
 
-			# Create user directories
-			echo -e "${bright_green}Creating user directories...${color_reset}"
+			# Creating users and user directories
+			echo -e "${bright_green}Creating users and user directories...${color_reset}"
+			useradd --system -s /usr/bin/nologin greeter -U
 			sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
@@ -471,8 +473,9 @@ do
         		echo -e "${bright_green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
-			# Create user directories
-			echo -e "${bright_green}Creating user directories...${color_reset}"
+			# Creating users and user directories
+                        echo -e "${bright_green}Creating users and user directories...${color_reset}"
+                        useradd --system -s /usr/bin/nologin greeter -U
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
@@ -533,8 +536,9 @@ do
         		echo -e "${bright_green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
-			# Create user directories
-			echo -e "${bright_green}Creating user directories...${color_reset}"
+			# Creating users and user directories
+                        echo -e "${bright_green}Creating users and user directories...${color_reset}"
+                        useradd --system -s /usr/bin/nologin greeter -U
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
