@@ -9,7 +9,7 @@ color_reset="\033[0m"
 green="\033[0;32m"
 red="\033[0;31m"
 bright_green="\033[0;92m"
-PS3=$'\e[0;96m'"->"$'\e[m'
+PS3=$'\e[0;92m'"->"$'\e[m'
 
 # Arrays
 
@@ -27,64 +27,81 @@ options_2=(
 # Functions
 
 rm_default_configs() {
-	sudo -u ${user} rm -rf /home/${user}/.bashrc
-	sudo -u ${user} rm -rf /home/${user}/.bash_profile
-	sudo -u ${user} rm -rf /home/${user}/.Xresources
-	sudo -u ${user} rm -rf /home/${user}/.config/alacritty
-	sudo -u ${user} rm -rf /home/${user}/.config/dunst
-	sudo -u ${user} rm -rf /home/${user}/.config/git
-	sudo -u ${user} rm -rf /home/${user}/.config/hypr
-	sudo -u ${user} rm -rf /home/${user}/.config/i3
-	sudo -u ${user} rm -rf /home/${user}/.config/mako
-	sudo -u ${user} rm -rf /home/${user}/.config/mpv
-	sudo -u ${user} rm -rf /home/${user}/.config/polybar
-	sudo -u ${user} rm -rf /home/${user}/.config/qtile
-	sudo -u ${user} rm -rf /home/${user}/.config/rofi
-	sudo -u ${user} rm -rf /home/${user}/.config/sway
-	sudo -u ${user} rm -rf /home/${user}/.config/waybar
-	sudo -u ${user} rm -rf /home/${user}/.config/wofi
-	sudo -u ${user} rm -rf /home/${user}/.config/yazi
+	rm -rf /home/${user}/.bashrc
+	rm -rf /home/${user}/.bash_profile
+	rm -rf /home/${user}/.Xresources
+	rm -rf /home/${user}/.config/alacritty
+	rm -rf /home/${user}/.config/dunst
+	rm -rf /home/${user}/.config/git
+	rm -rf /home/${user}/.config/hypr
+	rm -rf /home/${user}/.config/i3
+	rm -rf /home/${user}/.config/mako
+	rm -rf /home/${user}/.config/mpv
+	rm -rf /home/${user}/.config/polybar
+	rm -rf /home/${user}/.config/qtile
+	rm -rf /home/${user}/.config/rofi
+	rm -rf /home/${user}/.config/sway
+	rm -rf /home/${user}/.config/waybar
+	rm -rf /home/${user}/.config/wofi
+	rm -rf /home/${user}/.config/yazi
+}
+
+make_directories() {
+	mkdir -p /home/${user}/.config/alacritty
+        mkdir -p /home/${user}/.config/dunst
+        mkdir -p /home/${user}/.config/git
+        mkdir -p /home/${user}/.config/hypr
+        mkdir -p /home/${user}/.config/i3
+        mkdir -p /home/${user}/.config/mako
+        mkdir -p /home/${user}/.config/mpv
+        mkdir -p /home/${user}/.config/polybar
+        mkdir -p /home/${user}/.config/qtile
+        mkdir -p /home/${user}/.config/rofi
+        mkdir -p /home/${user}/.config/sway
+        mkdir -p /home/${user}/.config/waybar
+        mkdir -p /home/${user}/.config/wofi
+        mkdir -p /home/${user}/.config/yazi
 }
 
 configs() {
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.Xresources /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.bash_profile /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.xinitrc-i3 /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.xinitrc-qtile /home/${user}/
-	sudo -u ${user} mkdir -p /home/${user}/.config
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/alacritty /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/dunst /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/git /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/hypr /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/i3 /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/rofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/sway /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/tofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/wofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/yazi /home/${user}/.config/
+	ln -s /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
+	ln -s /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
+	ln -s /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
+	ln -s /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
+	mkdir -p /home/${user}/.config
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/alacritty/* /home/${user}/.config/alacritty/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/dunst/* /home/${user}/.config/dunst/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/git/* /home/${user}/.config/git/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/hypr/* /home/${user}/.config/hypr/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/rofi/* /home/${user}/.config/rofi/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/tofi/* /home/${user}/.config/tofi/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/wofi/* /home/${user}/.config/wofi/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/yazi/* /home/${user}/.config/yazi/
 }
 
 configs_desktop() {
-	sudo -u ${user} cp -f /home/${user}/configs/workstation/home/.bashrc /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar /home/${user}/.config/
+	ln -s /home/${user}/repos/configs/workstation/home/.bashrc /home/${user}/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/polybar/* /home/${user}/.config/polybar/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 configs_laptop() {
-	sudo -u ${user} cp -f /home/${user}/configs/laptop/home/.bashrc /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar /home/${user}/.config/
+	ln -s /home/${user}/repos/configs/laptop/home/.bashrc /home/${user}/
+	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
+        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
+        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/polybar/* /home/${user}/.config/polybar/
+        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
+        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 echo -e "${bright_green}This script will install dotfiles in the user's home folder using symlinks.
@@ -94,11 +111,11 @@ select opt_1 in "${options_1[@]}"
 do
 	case ${opt_1} in
 		"confirm")
-                	echo -e "${bright_green}Continuing with post-install script...${color_reset}" 
+                	echo -e "${bright_green}Continuing with install script...${color_reset}" 
 		   	break
 		   	;;
 		"exit script")
-			echo -e "${bright_green}Exiting post-install script...${color_reset}"
+			echo -e "${bright_green}Exiting install script...${color_reset}"
 	           	exit 68
 		   	;;
 		*)
@@ -111,7 +128,7 @@ echo -e "${bright_green}Please enter the username of your machine. this will be 
 
 read user;
 
-echo -e "${bright_green}Continuing post-install script as '${user}'...${color_reset}"
+echo -e "${bright_green}Continuing install script as '${user}'...${color_reset}"
 
 echo -e "${bright_green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 
@@ -119,11 +136,12 @@ select opt_2 in "${options_2[@]}"
 do
 	case ${opt_2} in
 		"desktop")
-			echo -e "${bright_green}Continuing post-install script with settings for desktop${color_reset}"
+			echo -e "${bright_green}Continuing install script with settings for desktop${color_reset}"
 
 			# Install config files
 			echo -e "${bright_green}Installing config files...${color_reset}"
 			rm_default_configs
+			make_directories
 			configs
 			configs_desktop
 
@@ -131,11 +149,12 @@ do
 			exit 69
 			;;
 		"laptop")
-			echo -e "${bright_green}Continuing post-install script with settings for laptop...${color_reset}"
+			echo -e "${bright_green}Continuing install script with settings for laptop...${color_reset}"
 
 			# Install config files
 			echo -e "${bright_green}Installing config files...${color_reset}"
                         rm_default_configs
+			make_directories
                         configs
 			configs_laptop
 
@@ -143,11 +162,12 @@ do
 			exit 69
 			;;
 		"virtual machine")
-			echo -e "${bright_green}Continuing post-install script with settings for virtual machine...${color_reset}"
+			echo -e "${bright_green}Continuing install script with settings for virtual machine...${color_reset}"
 
 			# Install config files
 			echo -e "${bright_green}Installing config files...${color_reset}"
                         rm_default_configs
+			make_directories
                         configs
                         configs_desktop
 

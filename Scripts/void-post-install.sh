@@ -22,8 +22,7 @@ repos=(
 
 packages=(
         # Xorg/Window managers
-        "xorg-server"
-        "xinit"
+        "xorg-minimal"
         "xf86-video-amdgpu"
         "xdotool"
         "i3"
@@ -276,9 +275,9 @@ rm_default_configs() {
 configs() {
 	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/configs
 	sudo -u ${user} cp -f /home/${user}/configs/common/home/.Xresources /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.bash_profile /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.xinitrc-i3 /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/.xinitrc-qtile /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/configs/common/home/.bash_profile /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-i3 /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-qtile /home/${user}/
 	sudo -u ${user} mkdir -p /home/${user}/.config
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/alacritty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/dunst /home/${user}/.config/
@@ -331,33 +330,33 @@ pipewire() {
 }
 
 desktop_entries() {
-	echo "[Desktop Entry]
-	Name=Qtile (startx)
-	Comment=Qtile session started with startx for regreet display manager
-	Exec=dbus-run-session startx ~/.xinitrc-qtile
-	Type=Application
-	Keywords=wm;tiling" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "[Desktop Entry]" > /usr/share/xsessions/qtile-startx.desktop
+	echo "Name=Qtile (startx)" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "Comment=Qtile session started with startx for regreet display manager" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "Exec=dbus-run-session startx ~/.xinitrc-qtile" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "Type=Application" >> /usr/share/xsessions/qtile-startx.desktop
+	echo "Keywords=wm;tiling" >> /usr/share/xsessions/qtile-startx.desktop
 
-	echo "[Desktop Entry]
-	Name=i3 (startx)
-	Comment=i3 session started with startx for regreet display manager
-	Exec=dbus-run-session startx ~/.xinitrc-i3
-	Type=Application
-	Keywords=wm;tiling" >> /usr/share/xsessions/i3-startx.desktop
+	echo "[Desktop Entry]" > /usr/share/xsessions/i3-startx.desktop
+	echo "Name=i3 (startx)" >> /usr/share/xsessions/i3-startx.desktop
+	echo "Comment=i3 session started with startx for regreet display manager" >> /usr/share/xsessions/i3-startx.desktop
+	echo "Exec=dbus-run-session startx ~/.xinitrc-i3" >> /usr/share/xsessions/i3-startx.desktop
+	echo "Type=Application" >> /usr/share/xsessions/i3-startx.desktop
+	echo "Keywords=wm;tiling" >> /usr/share/xsessions/i3-startx.desktop
 
-	echo "[Desktop Entry]
-	Name=SwayFX (dbus)
-	Comment=Swayfx session started with dbus for void linux
-	Exec=dbus-run-session sway
-	Type=Application
-	Keywords=wm;tiling" >> /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "[Desktop Entry]" > /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "Name=SwayFX (dbus)" >> /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "Comment=Swayfx session started with dbus for void linux" >> /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "Exec=dbus-run-session sway" >> /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "Type=Application" >> /usr/share/wayland-sessions/sway-dbus.desktop
+	echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/sway-dbus.desktop
 
-	echo "[Desktop Entry]
-	Name=Hyprland (dbus)
-	Comment=Hyprland session started with dbus for void linux
-	Exec=dbus-run-session Hyprland
-	Type=Application
-	Keywords=wm;tiling" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "[Desktop Entry]" > /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "Name=Hyprland (dbus)" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "Comment=Hyprland session started with dbus for void linux" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "Exec=dbus-run-session Hyprland" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "Type=Application" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+	echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
 }
 
 echo -e "${bright_green}This script will install both global system configurations as well as dotfiles in the user's home folder.
@@ -426,10 +425,10 @@ do
 
 			# Kernel modules
 			echo -e "${bright_green}Adding kernel modules to load on boot...${color_reset}"
-        		echo "i2c-dev" >> /etc/modules-load.d/i2c.conf
-        		echo "i2c-piix4" >> /etc/modules-load.d/i2c-piix4.conf
-        		echo "options vfio-pci ids=10de:1287,10de:0e0f" >> /etc/modprobe.d/vfio.conf
-			echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" >> /etc/dracut.conf.d/10-vfio.conf
+        		echo "i2c-dev" > /etc/modules-load.d/i2c.conf
+        		echo "i2c-piix4" > /etc/modules-load.d/i2c-piix4.conf
+        		echo "options vfio-pci ids=10de:1287,10de:0e0f" > /etc/modprobe.d/vfio.conf
+			echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" > /etc/dracut.conf.d/10-vfio.conf
         		dracut --force
 
 			# Swap
