@@ -145,6 +145,7 @@ packages=(
         "socklog-void"
         "cronie"
 	"curl"
+	"psmisc"
 )
 
 desktop_packages=(
@@ -176,6 +177,9 @@ src_packages=(
         "phinger-cursors"
         "mint-y-icons"
         "fastfetch"
+	"regreet"
+	"ueberzugpp"
+	"yazi"
 )
 
 options_1=(
@@ -205,6 +209,9 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
         sudo -u ${user} ./xbps-src pkg fastfetch
+	sudo -u ${user} ./xbps-src pkg regreet
+	sudo -u ${user} ./xbps-src pkg ueberzugpp
+	sudo -u ${user} ./xbps-src pkg yazi
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
         cd
 }
@@ -305,7 +312,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar /home/${user}/.config/
 	cp -f /home/${user}/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
-	cp -f /home/${user}/configs/workstation/etc/greetd/hyprland-config /etc/greetd/
+	cp -f /home/${user}/configs/workstation/etc/greetd/sway-config /etc/greetd/
 	cp -rf /home/${user}/configs/workstation/etc/elogind /etc/
 }
 
@@ -318,7 +325,7 @@ configs_laptop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar /home/${user}/.config/
 	cp -f /home/${user}/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
-	cp -f /home/${user}/configs/laptop/etc/greetd/hyprland-config /etc/greetd/
+	cp -f /home/${user}/configs/laptop/etc/greetd/sway-config /etc/greetd/
 	cp -rf /home/${user}/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
 	cp -f /home/${user}/configs/laptop/etc/tlp.conf /etc/
 	cp -rf /home/${user}/configs/laptop/etc/elogind /etc/

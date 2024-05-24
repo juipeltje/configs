@@ -1,33 +1,18 @@
 #### sway config to be used specifically for greetd
 
-## variables
-
-set $mod Mod4
-
 ## appearance
-
 # cursor theme and size
-
 seat seat0 xcursor_theme "phinger-cursors-light" 24
 
 ## start gtkgreet
-
-exec "GTK_THEME=Tokyonight-Dark gtkgreet -l -b /usr/share/backgrounds/gravity-rush-3.jpg; swaymsg exit"
+exec "regreet; swaymsg exit"
 
 # set resolution/refreshrate
-
 output eDP-1 resolution 1920x1080@60.001Hz position 0,0
 
 # input configuration
-
 input "1267:12608:MSFT0001:00_04F3:3140_Touchpad" {
   tap enabled
 }
-
-## keybindings
-
-# open tofi powermenu
-
-bindsym $mod+Escape exec /etc/greetd/tofi-powermenu-greeter.sh
 
 include /etc/sway/config.d/*

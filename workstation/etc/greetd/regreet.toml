@@ -34,7 +34,7 @@ theme_name = "Gruvbox-Material-Dark"
 
 [commands]
 # The command used to reboot the system
-reboot = [ "systemctl", "reboot" ]
+reboot = [ "loginctl", "reboot" ]
 
 # The command used to shut down the system
-poweroff = [ "systemctl", "poweroff" ]
+poweroff = [ "loginctl", "poweroff" ]

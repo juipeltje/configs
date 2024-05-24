@@ -1,28 +1,15 @@
 #### sway config to be used specifically for greetd
 
-## variables
-
-set $mod Mod4
-
 ## appearance
-
 # cursor theme and size
-
 seat seat0 xcursor_theme "phinger-cursors-light" 24
 
 ## start gtkgreet
-
-exec "GTK_THEME=Tokyonight-Dark gtkgreet -l -b /usr/share/backgrounds/WallpaperDog-10730444.jpg -s /etc/greetd/gtkgreet.css; swaymsg exit"
+exec "regreet; swaymsg exit"
 
 # set resolution/refreshrate
-
 output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off
-output DP-2 resolution 2560x1080@74.991Hz position 0,0
-
-## keybindings
-
-# open tofi powermenu
-
-bindsym $mod+Escape exec /etc/greetd/tofi-powermenu-greeter.sh
+output DP-2 disable
+#output DP-2 resolution 2560x1080@74.991Hz position 0,0
 
 include /etc/sway/config.d/*
