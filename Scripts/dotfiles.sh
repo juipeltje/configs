@@ -29,6 +29,8 @@ options_2=(
 rm_default_configs() {
 	rm -rf /home/${user}/.bashrc
 	rm -rf /home/${user}/.bash_profile
+	rm -rf /home/${user}/.xinitrc-i3
+	rm -rf /home/${user}/.xinitrc-qtile
 	rm -rf /home/${user}/.Xresources
 	rm -rf /home/${user}/.config/alacritty
 	rm -rf /home/${user}/.config/dunst
