@@ -39,6 +39,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/i3
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpv
+	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
 	rm -rf /home/${user}/.config/rofi
@@ -56,6 +57,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/i3
         mkdir -p /home/${user}/.config/mako
         mkdir -p /home/${user}/.config/mpv
+	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
         mkdir -p /home/${user}/.config/rofi
