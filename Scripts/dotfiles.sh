@@ -44,6 +44,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/qtile
 	rm -rf /home/${user}/.config/rofi
 	rm -rf /home/${user}/.config/sway
+	rm -rf /home/${user}/.config/tofi
 	rm -rf /home/${user}/.config/waybar
 	rm -rf /home/${user}/.config/wofi
 	rm -rf /home/${user}/.config/yazi
@@ -62,6 +63,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/qtile
         mkdir -p /home/${user}/.config/rofi
         mkdir -p /home/${user}/.config/sway
+	mkdir -p /home/${user}/.config/tofi
         mkdir -p /home/${user}/.config/waybar
         mkdir -p /home/${user}/.config/wofi
         mkdir -p /home/${user}/.config/yazi
