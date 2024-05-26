@@ -5,7 +5,7 @@
 ~/.fehbg &
 #picom &
 dunst &
+pipewire &
 playerctld daemon &
-lxsession &
 xset s off -dpms &
 nm-applet &

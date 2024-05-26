@@ -14,6 +14,6 @@ case $op in
 		swaylock
                 ;;
         logout)
-                hyprctl dispatch exit
+                swaymsg exit
                 ;;
 esac

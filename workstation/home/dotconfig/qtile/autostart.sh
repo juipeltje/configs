@@ -7,6 +7,7 @@ xrandr --output DisplayPort-0 --primary --mode 3440x1440 --rate 165.00 --output 
 ~/.fehbg &
 #picom &
 dunst &
+pipewire &
 playerctld daemon &
 lxsession &
 liquidctl initialize all &

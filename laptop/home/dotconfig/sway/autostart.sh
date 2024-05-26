@@ -5,6 +5,7 @@
 autotiling --splitratio 1.61 --limit 2 &
 waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style.css &
 mako &
+pipewire &
 playerctld daemon &
 lxsession &
 nm-applet &

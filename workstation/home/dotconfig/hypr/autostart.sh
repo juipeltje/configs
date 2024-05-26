@@ -6,6 +6,7 @@ hyprpaper &
 waybar -c ~/.config/waybar/hyprland-config -s ~/.config/waybar/hyprland-style.css &
 hyprctl setcursor phinger-cursors-light 24 &
 mako &
+pipewire &
 playerctld daemon &
 lxsession &
 liquidctl initialize all &

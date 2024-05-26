@@ -173,11 +173,11 @@ src_packages=(
         "mononoki-nerd-font-ttf"
         "nordic-gtk"
         "gruvbox-material-gtk"
-        # "tokyo-night-gtk"
+        "tokyo-night-gtk"
         "phinger-cursors"
         "mint-y-icons"
         "fastfetch"
-	# "regreet"
+	"regreet"
 	"ueberzugpp"
 	"yazi"
 )
@@ -205,11 +205,11 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg mononoki-nerd-font-ttf
         sudo -u ${user} ./xbps-src pkg nordic-gtk
         sudo -u ${user} ./xbps-src pkg gruvbox-material-gtk
-        # sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
+        sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
         sudo -u ${user} ./xbps-src pkg fastfetch
-	# sudo -u ${user} ./xbps-src pkg regreet
+	sudo -u ${user} ./xbps-src pkg regreet
 	sudo -u ${user} ./xbps-src pkg ueberzugpp
 	sudo -u ${user} ./xbps-src pkg yazi
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
@@ -234,6 +234,7 @@ services() {
         ln -s /etc/sv/nanoklogd /var/service/
         ln -s /etc/sv/libvirtd /var/service/
         ln -s /etc/sv/cronie /var/service/
+	rm -f /var/service/dhcpcd
 }
 
 laptop_services() {
