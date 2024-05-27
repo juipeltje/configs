@@ -7,7 +7,7 @@ waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style.css &
 mako &
 pipewire &
 playerctld daemon &
-lxsession &
+lxpolkit &
 liquidctl initialize all &
 sleep 2
 liquidctl --match kraken set pump speed 100 &

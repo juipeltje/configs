@@ -2,3 +2,8 @@
 show_hidden = true
 sort_by = "alphabetical"
 sort_dir_first = true
+
+[opener]
+edit = [
+	{ run = 'nano "$@"', block = true },
+]
