@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | wofi --show dmenu --width 10% | awk '{print tolower($2)}' )
 

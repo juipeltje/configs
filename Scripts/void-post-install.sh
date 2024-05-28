@@ -51,6 +51,7 @@ packages=(
         "mesa-vdpau"
 	"mesa-vdpau-32bit"
 	"corectrl"
+	"qt5-wayland"
         "steam"
         "gamemode"
 	"MangoHud"
@@ -272,6 +273,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/i3
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
+	sudo -u ${user} rm -rf /home/${user}/.config/nano
 	sudo -u ${user} rm -rf /home/${user}/.config/polybar
 	sudo -u ${user} rm -rf /home/${user}/.config/qtile
 	sudo -u ${user} rm -rf /home/${user}/.config/rofi
@@ -295,6 +297,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/i3 /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/rofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/sway /home/${user}/.config/
@@ -438,6 +441,7 @@ do
         		echo "i2c-dev" > /etc/modules-load.d/i2c.conf
         		echo "i2c-piix4" > /etc/modules-load.d/i2c-piix4.conf
         		echo "options vfio-pci ids=10de:1287,10de:0e0f" > /etc/modprobe.d/vfio.conf
+			echo "softdep drm pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
 			echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" > /etc/dracut.conf.d/10-vfio.conf
         		dracut --force
 
@@ -449,7 +453,7 @@ do
 			# Grub
 			echo -e "${bright_green}Configuring grub...${color_reset}"
         		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt loglevel=4\"/" /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt vfio-pci.ids=10de:1287,10de:0e0f loglevel=4\"/" /etc/default/grub
         		sed -i 's/^#GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
         		update-grub
 

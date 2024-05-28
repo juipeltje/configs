@@ -39,6 +39,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/i3
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpv
+	rm -rf /home/${user}/.config/nano
 	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
@@ -58,6 +59,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/i3
         mkdir -p /home/${user}/.config/mako
         mkdir -p /home/${user}/.config/mpv
+	mkdir -p /home/${user}/.config/nano
 	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
@@ -82,6 +84,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/rofi/* /home/${user}/.config/rofi/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/sway/* /home/${user}/.config/sway/

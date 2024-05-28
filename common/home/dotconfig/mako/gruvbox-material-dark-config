@@ -35,23 +35,8 @@ output=
 layer=top
 anchor=top-right
 
-# color themes
+# Gruvbox-Material-Dark colors
 
-# Gruvbox-Material
-
-# background-color=#282828
-# text-color=#dfbf8e
-# border-color=#dfbf8e
-
-
-# Nordic
-
-# background-color=#2e3440
-# text-color=#8fbcbb
-# border-color=#8fbcbb
-
-# Tokyo-Night
-
-background-color=#1a1b26
-text-color=#a9b1d6
-border-color=#a9b1d6
+background-color=#282828
+text-color=#dfbf8e
+border-color=#dfbf8e
