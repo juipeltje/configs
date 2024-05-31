@@ -4,7 +4,7 @@ show=drun
 width=400
 height=400
 prompt=
-normal_window=true
+normal_window=false
 allow_images=true
 allow_markup=false
 term=alacritty
@@ -20,4 +20,5 @@ search=
 monitor=DP-1
 orientation=vertical
 image_size=32
+style=/home/joppe/.config/wofi/tokyonight-style.css
 

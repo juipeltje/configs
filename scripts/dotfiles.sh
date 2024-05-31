@@ -34,6 +34,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.Xresources
 	rm -rf /home/${user}/.config/alacritty
 	rm -rf /home/${user}/.config/dunst
+	rm -rf /home/${user}/.config/fuzzel
 	rm -rf /home/${user}/.config/git
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
@@ -54,6 +55,7 @@ rm_default_configs() {
 make_directories() {
 	mkdir -p /home/${user}/.config/alacritty
         mkdir -p /home/${user}/.config/dunst
+	mkdir -p /home/${user}/.config/fuzzel
         mkdir -p /home/${user}/.config/git
         mkdir -p /home/${user}/.config/hypr
         mkdir -p /home/${user}/.config/i3
@@ -79,6 +81,7 @@ configs() {
 	mkdir -p /home/${user}/.config
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/alacritty/* /home/${user}/.config/alacritty/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/dunst/* /home/${user}/.config/dunst/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/git/* /home/${user}/.config/git/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
@@ -154,7 +157,7 @@ do
 			configs
 			configs_desktop
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		"laptop")
@@ -167,7 +170,7 @@ do
                         configs
 			configs_laptop
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		"virtual machine")
@@ -180,7 +183,7 @@ do
                         configs
                         configs_desktop
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		*)

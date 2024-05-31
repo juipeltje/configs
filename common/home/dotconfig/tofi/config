@@ -1,8 +1,11 @@
 # tofi config
 
+# Include the color scheme to use
+include = tokyonight-colors
+
 # font 
 font = "Ubuntu Nerd Font Medium"
-font-size = 16
+font-size = 14
 
 # window theme
 horizontal = false
@@ -19,9 +22,9 @@ padding-right = 10
 clip-to-padding = true
 prompt-text = ""
 prompt-padding = 4
-placeholder-text = "__"
+placeholder-text = ""
 num-results = 0
-result-spacing = 10
+result-spacing = 15
 horizontal = false
 min-input-width = 0
 text-cursor-style = underscore
@@ -45,7 +48,7 @@ default-result-background-corner-radius = 0
 
 # selected text theme
 selection-background-padding = 4
-selection-background-corner-radius = 10
+selection-background-corner-radius = 15
 
 # behaviour
 hide-cursor = false
@@ -53,56 +56,3 @@ text-cursor = true
 history = true
 require-match = true
 drun-launch = true
-
-# color themes
-
-# Gruvbox-Material
-
-# background-color = #282828
-# border-color = #dfbf8e
-# text-cursor-color = #ffffff
-# text-cursor-background = #00000000
-# prompt-color = #ffffff
-# prompt-background = #00000000
-# placeholder-color = #ffffff
-# placeholder-background = #00000000
-# input-color = #ffffff
-# input-background = #00000000
-# default-result-color = #dfbf8e
-# default-result-background = #00000000
-# selection-color = #282828
-# selection-background = #dfbf8e
-
-# Nordic
-
-# background-color = #2e3440
-# border-color = #8fbcbb
-# text-cursor-color = #ffffff
-# text-cursor-background = #00000000
-# prompt-color = #ffffff
-# prompt-background = #00000000
-# placeholder-color = #ffffff
-# placeholder-background = #00000000
-# input-color = #ffffff
-# input-background = #00000000
-# default-result-color = #8fbcbb
-# default-result-background = #00000000
-# selection-color = #2e3440
-# selection-background = #8fbcbb
-
-# Tokyo-Night
-
-background-color = #1a1b26
-border-color = #a9b1d6
-text-cursor-color = #ffffff
-text-cursor-background = #00000000
-prompt-color = #ffffff
-prompt-background = #00000000
-placeholder-color = #ffffff
-placeholder-background = #00000000
-input-color = #ffffff
-input-background = #00000000
-default-result-color = #a9b1d6
-default-result-background = #00000000
-selection-color = #1a1b26
-selection-background = #a9b1d6

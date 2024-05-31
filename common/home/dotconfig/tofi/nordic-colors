@@ -1,0 +1,16 @@
+# Tofi color scheme for nordic
+
+background-color = #2e3440
+border-color = #8fbcbb
+text-cursor-color = #8fbcbb
+text-cursor-background = #00000000
+prompt-color = #8fbcbb
+prompt-background = #00000000
+placeholder-color = #8fbcbb
+placeholder-background = #00000000
+input-color = #8fbcbb
+input-background = #00000000
+default-result-color = #8fbcbb
+default-result-background = #00000000
+selection-color = #2e3440
+selection-background = #8fbcbb

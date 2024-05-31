@@ -1,0 +1,16 @@
+# Tofi color scheme for tokyonight
+
+background-color = #1a1b26
+border-color = #a9b1d6
+text-cursor-color = #a9b1d6
+text-cursor-background = #00000000
+prompt-color = #a9b1d6
+prompt-background = #00000000
+placeholder-color = #a9b1d6
+placeholder-background = #00000000
+input-color = #a9b1d6
+input-background = #00000000
+default-result-color = #a9b1d6
+default-result-background = #00000000
+selection-color = #1a1b26
+selection-background = #a9b1d6

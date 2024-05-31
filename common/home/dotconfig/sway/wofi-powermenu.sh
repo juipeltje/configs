@@ -1,6 +1,6 @@
 #!/bin/bash
 
-op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | wofi --show dmenu --width 10% | awk '{print tolower($2)}' )
+op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | tofi --width=200 --placeholder-text="Powermenu:" | awk '{print tolower($2)}' )
 
 case $op in 
         poweroff)

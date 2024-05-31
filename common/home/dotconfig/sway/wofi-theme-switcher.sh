@@ -2,7 +2,7 @@
 
 # Theme switcher script for SwayFX
 
-theme=$( echo -e "Nordic\nGruvbox-Material-Dark\nTokyo-Night" | wofi --show dmenu)
+theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | tofi --width=300 --placeholder-text="Select your theme:" | awk '{print $2}' )
 
 case $theme in
 	Nordic)
@@ -13,6 +13,8 @@ case $theme in
 		mako -c ~/.config/mako/nordic-config &
 		killall waybar
 		waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-nordic.css &
+		gsettings set org.gnome.desktop.interface gtk-theme Nordic
+		sed -i 's/^include.*/include = nordic-colors/' ~/.config/tofi/config
 		sed -i 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/sway/autostart.sh
 		sed -i 's|^waybar.*|waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-nordic.css \&|' ~/.config/sway/autostart.sh
 		notify-send "Current theme: Nordic"
@@ -25,6 +27,8 @@ case $theme in
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
                 killall waybar
                 waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-gruvbox-material-dark.css &
+		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
+		sed -i 's/^include.*/include = gruvbox-material-dark-colors/' ~/.config/tofi/config
 		sed -i 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/sway/autostart.sh
 		sed -i 's|^waybar.*|waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-gruvbox-material-dark.css \&|' ~/.config/sway/autostart.sh
 		notify-send "Current theme: Gruvbox-Material-Dark"
@@ -37,6 +41,8 @@ case $theme in
                 mako -c ~/.config/mako/tokyonight-config &
                 killall waybar
                 waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-tokyonight.css &
+		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
+		sed -i 's/^include.*/include = tokyonight-colors/' ~/.config/tofi/config
 		sed -i 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/sway/autostart.sh
 		sed -i 's|^waybar.*|waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-tokyonight.css \&|' ~/.config/sway/autostart.sh
 		notify-send "Current theme: Tokyo-Night"

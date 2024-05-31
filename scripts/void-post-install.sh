@@ -27,6 +27,7 @@ packages=(
 	"xrandr"
         "xdotool"
         "i3"
+	"autotiling"
         "qtile"
 	"python3-dbus-next"
 
@@ -102,6 +103,7 @@ packages=(
         # Run launchers
         "rofi"
         "wofi"
+	"tofi"
 
         # Status bars
         "polybar"

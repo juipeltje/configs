@@ -6,8 +6,8 @@
 
 window {
 	margin: 5px;
-	border: 4px #a9b1d6;
-	background-color: #1a1b26;
+	border: 4px #8fbcbb;
+	background-color: #2e3440;
 }
 
 #input {
@@ -20,34 +20,34 @@ window {
 #inner-box {
 	margin: 5px;
 	border: 0px;
-	background-color: #1a1b26;
+	background-color: #2e3440;
 }
 
 #outer-box {
 	margin: 5px;
 	border: 0px;
-	background-color: #1a1b26;
+	background-color: #2e3440;
 }
 
 #scroll {
 	margin: 5px;
 	border: 0px;
-	background-color: #1a1b26;
+	background-color: #2e3440;
 }
 
 #text {
 	margin: 5px;
 	border: 0px;
-	background-color: #1a1b26;
+	background-color: #2e3440;
 } 
 
 #entry:selected {
-	background-color: #a9b1d6;
+	background-color: #8fbcbb;
 	border-radius: 20px;
 	outline: none;
 }
 
 #text:selected {
-	background-color: #a9b1d6;
-	color: #1a1b26;
+	background-color: #8fbcbb;
+	color: #2e3440;
 }
