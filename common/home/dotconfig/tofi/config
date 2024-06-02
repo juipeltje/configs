@@ -52,7 +52,7 @@ selection-background-corner-radius = 15
 
 # behaviour
 hide-cursor = false
-text-cursor = true
+text-cursor = false
 history = true
 require-match = true
 drun-launch = true

@@ -23,7 +23,7 @@ alias xc='sudo xbps-remove -Oo'
 # alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
 #
 # alias alsa-store='alsactl --file ~/.config/asound.state store'
-alias do-script='~/repos/configs/Scripts/darkorbit-afk-script.sh'
+alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
 alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
 alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
 alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'

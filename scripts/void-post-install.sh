@@ -86,6 +86,7 @@ packages=(
         "7zip"
         "gvfs"
         "fuse3"
+	"ffmpegthumbnailer"
 
         # E-mail
         "thunderbird"
