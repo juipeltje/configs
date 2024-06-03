@@ -4,7 +4,7 @@
 include ~/.config/sway/common.conf
 
 # Include the color scheme
-include ~/.config/sway/colors-nordic.conf
+include ~/.config/sway/colors-tokyonight.conf
 
 # monitor configuration
 output eDP-1 resolution 1920x1080@60.001Hz position 0,0

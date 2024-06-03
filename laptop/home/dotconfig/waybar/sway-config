@@ -76,7 +76,7 @@
   "custom/memory": {
     "exec": "/home/joppe/repos/configs/scripts/waybar/memory.sh",
     "interval": 5,
-    "format": " <span font='16' rise='-2000'>󰍛</span> {}"
+    "format": " <span font='14' rise='-2000'> </span> {}"
   },
 
   "custom/DualSense": {
