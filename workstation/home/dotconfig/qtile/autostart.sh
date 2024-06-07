@@ -9,7 +9,7 @@ xrandr --output DisplayPort-0 --primary --mode 3440x1440 --rate 165.00 --output 
 dunst &
 pipewire &
 playerctld daemon &
-lxsession &
+lxpolkit &
 liquidctl initialize all &
 sleep 2
 liquidctl --match kraken set pump speed 100 &

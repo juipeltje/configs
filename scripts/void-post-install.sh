@@ -24,6 +24,7 @@ packages=(
         # Xorg/Window managers
         "xorg-minimal"
         "xf86-video-amdgpu"
+	"xrdb"
 	"xrandr"
         "xdotool"
         "i3"

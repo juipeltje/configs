@@ -7,5 +7,6 @@
 dunst &
 pipewire &
 playerctld daemon &
+lxpolkit &
 xset s off -dpms &
 nm-applet &

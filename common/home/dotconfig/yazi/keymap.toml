@@ -1,4 +1,5 @@
 [manager]
 append_keymap = [
   { on = [ "<C-w>" ], run = "shell --confirm 'swaymsg output \"*\" background $0 fill && cp -f $0 ~/Pictures/sway/background.jpg'", desc = "Sets image as wallpaper with swaybg" },
+  { on = [ "<C-x>" ], run = "shell --confirm 'feh --bg-scale $0'", desc = "Sets image as wallpaper with feh" },
 ]
