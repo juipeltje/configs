@@ -2,4 +2,4 @@
 
 # waybar script to monitor case fan speed
 
-sensors | grep fan2 | awk '{print $3" "$4}'
+sensors | awk '/fan2/ {print $3" "$4}'

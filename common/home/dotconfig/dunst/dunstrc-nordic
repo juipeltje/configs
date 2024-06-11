@@ -1,0 +1,84 @@
+# Dunst nordic config
+
+[global]
+    ### Display ###
+    monitor = 0
+    follow = none
+
+    ### Geometry ###
+    width = 300
+    height = 150
+    origin = top-right
+    offset = 10x58
+    scale = 0
+    notification_limit = 0
+
+    ### Progress bar ###
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    transparency = 0;
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    text_icon_padding = 0
+    frame_width = 4
+    frame_color = "#d8dee9"
+    gap_size = 0
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    ### Text ###
+    font = Ubuntu Nerd Font Medium 11
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = "Papirus-Dark, Adwaita"
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 100
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    corner_radius = 20
+
+    ### mouse
+    mouse_left_click = none
+    mouse_middle_click = none
+    mouse_right_click = none
+
+[urgency_low]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 5
+
+[urgency_normal]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 5
+
+[urgency_critical]
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    frame_color = "#bf616a"
+    timeout = 5
+
+

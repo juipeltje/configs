@@ -2,4 +2,4 @@
 
 # waybar script to monitor AIO pump speed
 
-sensors | grep Pump | awk '{print $2" "$3}'
+sensors | awk '/Pump/ {print $2" "$3}'

@@ -1,5 +1,5 @@
 * {
-	background-color: #1a1b26;
+	background-color: #282828;
 }
 
 window {
@@ -7,29 +7,29 @@ window {
         height: 400px;
         border: 4px;
         border-radius: 20px;
-        border-color: #a9b1d6;
+        border-color: #dfbf8e;
 }
 
 prompt {
         padding: 10px;
-        text-color: #a9b1d6;
+        text-color: #dfbf8e;
 }
 
 entry {
         placeholder: "";
-        text-color: #a9b1d6;
+        text-color: #dfbf8e;
         margin: 10px 0px 0px 0px;
 }
 
 element-text {
         padding: 10px;
-        text-color: #a9b1d6;
+        text-color: #dfbf8e;
 	border: 0px 20px 0px 20px;
 }
 
 element-text selected {
-	background-color: #a9b1d6;
-	text-color: #1a1b26;
+	background-color: #dfbf8e;
+	text-color: #282828;
 	border: 0px 20px 0px 20px;
 	border-radius: 20px; 
 }

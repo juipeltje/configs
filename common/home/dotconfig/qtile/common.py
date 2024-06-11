@@ -4,8 +4,11 @@
 from libqtile.command import lazy
 from libqtile.config import Key, Drag, Group, ScratchPad, DropDown
 from libqtile import layout
+import os
+import colors
 
 # Variables
+home = os.path.expanduser('~')
 mod = "mod4"
 terminal = "alacritty"
 webbrowser = "firefox"
@@ -21,7 +24,7 @@ keys = [
   Key([mod], "f", lazy.spawn(file_manager) ),
 
   # Open a terminal file manager
-  Key([mod], "y", lazy.spawn("alacritty -e yazi") ),
+  Key([mod], "y", lazy.spawn(terminal + " -e yazi") ),
 
   # Open a webbrowser
   Key([mod], "w", lazy.spawn(webbrowser) ),
@@ -30,12 +33,11 @@ keys = [
   Key([mod], "a", lazy.spawn("pavucontrol") ),
 
   # Open Deezer in firefox tab
-  Key([mod], "d", lazy.spawn("firefox -new-window https://www.deezer.com/en/") ),
+  Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
 
-  # Rofi power menu, application launcher, and window switcher
-  Key([mod], "Escape", lazy.spawn("/home/joppe/.config/qtile/rofi-powermenu.sh") ),
-  Key([mod], "space", lazy.spawn("rofi -show drun -show-icons -icon-theme Papirus-Dark") ),
-  Key([mod], "Tab", lazy.spawn("rofi -show window -show-icons -icon-theme Papirus-Dark") ),
+  # Rofi power menu and application launcher
+  Key([mod], "Escape", lazy.spawn(home + '/.config/qtile/rofi-powermenu.sh') ),
+  Key([mod], "space", lazy.spawn("rofi -show drun") ),
 
   # Dunst notification history and close all notifications
   Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
@@ -47,8 +49,8 @@ keys = [
   Key([], "XF86AudioPrev", lazy.spawn("playerctl previous") ),
 
   # Start/stop picom keybindings for playing games
-  Key([mod], "g", lazy.spawn("~./repos/configs/scripts/start-gamemode.sh") ),
-  Key([mod], "p", lazy.spawn("~./repos/configs/scripts/stop-gamemode.sh") ),
+  Key([mod], "g", lazy.spawn(home + '/repos/configs/scripts/start-gamemode.sh') ),
+  Key([mod], "p", lazy.spawn(home + '/repos/configs/scripts/stop-gamemode.sh') ),
 
   # Reload config and restart qtile
   Key([mod], "r", lazy.reload_config() ),
@@ -82,9 +84,9 @@ keys = [
   Key([mod, "shift"], "Down", lazy.layout.shuffle_down() ),
 
   # Grow/shrink windows in layout and reset
-  Key([mod, "mod2"], "KP_Add", lazy.layout.grow() ),
-  Key([mod, "mod2"], "KP_Subtract", lazy.layout.shrink() ),
-  Key([mod, "mod2"], "KP_Enter", lazy.layout.reset() ),
+  Key([mod], "KP_Add", lazy.layout.grow() ),
+  Key([mod], "KP_Subtract", lazy.layout.shrink() ),
+  Key([mod], "KP_Enter", lazy.layout.reset() ),
 
   # Toggle between the different layouts
   Key([mod], "l", lazy.next_layout() ),
@@ -108,17 +110,16 @@ mouse = [
 
 groups = [
 
-  Group("1", layout="monadtall", label="1"),
-  Group("2", layout="monadtall", label="2"),
-  Group("3", layout="monadtall", label="3"),
-  Group("4", layout="monadtall", label="4"),
-  Group("5", layout="monadtall", label="5"),
-  Group("6", layout="monadtall", label="6"),
-  Group("7", layout="monadtall", label="7"),
-  Group("8", layout="monadtall", label="8"),
+  Group("1", layout="monadtall", label="  1", screen_affinity=0 ),
+  Group("2", layout="monadtall", label="  2", screen_affinity=0 ),
+  Group("3", layout="monadtall", label="  3", screen_affinity=0 ),
+  Group("4", layout="monadtall", label="  4", screen_affinity=0 ),
+  Group("5", layout="monadtall", label="  5", screen_affinity=0 ),
+  Group("6", layout="monadtall", label="  6", screen_affinity=0 ),
+  Group("7", layout="monadtall", label="  7", screen_affinity=0 ),
+  Group("8", layout="monadtall", label="  8", screen_affinity=1 ),
 
 ]
-
 
 for i in groups:
   keys.extend(
@@ -128,41 +129,41 @@ for i in groups:
       Key([mod], i.name, lazy.group[i.name].toscreen() ),
 
       # switch between groups using the numpad
-      Key([mod, "mod2"], "KP_End", lazy.group["1"].toscreen() ),
-      Key([mod, "mod2"], "KP_Down", lazy.group["2"].toscreen() ),
-      Key([mod, "mod2"], "KP_Next", lazy.group["3"].toscreen() ),
-      Key([mod, "mod2"], "KP_Left", lazy.group["4"].toscreen() ),
-      Key([mod, "mod2"], "KP_Begin", lazy.group["5"].toscreen() ),
-      Key([mod, "mod2"], "KP_Right", lazy.group["6"].toscreen() ),
-      Key([mod, "mod2"], "KP_Home", lazy.group["7"].toscreen() ),
-      Key([mod, "mod2"], "KP_Up", lazy.group["8"].toscreen() ),
+      Key([mod], "KP_End", lazy.group["1"].toscreen() ),
+      Key([mod], "KP_Down", lazy.group["2"].toscreen() ),
+      Key([mod], "KP_Next", lazy.group["3"].toscreen() ),
+      Key([mod], "KP_Left", lazy.group["4"].toscreen() ),
+      Key([mod], "KP_Begin", lazy.group["5"].toscreen() ),
+      Key([mod], "KP_Right", lazy.group["6"].toscreen() ),
+      Key([mod], "KP_Home", lazy.group["7"].toscreen() ),
+      Key([mod], "KP_Up", lazy.group["8"].toscreen() ),
 
 
       # mod + shift + number of group = switch to & move focused window to group
       # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True) ),
 
       # switch to and move focused window to group using the numpad
-      # Key([mod, "mod2", "shift"], "KP_End", lazy.window.togroup("1", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Down", lazy.window.togroup("2", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Next", lazy.window.togroup("3", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Left", lazy.window.togroup("4", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Begin", lazy.window.togroup("5", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Right", lazy.window.togroup("6", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Home", lazy.window.togroup("7", switch_group=True) ),
-      # Key([mod, "mod2", "shift"], "KP_Up", lazy.window.togroup("8", switch_group=True) ),
+      # Key([mod, "shift"], "KP_End", lazy.window.togroup("1", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Down", lazy.window.togroup("2", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Next", lazy.window.togroup("3", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Left", lazy.window.togroup("4", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Begin", lazy.window.togroup("5", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Right", lazy.window.togroup("6", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Home", lazy.window.togroup("7", switch_group=True) ),
+      # Key([mod, "shift"], "KP_Up", lazy.window.togroup("8", switch_group=True) ),
 
       # use this if you don't want to switch to the group that the window was moved to
       Key([mod, "shift"], i.name, lazy.window.togroup(i.name) ),
 
       # use this if you don't want to switch to the group that the window was moved to with the numpad
-      Key([mod, "mod2", "shift"], "KP_End", lazy.window.togroup("1") ),
-      Key([mod, "mod2", "shift"], "KP_Down", lazy.window.togroup("2") ),
-      Key([mod, "mod2", "shift"], "KP_Next", lazy.window.togroup("3") ),
-      Key([mod, "mod2", "shift"], "KP_Left", lazy.window.togroup("4") ),
-      Key([mod, "mod2", "shift"], "KP_Begin", lazy.window.togroup("5") ),
-      Key([mod, "mod2", "shift"], "KP_Right", lazy.window.togroup("6") ),
-      Key([mod, "mod2", "shift"], "KP_Home", lazy.window.togroup("7") ),
-      Key([mod, "mod2", "shift"], "KP_Up", lazy.window.togroup("8") ),
+      Key([mod, "shift"], "KP_End", lazy.window.togroup("1") ),
+      Key([mod, "shift"], "KP_Down", lazy.window.togroup("2") ),
+      Key([mod, "shift"], "KP_Next", lazy.window.togroup("3") ),
+      Key([mod, "shift"], "KP_Left", lazy.window.togroup("4") ),
+      Key([mod, "shift"], "KP_Begin", lazy.window.togroup("5") ),
+      Key([mod, "shift"], "KP_Right", lazy.window.togroup("6") ),
+      Key([mod, "shift"], "KP_Home", lazy.window.togroup("7") ),
+      Key([mod, "shift"], "KP_Up", lazy.window.togroup("8") ),
 
   ]
 )
@@ -172,9 +173,12 @@ groups.append(ScratchPad("0", [ DropDown("term", "alacritty", opacity=1, width=0
 
 )
 
+# set colorscheme
+colors = colors.TokyoNight
+
 layout_theme = {
-                "border_focus":'#dfbf8e',
-                "border_normal":'#665c54',
+                "border_focus":colors[0],
+                "border_normal":colors[2],
                 "border_width":4,
                 "margin":10,
                }

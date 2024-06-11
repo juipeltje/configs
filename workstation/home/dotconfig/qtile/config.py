@@ -4,18 +4,15 @@
 from libqtile.command import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile import layout, hook, bar, widget
-import os
 import subprocess
 import sys
 sys.path.append('/home/joppe/repos/configs/common/home/dotconfig/qtile')
-import common
-from common import mod, terminal, webbrowser, file_manager, keys, mouse, groups, layout_theme, layouts, cursor_warp, floating_layout
+from common import *
 
 # autostart programs when starting window manager
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([home])
+    subprocess.Popen([home + '/.config/qtile/autostart.sh'])
 
 # Keybindings
 keys += [
@@ -28,7 +25,7 @@ keys += [
 
 widget_defaults = dict(
   font="Ubuntu Nerd Font Medium",
-  foreground='dfbf8e'
+  foreground=colors[0]
 )
 
 spacer = widget.Spacer(
@@ -69,40 +66,42 @@ systray = widget.Systray(
 groupbox = widget.GroupBox(
             use_mouse_wheel=False,
             urgent_alert_method='text',
-            urgent_text='ea6962',
+            urgent_text=colors[3],
             fontsize=16,
             spacing=None,
             padding_x=1,
-            highlight_color=['000000', 'a89984'],
-            highlight_method='default',
-            inactive='928374',
-            active='dfbf8e',
-            this_current_screen_border='8ec07c',
-            other_screen_border='d3869b',
-            this_screen_border='8ec07c',
-            other_current_screen_border='d3869b',
+            highlight_color=colors[1],
+            highlight_method='line',
+            inactive=colors[2],
+            active=colors[0],
+            this_current_screen_border=colors[0],
+            other_screen_border=colors[2],
+            this_screen_border=colors[2],
+            other_current_screen_border=colors[0],
             borderwidth=4,
             font="Ubuntu Nerd Font Bold",
-            padding=4)
+            padding=4,
+	    hide_unused=True)
 
 groupbox2 = widget.GroupBox(
             use_mouse_wheel=False,
             urgent_alert_method='text',
-            urgent_text='ea6962',
+            urgent_text=colors[3],
             fontsize=16,
             spacing=None,
             padding_x=1,
-            highlight_color=['000000', 'a89984'],
-            highlight_method='default',
-            inactive='928374',
-            active='dfbf8e',
-            this_current_screen_border='d3869b',
-            other_screen_border='8ec07c',
-            this_screen_border='d3869b',
-            other_current_screen_border='8ec07c',
+            highlight_color=colors[1],
+            highlight_method='line',
+            inactive=colors[2],
+            active=colors[0],
+            this_current_screen_border=colors[0],
+            other_screen_border=colors[2],
+            this_screen_border=colors[2],
+            other_current_screen_border=colors[0],
             borderwidth=4,
             font="Ubuntu Nerd Font Bold",
-            padding=4)
+            padding=4,
+            hide_unused=True)
 
 l_icon = widget.CurrentLayoutIcon(
             scale=0.7,
@@ -172,7 +171,7 @@ kernel_version = widget.GenPollText(
 
 cpu_icon = widget.TextBox(
             text="󰻠",
-            fontsize=20,
+            fontsize=24,
             **widget_defaults,
             padding=2)
 
@@ -218,7 +217,7 @@ pump_icon = widget.TextBox(
             padding=2)
 
 pump_rpm = widget.GenPollText(
-            func=lambda: subprocess.check_output("sensors | grep Pump | awk '{print $2" "$3}'", shell=True, text=True).strip(),
+            func=lambda: subprocess.check_output("sensors | awk '/Pump/ {print $2" "$3}'", shell=True, text=True).strip(),
             update_interval=5,
             fontsize=16,
             **widget_defaults,
@@ -231,7 +230,7 @@ fan_icon = widget.TextBox(
             padding=2)
 
 fan_rpm = widget.GenPollText(
-            func=lambda: subprocess.check_output("sensors | grep fan2 | awk '{print $3" "$4}'", shell=True, text=True).strip(),
+            func=lambda: subprocess.check_output("sensors | awk '/fan2/ {print $3" "$4}'", shell=True, text=True).strip(),
             update_interval=5,
             fontsize=16,
             **widget_defaults,
@@ -239,7 +238,7 @@ fan_rpm = widget.GenPollText(
 
 mem_icon = widget.TextBox(
             text=" ",
-            fontsize=20,
+            fontsize=18,
             **widget_defaults,
             padding=0)
 
@@ -256,23 +255,23 @@ ds5_icon = widget.TextBox(
             padding=2)
 
 ds5_bat = widget.GenPollText(
-            func=lambda: subprocess.check_output("/home/joppe/repos/configs/scripts/dualsense-bat.sh", shell=True, text=True).strip(),
+            func=lambda: subprocess.check_output(home + '/repos/configs/scripts/dualsense-bat.sh', shell=True, text=True).strip(),
             update_interval=60,
             fontsize=16,
             **widget_defaults,
             padding=2)
 
 current_screen = widget.CurrentScreen(
-                   active_color='dfbf8e',
+                   active_color=colors[0],
                    active_text='󰍹',
-                   inactive_color='928374',
+                   inactive_color=colors[2],
                    inactive_text='󰍹',
                    **widget_defaults)
 
 current_screen2 = widget.CurrentScreen(
-                   active_color='dfbf8e',
+                   active_color=colors[0],
                    active_text='󰍹',
-                   inactive_color='928374',
+                   inactive_color=colors[2],
                    inactive_text='󰍹',
                    **widget_defaults)
 
@@ -289,6 +288,7 @@ screens = [
     current_screen,
     groupbox,
     l_icon,
+    spacer,
     l,
     spacer2,
     window_icon,
@@ -320,10 +320,10 @@ screens = [
     spacer
 
          ], 38,
-            background="#282828ff",
+            background=colors[1],
             margin=[10,10,0,10],
             border_width=[0,0,0,0],
-            border_color="#dfbf8eff"), ),
+            border_color=colors[0]), ),
 
  Screen(top=bar.Bar([
     spacer,
@@ -336,6 +336,7 @@ screens = [
     current_screen2,
     groupbox2,
     l_icon2,
+    spacer,
     l2,
     spacer2,
     window_icon,
@@ -367,9 +368,9 @@ screens = [
     spacer
 
          ], 38,
-            background="#282828ff",
+            background=colors[1],
             margin=[10,10,0,10],
             border_width=[0,0,0,0],
-            border_color="#dfbf8eff"), ),
+            border_color=colors[0]), ),
 
 ]

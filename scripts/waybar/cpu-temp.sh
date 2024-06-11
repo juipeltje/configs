@@ -2,4 +2,4 @@
 
 # waybar script for cpu temperature widget
 
-sensors k10temp-pci-00c3 | grep Tctl | awk '{print $2}' | sed 's/+/ /'
+sensors k10temp-pci-00c3 | awk '/Tctl/ {print $2}' | sed 's/+/ /'
