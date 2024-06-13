@@ -149,10 +149,12 @@ music_icon = widget.TextBox(
             padding=2)
 
 now_playing = widget.Mpris2(
-            format=["xesam:title", "xesam:artist"],
+            format='{xesam:title} - {xesam:artist}',
             max_chars=30,
+	    no_metadata_text='',
             paused_text='{track}',
             playing_text='{track}',
+	    poll_interval=5,
             fontsize=16,
             **widget_defaults,
             padding=2)
