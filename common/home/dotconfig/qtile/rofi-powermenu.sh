@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | rofi -dmenu -theme-str 'window {width: 10%;}' | awk '{print tolower($2)}' )
+op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | rofi -dmenu -p "Powermenu:" -theme-str 'window {width: 5%;}' | awk '{print tolower($2)}' )
 
-case $op in 
+case $op in
         poweroff)
                 ;&
         reboot)

@@ -7,7 +7,7 @@ from libqtile import layout, hook, bar, widget
 import os
 import subprocess
 import sys
-sys.path.append('/home/joppe/repos/configs/common/home/dotconfig/qtile')
+sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/qtile')
 from common import *
 
 # autostart programs when starting window manager

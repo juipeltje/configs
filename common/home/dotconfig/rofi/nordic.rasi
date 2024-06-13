@@ -19,6 +19,7 @@ entry {
         placeholder: "";
         text-color: #8fbcbb;
         margin: 10px 0px 0px 0px;
+	blink: false;
 }
 
 element-text {

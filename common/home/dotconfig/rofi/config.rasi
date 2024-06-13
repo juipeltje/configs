@@ -9,4 +9,4 @@ configuration {
 	display-drun: "";
 }
 
-@theme "tokyo-night"
+@theme "gruvbox-material-dark"

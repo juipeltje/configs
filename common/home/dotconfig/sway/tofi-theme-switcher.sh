@@ -2,7 +2,7 @@
 
 # Theme switcher script for SwayFX
 
-theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | tofi --width=300 --placeholder-text="Select your theme:" | awk '{print $2}' )
+theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | tofi --width=300 --placeholder-text="Select a theme:" | awk '{print $2}' )
 
 case $theme in
 	Nordic)

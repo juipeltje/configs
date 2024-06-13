@@ -35,9 +35,10 @@ keys = [
   # Open Deezer in firefox tab
   Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
 
-  # Rofi power menu and application launcher
-  Key([mod], "Escape", lazy.spawn(home + '/.config/qtile/rofi-powermenu.sh') ),
+  # open Rofi application launcher, powermenu, and theme-switcher
   Key([mod], "space", lazy.spawn("rofi -show drun") ),
+  Key([mod], "Escape", lazy.spawn(home + '/.config/qtile/rofi-powermenu.sh') ),
+  Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
 
   # Dunst notification history and close all notifications
   Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
@@ -174,7 +175,7 @@ groups.append(ScratchPad("0", [ DropDown("term", "alacritty", opacity=1, width=0
 )
 
 # set colorscheme
-colors = colors.TokyoNight
+colors = colors.GruvboxMaterialDark
 
 layout_theme = {
                 "border_focus":colors[0],

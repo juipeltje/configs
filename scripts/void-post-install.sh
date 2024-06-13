@@ -27,6 +27,7 @@ packages=(
 	"xrdb"
 	"xrandr"
         "xdotool"
+	"xsettingsd"
         "i3"
 	"autotiling"
         "qtile"
