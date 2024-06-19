@@ -31,9 +31,13 @@ packages=(
         "i3"
 	"autotiling"
         "qtile"
+	"python3-qtile-extras"
 	"python3-dbus-next"
+	"picom"
 
         # Wayland/Compositors
+	"wlr-randr"
+	"river"
         "swayfx"
         "xorg-server-xwayland"
 

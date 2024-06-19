@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# River workstation config
+
+# import the common config script
+riverctl spawn ~/.config/river/common.sh
+
+# Autostart
+riverctl spawn ~/.config/river/autostart.sh
+
+# Keybindings
+
+# switch focus between outputs
+riverctl map normal Super+Control Up focus-output DP-2
+riverctl map normal Super+Control Down focus-output DP-1
+
+# send the focused view to the next/previous output
+riverctl map normal Super+Control+Shift Up send-to-output DP-2
+riverctl map normal Super+Control+Shift Down send-to-output DP-1
+
+# enable/disable adaptive sync
+riverctl map normal Super+Control A spawn 'wlr-randr --output DP-1 --adaptive-sync enabled'
+riverctl map normal Super+Control V spawn 'wlr-randr --output DP-1 --adaptive-sync disabled'

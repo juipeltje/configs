@@ -4,22 +4,22 @@ window#waybar {
     font-size: 16px;
     background-color: #2e3440;
     color: #8fbcbb;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
-#workspaces button {
+#tags button {
     background-color: #2e3440;
     color: #8fbcbb;
 }
 
-#workspaces button.active {
+#tags button.focused {
     background-color: #2e3440;
     color: #8fbcbb;
-    border-bottom: 4px solid #8fbcbb;
+    border-bottom: 2px solid #8fbcbb;
     border-radius: 0px;
 }
 
-#workspaces button.empty {
+#tags button.occupied {
     background-color: #2e3440;
     color: #8fbcbb; 
 }

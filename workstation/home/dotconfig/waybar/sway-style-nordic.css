@@ -3,25 +3,25 @@ window#waybar {
     font-weight: 500;
     font-size: 16px;
     background-color: #2e3440;
-    color: #d8dee9;
+    color: #8fbcbb;
     border-radius: 20px;
 }
 
 #workspaces button {
     background-color: #2e3440;
-    color: #d8dee9;
+    color: #8fbcbb;
 }
 
 #workspaces button.focused {
     background-color: #2e3440;
-    color: #d8dee9;
+    color: #8fbcbb;
     border-bottom: 2px solid #8fbcbb;
     border-radius: 0px;
 }
 
 #workspaces button.visible {
     background-color: #2e3440;
-    color: #d8dee9; 
+    color: #8fbcbb; 
 }
 
 

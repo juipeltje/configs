@@ -44,6 +44,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
+	rm -rf /home/${user}/.config/river
 	rm -rf /home/${user}/.config/rofi
 	rm -rf /home/${user}/.config/sway
 	rm -rf /home/${user}/.config/tofi
@@ -65,6 +66,7 @@ make_directories() {
 	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
+	mkdir -p /home/${user}/.config/river
         mkdir -p /home/${user}/.config/rofi
         mkdir -p /home/${user}/.config/sway
 	mkdir -p /home/${user}/.config/tofi
@@ -90,6 +92,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/rofi/* /home/${user}/.config/rofi/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/sway/* /home/${user}/.config/sway/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/tofi/* /home/${user}/.config/tofi/
@@ -103,6 +106,7 @@ configs_desktop() {
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/polybar/* /home/${user}/.config/polybar/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
