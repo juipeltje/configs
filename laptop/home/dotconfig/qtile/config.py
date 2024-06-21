@@ -3,7 +3,8 @@
 # Import libraries
 from libqtile.command import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
-from libqtile import layout, hook, bar, widget
+from libqtile import layout, hook, bar
+from qtile_extras import widget
 import os
 import subprocess
 import sys
@@ -111,11 +112,15 @@ groupbox2 = widget.GroupBox(
 
 l_icon = widget.CurrentLayoutIcon(
             scale=0.7,
-            padding=2)
+            padding=2,
+	    **widget_defaults,
+	    use_mask=True)
 
 l_icon2 = widget.CurrentLayoutIcon(
             scale=0.7,
-            padding=2)
+            padding=2,
+	    **widget_defaults,
+	    use_mask=True)
 
 l = widget.CurrentLayout(
             fontsize=16,
@@ -154,8 +159,9 @@ music_icon = widget.TextBox(
             padding=2)
 
 now_playing = widget.Mpris2(
-            format=["xesam:title", "xesam:artist"],
+            format='{xesam:title} - {xesam:artist}',
             max_chars=30,
+	    no_metadata_text='',
             paused_text='{track}',
             playing_text='{track}',
             fontsize=16,
@@ -230,17 +236,19 @@ ds5_bat = widget.GenPollText(
 
 current_screen = widget.CurrentScreen(
                    active_color=colors[0],
-                   active_text='󰍹',
+                   active_text='',
                    inactive_color=colors[2],
-                   inactive_text='󰍹',
-                   **widget_defaults)
+                   inactive_text='',
+                   **widget_defaults,
+		   fontsize=26)
 
 current_screen2 = widget.CurrentScreen(
                    active_color=colors[0],
-                   active_text='󰍹',
+                   active_text='',
                    inactive_color=colors[2],
-                   inactive_text='󰍹',
-                   **widget_defaults)
+                   inactive_text='',
+                   **widget_defaults,
+		   fontsize=26)
 
 battery = widget.Battery(
             battery=0,
