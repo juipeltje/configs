@@ -9,6 +9,8 @@ case $theme in
 		sed -i --follow-symlinks 's|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-nordic.conf|' ~/.config/sway/config
 		swaymsg reload
 		sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/nordic.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include nordic.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
 		killall mako
 		mako -c ~/.config/mako/nordic-config &
 		killall waybar
@@ -23,6 +25,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-gruvbox-material-dark.conf|' ~/.config/sway/config
                 swaymsg reload
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/gruvbox-material-dark.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include gruvbox-material-dark.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
                 killall mako
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
                 killall waybar
@@ -37,6 +41,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-tokyonight.conf|' ~/.config/sway/config
                 swaymsg reload
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/tokyo-night.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include tokyo-night.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
                 killall mako
                 mako -c ~/.config/mako/tokyonight-config &
                 killall waybar

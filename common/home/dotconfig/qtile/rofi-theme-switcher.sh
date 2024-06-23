@@ -9,6 +9,8 @@ case $theme in
 		sed -i --follow-symlinks 's|^colors.*|colors = colors.Nordic|' ~/.config/qtile/common.py
 		qtile cmd-obj -o cmd -f reload_config
 		sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/nordic.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include nordic.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
 		killall dunst
 		dunst -conf ~/.config/dunst/dunstrc-nordic &
 		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Nordic"|' ~/.xsettingsd
@@ -21,6 +23,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^colors.*|colors = colors.GruvboxMaterialDark|' ~/.config/qtile/common.py
                 qtile cmd-obj -o cmd -f reload_config
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/gruvbox-material-dark.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include gruvbox-material-dark.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
                 killall dunst
                 dunst -conf ~/.config/dunst/dunstrc-gruvbox-material-dark &
 		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Material-Dark"|' ~/.xsettingsd
@@ -33,6 +37,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^colors.*|colors = colors.TokyoNight|' ~/.config/qtile/common.py
                 qtile cmd-obj -o cmd -f reload_config
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/tokyo-night.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include tokyo-night.conf|' ~/.config/kitty/kitty.conf
+                kill -SIGUSR1 $(pgrep kitty)
                 killall dunst
                 dunst -conf ~/.config/dunst/dunstrc-tokyonight &
 		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Tokyonight-Dark"|' ~/.xsettingsd

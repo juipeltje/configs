@@ -1,7 +1,7 @@
 # tofi config
 
 # Include the color scheme to use
-include = gruvbox-material-dark-colors
+include = tokyonight-colors
 
 # font 
 font = "Ubuntu Nerd Font Medium"

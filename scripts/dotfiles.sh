@@ -38,9 +38,11 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/git
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
+	rm -rf /home/${user}/.config/kitty
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpv
 	rm -rf /home/${user}/.config/nano
+	rm -rf /home/${user}/.config/picom
 	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
@@ -60,9 +62,11 @@ make_directories() {
         mkdir -p /home/${user}/.config/git
         mkdir -p /home/${user}/.config/hypr
         mkdir -p /home/${user}/.config/i3
+	mkdir -p /home/${user}/.config/kitty
         mkdir -p /home/${user}/.config/mako
         mkdir -p /home/${user}/.config/mpv
 	mkdir -p /home/${user}/.config/nano
+	mkdir -p /home/${user}/.config/picom
 	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
@@ -87,9 +91,11 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/git/* /home/${user}/.config/git/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/kitty/* /home/${user}/.config/kitty/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/river/* /home/${user}/.config/river/
@@ -117,6 +123,7 @@ configs_laptop() {
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/polybar/* /home/${user}/.config/polybar/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }

@@ -81,11 +81,13 @@ packages=(
 
         # Terminal
         "alacritty"
+	"kitty"
 
         # Webbrowser
         "firefox"
 
         # File managers/utilities
+	"yazi"
         "pcmanfm"
 	"xz"
         "unzip"
@@ -156,6 +158,7 @@ packages=(
         "cronie"
 	"curl"
 	"psmisc"
+	"fastfetch"
 )
 
 desktop_packages=(
@@ -186,10 +189,7 @@ src_packages=(
         "tokyo-night-gtk"
         "phinger-cursors"
         "mint-y-icons"
-        "fastfetch"
 	"regreet"
-	"ueberzugpp"
-	"yazi"
 )
 
 options_1=(
@@ -218,10 +218,7 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
-        sudo -u ${user} ./xbps-src pkg fastfetch
 	sudo -u ${user} ./xbps-src pkg regreet
-	sudo -u ${user} ./xbps-src pkg ueberzugpp
-	sudo -u ${user} ./xbps-src pkg yazi
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
         cd
 }
@@ -242,10 +239,14 @@ services() {
         ln -s /etc/sv/ntpd /var/service/
         ln -s /etc/sv/socklog-unix /var/service/
         ln -s /etc/sv/nanoklogd /var/service/
-        ln -s /etc/sv/libvirtd /var/service/
         ln -s /etc/sv/cronie /var/service/
 	rm -f /var/service/dhcpcd
 }
+
+desktop_services() {
+	ln -s /etc/sv/libvirtd /var/service/
+	ln -s /etc/sv/virtlockd /var/service/
+	ln -s /etc/sv/virtlogd /var/service/
 
 laptop_services() {
 	ln -s /etc/sv/tlp /var/service/
@@ -280,11 +281,14 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/git
 	sudo -u ${user} rm -rf /home/${user}/.config/hypr
 	sudo -u ${user} rm -rf /home/${user}/.config/i3
+	sudo -u ${user} rm -rf /home/${user}/.config/kitty
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
 	sudo -u ${user} rm -rf /home/${user}/.config/nano
+	sudo -u ${user} rm -rf /home/${user}/.config/picom
 	sudo -u ${user} rm -rf /home/${user}/.config/polybar
 	sudo -u ${user} rm -rf /home/${user}/.config/qtile
+	sudo -u ${user} rm -rf /home/${user}/.config/river
 	sudo -u ${user} rm -rf /home/${user}/.config/rofi
 	sudo -u ${user} rm -rf /home/${user}/.config/sway
 	sudo -u ${user} rm -rf /home/${user}/.config/waybar
@@ -304,10 +308,14 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/git /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/hypr /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/i3 /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/kitty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/picom /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/qtile /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/river /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/rofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/sway /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/tofi /home/${user}/.config/
@@ -321,7 +329,8 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar /home/${user}/.config/
 	cp -f /home/${user}/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
@@ -334,7 +343,8 @@ configs_laptop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile /home/${user}/.config/
+        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar /home/${user}/.config/
 	cp -f /home/${user}/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
@@ -378,6 +388,13 @@ desktop_entries() {
 	echo "Exec=dbus-run-session Hyprland" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
 	echo "Type=Application" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
 	echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
+
+	echo "[Desktop Entry]" > /usr/share/wayland-sessions/river-dbus.desktop
+        echo "Name=River (dbus)" >> /usr/share/wayland-sessions/river-dbus.desktop
+        echo "Comment=River session started with dbus for void linux" >> /usr/share/wayland-sessions/river-dbus.desktop
+        echo "Exec=dbus-run-session river" >> /usr/share/wayland-sessions/river-dbus.desktop
+        echo "Type=Application" >> /usr/share/wayland-sessions/river-dbus.desktop
+        echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/river-dbus.desktop
 }
 
 echo -e "${bright_green}This script will install both global system configurations as well as dotfiles in the user's home folder.
@@ -473,6 +490,7 @@ do
 			# Services
 			echo -e "${bright_green}Enabling runit services...${color_reset}"
         		services
+			desktop_services
 
 			# Desktop entries
 			echo -e "${bright_green}Setting up desktop entries...${color_reset}"

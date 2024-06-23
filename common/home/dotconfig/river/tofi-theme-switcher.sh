@@ -9,6 +9,8 @@ case $theme in
 		sed -i --follow-symlinks 's|^riverctl spawn ~/.config/river/colors.*|riverctl spawn ~/.config/river/colors-nordic.sh|' ~/.config/river/common.sh
 		~/.config/river/colors-nordic.sh &
 		sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/nordic.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include nordic.conf|' ~/.config/kitty/kitty.conf
+		kill -SIGUSR1 $(pgrep kitty)
 		killall mako
 		mako -c ~/.config/mako/nordic-config &
 		killall waybar
@@ -23,6 +25,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^riverctl spawn ~/.config/river/colors.*|riverctl spawn ~/.config/river/colors-gruvbox-material-dark.sh|' ~/.config/river/common.sh
                 ~/.config/river/colors-gruvbox-material-dark.sh &
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/gruvbox-material-dark.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include gruvbox-material-dark.conf|' ~/.config/kitty/kitty.conf
+		kill -SIGUSR1 $(pgrep kitty)
                 killall mako
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
                 killall waybar
@@ -37,6 +41,8 @@ case $theme in
                 sed -i --follow-symlinks 's|^riverctl spawn ~/.config/river/colors.*|riverctl spawn ~/.config/river/colors-tokyonight.sh|' ~/.config/river/common.sh
                 ~/.config/river/colors-tokyonight.sh &
                 sed -i --follow-symlinks 's|^import.*|import = ["~/.config/alacritty/tokyo-night.toml"]|' ~/.config/alacritty/alacritty.toml
+		sed -i --follow-symlinks 's|^include.*|include tokyo-night.conf|' ~/.config/kitty/kitty.conf
+		kill -SIGUSR1 $(pgrep kitty)
                 killall mako
                 mako -c ~/.config/mako/tokyonight-config &
                 killall waybar
