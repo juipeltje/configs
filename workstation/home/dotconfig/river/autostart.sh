@@ -2,7 +2,7 @@
 
 # autostart script for River
 
-wlr-randr --output DP-1 --mode 3440x1440@164.998993 --pos 0,1080 --output DP-2 --mode 2560x1080@74.990997 --pos 0,0 &
+kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 waybar -c ~/.config/waybar/river-config -s ~/.config/waybar/river-style-tokyonight.css &
 mako -c ~/.config/mako/tokyonight-config &

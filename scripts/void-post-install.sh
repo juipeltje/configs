@@ -36,7 +36,7 @@ packages=(
 	"picom"
 
         # Wayland/Compositors
-	"wlr-randr"
+	"kanshi"
 	"river"
         "swayfx"
         "xorg-server-xwayland"
@@ -281,6 +281,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/git
 	sudo -u ${user} rm -rf /home/${user}/.config/hypr
 	sudo -u ${user} rm -rf /home/${user}/.config/i3
+	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
 	sudo -u ${user} rm -rf /home/${user}/.config/kitty
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
@@ -328,6 +329,7 @@ configs_desktop() {
 	sudo -u ${user} cp -f /home/${user}/configs/workstation/home/.bashrc /home/${user}/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/kanshi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/

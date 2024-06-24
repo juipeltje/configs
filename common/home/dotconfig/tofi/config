@@ -23,8 +23,8 @@ clip-to-padding = true
 prompt-text = ""
 prompt-padding = 4
 placeholder-text = ""
-num-results = 0
-result-spacing = 15
+num-results = 7
+result-spacing = 20
 horizontal = false
 min-input-width = 0
 text-cursor-style = underscore
@@ -47,8 +47,8 @@ default-result-background-padding = 0
 default-result-background-corner-radius = 0
 
 # selected text theme
-selection-background-padding = 4
-selection-background-corner-radius = 15
+selection-background-padding = 10,-1
+selection-background-corner-radius = 20
 
 # behaviour
 hide-cursor = false

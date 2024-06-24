@@ -1,7 +1,7 @@
 # Qtile config
 
 # Import libraries
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.config import Key, Drag, Group, ScratchPad, DropDown
 from libqtile import layout
 import os
@@ -10,7 +10,7 @@ import colors
 # Variables
 home = os.path.expanduser('~')
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 webbrowser = "firefox"
 file_manager = "pcmanfm"
 
@@ -170,7 +170,7 @@ for i in groups:
 )
 
 # Scratchpad window settings
-groups.append(ScratchPad("0", [ DropDown("term", "alacritty", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]),
+groups.append(ScratchPad("0", [ DropDown("term", terminal, opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]),
 
 )
 

@@ -3,7 +3,7 @@
 # River common config
 
 # Variables
-terminal="alacritty"
+terminal="kitty"
 file_manager="pcmanfm"
 webbrowser="firefox"
 

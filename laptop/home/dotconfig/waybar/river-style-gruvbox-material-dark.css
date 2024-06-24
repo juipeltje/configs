@@ -1,0 +1,40 @@
+window#waybar {
+    font-family: UbuntuNerdFont;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #282828;
+    color: #dfbf8e;
+    border-radius: 20px;
+}
+
+#tags button {
+    background-color: #282828;
+    color: #dfbf8e;
+}
+
+#tags button.focused {
+    background-color: #282828;
+    color: #dfbf8e;
+    border-bottom: 2px solid #dfbf8e;
+    border-radius: 0px;
+}
+
+#tags button.occupied {
+    background-color: #282828;
+    color: #dfbf8e; 
+}
+
+#tags button:not(.occupied):not(.focused) {
+    font-size: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 0;
+    border: 0;
+}
+
+#battery.critical {
+    color: #ea6962;
+}
+
+
+    

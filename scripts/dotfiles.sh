@@ -38,6 +38,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/git
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
+	rm -rf /home/${user}/.config/kanshi
 	rm -rf /home/${user}/.config/kitty
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpv
@@ -62,6 +63,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/git
         mkdir -p /home/${user}/.config/hypr
         mkdir -p /home/${user}/.config/i3
+	mkdir -p /home/${user}/.config/kanshi
 	mkdir -p /home/${user}/.config/kitty
         mkdir -p /home/${user}/.config/mako
         mkdir -p /home/${user}/.config/mpv
@@ -110,6 +112,7 @@ configs_desktop() {
 	ln -s /home/${user}/repos/configs/workstation/home/.bashrc /home/${user}/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/kanshi/* /home/${user}/.config/kanshi/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/polybar/* /home/${user}/.config/polybar/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/

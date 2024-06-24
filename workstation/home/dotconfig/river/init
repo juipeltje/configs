@@ -19,5 +19,5 @@ riverctl map normal Super+Control+Shift Up send-to-output DP-2
 riverctl map normal Super+Control+Shift Down send-to-output DP-1
 
 # enable/disable adaptive sync
-riverctl map normal Super+Control A spawn 'wlr-randr --output DP-1 --adaptive-sync enabled'
-riverctl map normal Super+Control V spawn 'wlr-randr --output DP-1 --adaptive-sync disabled'
+riverctl map normal Super+Control A spawn 'kanshictl switch gaming'
+riverctl map normal Super+Control V spawn 'kanshictl switch desktop'

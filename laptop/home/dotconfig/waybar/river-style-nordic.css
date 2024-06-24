@@ -7,21 +7,29 @@ window#waybar {
     border-radius: 20px;
 }
 
-#workspaces button {
+#tags button {
     background-color: #2e3440;
     color: #8fbcbb;
 }
 
-#workspaces button.focused {
+#tags button.focused {
     background-color: #2e3440;
     color: #8fbcbb;
     border-bottom: 2px solid #8fbcbb;
     border-radius: 0px;
 }
 
-#workspaces button.visible {
+#tags button.occupied {
     background-color: #2e3440;
     color: #8fbcbb; 
+}
+
+#tags button:not(.occupied):not(.focused) {
+    font-size: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0 0;
+    border: 0;
 }
 
 #battery.critical {
