@@ -1,7 +1,7 @@
 # tofi config
 
 # Include the color scheme to use
-include = tokyonight-colors
+include = gruvbox-material-dark-colors
 
 # font 
 font = "Ubuntu Nerd Font Medium"
@@ -19,10 +19,10 @@ padding-top = 10
 padding-bottom = 10
 padding-left = 10
 padding-right = 10
-clip-to-padding = true
+clip-to-padding = false
 prompt-text = ""
 prompt-padding = 4
-placeholder-text = ""
+placeholder-text = "Search:"
 num-results = 7
 result-spacing = 20
 horizontal = false
@@ -31,8 +31,8 @@ text-cursor-style = underscore
 text-cursor-thickness = 2
 
 # prompt theme
-prompt-background-padding = 0
-prompt-background-corner-radius = 0
+prompt-background-padding = 5,-1
+prompt-background-corner-radius = 15
 
 # placeholder text theme
 placeholder-background-padding = 0
@@ -47,8 +47,8 @@ default-result-background-padding = 0
 default-result-background-corner-radius = 0
 
 # selected text theme
-selection-background-padding = 10,-1
-selection-background-corner-radius = 20
+selection-background-padding = 5,-1
+selection-background-corner-radius = 15
 
 # behaviour
 hide-cursor = false
