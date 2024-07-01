@@ -1,7 +1,7 @@
 # Qtile config
 
 # Import libraries
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile import layout, hook, bar
 from qtile_extras import widget

@@ -38,8 +38,8 @@ window#waybar {
 #window {
     background-color: #434c5e;
     border-radius: 20px;
-    margin: 5px 5px 5px 5px;
-    padding: 0px 5px;
+    margin: 4px 4px 4px 4px;
+    padding: 0px 4px;
 }
 
 #clock.date {
@@ -61,7 +61,7 @@ window#waybar {
 #custom-DualSense {
     background-color: #434c5e;
     border-radius: 20px;
-    margin: 5px 5px 5px 0px;
-    padding: 0px 5px;
+    margin: 4px 4px 4px 0px;
+    padding: 0px 4px;
 }
     

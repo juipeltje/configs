@@ -28,5 +28,35 @@ window#waybar {
     color: #f7768e;
 }
 
+#clock.time,
+#clock.date, 
+#tray,
+#window {
+    background-color: #24283b;
+    border-radius: 20px;
+    margin: 4px 4px 4px 4px;
+    padding: 0px 4px;
+}
+
+#clock.date {
+    padding: 0px 0px 0px 10px;
+}
+
+#window {
+    padding: 0px 10px;
+}
+
+#mpris, 
+#custom-kernel, 
+#custom-cpu, 
+#custom-gpu, 
+#custom-memory, 
+#custom-DualSense,  
+#battery {
+    background-color: #24283b;
+    border-radius: 20px;
+    margin: 4px 4px 4px 0px;
+    padding: 0px 4px;
+}
 
     
