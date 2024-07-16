@@ -33,6 +33,7 @@
     homeConfigurations = {
       "joppe@NixOS-Rig" = home-manager.lib.homeManagerConfiguration {
         inherit system;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./home.nix
