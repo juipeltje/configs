@@ -6,13 +6,13 @@
   imports =
     [ 
       # Bootloader settings
-      ./../common/system/bootloader.nix
+      ./../common/bootloader.nix
       # Drive settings
       ./drives.nix
       # Environment variables
-      ./../common/system/environment.nix
+      ./../common/environment.nix
       # Gaming
-      ./../common/system/gaming.nix
+      ./../common/gaming.nix
       # Greeter settings
       ./greeter.nix
       # Include the results of the hardware scan.
@@ -20,25 +20,25 @@
       # Hostname
       ./hostname.nix
       # Locale settings
-      ./../common/system/locale.nix
+      ./../common/locale.nix
       # Network settings
-      ./../common/system/network.nix
+      ./../common/network.nix
       # Packages
-      ./../common/system/packages.nix
+      ./../common/packages.nix
       # Laptop-specific packages
       ./packages.nix
       # Sound settings
-      ./../common/system/sound.nix
+      ./../common/sound.nix
       # Swap settings
       ./swap.nix
       # tlp settings
       ./tlp.nix
       # User settings
-      ./../common/system/users.nix
+      ./../common/users.nix
       # Wayland settings
-      ./../common/system/wayland.nix
+      ./../common/wayland.nix
       # X11 settings
-      ./../common/system/x11.nix
+      ./../common/x11.nix
       # Laptop-specific X11 settings
       ./x11.nix
     ];

@@ -6,13 +6,13 @@
   imports =
     [ 
       # Bootloader settings
-      ./../common/system/bootloader.nix
+      ./../common/bootloader.nix
       # Drive settings
       ./drives.nix
       # Environment variables
-      ./../common/system/environment.nix
+      ./../common/environment.nix
       # Gaming
-      ./../common/system/gaming.nix
+      ./../common/gaming.nix
       # greeter settings
       ./greeter.nix
       # Include the results of the hardware scan.
@@ -20,29 +20,29 @@
       # Hostname
       ./hostname.nix
       # Locale settings
-      ./../common/system/locale.nix
+      ./../common/locale.nix
       # Network settings
-      ./../common/system/network.nix
+      ./../common/network.nix
       # OpenRGB settings
       ./openrgb.nix
       # Packages
-      ./../common/system/packages.nix
+      ./../common/packages.nix
       # Workstation-specific packages
       ./packages.nix
       # Single gpu passthrough settings
       ./single-gpu-passthrough.nix
       # Sound settings
-      ./../common/system/sound.nix
+      ./../common/sound.nix
       # Swap settings
       ./swap.nix
       # User settings
-      ./../common/system/users.nix
+      ./../common/users.nix
       # Virtualisation settings
       ./virtualisation.nix
       # Wayland settings
-      ./../common/system/wayland.nix
+      ./../common/wayland.nix
       # X11 settings
-      ./../common/system/x11.nix
+      ./../common/x11.nix
       # Workstation-specific X11 settings
       ./x11.nix
     ];
