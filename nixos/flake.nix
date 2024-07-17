@@ -1,5 +1,5 @@
 {
-  description = "workstation flake";
+  description = "flake for my workstation and laptop";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -25,18 +25,33 @@
         inherit system;
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./configuration.nix 
+          ./workstation/configuration.nix 
+        ];
+      };
+
+      NixOS-Lappie = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ./laptop/configuration.nix
         ];
       };
     };
 
     homeConfigurations = {
       "joppe@NixOS-Rig" = home-manager.lib.homeManagerConfiguration {
-        inherit system;
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./home.nix
+          ./workstation/home.nix
+        ];
+      };
+
+      "joppe@NixOS-Lappie" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ./laptop/home.nix
         ];
       };
     };
