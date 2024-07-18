@@ -43,7 +43,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./workstation/home.nix
+          ./workstation/home-manager/home.nix
         ];
       };
 
@@ -51,7 +51,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./laptop/home.nix
+          ./laptop/home-manager/home.nix
         ];
       };
     };
