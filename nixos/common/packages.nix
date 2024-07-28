@@ -62,11 +62,11 @@
 
     # Terminal
     alacritty
+    kitty
 
     # File managers/utilities
     pcmanfm
     yazi
-    ueberzugpp
     unzip
     gnutar
     xz
@@ -82,6 +82,7 @@
 
     # Run launchers
     rofi
+    tofi
     wofi
 
     # Office suite
@@ -126,6 +127,7 @@
     vscodium-fhs
     autotiling
     psmisc
+    kanshi
   ];
 }
 

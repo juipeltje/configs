@@ -13,6 +13,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
     let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
           inherit system;
@@ -40,7 +41,7 @@
 
     homeConfigurations = {
       "joppe@NixOS-Rig" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./workstation/home-manager/home.nix
@@ -48,7 +49,7 @@
       };
 
       "joppe@NixOS-Lappie" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./laptop/home-manager/home.nix

@@ -1,4 +1,4 @@
-# NixOS workstation gaming configuration
+# NixOS gaming configuration
 
 { config, pkgs, ... }:
 

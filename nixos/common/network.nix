@@ -1,4 +1,4 @@
-# NixOS workstation network configuration
+# NixOS network configuration
 
 { config, pkgs, ... }:
 

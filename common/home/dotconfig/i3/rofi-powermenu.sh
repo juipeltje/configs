@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | rofi -dmenu -theme-str 'window {width: 10%;}' | awk '{print tolower($2)}' )
 
