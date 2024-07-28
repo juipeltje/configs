@@ -30,7 +30,7 @@
       # Workstation-specific packages
       ./packages.nix
       # Single gpu passthrough settings
-      ./single-gpu-passthrough.nix
+      #./single-gpu-passthrough.nix
       # Sound settings
       ./../common/sound.nix
       # Swap settings

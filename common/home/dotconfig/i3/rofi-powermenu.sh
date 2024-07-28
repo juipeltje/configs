@@ -2,13 +2,13 @@
 
 op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | rofi -dmenu -theme-str 'window {width: 10%;}' | awk '{print tolower($2)}' )
 
-case $op in 
+case $op in
         poweroff)
                 ;&
         reboot)
                 ;&
         suspend)
-                loginctl $op
+                systemctl $op
                 ;;
         lock)
 		i3-lock

@@ -119,6 +119,7 @@
     lxde.lxsession
     xdotool
     polybarFull
+    swaybg
     hyprpaper
     mpvpaper
     appimage-run
@@ -127,7 +128,6 @@
     vscodium-fhs
     autotiling
     psmisc
-    kanshi
   ];
 }
 

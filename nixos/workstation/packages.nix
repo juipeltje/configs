@@ -8,5 +8,8 @@
   environment.systemPackages = with pkgs; [
     # Python
     (python312.withPackages (subpkgs: with subpkgs; [ liquidctl docopt psutil ]))
+
+    # Kanshi
+    kanshi
   ];
 }

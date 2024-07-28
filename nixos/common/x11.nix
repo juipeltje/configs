@@ -14,6 +14,8 @@
       i3.enable = true;
       i3.extraPackages = [ ];
       qtile.enable = true;
+      qtile.package = pkgs.python312Packages.qtile;
+      qtile.extraPackages = python312Packages: with python312Packages; [ qtile-extras ];
     };
 
     displayManager = {

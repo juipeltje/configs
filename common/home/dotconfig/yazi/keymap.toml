@@ -2,4 +2,5 @@
 append_keymap = [
   { on = [ "<C-w>" ], run = "shell --confirm --orphan 'cp -f $0 ~/Pictures/sway/background.jpg && killall swaybg && swaybg -i $0 -m fill'", desc = "Sets image as wallpaper with swaybg" },
   { on = [ "<C-x>" ], run = "shell --confirm 'feh --bg-scale $0'", desc = "Sets image as wallpaper with feh" },
+  { on = [ "<C-g>" ], run = "shell --confirm 'cp -f $0 /greeter-background/background.jpg'", desc = "Sets image as greeter wallpaper" },
 ]

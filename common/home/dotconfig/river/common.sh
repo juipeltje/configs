@@ -151,3 +151,6 @@ riverctl set-cursor-warp on-focus-change
 
 # cursor focus
 riverctl focus-follows-cursor normal
+
+# make all applications use server side decorations
+riverctl rule-add ssd

@@ -9,7 +9,7 @@
     river.enable = true;
     river.extraPackages = [ ];
     hyprland.enable = true;
-    sway.enable = false;
+    sway.enable = true;
     sway.package = pkgs.swayfx;
     sway.extraPackages = [ ];
     xwayland.enable = true;
