@@ -50,7 +50,7 @@ in
     enable = true;
     settings = {
       background = {
-        path = /greeter-wallpapers/1.jpg;
+        path = /greeter-background/background.jpg;
         fit = "Contain";
       };
 

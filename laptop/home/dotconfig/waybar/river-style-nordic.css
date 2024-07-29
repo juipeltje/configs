@@ -4,7 +4,7 @@ window#waybar {
     font-size: 16px;
     background-color: #2e3440;
     color: #8fbcbb;
-    border-radius: 20px;
+    border-radius: 0px;
 }
 
 #tags button {
