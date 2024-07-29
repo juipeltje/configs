@@ -29,10 +29,5 @@
       enable = true;
       source = ./../../../common/home/dotconfig/river/tofi-powermenu.sh;
     };
-
-    "river/tofi-theme-switcher.sh" = {
-      enable = true;
-      source = ./../../../common/home/dotconfig/river/tofi-theme-switcher.sh;
-    };
   };
 }

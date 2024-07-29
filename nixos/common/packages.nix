@@ -100,6 +100,8 @@
     fastfetch
 
     # Theming/Fonts
+    nordic
+    gruvbox-gtk-theme
     tokyonight-gtk-theme
     phinger-cursors
     cinnamon.mint-y-icons
@@ -108,6 +110,9 @@
     # Benchmarking
     s-tui
     stress-ng
+
+    # Python
+    (python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
 
     # Other
     lm_sensors
