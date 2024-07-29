@@ -29,10 +29,5 @@
       enable = true;
       source = ./../../../common/home/dotconfig/sway/tofi-powermenu.sh;
     };
-
-    "sway/tofi-theme-switcher.sh" = {
-      enable = true;
-      source = ./../../../common/home/dotconfig/sway/tofi-theme-switcher.sh;
-    };
   };
 }
