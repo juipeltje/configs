@@ -7,7 +7,6 @@ xrandr --output DisplayPort-0 --primary --mode 3440x1440 --rate 165.00 --output 
 ~/.fehbg &
 picom &
 dunst -conf ~/.config/dunst/dunstrc-gruvbox-material-dark &
-pipewire &
 playerctld daemon &
 lxpolkit &
 xsettingsd &
