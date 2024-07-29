@@ -97,7 +97,6 @@
     deadbeef-with-plugins
 
     # Fetch tools
-    neofetch
     fastfetch
 
     # Theming/Fonts

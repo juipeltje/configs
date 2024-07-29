@@ -21,6 +21,7 @@ alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/config
 alias update='sudo nix flake update /home/joppe/repos/configs/nixos && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Lappie'
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
+alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Lappie'
 #
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
