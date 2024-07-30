@@ -19,10 +19,5 @@
       enable = true;
       source = ./../../../common/home/dotconfig/qtile/rofi-powermenu.sh;
     };
-
-    "qtile/rofi-theme-switcher.sh" = {
-      enable = true;
-      source = ./../../../common/home/dotconfig/qtile/rofi-theme-switcher.sh;
-    };
   };
 }

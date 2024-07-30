@@ -8,3 +8,4 @@ mako -c ~/.config/mako/gruvbox-material-dark-config &
 playerctld daemon &
 lxsession &
 nm-applet &
+alsactl --file ~/.config/asound.state restore &

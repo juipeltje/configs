@@ -23,6 +23,7 @@ alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
 alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Lappie'
 #
+alias alsa-store='alsactl --file ~/.config/asound.state store'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
 # PS1="\[\e[0;34m\][\u@\h \W]\$ \[\e[m\]"

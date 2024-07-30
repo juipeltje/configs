@@ -14,5 +14,10 @@
       enable = true;
       source = ./../../../laptop/home/dotconfig/river/autostart.sh;
     };
+
+    "river/tofi-theme-switcher.sh" = {
+      enable = true;
+      source = ./../../../laptop/home/dotconfig/river/tofi-theme-switcher.sh;
+    };
   };
 }

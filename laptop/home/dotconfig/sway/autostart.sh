@@ -8,3 +8,4 @@ mako -c ~/.config/mako/tokyonight-config &
 playerctld daemon &
 lxsession &
 nm-applet &
+alsactl --file ~/.config/asound.state restore &

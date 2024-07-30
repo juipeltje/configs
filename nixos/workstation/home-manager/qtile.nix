@@ -14,5 +14,10 @@
       enable = true;
       source = ./../../../workstation/home/dotconfig/qtile/autostart.sh;
     };
+
+    "qtile/rofi-theme-switcher.sh" = {
+      enable = true;
+      source = ./../../../workstation/home/dotconfig/qtile/rofi-theme-switcher.sh;
+    };
   };
 }

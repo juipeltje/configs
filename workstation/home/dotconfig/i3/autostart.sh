@@ -16,4 +16,4 @@ liquidctl --match kraken set pump speed 100 &
 xset s off -dpms &
 nm-applet &
 openrgb --startminimized -p team-red.orp &
-
+alsactl --file ~/.config/asound.state restore &

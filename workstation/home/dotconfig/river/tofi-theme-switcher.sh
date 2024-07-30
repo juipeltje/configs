@@ -16,8 +16,7 @@ case $theme in
 		kill $(pgrep waybar)
 		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/common/home-manager/theming.nix
 		sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-		home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig &
-		sleep 5
+		home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		~/.config/river/colors-nordic.sh &
 		mako -c ~/.config/mako/nordic-config &
 		waybar -c ~/.config/waybar/river-config -s ~/.config/waybar/river-style-nordic.css &
@@ -35,8 +34,7 @@ case $theme in
                 kill $(pgrep waybar)
 		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig &
-                sleep 5
+                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		~/.config/river/colors-gruvbox-material-dark.sh &
 		mako -c ~/.config/mako/gruvbox-material-dark-config &
                 waybar -c ~/.config/waybar/river-config -s ~/.config/waybar/river-style-gruvbox-material-dark.css &
@@ -54,8 +52,7 @@ case $theme in
                 kill $(pgrep waybar)
 		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark-BL";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-		home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig &
-		sleep 5
+		home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		~/.config/river/colors-tokyonight.sh &
 		mako -c ~/.config/mako/tokyonight-config &
                 waybar -c ~/.config/waybar/river-config -s ~/.config/waybar/river-style-tokyonight.css &

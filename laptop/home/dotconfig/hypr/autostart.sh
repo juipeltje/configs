@@ -8,3 +8,4 @@ mako &
 playerctld daemon &
 lxsession &
 nm-applet &
+alsactl --file ~/.config/asound.state restore &
