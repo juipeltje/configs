@@ -2,31 +2,22 @@
 
 { config, pkgs, ... }:
 
-# Hyprland configuration for greeter
+# SwayFX configuration for greeter
 let
-  HyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
-    # Hyprland greeter config
+  SwayFXConfig = pkgs.writeText "greetd-swayfx-config" ''
+    ## appearance
+    # cursor theme and size
+    seat seat0 xcursor_theme "phinger-cursors-light" 24
 
-    # monitor settings
-    monitor=DP-1,3440x1440@165,0x1080,1
-    monitor=DP-2,disable
-    #monitor=DP-2,2560x1080@75,0x0,1
-    # Execute your favorite apps at launch
-    exec-once = ${pkgs.greetd.regreet}/bin/regreet; hyprctl dispatch exit
+    ## start regreet
+    exec "${pkgs.greetd.regreet}/bin/regreet; swaymsg exit"
 
-    # Env variables/set cursor size
-    env = XCURSOR_SIZE,24
+    # set resolution/refreshrate
+    output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off
+    output DP-2 disable
+    #output DP-2 resolution 2560x1080@74.991Hz position 0,0
 
-    input {
-      follow_mouse = 1
-      sensitivity = 0
-    }
-
-    misc {
-      disable_hyprland_logo = true
-      disable_splash_rendering = true
-      force_default_wallpaper = 0
-    }
+    include /etc/sway/config.d/\*
   '';
 in
 
@@ -38,7 +29,7 @@ in
     vt = 1;
     settings = {
       default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland --config ${HyprlandConfig}";
+        command = "${pkgs.swayfx}/bin/sway --config ${SwayFXConfig}";
         user = "greeter";
       };
     };
