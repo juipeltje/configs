@@ -31,6 +31,8 @@
       ./../common/sound.nix
       # Swap settings
       ./swap.nix
+      # Systemd service settings
+      ./../common/soystemd.nix
       # tlp settings
       ./tlp.nix
       # User settings
@@ -42,7 +44,7 @@
       # Laptop-specific X11 settings
       ./x11.nix
     ];
-  
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
