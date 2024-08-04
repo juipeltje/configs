@@ -10,10 +10,10 @@
     oci-containers.containers = {
       ArchBox = {
         image = "library/archlinux";
-        autostart = true;
+        autoStart = true;
         user = "joppe";
         hostname = "archbox";
-        environment = { DISPLAY = "$DISPLAY" };
+        environment = { DISPLAY = "$DISPLAY"; };
         extraOptions = [ "--network=host" ];
         volumes = [
           "/tmp/.X11-unix:/tmp/.X11-unix"
