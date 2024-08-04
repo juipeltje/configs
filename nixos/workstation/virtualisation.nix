@@ -4,12 +4,11 @@
 
 {
 
-  # Enable virt-manager, libvirtd daemon, and podman.
+  # Enable virt-manager and libvirtd daemon.
   programs.virt-manager.enable = true;
   virtualisation = {
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
-    podman.enable = true;
   };
 
   # Add users to the libvirt and kvm groups.
