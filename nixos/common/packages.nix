@@ -127,11 +127,9 @@
     hyprpaper
     mpvpaper
     appimage-run
-    distrobox
     monero-gui
     vscodium-fhs
     autotiling
-    psmisc
   ];
 }
 
