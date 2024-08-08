@@ -4,16 +4,8 @@
 
 {
 
-  # Enable Docker and rootless mode.
-  virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-  };
+  # Enable Podman.
+  virtualisation.podman.enable = true;
 
   # Install Distrobox.
   environment.systemPackages = with pkgs; [
