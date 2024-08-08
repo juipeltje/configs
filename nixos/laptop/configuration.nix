@@ -7,6 +7,8 @@
     [ 
       # Bootloader settings
       ./../common/bootloader.nix
+      # Container settings
+      ./../common/containers.nix
       # Drive settings
       ./drives.nix
       # Environment variables
