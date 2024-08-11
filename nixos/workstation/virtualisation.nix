@@ -12,7 +12,7 @@
   };
 
   # Add users to the libvirt and kvm groups.
-  users.users.joppe.extraGroups = [ "libvirt" "kvm" ];
+  users.users.joppe.extraGroups = [ "libvirtd" ];
 
   # Enable IOMMU and isolate Nvidia GT730 GPU with vfio.
   boot = {
