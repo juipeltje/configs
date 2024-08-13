@@ -7,6 +7,44 @@ configuration {
 	drun-display-format: "{name}";
 	disable-history: false;
 	display-drun: "";
+	fixed-num-lines: true;
 }
 
 @theme "gruvbox-material-dark"
+
+window {
+        width: 400px;
+        height: 400px;
+        border: 4px;
+        border-radius: 20px;
+}
+
+prompt {
+        padding: 5px;
+        border: 0px 20px 0px 20px;
+        border-radius: 20px 0px 0px 20px;
+        margin: 10px 0px;
+}
+
+entry {
+        border: 0px 20px 0px 0px;
+        border-radius: 0px 20px 20px 0px;
+        margin: 10px -5px 10px -30px;
+        padding: 5px;
+        blink: false;
+}
+
+element-text {
+        padding: 5px;
+        border: 0px 20px 0px 20px;
+        margin: 5px 0px;
+}
+
+element-text selected {
+        border: 0px 20px 0px 20px;
+        border-radius: 20px;
+}
+
+entry {
+        placeholder: "Search:";
+}

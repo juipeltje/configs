@@ -3,35 +3,25 @@
 }
 
 window {
-        width: 400px;
-        height: 400px;
-        border: 4px;
-        border-radius: 20px;
         border-color: #dfbf8e;
 }
 
 prompt {
-        padding: 10px;
+	background-color: #45403d;
         text-color: #dfbf8e;
 }
 
 entry {
-        placeholder: "";
+	background-color: #45403d;
         text-color: #dfbf8e;
-        margin: 10px 0px 0px 0px;
-	blink: false;
 }
 
 element-text {
-        padding: 10px;
         text-color: #dfbf8e;
-	border: 0px 20px 0px 20px;
 }
 
 element-text selected {
 	background-color: #dfbf8e;
 	text-color: #282828;
-	border: 0px 20px 0px 20px;
-	border-radius: 20px; 
 }
 

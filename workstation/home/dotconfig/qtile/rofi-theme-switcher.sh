@@ -2,7 +2,7 @@
 
 # Theme switcher script for Qtile
 
-theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print $2}' )
+theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | rofi -dmenu -p "" -theme-str 'entry { placeholder: "Select a theme:"; } window {width: 300px;}' | awk '{print $2}' )
 
 case $theme in
 	Nordic)
