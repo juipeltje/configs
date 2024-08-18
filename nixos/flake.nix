@@ -4,14 +4,13 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, distro-grub-themes, home-manager, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -28,7 +27,6 @@
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./workstation/configuration.nix 
-          inputs.distro-grub-themes.nixosModules.${system}.default
         ];
       };
 
@@ -37,7 +35,6 @@
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./laptop/configuration.nix
-          inputs.distro-grub-themes.nixosModules.${system}.default
         ];
       };
     };
