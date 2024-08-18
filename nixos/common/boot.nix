@@ -1,4 +1,4 @@
-# NixOS bootloader configuration
+# NixOS boot configuration
 
 { config, pkgs, ... }:
 
@@ -10,5 +10,10 @@
     grub.efiSupport = true;
     grub.device = "nodev";
     efi.canTouchEfiVariables = true;
+  };
+
+  distro-grub-themes = {
+    enable = true;
+    theme = "nixos";
   };
 }

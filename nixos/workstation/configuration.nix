@@ -5,8 +5,8 @@
 {
   imports =
     [ 
-      # Bootloader settings
-      ./../common/bootloader.nix
+      # Boot settings
+      ./../common/boot.nix
       # Container settings
       ./../common/containers.nix
       # Drive settings
