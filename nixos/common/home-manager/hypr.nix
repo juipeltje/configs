@@ -10,9 +10,9 @@
       source = ./../../../common/home/dotconfig/hypr/common.conf;
     };
 
-    "hypr/wofi-powermenu.sh" = {
+    "hypr/tofi-powermenu.sh" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/hypr/wofi-powermenu.sh;
+      source = ./../../../common/home/dotconfig/hypr/tofi-powermenu.sh;
     };
   };
 }
