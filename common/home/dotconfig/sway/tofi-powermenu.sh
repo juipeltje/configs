@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n Lock\n󰗽 Logout" | tofi --width=200 --placeholder-text="Powermenu:" | awk '{print tolower($2)}' )
+op=$( echo -e " Poweroff\n Reboot\n󰒲 Suspend\n󰤄Hibernate\n Lock\n󰗽 Logout" | tofi --width=200 --placeholder-text="Powermenu:" | awk '{print tolower($2)}' )
 
 case $op in
         poweroff)
@@ -8,6 +8,8 @@ case $op in
         reboot)
                 ;&
         suspend)
+		;&
+	hibernate)
                 systemctl $op
                 ;;
         lock)

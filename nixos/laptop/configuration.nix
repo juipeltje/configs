@@ -5,6 +5,8 @@
 {
   imports =
     [ 
+      # Battery settings
+      ./battery.nix
       # Boot settings
       ./../common/boot.nix
       # Container settings
@@ -35,8 +37,6 @@
       ./swap.nix
       # Systemd service settings
       ./../common/soystemd.nix
-      # tlp settings
-      ./tlp.nix
       # User settings
       ./../common/users.nix
       # Wayland settings
