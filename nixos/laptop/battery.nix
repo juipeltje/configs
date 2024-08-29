@@ -2,9 +2,26 @@
 
 { config, pkgs, ... }:
 
+# script to notify when battery is low and hibernate when critical
+let
+  battery_script = pkgs.writers.writeBash "battery" ''
+    BATTERY="/sys/class/power_supply/BAT0"
+    CAPACITY=$(cat $BATTERY/capacity)
+    STATUS=$(cat $BATTERY/status)
+
+    if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
+    	notify-send 'Now hibernating...' "Battery level critical"
+        sleep 5
+        systemctl hibernate
+    elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
+    	notify-send 'Battery low ($CAPACITY%)' "please connect a charger"
+    fi
+  '';
+in
+
 {
 
-  # Enable tlp, upower, and their settings.
+  # Enable tlp and settings.
   services = {
     tlp = {
       enable = true;
@@ -19,13 +36,39 @@
         CPU_BOOST_ON_BAT = 0;
       };
     };
+  };
 
-    upower = {
-      enable = true;
-      percentageLow = 15;
-      percentageCritical = 5;
-      percentageAction = 4;
-      criticalPowerAction = "Hibernate";
+  # systemd timer and service to run battery script every 2 minutes
+  systemd = {
+    services = { 
+      battery = {
+        unitConfig = { 
+          Description = "Service to notify when battery is low and hibernate when critical";
+        };
+
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${battery_script}";
+          User = "root";
+          Group = "systemd-journal";
+        };
+      };
+    };
+
+    timers = {
+      battery = {
+        unitConfig = {
+          Description = "Periodical checking of battery status every 2 minutes";
+          Requires = "battery.service";
+        };
+
+        timerConfig = {
+          OnBootSec = "2min";
+          OnUnitActiveSec = "2min";
+        };
+
+        wantedBy = [ "timers.target" ];
+      };
     };
   };
 }

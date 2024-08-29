@@ -95,6 +95,7 @@
     mpv
     feh
     deadbeef-with-plugins
+    freetube
 
     # Fetch tools
     fastfetch
