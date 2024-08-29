@@ -27,8 +27,8 @@ riverctl attach-mode bottom
 # open a terminal
 riverctl map normal Super T spawn ${terminal}
 
-# open a file manager
-riverctl map normal Super F spawn ${file_manager}
+# open freetube
+riverctl map normal Super F spawn freetube
 
 # open a terminal file manager
 riverctl map normal Super Y spawn "${terminal} -e yazi"
@@ -52,8 +52,8 @@ riverctl map normal Super+Shift T spawn ~/.config/river/tofi-theme-switcher.sh
 riverctl map normal Super Escape spawn ~/.config/river/tofi-powermenu.sh
 
 # Mako notification history and close all notifications
-riverctl map normal Super N spawn makoctl restore
-riverctl map normal Super C spawn makoctl 'dismiss --all'
+riverctl map normal Super N spawn 'makoctl restore'
+riverctl map normal Super C spawn 'makoctl dismiss --all'
 
 # play/pause/previous/next keyboard controls
 riverctl map normal None XF86AudioPlay spawn 'playerctl play-pause'

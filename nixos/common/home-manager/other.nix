@@ -1,4 +1,4 @@
-# NixOS bash-profile/xinitrc configs
+# NixOS "other" configs
 
 { config, pkgs, ... }:
 
