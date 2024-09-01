@@ -2,23 +2,6 @@
 
 { config, pkgs, ... }:
 
-# script to notify when battery is low and hibernate when critical
-let
-  battery_script = pkgs.writers.writeBash "battery" ''
-    BATTERY="/sys/class/power_supply/BAT0"
-    CAPACITY=$(cat $BATTERY/capacity)
-    STATUS=$(cat $BATTERY/status)
-
-    if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
-    	notify-send 'Now hibernating...' "Battery level critical"
-        sleep 5
-        systemctl hibernate
-    elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
-    	notify-send 'Battery low ($CAPACITY%)' "please connect a charger"
-    fi
-  '';
-in
-
 {
 
   # Enable tlp and settings.
@@ -39,7 +22,7 @@ in
   };
 
   # systemd timer and service to run battery script every 2 minutes
-  systemd = {
+  systemd.user = {
     services = { 
       battery = {
         unitConfig = { 
@@ -48,10 +31,23 @@ in
 
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${battery_script}";
-          User = "root";
-          Group = "systemd-journal";
         };
+
+        path = with pkgs; [ libnotify dbus ];
+        environment = { DISPLAY = ":0"; };
+        script = ''
+          BATTERY="/sys/class/power_supply/BAT0"
+          CAPACITY=$(cat $BATTERY/capacity)
+          STATUS=$(cat $BATTERY/status)
+
+          if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
+          	notify-send -u critical "󱃍 Battery critical: $(cat /sys/class/power_supply/BAT0/capacity)%" "Now hibernating..."
+        	sleep 5
+        	systemctl hibernate
+          elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
+          	notify-send -u critical "󱃍 Battery low: $(cat /sys/class/power_supply/BAT0/capacity)%" "please connect a charger"
+          fi
+        '';  
       };
     };
 

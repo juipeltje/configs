@@ -37,6 +37,12 @@ anchor=top-right
 
 # Gruvbox-Material-Dark colors
 
+[urgency=normal]
 background-color=#282828
 text-color=#dfbf8e
 border-color=#dfbf8e
+
+[urgency=critical]
+background-color=#282828
+text-color=#ea6962
+border-color=#ea6962

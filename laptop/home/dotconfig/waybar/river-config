@@ -94,11 +94,12 @@
     "states": {
       "critical": 15
     },
-    "format": "{capacity}%",
-    "format-time": "{H}:{M}",
-    "format-charging": "<span font='16' rise='-2000'>󰂄</span> {capacity}% {time} ",
-    "format-discharging": "<span font='16' rise='-2000'>󰂍</span> {capacity}% {time} ",
-    "format-full": "<span font='16' rise='-2000'>󰁹</span> {capacity}% {time} ",
+
+    "format": "{icon} {capacity}% - {time}",
+    "format-icons": [ "󰁻", "󰁽", "󰁿", "󰂁", "󰁹" ],
+    "format-time": "{H}:{m}",
+    "format-charging": "<span font='16' rise='-2000'>󱐋{icon}</span> {capacity}% {time} ",
+    "format-full": "<span font='16' rise='-2000'>{icon}</span> Full!",
     "format-critical": "<span font='16' rise='-2000'>󱃍</span> {capacity}% {time} ",
     "max-length": 25
   },

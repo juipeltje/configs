@@ -37,6 +37,12 @@ anchor=top-right
 
 # Nordic colors
 
+[urgency=normal]
 background-color=#2e3440
 text-color=#8fbcbb
 border-color=#8fbcbb
+
+[urgency=critical]
+background-color=#2e3440
+text-color=#bf616a
+border-color=#bf616a
