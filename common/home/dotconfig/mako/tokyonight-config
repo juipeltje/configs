@@ -36,6 +36,9 @@ layer=top
 anchor=top-right
 
 # Tokyo-Night colors
+background-color=#1a1b26
+text-color=#a9b1d6
+border-color=#a9b1d6
 
 [urgency=normal]
 background-color=#1a1b26

@@ -36,6 +36,9 @@ layer=top
 anchor=top-right
 
 # Nordic colors
+background-color=#2e3440
+text-color=#8fbcbb
+border-color=#8fbcbb
 
 [urgency=normal]
 background-color=#2e3440

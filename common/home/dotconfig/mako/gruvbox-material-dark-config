@@ -36,6 +36,9 @@ layer=top
 anchor=top-right
 
 # Gruvbox-Material-Dark colors
+background-color=#282828
+text-color=#dfbf8e
+border-color=#dfbf8e
 
 [urgency=normal]
 background-color=#282828
