@@ -46,3 +46,8 @@ border-color=#dfbf8e
 background-color=#282828
 text-color=#ea6962
 border-color=#ea6962
+
+[urgency=low]
+background-color=#282828
+text-color=#dfbf8e
+border-color=#dfbf8e
