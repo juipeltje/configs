@@ -6,11 +6,6 @@
 
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
-
-  # Select kernel package version.
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
   
   # Font packages to install.
   fonts.packages = [ pkgs.nerdfonts ];
