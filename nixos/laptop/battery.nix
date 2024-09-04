@@ -21,33 +21,72 @@
     };
   };
 
-  # systemd timer and service to run battery script every 2 minutes
-  systemd.user = {
-    services = { 
+  # systemd timer and service to notify users when battery is low/critical.
+  systemd = {
+    user = {
+      services = { 
+        battery = {
+          unitConfig = { 
+            Description = "Service to notify users when battery is low/critical";
+          };
+
+          serviceConfig = {
+            Type = "oneshot";
+          };
+
+          path = with pkgs; [ libnotify dbus ];
+          script = ''
+            BATTERY="/sys/class/power_supply/BAT0"
+            CAPACITY=$(cat $BATTERY/capacity)
+            STATUS=$(cat $BATTERY/status)
+
+            if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
+            	notify-send -u critical "󱃍 Battery critical: $(cat /sys/class/power_supply/BAT0/capacity)%" "Now hibernating..."
+            elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
+            	notify-send -u critical "󱃍 Battery low: $(cat /sys/class/power_supply/BAT0/capacity)%" "please connect a charger"
+            fi
+          '';  
+        };
+      };
+
+      timers = {
+        battery = {
+          unitConfig = {
+            Description = "Periodical checking of battery status every 2 minutes";
+            Requires = "battery.service";
+          };
+
+          timerConfig = {
+            OnBootSec = "2min";
+            OnUnitActiveSec = "2min";
+          };
+
+          wantedBy = [ "timers.target" ];
+        };
+      };
+    };
+
+    # systemd service and timer that hibernates laptop when battery is critical.
+    services = {
       battery = {
-        unitConfig = { 
-          Description = "Service to notify when battery is low and hibernate when critical";
+        unitConfig = {
+          Description = "Service that hibernates laptop when battery is critical";
         };
 
         serviceConfig = {
           Type = "oneshot";
         };
 
-        path = with pkgs; [ libnotify dbus ];
-        environment = { DISPLAY = ":0"; };
         script = ''
           BATTERY="/sys/class/power_supply/BAT0"
           CAPACITY=$(cat $BATTERY/capacity)
           STATUS=$(cat $BATTERY/status)
 
           if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
-          	notify-send -u critical "󱃍 Battery critical: $(cat /sys/class/power_supply/BAT0/capacity)%" "Now hibernating..."
-        	sleep 5
-        	systemctl hibernate
-          elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
-          	notify-send -u critical "󱃍 Battery low: $(cat /sys/class/power_supply/BAT0/capacity)%" "please connect a charger"
+          	sleep 5
+                systemctl hibernate
           fi
-        '';  
+        '';
       };
     };
 
