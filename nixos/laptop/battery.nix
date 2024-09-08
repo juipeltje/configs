@@ -21,7 +21,7 @@
     };
   };
 
-  # systemd timer and service to notify users when battery is low/critical.
+  # systemd timer and service to notify users when battery is low/critical, and service to notify when battery is charging/discharging.
   systemd = {
     user = {
       services = { 
@@ -45,6 +45,33 @@
             elif [ "$STATUS" = Discharging -a "$CAPACITY" -lt 16 ]; then
             	notify-send -u critical "󱃍 Battery low: $(cat /sys/class/power_supply/BAT0/capacity)%" "please connect a charger"
             fi
+          '';  
+        };
+
+        charger = {
+          unitConfig = { 
+            Description = "Service to notify users when battery is charging/discharging.";
+          };
+
+          serviceConfig = {
+            Type = "simple";
+          };
+
+          wantedBy = [ "default.target" ];
+
+          path = with pkgs; [ libnotify dbus ];
+          script = ''
+            BATTERY="/sys/class/power_supply/BAT0"
+            STATUS=$(cat $BATTERY/status)
+
+            while true; do
+            	REAL_STATUS=$(cat $BATTERY/status)
+
+            if [ $REAL_STATUS != $STATUS ]; then
+                STATUS=$REAL_STATUS
+                notify-send "󰚥 Battery $(cat /sys/class/power_supply/BAT0/status)..."
+            fi
+            done
           '';  
         };
       };
