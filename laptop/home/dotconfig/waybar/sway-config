@@ -80,9 +80,16 @@
   },
 
   "custom/DualSense": {
-    "exec": "/home/joppe/repos/configs/scripts/dualsense-bat.sh",
+    "exec": "/home/joppe/repos/configs/scripts/waybar/dualsense.sh",
     "interval": 60,
-    "format": " <span font='16' rise='-2000'>󰖺</span> {} "
+    "format": " <span font='16' rise='-2000'>{icon}</span> {} ",
+    "format-icons": {
+      "discharging": [ "󰖺" ],
+      "charging": [ "󰨢" ],
+      "disconnected": [ "󰖻" ]
+    },
+
+    "return-type": "json",
   },
 
   "battery": {

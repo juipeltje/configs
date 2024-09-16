@@ -8,7 +8,9 @@
   nixpkgs.config.allowUnfree = true;
   
   # Font packages to install.
-  fonts.packages = [ pkgs.nerdfonts ];
+  fonts.packages = with pkgs; [ 
+    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; }) 
+  ];
 
   # Bash prompt.
   programs.bash.promptInit = ''
@@ -53,7 +55,7 @@
   environment.systemPackages = with pkgs; [
     # Networking
     networkmanagerapplet
-    transmission-gtk
+    qbittorrent
 
     # Terminal
     alacritty
@@ -89,7 +91,7 @@
     playerctl
     mpv
     feh
-    deadbeef-with-plugins
+    strawberry
     freetube
 
     # Fetch tools

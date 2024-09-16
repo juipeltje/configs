@@ -21,11 +21,11 @@
     };
   };
 
-  # systemd timer and service to notify users when battery is low/critical, and service to notify when battery is charging/discharging.
+  # systemd timer and service to notify users when battery is low/critical.
   systemd = {
     user = {
       services = { 
-        battery = {
+        battery-low = {
           unitConfig = { 
             Description = "Service to notify users when battery is low/critical";
           };
@@ -48,6 +48,7 @@
           '';  
         };
 
+        # Service to notify when battery is charging/discharging.
         charger = {
           unitConfig = { 
             Description = "Service to notify users when battery is charging/discharging.";
@@ -67,20 +68,52 @@
             while true; do
             	REAL_STATUS=$(cat $BATTERY/status)
 
-            if [ $REAL_STATUS != $STATUS ]; then
-                STATUS=$REAL_STATUS
-                notify-send "󰚥 Battery $(cat /sys/class/power_supply/BAT0/status)..."
-            fi
+            	if [ "$REAL_STATUS" != "$STATUS" ]; then
+                  STATUS=$REAL_STATUS
+                  notify-send "󰚥 Battery $(cat /sys/class/power_supply/BAT0/status)..."
+            	fi
+            done
+          '';  
+        };
+
+        # Service to notify when battery is fully charged.
+        battery-full = {
+          unitConfig = { 
+            Description = "Service to notify users when battery is fully charged.";
+          };
+
+          serviceConfig = {
+            Type = "simple";
+          };
+
+          wantedBy = [ "default.target" ];
+
+          path = with pkgs; [ libnotify dbus ];
+          script = ''
+            BATTERY="/sys/class/power_supply/BAT0"
+            STATUS=NotFull
+
+            while true; do
+                REAL_STATUS=$(cat $BATTERY/status)
+
+            	if [ "$REAL_STATUS" = "Full" -a "$REAL_STATUS" != "$STATUS" ]; then
+                  STATUS=$REAL_STATUS
+                  notify-send "󰂅 Battery fully charged!"
+            	  sleep 120
+            	elif [ "$REAL_STATUS" != "$STATUS" ]; then
+            	  STATUS=NotFull
+            	  sleep 120
+            	fi
             done
           '';  
         };
       };
 
       timers = {
-        battery = {
+        battery-low = {
           unitConfig = {
             Description = "Periodical checking of battery status every 2 minutes";
-            Requires = "battery.service";
+            Requires = "battery-low.service";
           };
 
           timerConfig = {
