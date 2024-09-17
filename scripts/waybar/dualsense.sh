@@ -6,10 +6,12 @@ CAPACITY=$(cat $BATTERY/capacity)
 STATUS=$(cat $BATTERY/status)
 
 if [ -d "$BATTERY" ]; then
-  if [ "$STATUS" = "Discharging" || "$STATUS" = "Full" ]; then
+  if [ "$STATUS" = "Discharging" ]; then
     echo '{"text": "'"$CAPACITY%"'", "alt": "discharging"}'
   elif [ "$STATUS" = "Charging" ]; then
     echo '{"text": "'"$CAPACITY%"'", "alt": "charging"}'
+  elif [ "$STATUS" = "Full" ]; then
+    echo '{"text": "Full!", "alt": "discharging"}'
   fi
 else
   echo '{"alt": "disconnected"}'
