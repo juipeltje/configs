@@ -12,6 +12,8 @@
       ./../../common/home-manager/alacritty.nix
       # Bash settings
       ./bash.nix
+      # Distrobox settings
+      ./../../common/home-manager/distrobox.nix
       # Dunst settings
       ./../../common/home-manager/dunst.nix
       # Git settings

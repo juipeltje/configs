@@ -120,6 +120,7 @@
     wget
     lxde.lxsession
     xdotool
+    xorg.xhost
     polybarFull
     swaybg
     hyprpaper
