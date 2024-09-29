@@ -38,4 +38,7 @@
     unigine-valley
     unigine-superposition
   ];
+
+  # Enable anime game launchers
+  programs.honkers-launcher.enable = true;
 }

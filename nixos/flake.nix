@@ -8,9 +8,19 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    distro-grub-themes = { 
+      url = "github:AdisonCavani/distro-grub-themes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, ... }: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -26,7 +36,12 @@
         inherit system;
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-          ./workstation/configuration.nix 
+          ./workstation/configuration.nix
+          distro-grub-themes.nixosModules.${system}.default
+          aagl.nixosModules.default
+
+          # Cachix for anime games
+          { nix.settings = aagl.nixConfig; }
         ];
       };
 
@@ -35,6 +50,11 @@
         modules = [
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./laptop/configuration.nix
+          distro-grub-themes.nixosModules.${system}.default
+          aagl.nixosModules.default
+
+          # Cachix for anime games
+          { nix.settings = aagl.nixConfig; }
         ];
       };
     };

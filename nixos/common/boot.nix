@@ -19,4 +19,10 @@
     enable = true;
     theme = "bgrt";
   };
+
+  # distro-grub-themes
+  distro-grub-themes = {
+    enable = true;
+    theme = "nixos";
+  };
 }
