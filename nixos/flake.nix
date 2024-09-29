@@ -35,26 +35,20 @@
       NixOS-Rig = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; nix.settings = aagl.nixConfig; })
           ./workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
-
-          # Cachix for anime games
-          { nix.settings = aagl.nixConfig; }
         ];
       };
 
       NixOS-Lappie = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; nix.settings = aagl.nixConfig; })
           ./laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
-
-          # Cachix for anime games
-          { nix.settings = aagl.nixConfig; }
         ];
       };
     };
