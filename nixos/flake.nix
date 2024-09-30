@@ -1,6 +1,16 @@
 {
   description = "flake for my workstation and laptop";
 
+  nixConfig = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    extra-substituters = [ "https://ezkea.cachix.org" ];
+    extra-trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+  };
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -35,7 +45,7 @@
       NixOS-Rig = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; nix.settings = aagl.nixConfig; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -45,7 +55,7 @@
       NixOS-Lappie = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; nix.settings = aagl.nixConfig; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
           ./laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default

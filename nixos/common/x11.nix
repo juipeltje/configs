@@ -41,4 +41,11 @@
       kodi.enable = true;
     };
   };
+
+  # Additional xorg-specific packages
+  environment.systemPackages = with pkgs; [
+    xdotool
+    xorg.xhost
+    polybarFull
+  ];
 }

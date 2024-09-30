@@ -40,5 +40,5 @@
   ];
 
   # Enable anime game launchers
-  programs.honkers-launcher.enable = true;
+  programs.honkers-launcher.enable = false;
 }

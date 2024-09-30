@@ -119,9 +119,6 @@
     curl
     wget
     lxde.lxsession
-    xdotool
-    xorg.xhost
-    polybarFull
     swaybg
     hyprpaper
     mpvpaper
