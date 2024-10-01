@@ -1,10 +1,11 @@
-# Qtile config
+# Qile config
 
 # Import libraries
 #from libqtile.lazy import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile import layout, hook, bar
 from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
 import os
 import subprocess
 import sys
@@ -30,35 +31,53 @@ widget_defaults = dict(
   foreground=colors[0]
 )
 
+decoration_group = {
+  "decorations": [
+    RectDecoration(colour=colors[2], radius=10, filled=True, padding_y=4, group=True)
+  ],
+}
+
+decoration_group_width = {
+  "decorations": [
+    RectDecoration(colour=colors[2], radius=10, filled=True, padding_y=4, extrawidth=2, group=True)
+  ],
+}
+
 spacer = widget.Spacer(
            length=5)
 
 spacer2 = widget.Spacer(
             length=10)
 
+spacer3 = widget.Spacer()
+
 clock_icon = widget.TextBox(
             text="",
             **widget_defaults,
             fontsize=20,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 clock = widget.Clock(
             format='%H:%M',
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 date_icon = widget.TextBox(
             text="",
             fontsize=18,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 date = widget.Clock(
             format='%d-%m-%Y',
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 systray = widget.Systray(
             icon_size=20,
@@ -131,27 +150,31 @@ window_icon = widget.TextBox(
             text="",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 window_name = widget.WindowName(
             format='{name}',
             max_chars=50,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 window_name2 = widget.WindowName(
             format='{name}',
             max_chars=50,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 music_icon = widget.TextBox(
             text="󰝚",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 now_playing = widget.Mpris2(
             format='{xesam:title} - {xesam:artist}',
@@ -162,26 +185,30 @@ now_playing = widget.Mpris2(
 	    poll_interval=5,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
-void_icon = widget.TextBox(
-            text="",
+nix_icon = widget.TextBox(
+            text="",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 kernel_version = widget.GenPollText(
             func=lambda: subprocess.check_output("uname -r", shell=True, text=True).strip(),
             update_interval=60,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 cpu_icon = widget.TextBox(
             text="󰻠",
             fontsize=24,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group_width)
 
 cpu_temp = widget.ThermalSensor(
             tag_sensor="Tctl",
@@ -189,13 +216,15 @@ cpu_temp = widget.ThermalSensor(
             update_interval=5,
             threshold=85,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 gpu_icon = widget.TextBox(
             text="",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group_width)
 
 gpu_temp = widget.ThermalSensor(
             tag_sensor="edge",
@@ -203,71 +232,82 @@ gpu_temp = widget.ThermalSensor(
             update_interval=5,
             threshold=80,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 water_icon = widget.TextBox(
             text="󰖌",
             fontsize=20,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 water_temp = widget.ThermalSensor(
             tag_sensor="Coolant",
             fontsize=16,
             update_interval=5,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 pump_icon = widget.TextBox(
             text="󱩃",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 pump_rpm = widget.GenPollText(
             func=lambda: subprocess.check_output("sensors | awk '/Pump/ {print $2" "$3}'", shell=True, text=True).strip(),
             update_interval=5,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 fan_icon = widget.TextBox(
             text="󰈐",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 fan_rpm = widget.GenPollText(
             func=lambda: subprocess.check_output("sensors | awk '/fan2/ {print $3" "$4}'", shell=True, text=True).strip(),
             update_interval=5,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 mem_icon = widget.TextBox(
             text=" ",
             fontsize=18,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 memory = widget.Memory(
             fontsize=16,
             update_interval=5,
             **widget_defaults,
-            padding=0)
+            padding=0,
+            **decoration_group_width)
 
 ds5_icon = widget.TextBox(
             text="󰖺",
             fontsize=20,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 ds5_bat = widget.GenPollText(
             func=lambda: subprocess.check_output(home + '/repos/configs/scripts/dualsense-bat.sh', shell=True, text=True).strip(),
             update_interval=60,
             fontsize=16,
             **widget_defaults,
-            padding=2)
+            padding=2,
+            **decoration_group)
 
 current_screen = widget.CurrentScreen(
                    active_color=colors[0],
@@ -303,11 +343,15 @@ screens = [
     spacer2,
     window_icon,
     window_name,
+    spacer3,
+    spacer3,
+    spacer3,
     music_icon,
     now_playing,
     spacer,
-    void_icon,
+    nix_icon,
     kernel_version,
+    spacer,
     cpu_icon,
     cpu_temp,
     spacer,
@@ -319,6 +363,7 @@ screens = [
     spacer,
     pump_icon,
     pump_rpm,
+    spacer,
     fan_icon,
     fan_rpm,
     spacer,
@@ -351,10 +396,11 @@ screens = [
     spacer2,
     window_icon,
     window_name2,
+    spacer3,
     music_icon,
     now_playing,
     spacer,
-    void_icon,
+    nix_icon,
     kernel_version,
     cpu_icon,
     cpu_temp,

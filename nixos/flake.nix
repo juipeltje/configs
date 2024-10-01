@@ -35,7 +35,7 @@
       NixOS-Rig = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -45,7 +45,7 @@
       NixOS-Lappie = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -57,7 +57,7 @@
       "joppe@NixOS-Rig" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./workstation/home-manager/home.nix
         ];
       };
@@ -65,7 +65,7 @@
       "joppe@NixOS-Lappie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./laptop/home-manager/home.nix
         ];
       };
