@@ -14,7 +14,7 @@ case $theme in
 		kill $(pgrep dunst)
 		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig --extra-experimental-features "nix-command flakes"
+                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		qtile cmd-obj -o cmd -f reload_config
 		dunst -conf ~/.config/dunst/dunstrc-nordic &
 		kill -SIGUSR1 $(pgrep kitty)
@@ -29,7 +29,7 @@ case $theme in
                 kill $(pgrep dunst)
 		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig --extra-experimental-features "nix-command flakes"
+                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		qtile cmd-obj -o cmd -f reload_config
 		dunst -conf ~/.config/dunst/dunstrc-gruvbox-material-dark &
 		kill -SIGUSR1 $(pgrep kitty)
@@ -44,7 +44,7 @@ case $theme in
                 kill $(pgrep dunst)
 		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark-BL";/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig --extra-experimental-features "nix-command flakes"
+                home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		qtile cmd-obj -o cmd -f reload_config
                 dunst -conf ~/.config/dunst/dunstrc-tokyonight &
 		kill -SIGUSR1 $(pgrep kitty)

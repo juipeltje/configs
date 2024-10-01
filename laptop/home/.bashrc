@@ -16,12 +16,12 @@ alias ls='ls --color=auto'
 #alias xc='sudo xbps-remove -Oo'
 #
 # NixOS aliases
-alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/nixos#NixOS-Lappie --accept-flake-config'
-alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Lappie --accept-flake-config'
-alias update='sudo nix flake update /home/joppe/repos/configs/nixos && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Lappie --accept-flake-config'
+alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/nixos#NixOS-Lappie'
+alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Lappie'
+alias update='sudo nix flake update /home/joppe/repos/configs/nixos && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Lappie'
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
-alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Lappie --extra-experimental-features "nix-command flakes"'
+alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Lappie'
 #
 alias alsa-store='alsactl --file ~/.config/asound.state store'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
