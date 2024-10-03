@@ -1,6 +1,6 @@
 # NixOS gaming configuration
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -40,5 +40,11 @@
   ];
 
   # Enable anime game launchers
-  programs.honkers-launcher.enable = false;
+  programs.honkers-launcher = { 
+    enable = true;
+    package = inputs.aagl.packages.x86_64-linux.honkers-launcher;
+  };
+
+  # Disable aagl mismatch nagging :)
+  aagl.enableNixpkgsReleaseBranchCheck = false;
 }
