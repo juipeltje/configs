@@ -190,7 +190,7 @@ now_playing = widget.Mpris2(
             fontsize=16,
             **widget_defaults,
             padding=2,
-            **decoration_group)
+            **decoration_group_width)
 
 nix_icon = widget.TextBox(
             text=" ",
@@ -311,7 +311,7 @@ ds5_bat = widget.GenPollText(
             fontsize=16,
             **widget_defaults,
             padding=2,
-            **decoration_group)
+            **decoration_group_width)
 
 current_screen = widget.CurrentScreen(
                    active_color=colors[0],
