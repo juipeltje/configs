@@ -16,4 +16,18 @@
     waybar.enable = true;
     waybar.package = pkgs.waybar;
   };
+
+  # Additional wayland-specific packages
+  environment.systemPackages = with pkgs; [
+    # Notifications
+    mako
+
+    # Run launcher
+    tofi
+
+    # Wallpaper tools
+    swaybg
+    hyprpaper
+    mpvpaper 
+  ];
 }

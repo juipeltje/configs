@@ -44,8 +44,20 @@
 
   # Additional xorg-specific packages
   environment.systemPackages = with pkgs; [
+    # Bar
+    polybarFull
+
+    # Notifications
+    dunst
+
+    # Run launcher
+    rofi
+
+    # Compositor
+    unstable.picom
+
+    # Other tools 
     xdotool
     xorg.xhost
-    polybarFull
   ];
 }

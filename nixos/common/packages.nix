@@ -73,14 +73,7 @@
     thunderbird
 
     # Notifications
-    dunst
-    mako
     libnotify
-
-    # Run launchers
-    rofi
-    tofi
-    wofi
 
     # Office suite
     libreoffice
@@ -119,9 +112,6 @@
     curl
     wget
     lxde.lxsession
-    swaybg
-    hyprpaper
-    mpvpaper
     appimage-run
     monero-gui
     vscodium-fhs
