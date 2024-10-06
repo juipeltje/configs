@@ -64,20 +64,5 @@
       enable = true;
       source = ./../../../laptop/home/dotconfig/waybar/sway-style-tokyonight.css;
     };
-
-    "waybar/cpu-temp.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/cpu-temp.sh;
-    };
-
-    "waybar/gpu-temp.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/gpu-temp.sh;
-    };
-
-    "waybar/memory.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/memory.sh;
-    };
   };
 }

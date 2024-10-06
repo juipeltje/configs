@@ -64,35 +64,5 @@
       enable = true;
       source = ./../../../workstation/home/dotconfig/waybar/sway-style-tokyonight.css;
     };
-
-    "waybar/cpu-temp.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/cpu-temp.sh;
-    };
-
-    "waybar/gpu-temp.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/gpu-temp.sh;
-    };
-
-    "waybar/water-temp.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/water-temp.sh;
-    };
-
-    "waybar/pump.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/pump.sh;
-    };
-
-    "waybar/fans.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/fans.sh;
-    };
-
-    "waybar/memory.sh" = {
-      enable = true;
-      source = ./../../../scripts/waybar/memory.sh;
-    };
   };
 }

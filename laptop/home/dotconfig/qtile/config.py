@@ -257,15 +257,16 @@ memory = widget.Memory(
             padding=0,
             **decoration_group_width)
 
-ds5_icon = widget.TextBox(
-            text=" 󰖺",
-            fontsize=20,
-            **widget_defaults,
-            padding=2,
-            **decoration_group_width)
+ds5_icon = widget.GenPollText(
+             func=lambda: subprocess.check_output(home + '/repos/configs/scripts/qtile-bar/dualsense-icon.sh', shell=True, text=True).strip(),
+             update_interval=60,
+             fontsize=20,
+             **widget_defaults,
+             padding=2,
+             **decoration_group_width)
 
 ds5_bat = widget.GenPollText(
-            func=lambda: subprocess.check_output(home + '/repos/configs/scripts/dualsense-bat.sh', shell=True, text=True).strip(),
+            func=lambda: subprocess.check_output(home + '/repos/configs/scripts/qtile-bar/dualsense.sh', shell=True, text=True).strip(),
             update_interval=60,
             fontsize=16,
             **widget_defaults,
