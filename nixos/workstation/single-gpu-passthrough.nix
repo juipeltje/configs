@@ -11,7 +11,7 @@ let
     SUB_OPERATION="$3"
 
     # Run commands when the vm is started/stopped.
-    if [ "$GUEST_NAME" == "win10-gaming" ]; then
+    if [ "$GUEST_NAME" == "win10-gaming" -o "bruh" ]; then
       if [ "$OPERATION" == "prepare" ]; then
         if [ "$SUB_OPERATION" == "begin" ]; then
           systemctl stop greetd
