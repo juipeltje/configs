@@ -21,6 +21,8 @@
       ./hardware-configuration.nix
       # Hostname
       ./hostname.nix
+      # Liquidctl settings
+      ./liquidctl.nix
       # Locale settings
       ./../common/locale.nix
       # Network settings
