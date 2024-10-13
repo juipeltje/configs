@@ -11,7 +11,7 @@
 
   # Systemd service to initialize liquidctl and set yoda fancurve at boot.
   systemd.services.yoda = {
-    UnitConfig = {
+    unitConfig = {
       Description = "Service to initialize liquidctl and set yoda fancurve.";
     };
 
