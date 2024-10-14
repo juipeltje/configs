@@ -19,7 +19,7 @@ buildPythonPackage rec {
     install -Dm755 $src $out/bin/yoda
   '';
 
-  propagatedBuildInputs = [ liquidctl docopt psutil ];
+  propagatedBuildInputs = [ liquidctl psutil ];
 
   meta = with lib; {
     description = "Dynamically adjust liquidctl device pump and fan speeds.";
