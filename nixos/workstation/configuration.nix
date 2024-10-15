@@ -15,6 +15,8 @@
       ./../common/environment.nix
       # Gaming
       ./../common/gaming.nix
+      # gpu passthrough settings
+      ./gpu-passthrough.nix
       # greeter settings
       ./greeter.nix
       # Include the results of the hardware scan.
@@ -33,8 +35,6 @@
       ./../common/packages.nix
       # Workstation-specific packages
       ./packages.nix
-      # Single gpu passthrough settings
-      ./single-gpu-passthrough.nix
       # Sound settings
       ./../common/sound.nix
       # Swap settings

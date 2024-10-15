@@ -1,14 +1,16 @@
-{ lib, buildPythonPackage, fetchurl, liquidctl, docopt, psutil, }:
+{ lib, buildPythonPackage, fetchFromGitHub, liquidctl, psutil, }:
 
 buildPythonPackage rec {
   pname = "yoda";
-  version = "0.0.6";
+  version = "0.0.5";
   format = "other";
   
-  src = fetchurl {
-    url = "https://raw.githubusercontent.com/liquidctl/liquidctl/refs/heads/main/extra/yoda.py";
-    hash = "sha256-g3xK8rMU7n/bxCZv8L/Jk6C1Bdtj4O9FirXgLmNV9RU=";
-  };
+  src = fetchFromGitHub {
+    owner = "liquidctl";
+    repo = "liquidctl";
+    rev = "v1.13.0";
+    hash = "sha256-LU8rQmXrEIoOBTTFotGvMeHqksYGrtNo2YSl2l2e/UI=";
+  } + "/extra/yoda";
 
   dontUnpack = true;
 
