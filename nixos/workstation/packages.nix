@@ -6,7 +6,7 @@
   
   # Select kernel version.
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_10;
   };
 
   # workstation-specific packages installed in system profile.
