@@ -8,4 +8,5 @@ mako -c ~/.config/mako/nordic-config &
 playerctld daemon &
 lxsession &
 nm-applet &
+blueman-applet &
 alsactl --file ~/.config/asound.state restore &

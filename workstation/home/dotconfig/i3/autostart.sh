@@ -11,5 +11,6 @@ playerctld daemon &
 lxpolkit &
 xset s off -dpms &
 nm-applet &
+blueman-applet &
 openrgb --startminimized -p team-red.orp &
 alsactl --file ~/.config/asound.state restore &

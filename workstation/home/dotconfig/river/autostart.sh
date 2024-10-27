@@ -9,6 +9,7 @@ mako -c ~/.config/mako/gruvbox-material-dark-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &
+blueman-applet &
 openrgb --startminimized -p team-red.orp &
 xrandr --output DP-1 --primary &
 alsactl --file ~/.config/asound.state restore &

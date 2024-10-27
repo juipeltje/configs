@@ -10,4 +10,5 @@ lxpolkit &
 xsettingsd &
 xset s off -dpms &
 nm-applet &
+blueman-applet &
 alsactl --file ~/.config/asound.state restore &
