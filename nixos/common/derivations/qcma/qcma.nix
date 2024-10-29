@@ -1,6 +1,6 @@
 { stdenv, lib, fetchFromGitHub, qtbase, libnotify, qmake, qttools, wrapQtAppsHook, pkg-config, callPackage }:
 let
-  libvitamtp = callPackage ./../libvitamtp/derivation.nix {};
+  libvitamtp = callPackage ./libvitamtp.nix {};
 in
 
 stdenv.mkDerivation {
