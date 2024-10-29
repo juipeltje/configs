@@ -31,6 +31,8 @@
       ./../common/packages.nix
       # Laptop-specific packages
       ./packages.nix
+      # qcma custom module
+      ./../common/modules/qcma.nix
       # Sound settings
       ./../common/sound.nix
       # Swap settings
