@@ -19,10 +19,8 @@ stdenv.mkDerivation {
 
   qmakeFlags = [ "CONFIG+=DISABLE_FFMPEG" ];
 
-  preConfigure = ''
-    lrelease common/resources/translations/qcma_es.ts
-    lrelease common/resources/translations/qcma_fr.ts
-    lrelease common/resources/translations/qcma_ja.ts
+  preBuild = ''
+    lrelease common/resources/translations/*.ts
   '';
 
   meta = with lib; {

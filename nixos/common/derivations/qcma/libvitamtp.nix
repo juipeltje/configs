@@ -18,6 +18,14 @@ stdenv.mkDerivation {
     ./configure --prefix=$out
   '';
 
+  preBuild = ''
+    substituteInPlace src/datautils.c \
+      --replace-fail 'if ((doc = xmlReadMemory(raw_data, len, "vita_info.xml", NULL, 0)) == NULL)' \
+        'if ((doc = xmlReadMemory(raw_data, len, "vita_info.xml", NULL, 1)) == NULL)' \
+      --replace-fail 'if ((doc = xmlReadMemory(raw_data, len, "setting_info.xml", NULL, 0)) == NULL)' \
+        'if ((doc = xmlReadMemory(raw_data, len, "setting_info.xml", NULL, 1)) == NULL)'
+  '';
+
   meta = with lib; {
     description = "Library to interact with Vita's USB MTP protocol";
     homepage = "https://github.com/codestation/vitamtp";

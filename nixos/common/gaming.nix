@@ -66,6 +66,6 @@
   # Disable aagl mismatch nagging :)
   aagl.enableNixpkgsReleaseBranchCheck = false;
 
-  # Enable qcma for Ps Vita
+  # Enable qcma for Ps Vita.
   programs.qcma.enable = true;
 }
