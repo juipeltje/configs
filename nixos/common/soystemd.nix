@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   systemd.user.services = {
     dunst = {
       enable = false;

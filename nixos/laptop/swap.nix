@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # swap file/hibernate to swap settings.
   # NOTE: when running a clean install, comment out "resumeDevice" and "kernelParams", 
   # then rebuild the system, find the offset of the swapfile by running:

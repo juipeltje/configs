@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Enable virt-manager and libvirtd daemon.
   programs.virt-manager.enable = true;
   virtualisation = {

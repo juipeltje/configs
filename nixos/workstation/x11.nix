@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # X11 videodriver config for workstation.
   services.xserver = {
     videoDrivers = [ "amdgpu" ];

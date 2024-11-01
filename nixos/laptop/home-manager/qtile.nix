@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "qtile/config.py" = {
       enable = true;

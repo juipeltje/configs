@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "alacritty/alacritty.toml" = {
       enable = true;

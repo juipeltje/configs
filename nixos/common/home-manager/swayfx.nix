@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "sway/common.conf" = {
       enable = true;

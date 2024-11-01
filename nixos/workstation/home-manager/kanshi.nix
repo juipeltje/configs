@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "kanshi/config" = {
       enable = true;

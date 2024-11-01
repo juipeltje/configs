@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "git/config" = {
       enable = true;

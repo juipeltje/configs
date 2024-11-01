@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "distrobox/distrobox.conf" = {
       enable = true;

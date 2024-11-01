@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "dunst/dunstrc-gruvbox-material-dark" = {
       enable = true;

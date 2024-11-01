@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Enable the X11 windowing system, configure X11 keymap, X11 window managers, and Kodi.
   services.xserver = {
     enable = true;

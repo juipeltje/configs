@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "hypr/hyprland.conf" = {
       enable = true;

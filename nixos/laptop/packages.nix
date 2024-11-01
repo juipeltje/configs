@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Laptop-specific packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # Control screen brightness.

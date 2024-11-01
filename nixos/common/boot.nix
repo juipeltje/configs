@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;

@@ -3,7 +3,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   # Enable Vulkan.
   hardware.opengl = {
     driSupport = true;

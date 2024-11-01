@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # install custom yoda derivation with liquidctl and dependencies.
   environment.systemPackages = with pkgs; [
     (python3.withPackages (subpkgs: with subpkgs; [ 

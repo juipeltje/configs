@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Enable wayland compositors, Xwayland, and waybar.
   programs = {
     river.enable = true;

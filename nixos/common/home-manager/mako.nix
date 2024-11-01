@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   xdg.configFile = {
     "mako/gruvbox-material-dark-config" = {
       enable = true;

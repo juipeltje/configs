@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Automounting additional drives
   # NOTE: comment these options if the drive configuration has changed to avoid errors.
   fileSystems = {

@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   # Enable tlp and settings.
   services = {
     tlp = {

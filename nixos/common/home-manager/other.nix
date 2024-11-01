@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   home.file = {
     ".bash_profile" = {
       enable = true;

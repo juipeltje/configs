@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "codestation";
     repo = "vitamtp";
-    rev = "v2.5.9";
+    rev = "v${version}";
     hash = "sha256-yKlfy+beEd0uxfWvMCA0kUGhj8lkuQztdSz6i99xiSU=";
   } + "/debian/libvitamtp5.udev";
 
@@ -16,6 +16,7 @@ stdenv.mkDerivation {
   dontBuild = true;
 
   installPhase = ''
+    mkdir -p $out/lib/udev/rules.d
     install -D $src $out/lib/udev/rules.d/60-psvita.rules
   '';
 

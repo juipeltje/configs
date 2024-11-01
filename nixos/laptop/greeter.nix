@@ -27,7 +27,6 @@ let
 in
 
 {
-
   # Enable greetd and ReGreet, and greetd/ReGreet configuration.
   services.greetd = {
     enable = true;

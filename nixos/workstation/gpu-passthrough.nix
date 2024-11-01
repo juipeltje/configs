@@ -74,7 +74,6 @@ let
 in
 
 {
-
   virtualisation.libvirtd.hooks.qemu = {
     vm_hook = "${vm_hook}";
   };

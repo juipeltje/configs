@@ -3,7 +3,6 @@
 { config, pkgs, ... }:
 
 {
-
   home.username = "joppe";
   home.homeDirectory = "/home/joppe";
   programs.home-manager.enable = true;

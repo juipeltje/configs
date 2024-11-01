@@ -1,12 +1,14 @@
 # NixOS custom qcma module
 
 { lib, config, pkgs, ... }:
+
 with lib;
+
 let
   cfg = config.programs.qcma;
 in
-{
 
+{
   options.programs.qcma = {
     enable = mkEnableOption "Enable qcma, a content manager assistant for PS Vita";
   };
