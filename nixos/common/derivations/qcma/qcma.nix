@@ -4,7 +4,7 @@ let
   libvitamtp = callPackage ./libvitamtp.nix {};
 in
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "qcma";
   version = "0.4.1";
 

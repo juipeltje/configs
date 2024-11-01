@@ -1,6 +1,6 @@
 { lib, stdenv, fetchFromGitHub, pkg-config, automake, autoconf, libxml2, libusb1, libtool, gettext }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "libvitamtp";
   version = "2.5.9";
 
