@@ -28,7 +28,7 @@
     # Emulators
     duckstation
     pcsx2
-    rpcs3
+    unstable.rpcs3
     unstable.shadps4
     dolphin-emu
     

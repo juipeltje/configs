@@ -1,4 +1,4 @@
-# NixOS laptop drive configuration
+# NixOS drive configuration
 
 { config, pkgs, ... }:
 

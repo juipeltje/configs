@@ -24,7 +24,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ liquidctl psutil ];
 
   meta = with lib; {
-    description = "Dynamically adjust liquidctl device pump and fan speeds.";
+    description = "Dynamically adjust liquidctl device pump and fan speeds";
     homepage = "https://github.com/liquidctl/liquidctl";
     license = licenses.gpl3Plus;
   };

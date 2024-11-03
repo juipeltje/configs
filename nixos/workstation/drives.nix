@@ -20,11 +20,4 @@
       label = "VM-SSD";
     };
   };
-
-  # Enable gvfs
-  services.gvfs.package = pkgs.gvfs;
-  services.gvfs.enable = true;
-
-  # Enable fstrim
-  services.fstrim.enable = true;
 }

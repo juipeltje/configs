@@ -12,7 +12,7 @@
       # Container settings
       ./../common/containers.nix
       # Drive settings
-      ./drives.nix
+      ./../common/drives.nix
       # Environment variables
       ./../common/environment.nix
       # Gaming

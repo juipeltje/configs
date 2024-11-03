@@ -10,6 +10,8 @@
       # Container settings
       ./../common/containers.nix
       # Drive settings
+      ./../common/drives.nix
+      # Workstation-specific drive settings
       ./drives.nix
       # Environment variables
       ./../common/environment.nix
