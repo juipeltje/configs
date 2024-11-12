@@ -5,7 +5,7 @@
 {
   # Jovian-specific settings
   jovian = {
-    devices.steamdeck.enable = true;
+    devices.steamdeck.enable = false;
     steam = { 
       enable = true;
       autoStart = true;
