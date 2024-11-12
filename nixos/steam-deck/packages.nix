@@ -54,7 +54,7 @@
   environment.systemPackages = with pkgs.stable; [
     # Networking
     networkmanagerapplet
-    qbittorrent
+    #qbittorrent
 
     # Terminal
     alacritty
