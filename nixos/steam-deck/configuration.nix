@@ -6,7 +6,7 @@
   imports =
     [ 
       # Battery settings
-      #./battery.nix
+      ./battery.nix
       # Boot settings
       ./../common/boot.nix
       # Container settings
@@ -34,7 +34,7 @@
       # Sound settings
       ./sound.nix
       # Swap settings
-      #./swap.nix
+      ./swap.nix
       # Systemd service settings
       ./../common/soystemd.nix
       # User settings

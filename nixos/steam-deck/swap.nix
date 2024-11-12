@@ -12,8 +12,8 @@
   # "resume_offset=$youroffsethere", uncomment it, and then rebuild the system again.
   swapDevices = [ { device = "/swapfile"; size = 24*1024; } ];
 
-  boot = {
-    resumeDevice = "/dev/disk/by-uuid/1493f887-e2da-4caf-92d9-19198bffee6b";
-    kernelParams = [ "resume_offset=114804736" ];
-  };
+ # boot = {
+ #   resumeDevice = "/dev/disk/by-uuid/1493f887-e2da-4caf-92d9-19198bffee6b";
+ #   kernelParams = [ "resume_offset=114804736" ];
+ # };
 }
