@@ -15,30 +15,25 @@
   };
 
   # install other gaming related packages
-  environment.systemPackages = with pkgs.stable; [
+  environment.systemPackages = with pkgs; [
     # Wine/gamelaunchers
-    bottles
-    heroic
-    mangohud
-    prismlauncher
+    stable.bottles
+    stable.heroic
+    stable.mangohud
+    stable.prismlauncher
   
     # Emulators
-    duckstation
-    pcsx2
-    dolphin-emu
-    
-    # Benchmarking
-    mangohud
-    unigine-heaven
-    unigine-valley
-    unigine-superposition
-  ];
-
-  # install other gaming related packages from unstable
-  environment.systemPackages = with pkgs.unstable; [
-    # Emulators
+    stable.duckstation
+    stable.pcsx2
     rpcs3
     shadps4
+    stable.dolphin-emu
+    
+    # Benchmarking
+    stable.mangohud
+    stable.unigine-heaven
+    stable.unigine-valley
+    stable.unigine-superposition
   ];
 
   # Enable anime game launchers
