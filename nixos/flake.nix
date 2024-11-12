@@ -1,5 +1,5 @@
 {
-  description = "flake for my workstation and laptop";
+  description = "flake for my NixOS machines";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -18,14 +18,26 @@
       url = "github:ezKEa/aagl-gtk-on-nix";
       #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, jovian, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+
+      overlay-stable = final: prev: {
+        stable = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
@@ -53,6 +65,18 @@
           aagl.nixosModules.default
         ];
       };
+
+      Steam-Deck = nixpkgs-unstable.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          { nixpkgs.overlays = [ overlay-stable ]; }
+          ./steam-deck/configuration.nix
+          distro-grub-themes.nixosModules.${system}.default
+          aagl.nixosModules.default
+          jovian.nixosModules.default
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -71,6 +95,15 @@
         modules = [
           { nixpkgs.overlays = [ overlay-unstable ]; }
           ./laptop/home-manager/home.nix
+        ];
+      };
+      
+      "joppe@Steam-Deck" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          { nixpkgs.overlays = [ overlay-stable ]; }
+          ./steam-deck/home-manager/home.nix
         ];
       };
     };
