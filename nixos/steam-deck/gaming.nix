@@ -13,6 +13,7 @@
       package = pkgs.steam.override {
         extraLibraries = [ "libGL" ];
       };
+    };
 
     gamemode.enable = true;
     corectrl.enable = true;
