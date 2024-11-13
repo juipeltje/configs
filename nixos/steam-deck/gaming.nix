@@ -61,4 +61,9 @@
 
   # Disable aagl mismatch nagging :)
   aagl.enableNixpkgsReleaseBranchCheck = false;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = pkgs.steam-run.fhsenv.args.multiPkgspkgs;
+  };
 }
