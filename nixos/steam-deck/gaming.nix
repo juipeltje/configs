@@ -1,6 +1,6 @@
 # NixOS Steam Deck gaming configuration
 
-{ config, pkgs, inputs, multiPkgspkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Enable Vulkan.
@@ -64,6 +64,6 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = pkgs.steam-run.args.multiPkgspkgs;
+    libraries = pkgs.steam-run.args.multiPkgs;
   };
 }
