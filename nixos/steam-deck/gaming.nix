@@ -64,6 +64,8 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = pkgs.steam-run.args.multiPkgs;
+    libraries = 
+      pkgs.steam-run.args.multiPkgs
+      pkgs;
   };
 }
