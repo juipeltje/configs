@@ -1,6 +1,6 @@
 # NixOS Steam Deck gaming configuration
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, multiPkgspkgs, ... }:
 
 {
   # Enable Vulkan.
