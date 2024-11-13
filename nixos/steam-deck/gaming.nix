@@ -10,9 +10,9 @@
   programs = {
     steam = { 
       enable = true;
-      package = pkgs.steam.override {
-        extraLibraries = pkgs: [ pkgs.libglvnd ];
-      };
+      #package = pkgs.steam.override {
+      #  extraLibraries = pkgs: [ pkgs.libglvnd ];
+      #};
     };
 
     gamemode.enable = true;
@@ -71,7 +71,6 @@
   programs.nix-ld = {
     enable = true;
     libraries = 
-      pkgs.steam-run.args.multiPkgs
-      pkgs;
+      (pkgs.steam-run.args.multiPkgs pkgs) ++ [ pkgs.libGL ];
   };
 }
