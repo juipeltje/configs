@@ -10,9 +10,9 @@
   programs = {
     steam = { 
       enable = true;
-      #package = pkgs.steam.override {
-      #  extraLibraries = pkgs: [ pkgs.libglvnd ];
-      #};
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: [ pkgs.libGL ];
+      };
     };
 
     gamemode.enable = true;
@@ -68,9 +68,9 @@
   # Disable aagl mismatch nagging :)
   aagl.enableNixpkgsReleaseBranchCheck = false;
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = 
-      (pkgs.steam-run.args.multiPkgs pkgs) ++ [ pkgs.libGL ];
-  };
+  #programs.nix-ld = {
+   # enable = true;
+   # libraries = 
+   #   (pkgs.steam-run.args.multiPkgs pkgs) ++ [ pkgs.libGL ];
+  #};
 }
