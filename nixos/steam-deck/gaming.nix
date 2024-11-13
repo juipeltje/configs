@@ -64,6 +64,6 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = pkgs.steam-run.fhsenv.args.multiPkgspkgs;
+    libraries = [ pkgs.steam-run.fhsenv.args.multiPkgspkgs ];
   };
 }
