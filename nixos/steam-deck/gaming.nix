@@ -11,7 +11,7 @@
     steam = { 
       enable = true;
       package = pkgs.steam.override {
-        extraLibraries = pkgs: [ pkgs.libGL ];
+        extraLibraries = pkgs: [ pkgs.libglvnd ];
       };
     };
 
