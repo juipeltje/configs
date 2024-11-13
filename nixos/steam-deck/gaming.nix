@@ -8,7 +8,12 @@
 
   # Enable Steam, Gamemode, and corectrl overclocking.
   programs = {
-    steam.enable = true;
+    steam = { 
+      enable = true;
+      package = pkgs.steam.override {
+        extraLibraries = [ "libGL" ];
+      };
+
     gamemode.enable = true;
     corectrl.enable = true;
     corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
