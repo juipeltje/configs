@@ -23,9 +23,14 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, jovian, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, jovian, nixgl, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -102,7 +107,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-stable ]; }
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };
