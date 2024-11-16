@@ -8,7 +8,13 @@
 
   # Enable Steam, Gamemode, and corectrl overclocking.
   programs = {
-    steam.enable = true;
+    steam = { 
+      enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: [ pkgs.libGL ];
+      };
+    };
+
     gamemode.enable = true;
     corectrl.enable = true;
     corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
@@ -61,4 +67,10 @@
 
   # Disable aagl mismatch nagging :)
   aagl.enableNixpkgsReleaseBranchCheck = false;
+
+  #programs.nix-ld = {
+   # enable = true;
+   # libraries = 
+   #   (pkgs.steam-run.args.multiPkgs pkgs) ++ [ pkgs.libGL ];
+  #};
 }
