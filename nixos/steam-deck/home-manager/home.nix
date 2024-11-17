@@ -1,10 +1,10 @@
-# NixOS workstation home-manager config
+# Nix Steam Deck home-manager config
 
 { config, pkgs, ... }:
 
 {
-  home.username = "joppe";
-  home.homeDirectory = "/home/joppe";
+  home.username = "deck";
+  home.homeDirectory = "/home/deck";
   programs.home-manager.enable = true;
   imports = [
       # Bash settings
