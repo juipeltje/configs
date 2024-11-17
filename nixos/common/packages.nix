@@ -95,7 +95,7 @@
     tokyonight-gtk-theme
     phinger-cursors
     cinnamon.mint-y-icons
-    nerdfonts
+    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; }
 
     # Benchmarking
     s-tui

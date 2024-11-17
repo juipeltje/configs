@@ -22,7 +22,6 @@
     # Wine/gamelaunchers
     bottles
     heroic
-    mangohud
     prismlauncher
   
     # Emulators

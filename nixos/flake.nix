@@ -19,30 +19,18 @@
       #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, jovian, nixgl, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, nixgl, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-
-      overlay-stable = final: prev: {
-        stable = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
@@ -70,18 +58,6 @@
           aagl.nixosModules.default
         ];
       };
-
-      Steam-Deck = nixpkgs-unstable.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [ 
-          { nixpkgs.overlays = [ overlay-stable ]; }
-          ./steam-deck/configuration.nix
-          distro-grub-themes.nixosModules.${system}.default
-          aagl.nixosModules.default
-          jovian.nixosModules.default
-        ];
-      };
     };
 
     homeConfigurations = {
@@ -103,7 +79,7 @@
         ];
       };
       
-      "joppe@Steam-Deck" = home-manager.lib.homeManagerConfiguration {
+      "joppe@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
