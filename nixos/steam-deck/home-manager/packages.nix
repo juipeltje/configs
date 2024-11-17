@@ -9,7 +9,7 @@
   # Enable Firefox, Yazi, mpv, Feh, Freetube, Fastfetch, and Mangohud.
   programs = {
     firefox.enable = true;
-    yazi.enable = true;
+    yazi.enable = false;
     mpv.enable = true;
     feh.enable = true;
     freetube.enable = true;
