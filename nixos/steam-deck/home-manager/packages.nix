@@ -6,8 +6,9 @@
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Yazi, mpv, Feh, Freetube, Fastfetch, and Mangohud.
+  # Enable Firefox, Yazi, mpv, Feh, Freetube, Fastfetch, and Mangohud.
   programs = {
+    firefox.enable = true;
     yazi.enable = true;
     mpv.enable = true;
     feh.enable = true;
@@ -44,6 +45,9 @@
     unigine-heaven
     unigine-valley
     unigine-superposition
+
+    # Containerization
+    distrobox
   ];
 }
 

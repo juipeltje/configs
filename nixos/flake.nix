@@ -79,7 +79,7 @@
         ];
       };
       
-      "joppe@Deckie" = home-manager.lib.homeManagerConfiguration {
+      "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
