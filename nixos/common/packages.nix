@@ -54,7 +54,7 @@
   environment.systemPackages = with pkgs; [
     # Networking
     networkmanagerapplet
-    qbittorrent
+    unstable.qbittorrent
 
     # Terminal
     alacritty
@@ -95,7 +95,7 @@
     tokyonight-gtk-theme
     phinger-cursors
     cinnamon.mint-y-icons
-    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; }
+    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; })
 
     # Benchmarking
     s-tui
