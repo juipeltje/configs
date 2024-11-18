@@ -37,7 +37,7 @@
     # Emulators
     duckstation
     pcsx2
-    unstable.rpcs3
+    rpcs3
     unstable.shadps4
     libcanberra-gtk3
     dolphin-emu
