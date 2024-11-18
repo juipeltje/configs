@@ -7,14 +7,16 @@
   home.homeDirectory = "/home/deck";
   programs.home-manager.enable = true;
   imports = [
-      # Bash settings
-      #./bash.nix
       # Distrobox settings
       ./../../common/home-manager/distrobox.nix
+      # Dotfiles
+      ./dotfiles.nix
       # Git settings
       ./../../common/home-manager/git.nix
       # mpv settings
       ./../../common/home-manager/mpv.nix
+      # Non-steam game launch scripts
+      ./non-steam.nix
       # Packages
       ./packages.nix
       # Theme settings

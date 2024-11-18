@@ -39,6 +39,7 @@
     pcsx2
     unstable.rpcs3
     unstable.shadps4
+    libcanberra-gtk3
     dolphin-emu
     
     # Benchmarking
