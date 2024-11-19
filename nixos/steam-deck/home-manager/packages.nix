@@ -33,14 +33,18 @@
     bottles
     heroic
     prismlauncher
+
+    # Game streaming
+    chiaki4deck
   
     # Emulators
     duckstation
     pcsx2
-    rpcs3
+    unstable.rpcs3
     unstable.shadps4
     libcanberra-gtk3
     dolphin-emu
+    steam-rom-manager
     
     # Benchmarking
     unigine-heaven
