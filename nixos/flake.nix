@@ -81,9 +81,13 @@
       
       "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { 
+          inherit inputs;
+          inherit nixgl; 
+        };
+
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nixgl.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };

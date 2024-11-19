@@ -23,7 +23,6 @@
 
   # List of packages to install in the user environment.
   home.packages = with pkgs; [
-    nixgl.nixGLDefault
     # File managers/utilities
     strawberry
 
