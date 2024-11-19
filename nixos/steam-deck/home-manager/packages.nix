@@ -4,8 +4,8 @@
 
 {
   # NixGL settings
-  #nixGL.packages = nixgl.packages;
-  #nixGL.defaultWrapper = "mesa";
+  nixGL.packages = nixgl.packages;
+  nixGL.defaultWrapper = "mesa";
 
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;

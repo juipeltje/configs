@@ -83,7 +83,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nixgl.overlay ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };
