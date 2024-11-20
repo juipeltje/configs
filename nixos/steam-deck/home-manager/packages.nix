@@ -1,12 +1,8 @@
 # Home-manager packages configuration
 
-{ config, lib, pkgs, nixgl, ... }:
+{ config, pkgs, ... }:
 
 {
-  # NixGL settings
-  nixGL.packages = nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
-
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
@@ -39,13 +35,13 @@
     prismlauncher
 
     # Game streaming
-    (config.lib.nixGL.wrap chiaki4deck)
+    chiaki4deck
   
     # Emulators
     duckstation
     pcsx2
-    (config.lib.nixGL.wrap unstable.rpcs3)
-    (config.lib.nixGL.wrap unstable.shadps4)
+    unstable.rpcs3)
+    unstable.shadps4)
     #libcanberra
     #libcanberra-gtk3
     dolphin-emu

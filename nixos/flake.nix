@@ -19,13 +19,18 @@
       #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    nixgl = {
-      url = "github:nix-community/nixGL";
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-system-graphics = {
+      url = "github:soupglasses/nix-system-graphics";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, nixgl, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, system-manager, nix-system-graphics, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -81,16 +86,27 @@
       
       "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { 
-          inherit inputs;
-          inherit nixgl; 
-        };
-
+        extraSpecialArgs = { inherit inputs; };
         modules = [
           { nixpkgs.overlays = [ overlay-unstable ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };
     };
+
+    systemConfigs = {
+      Deckie = system-manager.lib.makeSystemConfig {
+        modules = [
+          nix-system-graphics.systemModules.default
+          ({
+            config = {
+              nixpkgs.hostPlatform = "x86_64-linux";
+              system-manager.allowAnyDistro = true;
+              system-graphics.enable = true;
+            };
+          })
+        ];
+      };
+    };   
   };
 }
