@@ -8,6 +8,7 @@
 alias ls='ls --color=auto'
 # Nix aliases
 alias hs='TMPDIR=/home/deck/tmp home-manager switch --flake ~/configs/nixos#deck@Deckie'
+alias ss='TMPDIR=/home/deck/tmp sudo nix --extra-experimental-features "nix-command flakes" run github:numtide/system-manager -- switch --flake ~/configs/nixos#Deckie'
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 #
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'

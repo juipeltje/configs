@@ -40,10 +40,8 @@
     # Emulators
     duckstation
     pcsx2
-    unstable.rpcs3)
-    unstable.shadps4)
-    #libcanberra
-    #libcanberra-gtk3
+    unstable.rpcs3
+    unstable.shadps4
     dolphin-emu
     steam-rom-manager
     
