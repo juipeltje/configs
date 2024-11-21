@@ -40,7 +40,7 @@
     # Emulators
     duckstation
     pcsx2
-    unstable.rpcs3
+    rpcs3
     unstable.shadps4
     dolphin-emu
     steam-rom-manager
