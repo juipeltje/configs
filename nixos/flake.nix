@@ -97,14 +97,8 @@
     systemConfigs = {
       Deckie = system-manager.lib.makeSystemConfig {
         modules = [
+          ./steam-deck/system-manager.nix
           nix-system-graphics.systemModules.default
-          ({
-            config = {
-              nixpkgs.hostPlatform = "x86_64-linux";
-              system-manager.allowAnyDistro = true;
-              system-graphics.enable = true;
-            };
-          })
         ];
       };
     };   
