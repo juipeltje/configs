@@ -97,7 +97,7 @@
     systemConfigs = {
       Deckie = system-manager.lib.makeSystemConfig {
         modules = [
-          ./steam-deck/system-manager.nix
+          ./steam-deck/modules
           nix-system-graphics.systemModules.default
         ];
       };
