@@ -1,6 +1,6 @@
 # NixOS gaming configuration
 
-{ config, pkgs, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   # Enable Vulkan.
