@@ -6,11 +6,11 @@
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # NixGL settings
-  nixGL = {
-    packages = inputs.nixgl.packages;
-    defaultWrapper = "mesa";
-  };
+  # NixGL settings (not available yet in 24.05)
+  #nixGL = {
+  #  packages = inputs.nixgl.packages;
+  #  defaultWrapper = "mesa";
+  #};
 
   # Enable Firefox, Yazi, mpv, Feh, Freetube, Fastfetch, and Mangohud.
   programs = {
@@ -41,7 +41,7 @@
     prismlauncher
 
     # Game streaming
-    (config.lib.nixGL.wrap chiaki4deck)
+    chiaki4deck
   
     # Emulators
     duckstation

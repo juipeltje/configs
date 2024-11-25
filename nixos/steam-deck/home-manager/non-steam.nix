@@ -18,5 +18,10 @@
       enable = true;
       source = ./../../../steam-deck/home/non-steam/prismlauncher.sh;
     };
+
+    "non-steam/chiaki.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/chiaki.sh;
+    };
   };
 }
