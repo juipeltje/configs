@@ -21,7 +21,7 @@
 
     nixgl = {
       url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
