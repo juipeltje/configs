@@ -1,6 +1,6 @@
 # Home-manager packages configuration
 
-{ config, inputs, pkgs, ... }:
+{ config, inputs, nixgl, pkgs, ... }:
 
 {
   # Allow unfree packages.
