@@ -1,6 +1,6 @@
 # Home-manager packages configuration
 
-{ config, inputs, nixgl, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   # Allow unfree packages.
@@ -8,7 +8,7 @@
 
   # NixGL settings
   nixGL = {
-    packages = inputs.nixgl.packages;
+    packages = inputs.nixgl.x86_64-linux.packages.nixGLIntel;
     defaultWrapper = "mesa";
   };
 
@@ -25,8 +25,6 @@
 
   # List of packages to install in the user environment.
   home.packages = with pkgs; [
-    nixgl.nixGLIntel
-
     # File managers/utilities
     strawberry
 
