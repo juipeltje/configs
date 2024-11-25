@@ -7,8 +7,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # NixGL settings
-  nixGL.packages = inputs.nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
+  nixGL = {
+    packages = inputs.nixgl.packages;
+    defaultWrapper = "mesa";
+  };
 
   # Enable Firefox, Yazi, mpv, Feh, Freetube, Fastfetch, and Mangohud.
   programs = {
@@ -23,6 +25,8 @@
 
   # List of packages to install in the user environment.
   home.packages = with pkgs; [
+    nixgl.nixGLIntel
+
     # File managers/utilities
     strawberry
 
