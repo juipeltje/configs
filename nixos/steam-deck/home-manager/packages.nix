@@ -8,7 +8,7 @@
 
   # NixGL settings
   nixGL = {
-    packages = inputs.nixgl.x86_64-linux.packages.nixGLIntel;
+    packages = inputs.nixgl.packages.x86_64-linux.nixGLIntel;
     defaultWrapper = "mesa";
   };
 
