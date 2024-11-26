@@ -2,4 +2,4 @@
 
 unset LD_PRELOAD
 source /home/deck/.nix-profile/etc/profile.d/nix.sh
-nixGLIntel nixVulkanIntel chiaki
+nixVulkanIntel anime-game-launcher
