@@ -1,4 +1,4 @@
-# Home-manager packages configuration
+# Steam Deck packages config
 
 { config, inputs, pkgs, ... }:
 
@@ -62,6 +62,10 @@
     # Anime game launchers
     inputs.aagl.packages.x86_64-linux.anime-game-launcher
     inputs.aagl.packages.x86_64-linux.honkers-launcher
+
+    # NixGL
+    inputs.nixgl.packages.x86_64-linux.nixGLIntel
+    inputs.nixgl.packages.x86_64-linux.nixVulkanIntel
   ];
 }
 

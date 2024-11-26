@@ -2,4 +2,4 @@
 
 unset LD_PRELOAD
 source /home/deck/.nix-profile/etc/profile.d/nix.sh
-prismlauncher
+nixGLIntel prismlauncher
