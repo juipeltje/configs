@@ -33,7 +33,7 @@
       genericName = "An Anime Game Launcher";
       exec = "anime-game-launcher";
       categories = [ "Game" ];
-      startupNotify = "true";
+      startupNotify = true;
       type = "Application";
     };
 
