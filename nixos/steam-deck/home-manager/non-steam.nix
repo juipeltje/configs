@@ -4,6 +4,21 @@
 
 {
   home.file = {
+    "non-steam/agl.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/agl.sh;
+    };
+
+    "non-steam/chiaki.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/chiaki.sh;
+    };
+
+    "non-steam/cloudpunk.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/cloudpunk.sh;
+    };
+
     "non-steam/firefox.sh" = {
       enable = true;
       source = ./../../../steam-deck/home/non-steam/firefox.sh;
@@ -17,11 +32,6 @@
     "non-steam/prismlauncher.sh" = {
       enable = true;
       source = ./../../../steam-deck/home/non-steam/prismlauncher.sh;
-    };
-
-    "non-steam/chiaki.sh" = {
-      enable = true;
-      source = ./../../../steam-deck/home/non-steam/chiaki.sh;
     };
   };
 }

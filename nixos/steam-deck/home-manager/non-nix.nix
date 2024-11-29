@@ -4,17 +4,6 @@
 
 {
   home.file = {
-    ".local/bin/anime-game-launcher" = {
-      enable = true;
-      source = pkgs.fetchurl rec {
-        pname = "anime-game-launcher";
-        version = "3.13.0";
-        url = "https://github.com/an-anime-team/an-${pname}/releases/download/${version}/${pname}";
-        hash = "sha256-gkaEvUK+djDVTDtjyAOreiwsndqKYbkTTbJaTnFGVso=";
-        executable = true;
-      };
-    };
-
     "Appimages/DarkOrbit-Client.AppImage" = {
       enable = true;
       source = pkgs.fetchurl rec {                              
@@ -28,15 +17,6 @@
   };
 
   xdg.desktopEntries = {
-    anime-game-launcher = {
-      name = "An Anime Game Launcher";
-      genericName = "An Anime Game Launcher";
-      exec = "anime-game-launcher";
-      categories = [ "Game" ];
-      startupNotify = true;
-      type = "Application";
-    };
-
     Darkorbit-Client = {
       name = "DarkOrbit";
       exec = "/home/deck/Appimages/DarkOrbit-Client.AppImage";
