@@ -10,7 +10,7 @@
         pname = "anime-game-launcher";
         version = "3.13.0";
         url = "https://github.com/an-anime-team/an-${pname}/releases/download/${version}/${pname}";
-        hash = "";
+        hash = "sha256-gkaEvUK+djDVTDtjyAOreiwsndqKYbkTTbJaTnFGVso=";
         executable = true;
       };
     };
@@ -21,7 +21,7 @@
         pname = "Darkorbit-Client";
         version = "2.8.0";
         url = "https://github.com/kaiserdj/Darkorbit-client/releases/download/v${version}/${pname}-${version}.AppImage";
-        hash = "";
+        hash = "sha256-PDRl0ezhY5btW/bvTT7SDvL5iAQsxu+Ls2AUsplyJOc=";
         executable = true;
       };
     };
