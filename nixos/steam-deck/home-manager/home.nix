@@ -15,6 +15,8 @@
       ./../../common/home-manager/git.nix
       # mpv settings
       ./../../common/home-manager/mpv.nix
+      # Non-nix applications
+      ./non-nix.nix
       # Non-steam game launch scripts
       ./non-steam.nix
       # Packages

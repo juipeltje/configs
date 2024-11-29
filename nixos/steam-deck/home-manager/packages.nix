@@ -60,8 +60,8 @@
     distrobox
 
     # Anime game launchers
-    inputs.aagl.packages.x86_64-linux.anime-game-launcher
-    inputs.aagl.packages.x86_64-linux.honkers-launcher
+    #inputs.aagl.packages.x86_64-linux.anime-game-launcher
+    #inputs.aagl.packages.x86_64-linux.honkers-launcher
 
     # NixGL
     inputs.nixgl.packages.x86_64-linux.nixGLIntel
