@@ -9,6 +9,11 @@
       source = ./../../../steam-deck/home/non-steam/agl.sh;
     };
 
+    "non-steam/bf2.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/bf2.sh;
+    };
+
     "non-steam/chiaki.sh" = {
       enable = true;
       source = ./../../../steam-deck/home/non-steam/chiaki.sh;
@@ -27,6 +32,11 @@
     "non-steam/freetube.sh" = {
       enable = true;
       source = ./../../../steam-deck/home/non-steam/freetube.sh;
+    };
+
+    "non-steam/jfo.sh" = {
+      enable = true;
+      source = ./../../../steam-deck/home/non-steam/jfo.sh;
     };
 
     "non-steam/prismlauncher.sh" = {
