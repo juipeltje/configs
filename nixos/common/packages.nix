@@ -54,7 +54,7 @@
   environment.systemPackages = with pkgs; [
     # Networking
     networkmanagerapplet
-    unstable.qbittorrent
+    unstable.qbittorrent-enhanced
 
     # Terminal
     alacritty
@@ -64,6 +64,7 @@
     pcmanfm
     yazi
     unzip
+    unrar
     gnutar
     xz
     p7zip
@@ -112,7 +113,6 @@
     wget
     lxde.lxsession
     appimage-run
-    monero-gui
     vscodium-fhs
     autotiling
   ];
