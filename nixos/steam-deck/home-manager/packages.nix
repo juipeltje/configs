@@ -33,7 +33,7 @@
     gruvbox-gtk-theme
     tokyonight-gtk-theme
     phinger-cursors
-    cinnamon.mint-y-icons
+    mint-y-icons
 
     # Wine/gamelaunchers
     bottles
@@ -47,7 +47,7 @@
     duckstation
     pcsx2
     rpcs3
-    unstable.shadps4
+    shadps4
     dolphin-emu
     steam-rom-manager
     
