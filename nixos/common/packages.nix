@@ -8,7 +8,7 @@
   
   # Font packages to install.
   fonts.packages = with pkgs; [ 
-    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; }) 
+    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; })
   ];
 
   # Bash prompt.
@@ -54,7 +54,7 @@
   environment.systemPackages = with pkgs; [
     # Networking
     networkmanagerapplet
-    unstable.qbittorrent-enhanced
+    qbittorrent
 
     # Terminal
     alacritty
@@ -95,7 +95,7 @@
     gruvbox-gtk-theme
     tokyonight-gtk-theme
     phinger-cursors
-    cinnamon.mint-y-icons
+    mint-y-icons
     (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; })
 
     # Benchmarking

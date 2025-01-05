@@ -10,7 +10,7 @@ configuration {
 	fixed-num-lines: true;
 }
 
-@theme "gruvbox-material-dark"
+@theme "tokyonight"
 
 window {
         width: 400px;

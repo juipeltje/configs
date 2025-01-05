@@ -16,8 +16,8 @@
     font.package = pkgs.nerdfonts;
     font.name = "Ubuntu Nerd Font Medium";
     font.size = 11;
-    theme.package = pkgs.gruvbox-gtk-theme;
-    theme.name = "Gruvbox-Dark";
+    theme.package = pkgs.tokyonight-gtk-theme;
+    theme.name = "Tokyonight-Dark-BL";
     iconTheme.package = pkgs.cinnamon.mint-y-icons;
     iconTheme.name = "Mint-Y-Aqua";
   };

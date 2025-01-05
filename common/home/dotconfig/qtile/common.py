@@ -175,7 +175,7 @@ groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad"
 )
 
 # set colorscheme
-colors = colors.GruvboxMaterialDark
+colors = colors.TokyoNight
 
 layout_theme = {
                 "border_focus":colors[0],

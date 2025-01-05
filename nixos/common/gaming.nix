@@ -4,10 +4,7 @@
 
 {
   # Enable Vulkan.
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  hardware.graphics.enable32Bit = true;
 
   # Enable Steam, Gamemode, and corectrl overclocking.
   programs = {
@@ -28,7 +25,7 @@
     duckstation
     pcsx2
     rpcs3
-    unstable.shadps4
+    shadps4
     dolphin-emu
     
     # Benchmarking

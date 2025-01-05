@@ -36,6 +36,27 @@ in
 
   programs.regreet = {
     enable = true;
+    theme = {
+      name = "Tokyonight-Dark-BL";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+
+    font = {
+      size = 12;
+      name = "Ubuntu Nerd Font Medium";
+      package = (pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; });
+    };
+
+    cursorTheme = {
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+    };
+
+    iconTheme = {
+      name = "Mint-Y-Sand";
+      package = pkgs.mint-y-icons;
+    };
+    
     settings = {
       background = {
         path = /greeter-background/background.jpg;
@@ -44,10 +65,6 @@ in
 
       GTK = {
         application_prefer_dark_theme = false;
-        cursor_theme_name = "phinger-cursors-light";
-        font_name = "Ubuntu Nerd Font Medium 12";
-        icon_theme_name = "Mint-Y-Sand";
-        theme_name = "Tokyonight-Dark-BL";
       };
 
       commands = {

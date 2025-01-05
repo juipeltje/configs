@@ -4,7 +4,6 @@
 
 {
   # Enable sound with alsa and pipewire and set extra pipewire config options.
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
