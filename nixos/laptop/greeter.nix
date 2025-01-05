@@ -64,7 +64,7 @@ in
     
     settings = {
       background = {
-        #path = ./../../workstation/wallpapers/WallpaperDog-10730444.jpg;
+        path = ./../../laptop/wallpapers/gravity-rush-3.jpg;
         fit = "Contain";
       };
 
