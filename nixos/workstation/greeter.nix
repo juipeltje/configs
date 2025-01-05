@@ -37,7 +37,7 @@ in
   programs.regreet = {
     enable = true;
     theme = {
-      name = "Tokyonight-Dark-BL";
+      name = "Tokyonight-Dark";
       package = pkgs.tokyonight-gtk-theme;
     };
 
@@ -59,7 +59,7 @@ in
     
     settings = {
       background = {
-        path = /greeter-background/background.jpg;
+        path = ./../../workstation/wallpapers/WallpaperDog-10730444.jpg;
         fit = "Contain";
       };
 

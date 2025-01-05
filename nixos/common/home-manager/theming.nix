@@ -17,8 +17,8 @@
     font.name = "Ubuntu Nerd Font Medium";
     font.size = 11;
     theme.package = pkgs.tokyonight-gtk-theme;
-    theme.name = "Tokyonight-Dark-BL";
-    iconTheme.package = pkgs.cinnamon.mint-y-icons;
+    theme.name = "Tokyonight-Dark";
+    iconTheme.package = pkgs.mint-y-icons;
     iconTheme.name = "Mint-Y-Aqua";
   };
 

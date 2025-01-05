@@ -43,7 +43,7 @@ case $theme in
                 sed -i 's|^dunst.*|dunst -conf ~/.config/dunst/dunstrc-tokyonight \&|' ~/repos/configs/workstation/home/dotconfig/qtile/autostart.sh
                 kill $(pgrep dunst)
 		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark-BL";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig
 		qtile cmd-obj -o cmd -f reload_config
                 dunst -conf ~/.config/dunst/dunstrc-tokyonight &

@@ -51,7 +51,7 @@ case $theme in
                 kill $(pgrep mako)
                 kill $(pgrep waybar)
 		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark-BL";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
 		home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Lappie
 		~/.config/river/colors-tokyonight.sh &
 		mako -c ~/.config/mako/tokyonight-config &
