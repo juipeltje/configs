@@ -73,7 +73,7 @@ packages=(
         "openssh"
 	"wireguard-dkms"
         "wireguard-tools"
-        "transmission-gtk"
+        "qbittorrent"
 
         # Bluetooth
         "bluez"
@@ -111,7 +111,6 @@ packages=(
 
         # Run launchers
         "rofi"
-        "wofi"
 	"tofi"
 
         # Status bars
@@ -186,7 +185,7 @@ src_packages=(
         "mononoki-nerd-font-ttf"
         "nordic-gtk"
         "gruvbox-material-gtk"
-        "tokyo-night-gtk"
+	"tokyo-night-gtk"
         "phinger-cursors"
         "mint-y-icons"
 	"regreet"
@@ -247,6 +246,7 @@ desktop_services() {
 	ln -s /etc/sv/libvirtd /var/service/
 	ln -s /etc/sv/virtlockd /var/service/
 	ln -s /etc/sv/virtlogd /var/service/
+}
 
 laptop_services() {
 	ln -s /etc/sv/tlp /var/service/
@@ -487,7 +487,7 @@ do
 
 			# SSD trim
 			echo -e "${bright_green}setting up weekly cronjob for SSD trimming...${color_reset}"
-        		cp /home/${user}/configs/Scripts/fstrim.sh /etc/cron.weekly/
+        		cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Services
 			echo -e "${bright_green}Enabling runit services...${color_reset}"
@@ -546,12 +546,12 @@ do
 
 			# SSD trim
                         echo -e "${bright_green}setting up weekly cronjob for SSD trimming...${color_reset}"
-                        cp /home/${user}/configs/Scripts/fstrim.sh /etc/cron.weekly/
+                        cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Battery
 			echo -e "${bright_green}Setting up battery script and crontab for auto-hibernate when battery is low...${color_reset}"
-			cp /home/${user}/configs/Scripts/battery.sh /usr/local/sbin/
-        		crontab /home/${user}/configs/laptop/crontab.txt
+			#cp /home/${user}/configs/scripts/battery.sh /usr/local/sbin/
+        		#crontab /home/${user}/configs/laptop/crontab.txt
 
 			# Services
 			echo -e "${bright_green}Enabling runit services...${color_reset}"
