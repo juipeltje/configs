@@ -9,7 +9,7 @@ color_reset="\033[0m"
 green="\033[0;32m"
 red="\033[0;31m"
 bright_green="\033[0;92m"
-PS3=$'\e[0;92m'"->"$'\e[m'
+PS3=$'\e[0;32m'"->"$'\e[m'
 
 # Arrays
 
@@ -126,6 +126,8 @@ packages=(
         "mpv"
 	"kodi"
         "feh"
+	"gimp"
+	"kdenlive"
 
         # Theming/Fonts
         "lxappearance"
@@ -399,18 +401,18 @@ desktop_entries() {
         echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/river-dbus.desktop
 }
 
-echo -e "${bright_green}This script will install both global system configurations as well as dotfiles in the user's home folder.
+echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
 select opt_1 in "${options_1[@]}"
 do
 	case ${opt_1} in
 		"confirm")
-                	echo -e "${bright_green}Continuing with post-install script...${color_reset}" 
+                	echo -e "${green}Continuing with post-install script...${color_reset}" 
 		   	break
 		   	;;
 		"exit script")
-			echo -e "${bright_green}Exiting post-install script...${color_reset}"
+			echo -e "${green}Exiting post-install script...${color_reset}"
 	           	exit 68
 		   	;;
 		*)
@@ -419,53 +421,53 @@ do
 	esac
 done
 
-echo -e "${bright_green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
+echo -e "${green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
 
 read user;
 
-echo -e "${bright_green}Continuing post-install script as '${user}'...${color_reset}"
+echo -e "${green}Continuing post-install script as '${user}'...${color_reset}"
 
-echo -e "${bright_green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
+echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 
 select opt_2 in "${options_2[@]}"
 do
 	case ${opt_2} in
 		"desktop")
-			echo -e "${bright_green}Continuing post-install script with settings for desktop${color_reset}"
+			echo -e "${green}Continuing post-install script with settings for desktop${color_reset}"
 
 			# Install packages
-			echo -e "${bright_green}Installing packages...${color_reset}"
+			echo -e "${green}Installing packages...${color_reset}"
 			xbps-install -uy xbps
         		xbps-install -Suy
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
         		xbps-install -Sy "${desktop_packages[@]}"
-        		echo -e "${bright_green}installing xbps-src packages...${color_reset}"
+        		echo -e "${green}installing xbps-src packages...${color_reset}"
         		xbps_src
         		xbps_src_desktop
 
 			# Creating users and user directories
-			echo -e "${bright_green}Creating users and user directories...${color_reset}"
+			echo -e "${green}Creating users and user directories...${color_reset}"
 			useradd --system -s /usr/bin/nologin greeter -U
 			sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
 			rm_default_configs
 			configs
 			configs_desktop
 			cp -rf /home/${user}/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
 
 			# Pipewire
-			echo -e "${bright_green}configuring pipewire...${color_reset}"
+			echo -e "${green}configuring pipewire...${color_reset}"
         		pipewire
 
 			# Add user to groups
-			echo -e "${bright_green}Adding user to groups...${color_reset}"
+			echo -e "${green}Adding user to groups...${color_reset}"
 			usermod -aG i2c,kvm,libvirt,bluetooth,socklog ${user}
 
 			# Kernel modules
-			echo -e "${bright_green}Adding kernel modules to load on boot...${color_reset}"
+			echo -e "${green}Adding kernel modules to load on boot...${color_reset}"
         		echo "i2c-dev" > /etc/modules-load.d/i2c.conf
         		echo "i2c-piix4" > /etc/modules-load.d/i2c-piix4.conf
         		echo "options vfio-pci ids=10de:1287,10de:0e0f" > /etc/modprobe.d/vfio.conf
@@ -474,137 +476,137 @@ do
         		dracut --force
 
 			# Swap
-			echo -e "${bright_green}Setting up swapfile...${color_reset}"
+			echo -e "${green}Setting up swapfile...${color_reset}"
 			dd if=/dev/zero of=/swapfile bs=1M count=48k status=progress
 			swapfile
 
 			# Grub
-			echo -e "${bright_green}Configuring grub...${color_reset}"
+			echo -e "${green}Configuring grub...${color_reset}"
         		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff amd_iommu=on iommu=pt vfio-pci.ids=10de:1287,10de:0e0f loglevel=4\"/" /etc/default/grub
+        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff iommu=pt vfio-pci.ids=10de:1287,10de:0e0f loglevel=4\"/" /etc/default/grub
         		sed -i 's/^#GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
         		update-grub
 
 			# SSD trim
-			echo -e "${bright_green}setting up weekly cronjob for SSD trimming...${color_reset}"
+			echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
         		cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Services
-			echo -e "${bright_green}Enabling runit services...${color_reset}"
+			echo -e "${green}Enabling runit services...${color_reset}"
         		services
 			desktop_services
 
 			# Desktop entries
-			echo -e "${bright_green}Setting up desktop entries...${color_reset}"
+			echo -e "${green}Setting up desktop entries...${color_reset}"
 			desktop_entries
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
 		"laptop")
-			echo -e "${bright_green}Continuing post-install script with settings for laptop...${color_reset}"
+			echo -e "${green}Continuing post-install script with settings for laptop...${color_reset}"
 
 			# Install packages
-			echo -e "${bright_green}Installing packages...${color_reset}"
+			echo -e "${green}Installing packages...${color_reset}"
 			xbps-install -uy xbps
         		xbps-install -Suy
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
         		xbps-install -Sy "${laptop_packages[@]}"
-        		echo -e "${bright_green}installing xbps-src packages...${color_reset}"
+        		echo -e "${green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
 			# Creating users and user directories
-                        echo -e "${bright_green}Creating users and user directories...${color_reset}"
+                        echo -e "${green}Creating users and user directories...${color_reset}"
                         useradd --system -s /usr/bin/nologin greeter -U
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
                         rm_default_configs
                         configs
 			configs_laptop
 
 			# Pipewire
-                        echo -e "${bright_green}configuring pipewire...${color_reset}"
+                        echo -e "${green}configuring pipewire...${color_reset}"
                         pipewire
 
 			# Add user to groups
-			echo -e "${bright_green}Adding user to groups...${color_reset}"
+			echo -e "${green}Adding user to groups...${color_reset}"
         		usermod -aG bluetooth,socklog ${user}
 
 			# Swap
-			echo -e "${bright_green}Setting up swapfile...${color_reset}"
+			echo -e "${green}Setting up swapfile...${color_reset}"
 			dd if=/dev/zero of=/swapfile bs=1M count=24k status=progress
 			swapfile
 
 			# Grub
-			echo -e "${bright_green}Configuring grub...${color_reset}"
+			echo -e "${green}Configuring grub...${color_reset}"
         		grub
         		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff loglevel=4\"/" /etc/default/grub
         		update-grub
 
 			# SSD trim
-                        echo -e "${bright_green}setting up weekly cronjob for SSD trimming...${color_reset}"
+                        echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
                         cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Battery
-			echo -e "${bright_green}Setting up battery script and crontab for auto-hibernate when battery is low...${color_reset}"
+			echo -e "${green}Setting up battery script and crontab for auto-hibernate when battery is low...${color_reset}"
 			#cp /home/${user}/configs/scripts/battery.sh /usr/local/sbin/
         		#crontab /home/${user}/configs/laptop/crontab.txt
 
 			# Services
-			echo -e "${bright_green}Enabling runit services...${color_reset}"
+			echo -e "${green}Enabling runit services...${color_reset}"
         		services
         		laptop_services
 
 			# Desktop entries
-			echo -e "${bright_green}Setting up desktop entries...${color_reset}"
+			echo -e "${green}Setting up desktop entries...${color_reset}"
                         desktop_entries
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
 		"virtual machine")
-			echo -e "${bright_green}Continuing post-install script with settings for virtual machine...${color_reset}"
+			echo -e "${green}Continuing post-install script with settings for virtual machine...${color_reset}"
 
 			# Install packages
-			echo -e "${bright_green}Installing packages...${color_reset}"
+			echo -e "${green}Installing packages...${color_reset}"
 			xbps-install -uy xbps
         		xbps-install -Suy
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
-        		echo -e "${bright_green}installing xbps-src packages...${color_reset}"
+        		echo -e "${green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
 			# Creating users and user directories
-                        echo -e "${bright_green}Creating users and user directories...${color_reset}"
+                        echo -e "${green}Creating users and user directories...${color_reset}"
                         useradd --system -s /usr/bin/nologin greeter -U
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
                         rm_default_configs
                         configs
                         configs_desktop
 
 			# Pipewire
-                        echo -e "${bright_green}configuring pipewire...${color_reset}"
+                        echo -e "${green}configuring pipewire...${color_reset}"
                         pipewire
 
 			# Add user to groups
-			echo -e "${bright_green}Adding user to groups...${color_reset}"
+			echo -e "${green}Adding user to groups...${color_reset}"
 			usermod -aG bluetooth,socklog ${user}
 
 			# Services
-			echo -e "${bright_green}Enabling runit services...${color_reset}"
+			echo -e "${green}Enabling runit services...${color_reset}"
         		services
 
 			# Desktop entries
-			echo -e "${bright_green}Setting up desktop entries...${color_reset}"
+			echo -e "${green}Setting up desktop entries...${color_reset}"
                         desktop_entries
 
-			echo -e "${green}Finished!! You can now reboot your machine.${color_reset}"
+			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
 		*)
