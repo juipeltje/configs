@@ -2,6 +2,7 @@
 
 # autostart script for hyprland
 
+pipewire &
 hyprpaper &
 waybar -c ~/.config/waybar/hyprland-config -s ~/.config/waybar/hyprland-style.css &
 hyprctl setcursor phinger-cursors-light 24 &
@@ -12,4 +13,3 @@ nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
 xrandr --output DP-1 --primary &
-alsactl --file ~/.config/asound.state restore &

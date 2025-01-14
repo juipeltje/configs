@@ -60,7 +60,7 @@
   "custom/kernel": {
     "exec": "uname -r",
     "interval": "once",
-    "format": "<span font='16' rise='-2000'></span>  {}"
+    "format": "<span font='16' rise='-2000'></span>  {}"
   },
 
   "custom/cpu": {

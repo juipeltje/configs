@@ -2,6 +2,7 @@
 
 # autostart script for River
 
+pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 waybar -c ~/.config/waybar/river-config -s ~/.config/waybar/river-style-gruvbox-material-dark.css &
@@ -12,4 +13,3 @@ nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
 xrandr --output DP-1 --primary &
-alsactl --file ~/.config/asound.state restore &

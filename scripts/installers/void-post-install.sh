@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # post install script for void linux
 
@@ -128,6 +128,7 @@ packages=(
         "feh"
 	"gimp"
 	"kdenlive"
+	"obs"
 
         # Theming/Fonts
         "lxappearance"

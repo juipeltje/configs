@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # script for installing dotfiles from ssh git repo to the system
 
@@ -9,7 +9,7 @@ color_reset="\033[0m"
 green="\033[0;32m"
 red="\033[0;31m"
 bright_green="\033[0;92m"
-PS3=$'\e[0;92m'"->"$'\e[m'
+PS3=$'\e[0;32m'"->"$'\e[m'
 
 # Arrays
 
@@ -131,18 +131,18 @@ configs_laptop() {
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
-echo -e "${bright_green}This script will install dotfiles in the user's home folder using symlinks.
+echo -e "${green}This script will install dotfiles in the user's home folder using symlinks.
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
 select opt_1 in "${options_1[@]}"
 do
 	case ${opt_1} in
 		"confirm")
-                	echo -e "${bright_green}Continuing with install script...${color_reset}" 
+                	echo -e "${green}Continuing with install script...${color_reset}" 
 		   	break
 		   	;;
 		"exit script")
-			echo -e "${bright_green}Exiting install script...${color_reset}"
+			echo -e "${green}Exiting install script...${color_reset}"
 	           	exit 68
 		   	;;
 		*)
@@ -151,54 +151,54 @@ do
 	esac
 done
 
-echo -e "${bright_green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
+echo -e "${green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
 
 read user;
 
-echo -e "${bright_green}Continuing install script as '${user}'...${color_reset}"
+echo -e "${green}Continuing install script as '${user}'...${color_reset}"
 
-echo -e "${bright_green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
+echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 
 select opt_2 in "${options_2[@]}"
 do
 	case ${opt_2} in
 		"desktop")
-			echo -e "${bright_green}Continuing install script with settings for desktop${color_reset}"
+			echo -e "${green}Continuing install script with settings for desktop${color_reset}"
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
 			rm_default_configs
 			make_directories
 			configs
 			configs_desktop
 
-			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
+			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		"laptop")
-			echo -e "${bright_green}Continuing install script with settings for laptop...${color_reset}"
+			echo -e "${green}Continuing install script with settings for laptop...${color_reset}"
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
                         rm_default_configs
 			make_directories
                         configs
 			configs_laptop
 
-			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
+			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		"virtual machine")
-			echo -e "${bright_green}Continuing install script with settings for virtual machine...${color_reset}"
+			echo -e "${green}Continuing install script with settings for virtual machine...${color_reset}"
 
 			# Install config files
-			echo -e "${bright_green}Installing config files...${color_reset}"
+			echo -e "${green}Installing config files...${color_reset}"
                         rm_default_configs
 			make_directories
                         configs
                         configs_desktop
 
-			echo -e "${green}Finished!! Enjoy your dots :)${color_reset}"
+			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
 			exit 69
 			;;
 		*)
