@@ -1,0 +1,6 @@
+[Desktop Entry]                                                 
+Name=SwayFX                                                         
+Comment=An i3-compatible Wayland compositor                                                              
+Exec=dbus-run-session sway                                                  
+Type=Application                                                  
+Keywords=wm;tiling

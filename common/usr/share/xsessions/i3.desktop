@@ -1,0 +1,6 @@
+[Desktop Entry]                                          
+Name=i3                                                    
+Comment=improved dynamic tiling window manager                                                               
+Exec=dbus-run-session startx ~/.xinitrc-i3                                           
+Type=Application                                           
+Keywords=wm;tiling

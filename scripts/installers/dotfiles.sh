@@ -54,6 +54,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/waybar
 	rm -rf /home/${user}/.config/wofi
 	rm -rf /home/${user}/.config/yazi
+	rm -rf /home/${user}/.local/share/icons/default
 }
 
 make_directories() {
@@ -79,6 +80,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/waybar
         mkdir -p /home/${user}/.config/wofi
         mkdir -p /home/${user}/.config/yazi
+	mkdir -p /home/${user}/.local/share/icons/default
 }
 
 configs() {
@@ -106,6 +108,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/tofi/* /home/${user}/.config/tofi/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/wofi/* /home/${user}/.config/wofi/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/yazi/* /home/${user}/.config/yazi/
+	ln -s /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/* /home/${user}/.local/share/icons/default/
 }
 
 configs_desktop() {

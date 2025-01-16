@@ -227,7 +227,6 @@ xbps_src() {
 
 xbps_src_desktop() {
 	cd /home/${user}/void-packages
-        sudo -u ${user} ./xbps-src pkg python3-colorlog
         sudo -u ${user} ./xbps-src pkg python3-hidapi
         sudo -u ${user} ./xbps-src pkg liquidctl
         xbps-install -R hostdir/binpkgs liquidctl -y
@@ -325,6 +324,8 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/tofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/wofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/yazi /home/${user}/.config/
+	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
+ 	sudo -u ${user} cp -f /home/${user}/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
 	cp -f /home/${user}/configs/common/etc/greetd/config.toml /etc/greetd/
 }
 
@@ -366,40 +367,10 @@ pipewire() {
 }
 
 desktop_entries() {
-	echo "[Desktop Entry]" > /usr/share/xsessions/qtile-startx.desktop
-	echo "Name=Qtile (startx)" >> /usr/share/xsessions/qtile-startx.desktop
-	echo "Comment=Qtile session started with startx for regreet display manager" >> /usr/share/xsessions/qtile-startx.desktop
-	echo "Exec=dbus-run-session startx ~/.xinitrc-qtile" >> /usr/share/xsessions/qtile-startx.desktop
-	echo "Type=Application" >> /usr/share/xsessions/qtile-startx.desktop
-	echo "Keywords=wm;tiling" >> /usr/share/xsessions/qtile-startx.desktop
-
-	echo "[Desktop Entry]" > /usr/share/xsessions/i3-startx.desktop
-	echo "Name=i3 (startx)" >> /usr/share/xsessions/i3-startx.desktop
-	echo "Comment=i3 session started with startx for regreet display manager" >> /usr/share/xsessions/i3-startx.desktop
-	echo "Exec=dbus-run-session startx ~/.xinitrc-i3" >> /usr/share/xsessions/i3-startx.desktop
-	echo "Type=Application" >> /usr/share/xsessions/i3-startx.desktop
-	echo "Keywords=wm;tiling" >> /usr/share/xsessions/i3-startx.desktop
-
-	echo "[Desktop Entry]" > /usr/share/wayland-sessions/sway-dbus.desktop
-	echo "Name=SwayFX (dbus)" >> /usr/share/wayland-sessions/sway-dbus.desktop
-	echo "Comment=Swayfx session started with dbus for void linux" >> /usr/share/wayland-sessions/sway-dbus.desktop
-	echo "Exec=dbus-run-session sway" >> /usr/share/wayland-sessions/sway-dbus.desktop
-	echo "Type=Application" >> /usr/share/wayland-sessions/sway-dbus.desktop
-	echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/sway-dbus.desktop
-
-	echo "[Desktop Entry]" > /usr/share/wayland-sessions/hyprland-dbus.desktop
-	echo "Name=Hyprland (dbus)" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
-	echo "Comment=Hyprland session started with dbus for void linux" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
-	echo "Exec=dbus-run-session Hyprland" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
-	echo "Type=Application" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
-	echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/hyprland-dbus.desktop
-
-	echo "[Desktop Entry]" > /usr/share/wayland-sessions/river-dbus.desktop
-        echo "Name=River (dbus)" >> /usr/share/wayland-sessions/river-dbus.desktop
-        echo "Comment=River session started with dbus for void linux" >> /usr/share/wayland-sessions/river-dbus.desktop
-        echo "Exec=dbus-run-session river" >> /usr/share/wayland-sessions/river-dbus.desktop
-        echo "Type=Application" >> /usr/share/wayland-sessions/river-dbus.desktop
-        echo "Keywords=wm;tiling" >> /usr/share/wayland-sessions/river-dbus.desktop
+	cp -f /home/${user}/configs/common/usr/share/xsessions/i3.desktop /usr/share/xsessions/
+	cp -f /home/${user}/configs/common/usr/share/xsessions/qtile.desktop /usr/share/xsessions/
+	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/river.desktop /usr/share/wayland-sessions/
+	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.

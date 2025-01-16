@@ -7,25 +7,25 @@
 
 alias ls='ls --color=auto'
 # void aliases
-#alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
-#alias update='sudo xbps-install -u xbps && sudo xbps-install -Su'
-#alias full-update='sudo xbps-install -u xbps && sudo xbps-install -Su && flatpak update'
-#alias xq='xbps-query -Rs'
-#alias xi='sudo xbps-install -S'
-#alias xr='sudo xbps-remove -R'
-#alias xc='sudo xbps-remove -Oo'
+alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
+alias xu='sudo /home/joppe/repos/configs/scripts/installers/void-updater.sh'
+alias xq='xbps-query -Rs'
+alias xi='sudo xbps-install -S'
+alias xr='sudo xbps-remove -R'
+alias xc='sudo xbps-remove -Oo'
+alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
 # NixOS aliases
-alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
-alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
-alias update='sudo nix flake update /home/joppe/repos/configs/nixos && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
-alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
-alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
-alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig'
+#alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
+#alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
+#alias update='sudo nix flake update /home/joppe/repos/configs/nixos && sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
+#alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
+#alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
+#alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig'
 #
-alias alsa-store='alsactl --file ~/.config/asound.state store'
-#alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
-#alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
+#alias alsa-store='alsactl --file ~/.config/asound.state store'
+alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
+alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
 alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
 alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'

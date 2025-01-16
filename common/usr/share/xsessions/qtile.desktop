@@ -1,0 +1,6 @@
+[Desktop Entry]                                             
+Name=Qtile                                                       
+Comment=Qtile Session                                                                                              
+Exec=dbus-run-session startx ~/.xinitrc-qtile                                              
+Type=Application                                              
+Keywords=wm;tiling
