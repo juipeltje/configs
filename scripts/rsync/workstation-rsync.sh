@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-# rsync script for backing up laptop files
+# rsync script for backing up workstation files
 
 # user variable
 user=joppe
 
 # rsync command
 rsync -avR --delete-before \
-/6TB-HDD \
+/6TB-HDD/Monero \
+/6TB-HDD/Pictures \
+/6TB-HDD/PS-Vita \
+/6TB-HDD/ROMS \
+/6TB-HDD/systemd-backup \
+/6TB-HDD/Videos \
 /home/${user}/.mozilla/firefox/j5fcylj2.default-default \
 /home/${user}/.password-store \
 /home/${user}/.ssh \
