@@ -86,6 +86,7 @@ make_directories() {
 configs() {
 	ln -s /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
+	ln -s /home/${user}/repos/configs/common/home/.profile /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
 	mkdir -p /home/${user}/.config

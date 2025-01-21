@@ -126,6 +126,7 @@ packages=(
         "mpv"
 	"kodi"
         "feh"
+	"strawberry"
 	"gimp"
 	"kdenlive"
 	"obs"
@@ -135,7 +136,6 @@ packages=(
         "nwg-look"
         "qt5ct"
         "qt6ct"
-        "kvantum"
         "papirus-icon-theme"
 	"papirus-folders"
 
@@ -303,6 +303,7 @@ configs() {
 	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/configs
 	sudo -u ${user} cp -f /home/${user}/configs/common/home/.Xresources /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/configs/common/home/.bash_profile /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/configs/common/home/.profile /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-i3 /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-qtile /home/${user}/
 	sudo -u ${user} mkdir -p /home/${user}/.config
