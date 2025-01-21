@@ -13,5 +13,5 @@ STATUS=$(cat $BATTERY/status)
 
 if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
 	sleep 5
-	systemctl hibernate
+	loginctl hibernate
 fi

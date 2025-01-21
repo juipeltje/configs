@@ -10,3 +10,6 @@ playerctld daemon &
 lxsession &
 nm-applet &
 blueman-applet &
+~/repos/configs/scripts/cron/battery-low.sh &
+~/repos/configs/scripts/cron/battery-full.sh &
+~/repos/configs/scripts/cron/charger.sh &
