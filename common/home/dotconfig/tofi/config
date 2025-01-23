@@ -51,6 +51,7 @@ selection-background-padding = 5,-1
 selection-background-corner-radius = 15
 
 # behaviour
+output = DP-1
 hide-cursor = false
 text-cursor = false
 history = true

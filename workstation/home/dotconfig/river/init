@@ -11,8 +11,8 @@ riverctl spawn ~/.config/river/autostart.sh
 # Keybindings
 
 # switch focus between outputs
-riverctl map normal Super+Control Up focus-output DP-2
-riverctl map normal Super+Control Down focus-output DP-1
+riverctl map normal Super+Control Up spawn ~/.config/river/dp2.sh
+riverctl map normal Super+Control Down spawn ~/.config/river/dp1.sh
 
 # send the focused view to the next/previous output
 riverctl map normal Super+Control+Shift Up send-to-output DP-2
