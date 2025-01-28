@@ -2,6 +2,7 @@
 show_hidden = true
 sort_by = "alphabetical"
 sort_dir_first = true
+linemode = "size"
 
 [opener]
 edit = [
