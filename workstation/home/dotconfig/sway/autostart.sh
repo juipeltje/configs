@@ -2,6 +2,7 @@
 
 # autostart script for swayfx
 
+kitty --class scratchpad &
 pipewire &
 autotiling --splitratio 1.61 --limit 2 &
 waybar -c ~/.config/waybar/sway-config -s ~/.config/waybar/sway-style-gruvbox-material-dark.css &
@@ -11,4 +12,3 @@ lxpolkit &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
-xrandr --output DP-1 --primary &
