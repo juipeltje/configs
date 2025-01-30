@@ -43,7 +43,7 @@ riverctl map normal Super A spawn pavucontrol
 riverctl map normal Super D spawn "${webbrowser} -new-window https://www.deezer.com/en/"
 
 # open application launcher
-riverctl map normal Super Space spawn tofi-drun
+riverctl map normal Super Space spawn ~/.config/river/tofi.sh
 
 # open theme switcher
 riverctl map normal Super+Shift T spawn ~/.config/river/tofi-theme-switcher.sh
@@ -154,3 +154,8 @@ riverctl focus-follows-cursor normal
 
 # make all applications use server side decorations
 riverctl rule-add ssd
+
+# spawn a kitty terminal scratchpad at startup
+riverctl rule-add -app-id scratchpad float
+riverctl rule-add -app-id scratchpad tags ${scratch_tag}
+riverctl spawn "kitty --class scratchpad"

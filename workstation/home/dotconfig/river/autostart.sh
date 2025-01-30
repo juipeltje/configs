@@ -12,4 +12,3 @@ lxpolkit &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
-xrandr --output DP-1 --primary &

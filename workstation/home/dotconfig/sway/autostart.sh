@@ -12,3 +12,4 @@ lxpolkit &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
+sed -i --follow-symlinks 's/^output.*/output = /' ~/.config/tofi/config

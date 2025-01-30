@@ -2,6 +2,9 @@
 
 # Theme switcher script for River
 
+# read focused output with river-bedload/jq, and setting the output in tofi config before running the theme-switcher script
+sed -i --follow-symlinks "s/^output.*/output = $(river-bedload -print outputs | jq -r '.[] | select(.focused) | .name')/" ~/.config/tofi/config
+
 theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | tofi --width=300 --placeholder-text="Select a theme:" | awk '{print $2}' )
 
 case $theme in
