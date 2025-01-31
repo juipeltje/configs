@@ -21,3 +21,6 @@ riverctl map normal None XF86AudioRaiseVolume spawn 'pulsemixer --change-volume 
 # laptop brightness controls
 riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl s 10%-'
 riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl s +10%'
+
+# set kitty scratchpad terminal dimensions
+riverctl rule-add -app-id scratchpad dimensions 960 540

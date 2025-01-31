@@ -159,6 +159,7 @@ packages=(
         "socklog-void"
         "cronie"
 	"curl"
+	"jq"
 	"psmisc"
 	"fastfetch"
 	"flatpak"
@@ -194,6 +195,7 @@ src_packages=(
         "phinger-cursors"
         "mint-y-icons"
 	"regreet"
+	"river-bedload"
 )
 
 options_1=(
@@ -223,6 +225,7 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
 	sudo -u ${user} ./xbps-src pkg regreet
+	sudo -u ${user} ./xbps-src pkg river-bedload
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
         cd
 }
