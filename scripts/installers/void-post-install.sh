@@ -332,7 +332,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/yazi /home/${user}/.config/
 	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
  	sudo -u ${user} cp -f /home/${user}/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
-	sudo -u ${user} cp -f /usr/share/icons/* /home/${user}/.local/share/icons/
+	sudo -u ${user} cp -rf /usr/share/icons/* /home/${user}/.local/share/icons/
 	cp -f /home/${user}/configs/common/etc/greetd/config.toml /etc/greetd/
 }
 
