@@ -163,6 +163,7 @@ packages=(
 	"psmisc"
 	"fastfetch"
 	"flatpak"
+	"xtools"
 )
 
 desktop_packages=(

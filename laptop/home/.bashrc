@@ -7,10 +7,10 @@
 
 alias ls='ls --color=auto'
 # void aliases
-alias list-packages="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
+alias xl="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
 alias xu='sudo /home/joppe/repos/configs/scripts/installers/void-updater.sh'
 alias xq='xbps-query -Rs'
-alias xi='sudo xbps-install -S'
+alias xs='sudo xbps-install -S'
 alias xr='sudo xbps-remove -R'
 alias xc='sudo xbps-remove -Oo'
 alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
