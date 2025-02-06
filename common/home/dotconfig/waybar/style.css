@@ -1,27 +1,34 @@
+@import "gruvbox-material-dark.css";
+
 window#waybar {
     font-family: UbuntuNerdFont;
     font-weight: 500;
     font-size: 16px;
-    background-color: #282828;
-    color: #dfbf8e;
-    border-radius: 0px;
+    background-color: @background;
+    color: @foreground;
+    border-radius: 20px;
 }
 
+#workspaces button,
 #tags button {
-    background-color: #282828;
-    color: #dfbf8e;
+    background-color: @background;
+    color: @foreground;
 }
 
+#workspaces button.active,
+#workspaces button.focused,
 #tags button.focused {
-    background-color: #282828;
-    color: #dfbf8e;
-    border-bottom: 2px solid #dfbf8e;
+    background-color: @background;
+    color: @foreground;
+    border-bottom: 2px solid @foreground;
     border-radius: 0px;
 }
 
+#workspaces button.empty,
+#workspaces button.visible,
 #tags button.occupied {
-    background-color: #282828;
-    color: #dfbf8e; 
+    background-color: @background;
+    color: @foreground; 
 }
 
 #tags button:not(.occupied):not(.focused) {
@@ -32,11 +39,15 @@ window#waybar {
     border: 0;
 }
 
+#battery.critical {
+    color: @alert;
+}
+
 #clock.time,
 #clock.date, 
 #tray,
 #window {
-    background-color: #45403d;
+    background-color: @alt-background;
     border-radius: 20px;
     margin: 4px 4px 4px 4px;
     padding: 0px 4px;
@@ -58,10 +69,10 @@ window#waybar {
 #custom-pump, 
 #custom-fans, 
 #custom-memory, 
-#custom-DualSense {
-    background-color: #45403d;
+#custom-DualSense,
+#battery {
+    background-color: @alt-background;
     border-radius: 20px;
     margin: 4px 4px 4px 0px;
     padding: 0px 4px;
 }
-    

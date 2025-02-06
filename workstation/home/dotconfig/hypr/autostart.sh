@@ -4,7 +4,7 @@
 
 pipewire &
 hyprpaper &
-waybar -c ~/.config/waybar/hyprland-config -s ~/.config/waybar/hyprland-style.css &
+waybar -c ~/.config/waybar/hyprland-config &
 hyprctl setcursor phinger-cursors-light 24 &
 mako &
 playerctld daemon &
