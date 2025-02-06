@@ -123,6 +123,7 @@ configs_desktop() {
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
@@ -134,6 +135,7 @@ configs_laptop() {
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 

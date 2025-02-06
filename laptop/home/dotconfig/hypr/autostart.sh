@@ -4,7 +4,8 @@
 
 pipewire &
 hyprpaper &
-waybar -c ~/.config/waybar/hyprland-config &
+sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-hyprland",|' ~/.config/waybar/config
+waybar &
 mako &
 playerctld daemon &
 lxsession &

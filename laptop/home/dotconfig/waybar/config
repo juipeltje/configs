@@ -1,7 +1,6 @@
 // waybar config
 
 {
-
   // bar size/position
   "layer": "top",
   "position": "top",
@@ -12,7 +11,8 @@
   "spacing": 4,
 
   // choose the order of the modules
-  "modules-left": ["clock#time", "clock#date", "tray", "river/tags", "river/window"],
+  // include the modules-left option
+  "include": "~/.config/waybar/modules-sway",
   "modules-right": ["mpris", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 
   // modules configuration
@@ -35,6 +35,19 @@
     "reverse-direction": false
   },
 
+  "sway/workspaces": {
+    "current-only": false,
+    "all-outputs": true,
+    "format": "   {name}",
+    "disable-scroll": true,
+    "disable-click": true
+  },
+
+  "sway/window": {
+    "format": "<span font='16' rise='-2000'></span> {title}",
+    "max-length": 40
+  },
+
   "river/mode": {
     "format": "mode: {}"
   },
@@ -47,6 +60,19 @@
 
   "river/window": {
     "format": "<span font='16' rise='-2000'></span> {}",
+    "max-length": 40
+  },
+
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "   {name}",
+    "show-special": false,
+    "sort-by-number": true
+  },
+
+  "hyprland/window": {
+    "format": "<span font='16' rise='-2000'></span> {title}",
     "max-length": 40
   },
 

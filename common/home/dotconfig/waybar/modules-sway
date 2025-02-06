@@ -1,0 +1,6 @@
+// waybar sway modules
+
+{
+  // choose the order of the modules
+  "modules-left": ["clock#time", "clock#date", "tray", "sway/workspaces", "sway/window"],
+}

@@ -15,7 +15,7 @@ case $theme in
 		mako -c ~/.config/mako/nordic-config &
 		killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "nordic.css";|' ~/.config/waybar/style.css
-		waybar -c ~/.config/waybar/sway-config &
+		waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
 		sed -i --follow-symlinks 's/^include.*/include = nordic-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/sway/autostart.sh
@@ -31,7 +31,7 @@ case $theme in
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
                 killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "gruvbox-material-dark.css";|' ~/.config/waybar/style.css
-                waybar -c ~/.config/waybar/sway-config &
+                waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
 		sed -i --follow-symlinks 's/^include.*/include = gruvbox-material-dark-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/sway/autostart.sh
@@ -47,7 +47,7 @@ case $theme in
                 mako -c ~/.config/mako/tokyonight-config &
                 killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "tokyonight.css";|' ~/.config/waybar/style.css
-                waybar -c ~/.config/waybar/sway-config &
+                waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
 		sed -i --follow-symlinks 's/^include.*/include = tokyonight-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/sway/autostart.sh

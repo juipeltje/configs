@@ -347,6 +347,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/
 	cp -f /home/${user}/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
 	cp -f /home/${user}/configs/workstation/etc/greetd/sway-config /etc/greetd/
@@ -361,6 +362,7 @@ configs_laptop() {
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
+	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/
 	cp -f /home/${user}/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
 	cp -f /home/${user}/configs/laptop/etc/greetd/sway-config /etc/greetd/

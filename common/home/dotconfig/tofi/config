@@ -1,5 +1,8 @@
 # tofi config
 
+# Include the output config
+include = output
+
 # Include the color scheme to use
 include = gruvbox-material-dark-colors
 
@@ -51,7 +54,6 @@ selection-background-padding = 5,-1
 selection-background-corner-radius = 15
 
 # behaviour
-output = 
 hide-cursor = false
 text-cursor = false
 history = true

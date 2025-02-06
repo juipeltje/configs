@@ -5,7 +5,8 @@
 pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
-waybar -c ~/.config/waybar/river-config &
+sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-river",|' ~/.config/waybar/config
+waybar &
 mako -c ~/.config/mako/gruvbox-material-dark-config &
 playerctld daemon &
 lxpolkit &

@@ -3,7 +3,7 @@
 # Theme switcher script for River
 
 # read focused output with river-bedload/jq, and setting the output in tofi config before running the theme-switcher script
-sed -i --follow-symlinks "s/^output.*/output = $(river-bedload -print outputs | jq -r '.[] | select(.focused) | .name')/" ~/.config/tofi/config
+sed -i --follow-symlinks "s/^output.*/output = $(river-bedload -print outputs | jq -r '.[] | select(.focused) | .name')/" ~/.config/tofi/output
 
 theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | tofi --width=300 --placeholder-text="Select a theme:" | awk '{print $2}' )
 
@@ -18,7 +18,7 @@ case $theme in
 		mako -c ~/.config/mako/nordic-config &
 		killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "nordic.css";|' ~/.config/waybar/style.css
-		waybar -c ~/.config/waybar/river-config &
+		waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
 		sed -i --follow-symlinks 's/^include.*/include = nordic-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/river/autostart.sh
@@ -34,7 +34,7 @@ case $theme in
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
                 killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "gruvbox-material-dark.css";|' ~/.config/waybar/style.css
-                waybar -c ~/.config/waybar/river-config &
+                waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
 		sed -i --follow-symlinks 's/^include.*/include = gruvbox-material-dark-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/river/autostart.sh
@@ -50,7 +50,7 @@ case $theme in
                 mako -c ~/.config/mako/tokyonight-config &
                 killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "tokyonight.css";|' ~/.config/waybar/style.css
-                waybar -c ~/.config/waybar/river-config &
+                waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
 		sed -i --follow-symlinks 's/^include.*/include = tokyonight-colors/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/river/autostart.sh
