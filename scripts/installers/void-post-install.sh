@@ -39,7 +39,9 @@ packages=(
 	"kanshi"
 	"river"
         "swayfx"
+	"niri"
         "xorg-server-xwayland"
+	"xwayland-satellite"
 
         # Greeter
         "greetd"
@@ -294,6 +296,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
 	sudo -u ${user} rm -rf /home/${user}/.config/nano
+	sudo -u ${user} rm -rf /home/${user}/.config/niri
 	sudo -u ${user} rm -rf /home/${user}/.config/picom
 	sudo -u ${user} rm -rf /home/${user}/.config/polybar
 	sudo -u ${user} rm -rf /home/${user}/.config/qtile
@@ -322,6 +325,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
+	#sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/picom /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/qtile /home/${user}/.config/
@@ -343,6 +347,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/kanshi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/niri/* /home/${user}/.config/niri/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
@@ -358,6 +363,7 @@ configs_laptop() {
 	sudo -u ${user} cp -f /home/${user}/configs/laptop/home/.bashrc /home/${user}/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
+	#sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/niri/* /home/${user}/.config/niri/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
@@ -382,6 +388,7 @@ desktop_entries() {
 	cp -f /home/${user}/configs/common/usr/share/xsessions/qtile.desktop /usr/share/xsessions/
 	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/river.desktop /usr/share/wayland-sessions/
 	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/
+	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.

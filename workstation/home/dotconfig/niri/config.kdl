@@ -1,0 +1,178 @@
+// Niri config
+
+// input configuration
+input {
+  warp-mouse-to-focus
+  focus-follows-mouse
+}
+
+// output configuration
+output "DP-1" {
+  mode "3440x1440@164.999"
+  position x=0 y=1080
+}
+  
+output "DP-2" {
+  mode "2560x1080@74.991"
+  position x=0 y=0
+}
+
+// layout configuration
+layout {
+  gaps 10
+  center-focused-column "never"
+  preset-column-widths {
+    proportion 0.5
+  }
+
+  default-column-width {
+    proportion 0.5
+  }
+
+  focus-ring {
+    off
+  }
+
+  border {
+    width 4
+    active-color "#dfbf8e"
+    inactive-color "#665c54"
+  }
+
+  struts {
+  }
+}
+
+// window rules
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+// autostart
+spawn-at-startup "~/.config/niri/autostart.sh"
+
+prefer-no-csd
+
+screenshot-path null
+
+// keybinds
+binds {
+  // open a terminal
+  Mod+T { spawn "kitty"; }
+
+  // open a file manager
+  Mod+F { spawn "pcmanfm"; }
+
+  // open a terminal file manager
+  Mod+Y { spawn "kitty" "-e" "yazi"; }
+
+  // open a webbrowser
+  Mod+W { spawn "firefox"; }
+
+  // open pavucontrol
+  Mod+A { spawn "pavucontrol"; }
+
+  // open Deezer in a firefox window
+  Mod+D { spawn "firefox" "-new-window" "https://www.deezer.com/en/"; }
+
+  // open application launcher
+  Mod+Space { spawn "tofi-drun"; }
+
+  // open theme switcher
+
+  // open powermenu
+
+  // Mako notification history and close all notifications
+  Mod+N { spawn "makoctl" "restore"; }
+  Mod+C { spawn "makoctl" "dismiss" "--all"; }
+
+  // play/pause/previous/next keyboard controls
+  XF86AudioPlay { spawn "playerctl" "play-pause"; }
+  XF86AudioNext { spawn "playerctl" "next"; }
+  XF86AudioPrev { spawn "playerctl" "previous"; }
+
+  // exit Niri
+  Mod+Ctrl+Q { quit; }
+
+  // close a window
+  Mod+Q { close-window; }
+
+  // switch focused column/window
+  Mod+Right { focus-column-right; }
+  Mod+Left { focus-column-left; }
+  Mod+Up { focus-window-up; }
+  Mod+Down { focus-window-down; }
+
+  // focus the first or last column in the row
+  Mod+Home { focus-column-first; }
+  Mod+End { focus-column-last; }
+
+  // move the focused column/window
+  Mod+Shift+Right { move-column-right; }
+  Mod+Shift+Left { move-column-left; }
+  Mod+Shift+Up { move-window-up; }
+  Mod+Shift+Down { move-window-down; }
+
+  // resize columns/windows
+  Mod+KP_Add { set-column-width "+10%"; }
+  Mod+KP_Subtract { set-column-width "-10%"; }
+  Mod+Alt+KP_Add { set-window-height "+10%"; }
+  Mod+Alt+KP_Subtract { set-window-height "-10%"; }
+
+  // toggle floating 
+  Mod+Shift+Space { toggle-window-floating; }
+
+  // toggle fullscreen
+  Mod+Shift+F { fullscreen-window; }
+
+  // maximize column
+  Mod+M { maximize-column; }
+
+  // center column
+  Mod+S { center-column; }
+
+  // move the focused column to the beginning or end of the row
+  Mod+Shift+Home { move-column-to-first; }
+  Mod+Shift+End { move-column-to-last; }
+
+  // focus the bottom or top monitor
+  Mod+Ctrl+Down { focus-monitor-down; }
+  Mod+Ctrl+Up { focus-monitor-up; }
+
+  // move column/window to bottom or top monitor
+  Mod+Ctrl+Shift+Down { move-column-to-monitor-down; }
+  Mod+Ctrl+Shift+Up { move-column-to-monitor-up; }
+
+  // switch to workspaces
+  Mod+KP_End { focus-workspace 1; }
+  Mod+KP_Down { focus-workspace 2; }
+  Mod+KP_Next { focus-workspace 3; }
+  Mod+KP_Left { focus-workspace 4; }
+  Mod+KP_Begin { focus-workspace 5; }
+  Mod+KP_Right { focus-workspace 6; }
+  Mod+KP_Home { focus-workspace 7; }
+  Mod+KP_Up { focus-workspace 8; }
+
+  // move columns/windows to workspaces
+  Mod+Shift+KP_End { move-column-to-workspace 1; }
+  Mod+Shift+KP_Down { move-column-to-workspace 2; }
+  Mod+Shift+KP_Next { move-column-to-workspace 3; }
+  Mod+Shift+KP_Left { move-column-to-workspace 4; }
+  Mod+Shift+KP_Begin { move-column-to-workspace 5; }
+  Mod+Shift+KP_Right { move-column-to-workspace 6; }
+  Mod+Shift+KP_Home { move-column-to-workspace 7; }
+  Mod+Shift+KP_Up { move-column-to-workspace 8; }
+
+  // move focused window in or out of a column
+  Mod+BracketRight { consume-or-expel-window-right; }
+  Mod+BracketLeft { consume-or-expel-window-left; }
+
+  // move window from the right to the bottom of the focused column
+  Mod+Comma { consume-window-into-column; }
+  
+  // expel the bottom window from the focused column to the right
+  Mod+Period { expel-window-from-column; }
+}
+ 
+

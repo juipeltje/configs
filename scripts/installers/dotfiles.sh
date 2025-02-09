@@ -44,6 +44,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpv
 	rm -rf /home/${user}/.config/nano
+	rm -rf /home/${user}/.config/niri
 	rm -rf /home/${user}/.config/picom
 	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
@@ -70,6 +71,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/mako
         mkdir -p /home/${user}/.config/mpv
 	mkdir -p /home/${user}/.config/nano
+	mkdir -p /home/${user}/.config/niri
 	mkdir -p /home/${user}/.config/picom
 	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
@@ -101,6 +103,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
+	#ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
@@ -119,6 +122,7 @@ configs_desktop() {
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/kanshi/* /home/${user}/.config/kanshi/
+	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/polybar/* /home/${user}/.config/polybar/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
@@ -131,6 +135,7 @@ configs_laptop() {
 	ln -s /home/${user}/repos/configs/laptop/home/.bashrc /home/${user}/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/niri/* /home/${user}/.config/niri/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/polybar/* /home/${user}/.config/polybar/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/

@@ -1,7 +1,7 @@
 # tofi config
 
 # Include the output config
-include = output
+include = gruvbox-material-dark-colors
 
 # Include the color scheme to use
 include = gruvbox-material-dark-colors

@@ -24,6 +24,7 @@ cp -f /home/${user}/repos/configs/common/usr/share/xsessions/i3.desktop /usr/sha
 cp -f /home/${user}/repos/configs/common/usr/share/xsessions/qtile.desktop /usr/share/xsessions/
 cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/river.desktop /usr/share/wayland-sessions/
 cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/
+cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/
 
 # Check for services that need to be restarted with xcheckrestart
 echo -e "${green}Checking for services that need to be restarted with xcheckrestart...${color_reset}"

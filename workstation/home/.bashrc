@@ -32,7 +32,7 @@ alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold
 alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
 # PS1="\[\e[0;34m\][\u@\h \W]\$ \[\e[m\]"
-PS1="\[\e[0;31m\] \u  \W  \[\e[m\]"
+PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"
 # neofetch
 # echo -e "\033[96;1;3mHi Joppe! Glad to see you're still using Arch btw ;)\033[0m"
 # echo -e "\033[34;1;3mHi Joppe! Glad to see you're still using Arch btw ;)\033[0m"
