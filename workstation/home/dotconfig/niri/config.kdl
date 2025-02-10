@@ -1,5 +1,21 @@
 // Niri config
 
+// environment variables
+environment {
+  DISPLAY ":0"
+}
+
+// set cursor theme
+cursor {
+  xcursor-theme "phinger-cursors-light"
+  xcursor-size 24
+}
+
+// hotkey overlay 
+hotkey-overlay {
+  skip-at-startup
+}
+
 // input configuration
 input {
   warp-mouse-to-focus
@@ -49,6 +65,11 @@ window-rule {
   clip-to-geometry true
 }
 
+// layer rules
+//layer-rule {
+//  geometry-corner-radius 20
+//}
+
 // autostart
 spawn-at-startup "~/.config/niri/autostart.sh"
 
@@ -77,11 +98,13 @@ binds {
   Mod+D { spawn "firefox" "-new-window" "https://www.deezer.com/en/"; }
 
   // open application launcher
-  Mod+Space { spawn "tofi-drun"; }
+  Mod+Space { spawn "fuzzel"; }
 
   // open theme switcher
+  Mod+Shift+T { spawn "~/.config/niri/fuzzel-theme-switcher.sh"; }
 
   // open powermenu
+  Mod+Escape { spawn "~/.config/niri/fuzzel-powermenu.sh"; }
 
   // Mako notification history and close all notifications
   Mod+N { spawn "makoctl" "restore"; }
@@ -165,14 +188,17 @@ binds {
   Mod+Shift+KP_Up { move-column-to-workspace 8; }
 
   // move focused window in or out of a column
-  Mod+BracketRight { consume-or-expel-window-right; }
-  Mod+BracketLeft { consume-or-expel-window-left; }
+  Mod+Alt+Shift+Right { consume-or-expel-window-right; }
+  Mod+Alt+Shift+Left { consume-or-expel-window-left; }
 
   // move window from the right to the bottom of the focused column
   Mod+Comma { consume-window-into-column; }
   
   // expel the bottom window from the focused column to the right
   Mod+Period { expel-window-from-column; }
-}
- 
 
+  // enable/disable vrr + single monitor mode
+  Mod+Ctrl+A { spawn "~/.config/niri/vrr-on.sh"; }
+  Mod+Ctrl+V { spawn "~/.config/niri/vrr-off.sh"; }
+  Mod+Ctrl+S { spawn "~/.config/niri/single-monitor.sh"; }
+}

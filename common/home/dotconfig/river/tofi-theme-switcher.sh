@@ -20,7 +20,7 @@ case $theme in
 		sed -i --follow-symlinks 's|^@import.*|@import "nordic.css";|' ~/.config/waybar/style.css
 		waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
-		sed -i --follow-symlinks 's/^include.*/include = nordic-colors/' ~/.config/tofi/config
+		sed -i --follow-symlinks 's/^include = colors.*/include = colors-nordic/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/river/autostart.sh
 		notify-send "Current theme: Nordic"
 		;;
@@ -36,7 +36,7 @@ case $theme in
 		sed -i --follow-symlinks 's|^@import.*|@import "gruvbox-material-dark.css";|' ~/.config/waybar/style.css
                 waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
-		sed -i --follow-symlinks 's/^include.*/include = gruvbox-material-dark-colors/' ~/.config/tofi/config
+		sed -i --follow-symlinks 's/^include = colors.*/include = colors-gruvbox-material-dark/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/river/autostart.sh
 		notify-send "Current theme: Gruvbox-Material-Dark"
                 ;;
@@ -52,7 +52,7 @@ case $theme in
 		sed -i --follow-symlinks 's|^@import.*|@import "tokyonight.css";|' ~/.config/waybar/style.css
                 waybar &
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
-		sed -i --follow-symlinks 's/^include.*/include = tokyonight-colors/' ~/.config/tofi/config
+		sed -i --follow-symlinks 's/^include = colors.*/include = colors-tokyonight/' ~/.config/tofi/config
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/river/autostart.sh
 		notify-send "Current theme: Tokyo-Night"
                 ;;

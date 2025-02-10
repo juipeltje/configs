@@ -1,10 +1,10 @@
 # tofi config
 
 # Include the output config
-include = gruvbox-material-dark-colors
+include = output
 
 # Include the color scheme to use
-include = gruvbox-material-dark-colors
+include = colors-gruvbox-material-dark
 
 # font 
 font = "Ubuntu Nerd Font Medium"

@@ -14,3 +14,5 @@ nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
 sed -i --follow-symlinks 's/^output.*/output = /' ~/.config/tofi/output &
+xwayland-satellite &
+xrandr --output DP-1 --primary &
