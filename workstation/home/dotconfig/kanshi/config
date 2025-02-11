@@ -6,7 +6,6 @@ profile desktop {
 	}
 	
 	output DP-2 {
-		enable
 		mode 2560x1080@74.991Hz
 		position 0,0
 		adaptive_sync off
@@ -21,22 +20,6 @@ profile gaming {
         }
         
         output DP-2 {
-		enable
-                mode 2560x1080@74.991Hz
-                position 0,0
-                adaptive_sync off
-        }
-}
-
-profile single {
-        output DP-1 {
-                mode 3440x1440@164.999Hz
-                position 0,1080
-                adaptive_sync on
-        }
-
-        output DP-2 {
-		disable
                 mode 2560x1080@74.991Hz
                 position 0,0
                 adaptive_sync off

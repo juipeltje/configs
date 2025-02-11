@@ -197,8 +197,7 @@ binds {
   // expel the bottom window from the focused column to the right
   Mod+Period { expel-window-from-column; }
 
-  // enable/disable vrr + single monitor mode
+  // enable/disable vrr
   Mod+Ctrl+A { spawn "~/.config/niri/vrr-on.sh"; }
   Mod+Ctrl+V { spawn "~/.config/niri/vrr-off.sh"; }
-  Mod+Ctrl+S { spawn "~/.config/niri/single-monitor.sh"; }
 }

@@ -16,10 +16,9 @@ output DP-2 resolution 2560x1080@74.991Hz position 0,0
 bindsym $mod+Control+Down focus output DP-1
 bindsym $mod+Control+Up focus output DP-2
 
-# enable/disable adaptive sync + single monitor mode
+# enable/disable adaptive sync
 bindsym $mod+Control+a exec ~/.config/sway/vrr-on.sh
 bindsym $mod+Control+v exec ~/.config/sway/vrr-off.sh
-bindsym $mod+Control+s exec ~/.config/sway/single-monitor.sh 
 
 # bind workspaces to monitors
 workspace $ws1 output DP-1

@@ -114,6 +114,7 @@ packages=(
         # Run launchers
         "rofi"
 	"tofi"
+	"fuzzel"
 
         # Status bars
         "polybar"
@@ -325,7 +326,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
-	#sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/picom /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/qtile /home/${user}/.config/
@@ -485,6 +486,10 @@ do
 			echo -e "${green}Enabling runit services...${color_reset}"
         		services
 			desktop_services
+
+			# crontab
+			echo -e "${green}Installing crontab...${color_reset}"
+			crontab /home/${user}/configs/workstation/root-crontab.txt
 
 			# Desktop entries
 			echo -e "${green}Setting up desktop entries...${color_reset}"

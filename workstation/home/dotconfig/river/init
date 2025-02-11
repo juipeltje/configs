@@ -18,10 +18,9 @@ riverctl map normal Super+Control Down focus-output DP-1
 riverctl map normal Super+Control+Shift Up send-to-output DP-2
 riverctl map normal Super+Control+Shift Down send-to-output DP-1
 
-# enable/disable adaptive sync + single monitor mode
+# enable/disable adaptive sync
 riverctl map normal Super+Control A spawn 'kanshictl switch gaming'
 riverctl map normal Super+Control V spawn 'kanshictl switch desktop'
-riverctl map normal Super+Control S spawn 'kanshictl switch single'
 
 # set kitty scratchpad terminal dimensions
 riverctl rule-add -app-id scratchpad dimensions 1720 1000
