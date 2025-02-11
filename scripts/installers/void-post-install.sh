@@ -545,15 +545,14 @@ do
                         echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
                         cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
 
-			# Battery
-			echo -e "${green}Setting up battery script and crontab for auto-hibernate when battery is low...${color_reset}"
-			#cp /home/${user}/configs/scripts/battery.sh /usr/local/sbin/
-        		#crontab /home/${user}/configs/laptop/crontab.txt
-
 			# Services
 			echo -e "${green}Enabling runit services...${color_reset}"
         		services
         		laptop_services
+
+			# crontab
+                        echo -e "${green}Installing crontab...${color_reset}"
+                        crontab /home/${user}/configs/laptop/root-crontab.txt
 
 			# Desktop entries
 			echo -e "${green}Setting up desktop entries...${color_reset}"
