@@ -43,13 +43,13 @@ riverctl map normal Super A spawn pavucontrol
 riverctl map normal Super D spawn "${webbrowser} -new-window https://www.deezer.com/en/"
 
 # open application launcher
-riverctl map normal Super Space spawn ~/.config/river/tofi.sh
+riverctl map normal Super Space spawn fuzzel
 
 # open theme switcher
-riverctl map normal Super+Shift T spawn ~/.config/river/tofi-theme-switcher.sh
+riverctl map normal Super+Shift T spawn ~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh
 
 # open powermenu
-riverctl map normal Super Escape spawn ~/.config/river/tofi-powermenu.sh
+riverctl map normal Super Escape spawn ~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh
 
 # Mako notification history and close all notifications
 riverctl map normal Super N spawn 'makoctl restore'

@@ -37,7 +37,7 @@ keys = [
 
   # open Rofi application launcher, powermenu, and theme-switcher
   Key([mod], "space", lazy.spawn("rofi -show drun") ),
-  Key([mod], "Escape", lazy.spawn(home + '/.config/qtile/rofi-powermenu.sh') ),
+  Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
   Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
 
   # Dunst notification history and close all notifications

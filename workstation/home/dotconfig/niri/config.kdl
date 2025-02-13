@@ -20,6 +20,10 @@ hotkey-overlay {
 input {
   warp-mouse-to-focus
   focus-follows-mouse
+  keyboard {
+    repeat-rate 50
+    repeat-delay 300
+  }
 }
 
 // output configuration
@@ -101,10 +105,10 @@ binds {
   Mod+Space { spawn "fuzzel"; }
 
   // open theme switcher
-  Mod+Shift+T { spawn "~/.config/niri/fuzzel-theme-switcher.sh"; }
+  Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh"; }
 
   // open powermenu
-  Mod+Escape { spawn "~/.config/niri/fuzzel-powermenu.sh"; }
+  Mod+Escape { spawn "~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh"; }
 
   // Mako notification history and close all notifications
   Mod+N { spawn "makoctl" "restore"; }
