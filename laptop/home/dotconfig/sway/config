@@ -4,13 +4,13 @@
 include ~/.config/sway/common.conf
 
 # Include the color scheme
-include ~/.config/sway/colors-gruvbox-material-dark.conf
+include ~/.config/sway/colors-nordic.conf
 
 # monitor configuration
 output eDP-1 resolution 1920x1080@60.001Hz position 0,0
 
 ## input configuration
-input "1267:12608:MSFT0001:00_04F3:3140_Touchpad" {
+input type:touchpad {
   tap enabled
 }
 
