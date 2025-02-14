@@ -113,7 +113,6 @@ packages=(
 
         # Run launchers
         "rofi"
-	"tofi"
 	"fuzzel"
 
         # Status bars
@@ -162,7 +161,6 @@ packages=(
         "socklog-void"
         "cronie"
 	"curl"
-	"jq"
 	"psmisc"
 	"fastfetch"
 	"flatpak"
@@ -326,7 +324,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
+	#sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/picom /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/qtile /home/${user}/.config/
@@ -348,7 +346,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/kanshi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/niri/* /home/${user}/.config/niri/
+	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/niri /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
@@ -364,7 +362,7 @@ configs_laptop() {
 	sudo -u ${user} cp -f /home/${user}/configs/laptop/home/.bashrc /home/${user}/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
-	#sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/niri/* /home/${user}/.config/niri/
+	#sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/niri /home/${user}/.config/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/

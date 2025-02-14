@@ -103,7 +103,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
+	#ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
