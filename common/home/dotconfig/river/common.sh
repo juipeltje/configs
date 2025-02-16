@@ -4,7 +4,6 @@
 
 # Variables
 terminal="kitty"
-file_manager="pcmanfm"
 webbrowser="firefox"
 
 # appearance
@@ -27,11 +26,8 @@ riverctl attach-mode bottom
 # open a terminal
 riverctl map normal Super T spawn ${terminal}
 
-# open freetube
-riverctl map normal Super F spawn freetube
-
-# open a terminal file manager
-riverctl map normal Super Y spawn "${terminal} -e yazi"
+# open file manager
+riverctl map normal Super F spawn "${terminal} -e yazi"
 
 # open a webbrowser
 riverctl map normal Super W spawn ${webbrowser}

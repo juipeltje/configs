@@ -86,11 +86,8 @@ binds {
   // open a terminal
   Mod+T { spawn "kitty"; }
 
-  // open a file manager
-  Mod+F { spawn "pcmanfm"; }
-
-  // open a terminal file manager
-  Mod+Y { spawn "kitty" "-e" "yazi"; }
+  // open file manager
+  Mod+F { spawn "kitty" "-e" "yazi"; }
 
   // open a webbrowser
   Mod+W { spawn "firefox"; }

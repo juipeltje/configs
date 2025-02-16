@@ -12,7 +12,6 @@ home = os.path.expanduser('~')
 mod = "mod4"
 terminal = "kitty"
 webbrowser = "firefox"
-file_manager = "pcmanfm"
 
 # Keybindings
 keys = [
@@ -20,11 +19,8 @@ keys = [
   # Open a terminal
   Key([mod], "t", lazy.spawn(terminal) ),
 
-  # Open a file manager
-  Key([mod], "f", lazy.spawn(file_manager) ),
-
-  # Open a terminal file manager
-  Key([mod], "y", lazy.spawn(terminal + " -e yazi") ),
+  # Open file manager
+  Key([mod], "f", lazy.spawn(terminal + " -e yazi") ),
 
   # Open a webbrowser
   Key([mod], "w", lazy.spawn(webbrowser) ),
