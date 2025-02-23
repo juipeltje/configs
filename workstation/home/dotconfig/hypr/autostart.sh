@@ -2,6 +2,7 @@
 
 # autostart script for hyprland
 
+gtklock -d &
 pipewire &
 hyprpaper &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-hyprland",|' ~/.config/waybar/config
@@ -13,4 +14,3 @@ lxsession &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
-xrandr --output DP-1 --primary &

@@ -2,6 +2,7 @@
 
 # autostart script for River
 
+gtklock -d &
 pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &

@@ -44,6 +44,9 @@ riverctl map normal Super Space spawn fuzzel
 # open theme switcher
 riverctl map normal Super+Shift T spawn ~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh
 
+# open compositor switcher
+riverctl map normal Super+Shift C spawn ~/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh
+
 # open powermenu
 riverctl map normal Super Escape spawn ~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh
 

@@ -11,7 +11,7 @@ SUB_OPERATION="$3"
 if [ "$GUEST_NAME" == "win10-gaming" ]; then
   if [ "$OPERATION" == "prepare" ]; then
     if [ "$SUB_OPERATION" == "begin" ]; then
-	sv down greetd
+	sv down agetty-autologin-tty1
 
 	sleep 4
 
@@ -37,7 +37,7 @@ if [ "$GUEST_NAME" == "win10-gaming" ]; then
 
 	modprobe amdgpu
 
-	sv up greetd
+	sv up agetty-autologin-tty1
     fi
   fi
 fi

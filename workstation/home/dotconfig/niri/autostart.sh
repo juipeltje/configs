@@ -2,6 +2,7 @@
 
 # autostart script for Niri
 
+gtklock -d &
 #kitty --class scratchpad &
 pipewire &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &

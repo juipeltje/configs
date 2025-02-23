@@ -104,6 +104,9 @@ binds {
   // open theme switcher
   Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh"; }
 
+  // open compositor switcher
+  Mod+Shift+C { spawn "~/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh"; }
+
   // open powermenu
   Mod+Escape { spawn "~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh"; }
 
