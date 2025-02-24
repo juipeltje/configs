@@ -18,14 +18,6 @@ xbps-install -u xbps
 echo -e "${green}Checking for updates with xbps...${color_reset}"
 xbps-install -Su
 
-# Replacing desktop session shortcuts in case they are overwritten by update
-echo -e "${green}Replacing desktop session shortcuts in case they are overwritten by update...${color_reset}"
-cp -f /home/${user}/repos/configs/common/usr/share/xsessions/i3.desktop /usr/share/xsessions/
-cp -f /home/${user}/repos/configs/common/usr/share/xsessions/qtile.desktop /usr/share/xsessions/
-cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/river.desktop /usr/share/wayland-sessions/
-cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/
-cp -f /home/${user}/repos/configs/common/usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/
-
 # Check for services that need to be restarted with xcheckrestart
 echo -e "${green}Checking for services that need to be restarted with xcheckrestart...${color_reset}"
 echo -e "${green}The following services need to be restarted:${color_reset}"

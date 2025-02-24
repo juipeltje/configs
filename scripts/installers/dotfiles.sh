@@ -37,6 +37,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/dunst
 	rm -rf /home/${user}/.config/fuzzel
 	rm -rf /home/${user}/.config/git
+	rm -rf /home/${user}/.config/gtklock
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
 	rm -rf /home/${user}/.config/kanshi
@@ -64,6 +65,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/dunst
 	mkdir -p /home/${user}/.config/fuzzel
         mkdir -p /home/${user}/.config/git
+	mkdir -p /home/${user}/.config/gtklock
         mkdir -p /home/${user}/.config/hypr
         mkdir -p /home/${user}/.config/i3
 	mkdir -p /home/${user}/.config/kanshi
@@ -97,6 +99,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/dunst/* /home/${user}/.config/dunst/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/git/* /home/${user}/.config/git/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/gtklock/* /home/${user}/.config/gtklock/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/kitty/* /home/${user}/.config/kitty/

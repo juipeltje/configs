@@ -42,9 +42,7 @@ packages=(
 	"niri"
         "xorg-server-xwayland"
 	"xwayland-satellite"
-
-        # Greeter
-        "greetd"
+	"gtklock"
 
         # Gaming
         "vulkan-loader"
@@ -196,7 +194,6 @@ src_packages=(
 	"tokyo-night-gtk"
         "phinger-cursors"
         "mint-y-icons"
-	"regreet"
 	"river-bedload"
 )
 
@@ -226,7 +223,6 @@ xbps_src() {
         sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
-	sudo -u ${user} ./xbps-src pkg regreet
 	sudo -u ${user} ./xbps-src pkg river-bedload
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
         cd
@@ -288,6 +284,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/alacritty
 	sudo -u ${user} rm -rf /home/${user}/.config/dunst
 	sudo -u ${user} rm -rf /home/${user}/.config/git
+	sudo -u ${user} rm -rf /home/${user}/.config/gtklock
 	sudo -u ${user} rm -rf /home/${user}/.config/hypr
 	sudo -u ${user} rm -rf /home/${user}/.config/i3
 	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
@@ -318,6 +315,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/alacritty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/dunst /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/git /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/gtklock /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/hypr /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/i3 /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/kitty /home/${user}/.config/
@@ -338,7 +336,7 @@ configs() {
 	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
  	sudo -u ${user} cp -f /home/${user}/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
 	sudo -u ${user} cp -rf /usr/share/icons/* /home/${user}/.local/share/icons/
-	cp -f /home/${user}/configs/common/etc/greetd/config.toml /etc/greetd/
+	cp -rf /home/${user}/configs/common/etc/elogind /etc/
 }
 
 configs_desktop() {
@@ -353,9 +351,6 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
 	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/
-	cp -f /home/${user}/configs/workstation/etc/greetd/regreet.toml /etc/greetd/
-	cp -f /home/${user}/configs/workstation/etc/greetd/sway-config /etc/greetd/
-	cp -rf /home/${user}/configs/workstation/etc/elogind /etc/
 }
 
 configs_laptop() {
@@ -369,25 +364,14 @@ configs_laptop() {
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
 	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
         sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/
-	cp -f /home/${user}/configs/laptop/etc/greetd/regreet.toml /etc/greetd/
-	cp -f /home/${user}/configs/laptop/etc/greetd/sway-config /etc/greetd/
 	cp -rf /home/${user}/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
 	cp -f /home/${user}/configs/laptop/etc/tlp.conf /etc/
-	cp -rf /home/${user}/configs/laptop/etc/elogind /etc/
 }
 
 pipewire() {
 	mkdir -p /etc/pipewire/pipewire.conf.d
         ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
         ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
-}
-
-desktop_entries() {
-	cp -f /home/${user}/configs/common/usr/share/xsessions/i3.desktop /usr/share/xsessions/
-	cp -f /home/${user}/configs/common/usr/share/xsessions/qtile.desktop /usr/share/xsessions/
-	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/river.desktop /usr/share/wayland-sessions/
-	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/sway.desktop /usr/share/wayland-sessions/
-	cp -f /home/${user}/configs/common/usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
@@ -435,9 +419,8 @@ do
         		xbps_src
         		xbps_src_desktop
 
-			# Creating users and user directories
-			echo -e "${green}Creating users and user directories...${color_reset}"
-			useradd --system -s /usr/bin/nologin greeter -U
+			# Creating user directories
+			echo -e "${green}Creating user directories...${color_reset}"
 			sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
@@ -489,10 +472,7 @@ do
 			echo -e "${green}Installing crontab...${color_reset}"
 			crontab /home/${user}/configs/workstation/root-crontab.txt
 
-			# Desktop entries
-			echo -e "${green}Setting up desktop entries...${color_reset}"
-			desktop_entries
-
+			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
@@ -509,9 +489,8 @@ do
         		echo -e "${green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
-			# Creating users and user directories
-                        echo -e "${green}Creating users and user directories...${color_reset}"
-                        useradd --system -s /usr/bin/nologin greeter -U
+			# Creating user directories
+                        echo -e "${green}Creating user directories...${color_reset}"
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
@@ -552,10 +531,7 @@ do
                         echo -e "${green}Installing crontab...${color_reset}"
                         crontab /home/${user}/configs/laptop/root-crontab.txt
 
-			# Desktop entries
-			echo -e "${green}Setting up desktop entries...${color_reset}"
-                        desktop_entries
-
+			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
@@ -571,9 +547,8 @@ do
         		echo -e "${green}installing xbps-src packages...${color_reset}"
         		xbps_src
 
-			# Creating users and user directories
-                        echo -e "${green}Creating users and user directories...${color_reset}"
-                        useradd --system -s /usr/bin/nologin greeter -U
+			# Creating user directories
+                        echo -e "${green}Creating user directories...${color_reset}"
                         sudo -u ${user} xdg-user-dirs-update
 
 			# Install config files
@@ -594,10 +569,7 @@ do
 			echo -e "${green}Enabling runit services...${color_reset}"
         		services
 
-			# Desktop entries
-			echo -e "${green}Setting up desktop entries...${color_reset}"
-                        desktop_entries
-
+			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
 			;;
