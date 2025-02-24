@@ -2,6 +2,7 @@
 
 # autostart script for swayfx
 
+gtklock -d &
 kitty --class scratchpad &
 pipewire &
 autotiling --splitratio 1.61 --limit 2 &
