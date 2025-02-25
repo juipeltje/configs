@@ -3,7 +3,8 @@
 # Import libraries
 from libqtile.lazy import lazy
 from libqtile.config import Key, Drag, Group, ScratchPad, DropDown
-from libqtile import layout
+from libqtile import layout, qtile
+from libqtile.backend.wayland import InputConfig
 import os
 import colors
 
@@ -15,7 +16,6 @@ webbrowser = "firefox"
 
 # Keybindings
 keys = [
-
   # Open a terminal
   Key([mod], "t", lazy.spawn(terminal) ),
 
@@ -31,23 +31,10 @@ keys = [
   # Open Deezer in firefox tab
   Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
 
-  # open Rofi application launcher, powermenu, and theme-switcher
-  Key([mod], "space", lazy.spawn("rofi -show drun") ),
-  Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
-  Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
-
-  # Dunst notification history and close all notifications
-  Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
-  Key([mod], "c", lazy.spawn("dunstctl close-all") ),
-
   # play/pause/previous/next keyboard controls
   Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause") ),
   Key([], "XF86AudioNext", lazy.spawn("playerctl next") ),
   Key([], "XF86AudioPrev", lazy.spawn("playerctl previous") ),
-
-  # Start/stop picom keybindings for playing games
-  Key([mod], "g", lazy.spawn(home + '/repos/configs/scripts/start-gamemode.sh') ),
-  Key([mod], "p", lazy.spawn(home + '/repos/configs/scripts/stop-gamemode.sh') ),
 
   # Reload config and restart qtile
   Key([mod], "r", lazy.reload_config() ),
@@ -96,6 +83,45 @@ keys = [
   Key([mod], "s", lazy.group['0'].dropdown_toggle('term') ),
 
 ]
+
+if qtile.core.name == "x11":
+  keys += [
+    # open application launcher
+    Key([mod], "space", lazy.spawn("rofi -show drun") ),
+
+    # open theme switcher
+    Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
+
+    # open powermenu
+    Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
+
+    # notification history and close all notifications
+    Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
+    Key([mod], "c", lazy.spawn("dunstctl close-all") ),
+
+    # Start/stop picom keybindings for playing games
+    Key([mod], "g", lazy.spawn(home + '/repos/configs/scripts/start-gamemode.sh') ),
+    Key([mod], "p", lazy.spawn(home + '/repos/configs/scripts/stop-gamemode.sh') ),
+  ]
+
+elif qtile.core.name == "wayland":
+  keys += [
+    # open application launcher
+    Key([mod], "space", lazy.spawn("fuzzel") ),
+
+    # open theme switcher
+    Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh') ),
+
+    # open powermenu
+    Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-powermenu.sh') ),
+
+    # open compositor switcher
+    Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh') ),
+
+    # notification history and close all notifications
+    Key([mod], "n", lazy.spawn("makoctl restore") ),
+    Key([mod], "c", lazy.spawn("makoctl dismiss --all") ),
+  ]
 
 mouse = [
 
@@ -171,7 +197,7 @@ groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad"
 )
 
 # set colorscheme
-colors = colors.TokyoNight
+colors = colors.GruvboxMaterialDark
 
 layout_theme = {
                 "border_focus":colors[0],
@@ -206,3 +232,11 @@ floating_layout = layout.Floating(**layout_theme)
 
 # wmname = "LG3D"
 wmname = "Qtile"
+
+# wayland-specific input settings
+if qtile.core.name == "wayland":
+  wl_input_rules = {
+    "type:keyboard": InputConfig(kb_repeat_delay=300, kb_repeat_rate=50),
+  }
+
+

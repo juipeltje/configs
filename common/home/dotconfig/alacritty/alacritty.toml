@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/nordic.toml"]
+import = ["~/.config/alacritty/gruvbox-material-dark.toml"]
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }

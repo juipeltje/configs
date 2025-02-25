@@ -3,7 +3,7 @@
 # Import libraries
 #from libqtile.lazy import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
-from libqtile import layout, hook, bar
+from libqtile import layout, hook, bar, qtile
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
@@ -13,9 +13,15 @@ sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/
 from common import *
 
 # autostart programs when starting window manager
-@hook.subscribe.startup_once
-def autostart():
-    subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+if qtile.core.name == "x11":
+  @hook.subscribe.startup_once
+  def autostart():
+      subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+
+elif qtile.core.name == "wayland":
+  @hook.subscribe.startup_once
+  def autostart():
+      subprocess.Popen([home + '/.config/qtile/autostart-wayland.sh'])
 
 # Keybindings
 keys += [

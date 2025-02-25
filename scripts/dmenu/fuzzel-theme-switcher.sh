@@ -16,6 +16,11 @@ case $theme in
                 ~/.config/river/colors-nordic.sh &
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/river/autostart.sh
 
+		# qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.Nordic|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/nordic-config \&|' ~/.config/qtile/autostart-wayland.sh
+
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#8fbcbb"|' ~/.config/niri/config.kdl
 		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#4c566a"|' ~/.config/niri/config.kdl
@@ -33,9 +38,8 @@ case $theme in
 		mako -c ~/.config/mako/nordic-config &
 
 		# waybar
-		killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "nordic.css";|' ~/.config/waybar/style.css
-		waybar &
+		killall -SIGUSR2 waybar
 
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/nordic.ini|' ~/.config/fuzzel/fuzzel.ini
@@ -60,6 +64,11 @@ case $theme in
                 ~/.config/river/colors-gruvbox-material-dark.sh &
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/river/autostart.sh
 
+		# qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.GruvboxMaterialDark|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/gruvbox-material-dark-config \&|' ~/.config/qtile/autostart-wayland.sh
+
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#dfbf8e"|' ~/.config/niri/config.kdl
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#665c54"|' ~/.config/niri/config.kdl
@@ -77,9 +86,8 @@ case $theme in
                 mako -c ~/.config/mako/gruvbox-material-dark-config &
 
 		# waybar
-                killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "gruvbox-material-dark.css";|' ~/.config/waybar/style.css
-                waybar &
+		killall -SIGUSR2 waybar
 
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/gruvbox-material-dark.ini|' ~/.config/fuzzel/fuzzel.ini
@@ -104,6 +112,11 @@ case $theme in
                 ~/.config/river/colors-tokyonight.sh &
 		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/river/autostart.sh
 
+		# qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.TokyoNight|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+		sed -i --follow-symlinks 's|^mako.*|mako -c ~/.config/mako/tokyonight-config \&|' ~/.config/qtile/autostart-wayland.sh
+
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#a9b1d6"|' ~/.config/niri/config.kdl
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#565f89"|' ~/.config/niri/config.kdl
@@ -121,9 +134,8 @@ case $theme in
                 mako -c ~/.config/mako/tokyonight-config &
 
 		# waybar
-                killall waybar
 		sed -i --follow-symlinks 's|^@import.*|@import "tokyonight.css";|' ~/.config/waybar/style.css
-                waybar &
+                killall -SIGUSR2 waybar
 
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/tokyonight.ini|' ~/.config/fuzzel/fuzzel.ini
