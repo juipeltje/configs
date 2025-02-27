@@ -3,7 +3,7 @@
 # Import libraries
 #from libqtile.lazy import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
-from libqtile import layout, hook, bar, qtile
+from libqtile import layout, bar, qtile
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
@@ -12,25 +12,24 @@ import sys
 sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/qtile')
 from common import *
 
-# autostart programs when starting window manager
+# Keybindings
 if qtile.core.name == "x11":
-  @hook.subscribe.startup_once
-  def autostart():
-      subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+  keys.extend(
+    [
+      # Switch focus between monitors
+      Key([mod, "control"], "Down", lazy.to_screen(0) ),
+      Key([mod, "control"], "Up", lazy.to_screen(1) ),
+    ]
+  )
 
 elif qtile.core.name == "wayland":
-  @hook.subscribe.startup_once
-  def autostart():
-      subprocess.Popen([home + '/.config/qtile/autostart-wayland.sh'])
-
-# Keybindings
-keys += [
-
-  # Switch focus between monitors
-  Key([mod, "control"], "Down", lazy.to_screen(0) ),
-  Key([mod, "control"], "Up", lazy.to_screen(1) ),
-
-]
+  keys.extend(
+    [
+      # Switch focus between monitors
+      Key([mod, "control"], "Down", lazy.to_screen(1) ),
+      Key([mod, "control"], "Up", lazy.to_screen(0) ),
+    ]
+  )
 
 widget_defaults = dict(
   font="Ubuntu Nerd Font Medium",
@@ -87,6 +86,13 @@ systray = widget.Systray(
             icon_size=20,
             **widget_defaults,
             padding=0)
+
+systrayV2 = widget.StatusNotifier(
+              icon_size=20,
+              icon_theme="Mint-Y-Sand",
+              **widget_defaults,
+              padding=0,
+              **decoration_group_width)
 
 groupbox = widget.GroupBox(
             use_mouse_wheel=False,
@@ -345,8 +351,7 @@ screens = [
     date_icon,
     date,
     spacer2,
-    systray,
-    spacer2,
+    systrayV2,
     current_screen,
     groupbox,
     l_icon,
@@ -383,13 +388,13 @@ screens = [
     ds5_bat,
     spacer
 
-         ], 38,
-            background=colors[1],
-            margin=[10,10,0,10],
-            border_width=[0,0,0,0],
-            border_color=colors[0]), ),
+  ], 38,
+     background=colors[1],
+     margin=[10,10,0,10],
+     border_width=[0,0,0,0],
+     border_color=colors[0]), ),
 
- Screen(top=bar.Bar([
+  Screen(top=bar.Bar([
     spacer,
     clock_icon,
     clock,
@@ -397,6 +402,7 @@ screens = [
     date_icon,
     date,
     spacer2,
+    systrayV2,
     current_screen2,
     groupbox2,
     l_icon2,
@@ -433,10 +439,9 @@ screens = [
     ds5_bat,
     spacer
 
-         ], 38,
-            background=colors[1],
-            margin=[10,10,0,10],
-            border_width=[0,0,0,0],
-            border_color=colors[0]), ),
-
+  ], 38,
+     background=colors[1],
+     margin=[10,10,0,10],
+     border_width=[0,0,0,0],
+     border_color=colors[0]), ),
 ]

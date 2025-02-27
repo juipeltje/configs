@@ -1,3 +1,12 @@
+@import "nordic.css";
+
 window {
   background-image: url("/home/joppe/Pictures/sway/background.jpg");
+}
+
+#window-box {
+  padding: 64px;
+  border: 4px solid @foreground;
+  border-radius: 20px;
+  background-color: @background;
 }

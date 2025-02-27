@@ -44,6 +44,9 @@ case $theme in
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/nordic.ini|' ~/.config/fuzzel/fuzzel.ini
 
+		# gtklock
+		sed -i --follow-symlinks 's|^@import.*|@import "nordic.css";|' ~/.config/gtklock/style.css
+
 		# tofi
 		sed -i --follow-symlinks 's/^include = colors.*/include = colors-nordic/' ~/.config/tofi/config
 
@@ -92,6 +95,9 @@ case $theme in
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/gruvbox-material-dark.ini|' ~/.config/fuzzel/fuzzel.ini
 
+		# gtklock
+		sed -i --follow-symlinks 's|^@import.*|@import "gruvbox-material-dark.css";|' ~/.config/gtklock/style.css
+
 		# tofi
 		sed -i --follow-symlinks 's/^include = colors.*/include = colors-gruvbox-material-dark/' ~/.config/tofi/config
 
@@ -139,6 +145,9 @@ case $theme in
 
 		# fuzzel
 		sed -i --follow-symlinks 's|^include.*|include=~/.config/fuzzel/tokyonight.ini|' ~/.config/fuzzel/fuzzel.ini
+
+		# gtklock
+		sed -i --follow-symlinks 's|^@import.*|@import "tokyonight.css";|' ~/.config/gtklock/style.css
 
 		# tofi
 		sed -i --follow-symlinks 's/^include = colors.*/include = colors-tokyonight/' ~/.config/tofi/config

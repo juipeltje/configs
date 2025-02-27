@@ -4,7 +4,7 @@
 include ~/.config/sway/common.conf
 
 # Include the color scheme
-include ~/.config/sway/colors-gruvbox-material-dark.conf
+include ~/.config/sway/colors-nordic.conf
 
 # monitor configuration
 output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off

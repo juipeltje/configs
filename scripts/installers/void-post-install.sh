@@ -33,6 +33,7 @@ packages=(
         "qtile"
 	"python3-qtile-extras"
 	"python3-dbus-next"
+        "python3-xdg"
 	"picom"
 
         # Wayland/Compositors
@@ -40,6 +41,7 @@ packages=(
 	"river"
         "swayfx"
 	"niri"
+        "qtile-wayland"
         "xorg-server-xwayland"
 	"xwayland-satellite"
 	"gtklock"
@@ -244,7 +246,9 @@ services() {
         ln -s /etc/sv/socklog-unix /var/service/
         ln -s /etc/sv/nanoklogd /var/service/
         ln -s /etc/sv/cronie /var/service/
-	rm -f /var/service/dhcpcd
+	rm -rf /var/service/dhcpcd
+	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
+	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
 }
 
 desktop_services() {
@@ -255,6 +259,7 @@ desktop_services() {
 
 laptop_services() {
 	ln -s /etc/sv/tlp /var/service/
+	rm -rf /var/service/acpid
 }
 
 swapfile() {

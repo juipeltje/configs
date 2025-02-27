@@ -3,11 +3,12 @@
 # autostart script for qtile-wayland
 
 pipewire &
-kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 mako -c ~/.config/mako/nordic-config &
 playerctld daemon &
-lxpolkit &
+lxsession &
 nm-applet &
 blueman-applet &
-openrgb --startminimized -p team-red.orp &
+~/repos/configs/scripts/cron/battery-low.sh &
+~/repos/configs/scripts/cron/battery-full.sh &
+~/repos/configs/scripts/cron/charger.sh &

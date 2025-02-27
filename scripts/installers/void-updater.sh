@@ -18,6 +18,9 @@ xbps-install -u xbps
 echo -e "${green}Checking for updates with xbps...${color_reset}"
 xbps-install -Su
 
+# deactivate default agetty-tty1 service if it is reactivated by update
+rm -rf /var/service/agetty-tty1
+
 # Check for services that need to be restarted with xcheckrestart
 echo -e "${green}Checking for services that need to be restarted with xcheckrestart...${color_reset}"
 echo -e "${green}The following services need to be restarted:${color_reset}"

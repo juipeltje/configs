@@ -3,7 +3,7 @@
 # Import libraries
 from libqtile.lazy import lazy
 from libqtile.config import Key, Drag, Group, ScratchPad, DropDown
-from libqtile import layout, qtile
+from libqtile import layout, qtile, hook
 from libqtile.backend.wayland import InputConfig
 import os
 import colors
@@ -13,6 +13,17 @@ home = os.path.expanduser('~')
 mod = "mod4"
 terminal = "kitty"
 webbrowser = "firefox"
+
+# autostart programs when starting window manager
+@hook.subscribe.startup_once
+def autostart():
+  if qtile.core.name == "x11":
+    autostart = "/.config/qtile/autostart.sh"
+
+  elif qtile.core.name == "wayland":
+    autostart = "/.config/qtile/autostart-wayland.sh"
+
+  subprocess.Popen([home + autostart])
 
 # Keybindings
 keys = [
@@ -81,123 +92,127 @@ keys = [
 
   # Toggle Scratchpad
   Key([mod], "s", lazy.group['0'].dropdown_toggle('term') ),
-
 ]
 
 if qtile.core.name == "x11":
-  keys += [
-    # open application launcher
-    Key([mod], "space", lazy.spawn("rofi -show drun") ),
+  keys.extend(
+    [
+      # open application launcher
+      Key([mod], "space", lazy.spawn("rofi -show drun") ),
 
-    # open theme switcher
-    Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
+      # open theme switcher
+      Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
 
-    # open powermenu
-    Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
+      # open powermenu
+      Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
 
-    # notification history and close all notifications
-    Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
-    Key([mod], "c", lazy.spawn("dunstctl close-all") ),
+      # notification history and close all notifications
+      Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
+      Key([mod], "c", lazy.spawn("dunstctl close-all") ),
 
-    # Start/stop picom keybindings for playing games
-    Key([mod], "g", lazy.spawn(home + '/repos/configs/scripts/start-gamemode.sh') ),
-    Key([mod], "p", lazy.spawn(home + '/repos/configs/scripts/stop-gamemode.sh') ),
-  ]
+      # Start/stop picom keybindings for playing games
+      Key([mod], "g", lazy.spawn(home + '/repos/configs/scripts/start-gamemode.sh') ),
+      Key([mod], "p", lazy.spawn(home + '/repos/configs/scripts/stop-gamemode.sh') ),
+    ]
+  )
 
 elif qtile.core.name == "wayland":
-  keys += [
-    # open application launcher
-    Key([mod], "space", lazy.spawn("fuzzel") ),
+  keys.extend(
+    [
+      # open application launcher
+      Key([mod], "space", lazy.spawn("fuzzel") ),
 
-    # open theme switcher
-    Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh') ),
+      # open theme switcher
+      Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh') ),
 
-    # open powermenu
-    Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-powermenu.sh') ),
+      # open powermenu
+      Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-powermenu.sh') ),
 
-    # open compositor switcher
-    Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh') ),
+      # open compositor switcher
+      Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh') ),
 
-    # notification history and close all notifications
-    Key([mod], "n", lazy.spawn("makoctl restore") ),
-    Key([mod], "c", lazy.spawn("makoctl dismiss --all") ),
-  ]
+      # notification history and close all notifications
+      Key([mod], "n", lazy.spawn("makoctl restore") ),
+      Key([mod], "c", lazy.spawn("makoctl dismiss --all") ),
+    ]
+  )
 
 mouse = [
-
   # Dragging and resizing floating windows with mod + mouse buttons
   Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position() ),
   Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size() ),
-
 ]
 
-groups = [
-
-  Group("1", layout="monadtall", label="  1", screen_affinity=0 ),
-  Group("2", layout="monadtall", label="  2", screen_affinity=0 ),
-  Group("3", layout="monadtall", label="  3", screen_affinity=0 ),
-  Group("4", layout="monadtall", label="  4", screen_affinity=0 ),
-  Group("5", layout="monadtall", label="  5", screen_affinity=0 ),
-  Group("6", layout="monadtall", label="  6", screen_affinity=0 ),
-  Group("7", layout="monadtall", label="  7", screen_affinity=0 ),
-  Group("8", layout="monadtall", label="  8", screen_affinity=1 ),
-
-]
-
-for i in groups:
-  keys.extend(
-    [
-
-      # mod + number of group = switch to group
-      Key([mod], i.name, lazy.group[i.name].toscreen() ),
-
-      # switch between groups using the numpad
-      Key([mod], "KP_End", lazy.group["1"].toscreen() ),
-      Key([mod], "KP_Down", lazy.group["2"].toscreen() ),
-      Key([mod], "KP_Next", lazy.group["3"].toscreen() ),
-      Key([mod], "KP_Left", lazy.group["4"].toscreen() ),
-      Key([mod], "KP_Begin", lazy.group["5"].toscreen() ),
-      Key([mod], "KP_Right", lazy.group["6"].toscreen() ),
-      Key([mod], "KP_Home", lazy.group["7"].toscreen() ),
-      Key([mod], "KP_Up", lazy.group["8"].toscreen() ),
-
-
-      # mod + shift + number of group = switch to & move focused window to group
-      # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True) ),
-
-      # switch to and move focused window to group using the numpad
-      # Key([mod, "shift"], "KP_End", lazy.window.togroup("1", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Down", lazy.window.togroup("2", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Next", lazy.window.togroup("3", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Left", lazy.window.togroup("4", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Begin", lazy.window.togroup("5", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Right", lazy.window.togroup("6", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Home", lazy.window.togroup("7", switch_group=True) ),
-      # Key([mod, "shift"], "KP_Up", lazy.window.togroup("8", switch_group=True) ),
-
-      # use this if you don't want to switch to the group that the window was moved to
-      Key([mod, "shift"], i.name, lazy.window.togroup(i.name) ),
-
-      # use this if you don't want to switch to the group that the window was moved to with the numpad
-      Key([mod, "shift"], "KP_End", lazy.window.togroup("1") ),
-      Key([mod, "shift"], "KP_Down", lazy.window.togroup("2") ),
-      Key([mod, "shift"], "KP_Next", lazy.window.togroup("3") ),
-      Key([mod, "shift"], "KP_Left", lazy.window.togroup("4") ),
-      Key([mod, "shift"], "KP_Begin", lazy.window.togroup("5") ),
-      Key([mod, "shift"], "KP_Right", lazy.window.togroup("6") ),
-      Key([mod, "shift"], "KP_Home", lazy.window.togroup("7") ),
-      Key([mod, "shift"], "KP_Up", lazy.window.togroup("8") ),
-
+if qtile.core.name == "x11":
+  groups = [
+    Group("1", layout="monadtall", label="  1", screen_affinity=0 ),
+    Group("2", layout="monadtall", label="  2", screen_affinity=0 ),
+    Group("3", layout="monadtall", label="  3", screen_affinity=0 ),
+    Group("4", layout="monadtall", label="  4", screen_affinity=0 ),
+    Group("5", layout="monadtall", label="  5", screen_affinity=0 ),
+    Group("6", layout="monadtall", label="  6", screen_affinity=0 ),
+    Group("7", layout="monadtall", label="  7", screen_affinity=0 ),
+    Group("8", layout="monadtall", label="  8", screen_affinity=1 ),
   ]
-)
 
-# Scratchpad window settings
-groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]),
+  numpad_keys = [ 'KP_End', 'KP_Down', 'KP_Next', 'KP_Left', 'KP_Begin', 'KP_Right', 'KP_Home', 'KP_Up' ]
 
-)
+  for i, numpad_key in zip (groups, numpad_keys):
+    keys.extend(
+      [
+        # mod + number of group = switch to group
+        Key([mod], i.name, lazy.group[i.name].toscreen() ),
+
+        # move window to group
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) ),
+
+        # switch between groups using the numpad
+        Key([mod], numpad_key, lazy.group[i.name].toscreen() ),
+
+        # move windows to group using the numpad
+        Key([mod, "shift"], numpad_key, lazy.window.togroup(i.name) ),
+      ]
+    )
+
+  # Scratchpad window settings
+  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
+
+elif qtile.core.name == "wayland":
+  groups = [
+    Group("1", layout="monadtall", label="  1", screen_affinity=1 ),
+    Group("2", layout="monadtall", label="  2", screen_affinity=1 ),
+    Group("3", layout="monadtall", label="  3", screen_affinity=1 ),
+    Group("4", layout="monadtall", label="  4", screen_affinity=1 ),
+    Group("5", layout="monadtall", label="  5", screen_affinity=1 ),
+    Group("6", layout="monadtall", label="  6", screen_affinity=1 ),
+    Group("7", layout="monadtall", label="  7", screen_affinity=1 ),
+    Group("8", layout="monadtall", label="  8", screen_affinity=0 ),
+  ]
+
+  numpad_keys = [ 'KP_End', 'KP_Down', 'KP_Next', 'KP_Left', 'KP_Begin', 'KP_Right', 'KP_Home', 'KP_Up' ]
+
+  for i, numpad_key in zip (groups, numpad_keys):
+    keys.extend(
+      [
+        # mod + number of group = switch to group
+        Key([mod], i.name, lazy.group[i.name].toscreen() ),
+
+        # move window to group
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) ),
+
+        # switch between groups using the numpad
+        Key([mod], numpad_key, lazy.group[i.name].toscreen() ),
+
+        # move windows to group using the numpad
+        Key([mod, "shift"], numpad_key, lazy.window.togroup(i.name) ),
+      ]
+    )
+
+  # Scratchpad window settings
+  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 # set colorscheme
-colors = colors.GruvboxMaterialDark
+colors = colors.Nordic
 
 layout_theme = {
                 "border_focus":colors[0],
@@ -231,12 +246,18 @@ cursor_warp = True
 floating_layout = layout.Floating(**layout_theme)
 
 # wmname = "LG3D"
-wmname = "Qtile"
+if qtile.core.name == "x11":
+  wmname = "Qtile (X11)"
+elif qtile.core.name == "wayland":
+  wmname = "Qtile (Wayland)"
 
-# wayland-specific input settings
+# wayland-specific settings
 if qtile.core.name == "wayland":
+  # input
   wl_input_rules = {
     "type:keyboard": InputConfig(kb_repeat_delay=300, kb_repeat_rate=50),
   }
 
-
+  # cursor
+  wl_xcursor_theme = "phinger-cursors-light"
+  wl_xcursor_size = 24

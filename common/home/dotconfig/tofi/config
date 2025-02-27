@@ -4,7 +4,7 @@
 include = output
 
 # Include the color scheme to use
-include = colors-gruvbox-material-dark
+include = colors-nordic
 
 # font 
 font = "Ubuntu Nerd Font Medium"
