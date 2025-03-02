@@ -6,6 +6,7 @@ from libqtile.config import Key, Drag, Group, ScratchPad, DropDown
 from libqtile import layout, qtile, hook
 from libqtile.backend.wayland import InputConfig
 import os
+import subprocess
 import colors
 
 # Variables
@@ -261,3 +262,9 @@ if qtile.core.name == "wayland":
   # cursor
   wl_xcursor_theme = "phinger-cursors-light"
   wl_xcursor_size = 24
+
+  # enable tty switching
+  for vt in range(1, 8):
+    keys.append(
+      Key(["control", "mod1"], f"f{vt}", lazy.core.change_vt(vt) ),
+    )

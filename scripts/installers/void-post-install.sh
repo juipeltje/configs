@@ -280,6 +280,8 @@ grub() {
 	rm -r /home/${user}/Downloads/void-linux.tar
 	swap_uuid=$(cat /etc/fstab | head -n1 | awk '{print $1}')
         swap_offset=$(filefrag -v /swapfile | head -n 4 | tail -n 1 | awk '{print $4}' | sed 's/\..//')
+	sed -i 's/^GRUB_TIMEOUT.*/GRUB_TIMEOUT=0/' /etc/default/grub
+	sed -i 's/^#GRUB_HIDDEN_TIMEOUT=.*/GRUB_HIDDEN_TIMEOUT=1/' /etc/default/grub
 }
 
 rm_default_configs() {

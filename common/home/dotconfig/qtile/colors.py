@@ -14,7 +14,7 @@ GruvboxMaterialDark = [
 	["ea6962", "ea6962"]  # alert
 ]
 
-TokyoNight = [
+Tokyonight = [
 	["a9b1d6", "a9b1d6"], # foreground
 	["1a1b26", "1a1b26"], # background
 	["24283b", "24283b"], # alt-background

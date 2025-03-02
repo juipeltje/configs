@@ -7,7 +7,6 @@ from libqtile import layout, bar, qtile
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
-import subprocess
 import sys
 sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/qtile')
 from common import *
