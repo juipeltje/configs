@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/arc-dark.toml"]
+import = ["~/.config/alacritty/gruvbox-material-dark.toml"]
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }

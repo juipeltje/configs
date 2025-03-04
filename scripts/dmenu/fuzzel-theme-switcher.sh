@@ -2,7 +2,7 @@
 
 # Theme switcher script for Fuzzel
 
-theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Material-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Material-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# sway
@@ -118,4 +118,23 @@ case $theme in
 
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
+		;;
+	arc-dark)
+		# execute function with variables
+                theme_switch
+
+                # qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.ArcDark|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+                # niri
+                sed -i --follow-symlinks 's|active-color.*|active-color "#5294e2"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#4b5162"|' ~/.config/niri/config.kdl
+
+                # GTK
+                gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark
+
+                # done. notify user
+                notify-send "Theme Switcher Script" "Current theme: Arc-Dark"
+		;;
 esac

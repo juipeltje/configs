@@ -2,7 +2,7 @@
 
 # Theme switcher script for Rofi
 
-theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyo-Night" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Material-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# qtile
@@ -68,5 +68,35 @@ case $theme in
 
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Tokyonight"
+                ;;
+	solarized-dark)
+                # execute function with variables
+                theme_switch
+
+                # qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.SolarizedDark|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+                # GTK
+                sed -i 's|^Net/ThemeName.*|Net/ThemeName "SolArc-Dark-solid"|' ~/.xsettingsd
+                killall -HUP xsettingsd
+
+                # done. notify user.
+                notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
+                ;;
+	arc-dark)
+                # execute function with variables
+                theme_switch
+
+                # qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.ArcDark|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+                # GTK
+                sed -i 's|^Net/ThemeName.*|Net/ThemeName "Arc-Dark"|' ~/.xsettingsd
+                killall -HUP xsettingsd
+
+                # done. notify user.
+                notify-send "Theme Switcher Script" "Current theme: Arc-Dark"
                 ;;
 esac
