@@ -1,0 +1,16 @@
+# Tofi color scheme for solarized-dark
+
+background-color = #002b36
+border-color = #93a1a1
+text-cursor-color = #93a1a1
+text-cursor-background = #00000000
+prompt-color = #93a1a1
+prompt-background = #073642
+placeholder-color = #93a1a1
+placeholder-background = #00000000
+input-color = #93a1a1
+input-background = #00000000
+default-result-color = #93a1a1
+default-result-background = #00000000
+selection-color = #002b36
+selection-background = #93a1a1

@@ -20,3 +20,10 @@ Tokyonight = [
 	["24283b", "24283b"], # alt-background
 	["f7768e", "f7768e"]  # alert
 ]
+
+SolarizedDark = [
+	["93a1a1", "93a1a1"], # foreground
+	["002b36", "002b36"], # background
+	["073642", "073642"], # alt-background
+	["dc322f", "dc322f"]  # alert
+]
