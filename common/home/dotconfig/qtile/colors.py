@@ -27,3 +27,10 @@ SolarizedDark = [
 	["073642", "073642"], # alt-background
 	["dc322f", "dc322f"]  # alert
 ]
+
+ArcDark = [
+	["5294e2", "5294e2"], # foreground
+	["383c4a", "383c4a"], # background
+	["4b5162", "4b5162"], # alt-background
+	["e14245", "e14245"]  # alert
+]

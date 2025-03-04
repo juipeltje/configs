@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/solarized-dark.toml"]
+import = ["~/.config/alacritty/arc-dark.toml"]
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }
