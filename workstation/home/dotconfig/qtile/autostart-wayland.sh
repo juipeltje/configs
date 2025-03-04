@@ -5,7 +5,7 @@
 pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
-mako -c ~/.config/mako/nordic-config &
+mako -c ~/.config/mako/solarized-dark-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &

@@ -2,7 +2,7 @@
 
 # Theme switcher script for Fuzzel
 
-theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Material-Dark\n󰔎  Tokyonight" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Material-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# sway
@@ -57,7 +57,7 @@ case $theme in
 
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#8fbcbb"|' ~/.config/niri/config.kdl
-		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#4c566a"|' ~/.config/niri/config.kdl
+		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#434c5e"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
@@ -75,7 +75,7 @@ case $theme in
 
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#dfbf8e"|' ~/.config/niri/config.kdl
-                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#665c54"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#45403d"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
@@ -93,7 +93,7 @@ case $theme in
 
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#a9b1d6"|' ~/.config/niri/config.kdl
-                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#565f89"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#24283b"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
@@ -101,4 +101,21 @@ case $theme in
 		# done. notify user
 		notify-send "Theme Switcher Script" "Current theme: Tokyonight"
                 ;;
+	solarized-dark)
+		# execute function with variables
+		theme_switch
+
+		# qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.SolarizedDark|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+                # niri
+                sed -i --follow-symlinks 's|active-color.*|active-color "#93a1a1"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#073642"|' ~/.config/niri/config.kdl
+
+                # GTK
+                gsettings set org.gnome.desktop.interface gtk-theme SolArc-Dark-solid
+
+                # done. notify user
+                notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
 esac

@@ -8,7 +8,7 @@ kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-river",|' ~/.config/waybar/config
 waybar &
-mako -c ~/.config/mako/nordic-config &
+mako -c ~/.config/mako/solarized-dark-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &
