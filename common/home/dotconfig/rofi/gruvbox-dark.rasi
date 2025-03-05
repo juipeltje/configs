@@ -1,0 +1,27 @@
+* {
+	background-color: #282828;
+}
+
+window {
+        border-color: #ebdbb2;
+}
+
+prompt {
+	background-color: #504945;
+        text-color: #ebdbb2;
+}
+
+entry {
+	background-color: #504945;
+        text-color: #ebdbb2;
+}
+
+element-text {
+        text-color: #ebdbb2;
+}
+
+element-text selected {
+	background-color: #ebdbb2;
+	text-color: #282828;
+}
+

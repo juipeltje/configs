@@ -7,11 +7,11 @@ Nordic = [
 	["bf616a", "bf616a"]  # alert
 ]
 
-GruvboxMaterialDark = [
-	["dfbf8e", "dfbf8e"], # foreground
+GruvboxDark = [
+	["ebdbb2", "ebdbb2"], # foreground
 	["282828", "282828"], # background
-	["45403d", "45403d"], # alt-background
-	["ea6962", "ea6962"]  # alert
+	["504945", "504945"], # alt-background
+	["cc241d", "cc241d"]  # alert
 ]
 
 Tokyonight = [

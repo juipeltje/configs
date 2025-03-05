@@ -2,7 +2,7 @@
 
 # Theme switcher script for Fuzzel
 
-theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Material-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# sway
@@ -65,23 +65,23 @@ case $theme in
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Nordic"
 		;;
-	gruvbox-material-dark)
+	gruvbox-dark)
 		# execute function with variables
 		theme_switch
 
 		# qtile
-                sed -i --follow-symlinks 's|^colors.*|colors = colors.GruvboxMaterialDark|' ~/.config/qtile/common.py
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.GruvboxDark|' ~/.config/qtile/common.py
                 qtile cmd-obj -o cmd -f reload_config
 
 		# niri
-		sed -i --follow-symlinks 's|active-color.*|active-color "#dfbf8e"|' ~/.config/niri/config.kdl
-                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#45403d"|' ~/.config/niri/config.kdl
+		sed -i --follow-symlinks 's|active-color.*|active-color "#ebdbb2"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#504945"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
 
 		# done. notify user
-		notify-send "Theme Switcher Script" "Current theme: Gruvbox-Material-Dark"
+		notify-send "Theme Switcher Script" "Current theme: Gruvbox-Dark"
                 ;;
 	tokyonight)
 		# execute function with variables

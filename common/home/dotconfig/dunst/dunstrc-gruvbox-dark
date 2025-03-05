@@ -1,4 +1,4 @@
-# Dunst gruvbox-material-dark config
+# Dunst gruvbox-dark config
 
 [global]
     ### Display ###
@@ -26,7 +26,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 4
-    frame_color = "#dfbf8e"
+    frame_color = "#ebdbb2"
     gap_size = 0
     separator_color = frame
     sort = yes
@@ -67,18 +67,18 @@
 
 [urgency_low]
     background = "#282828"
-    foreground = "#dfbf8e"
+    foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_normal]
     background = "#282828"
-    foreground = "#dfbf8e"
+    foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_critical]
     background = "#282828"
-    foreground = "#ea6962"
-    frame_color = "#ea6962"
+    foreground = "#cc241d"
+    frame_color = "#cc241d"
     timeout = 5
 
 

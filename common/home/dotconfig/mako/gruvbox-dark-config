@@ -35,22 +35,22 @@ output=
 layer=top
 anchor=top-right
 
-# Gruvbox-Material-Dark colors
+# Gruvbox-Dark colors
 background-color=#282828
-text-color=#dfbf8e
-border-color=#dfbf8e
+text-color=#ebdbb2
+border-color=#ebdbb2
 
 [urgency=normal]
 background-color=#282828
-text-color=#dfbf8e
-border-color=#dfbf8e
+text-color=#ebdbb2
+border-color=#ebdbb2
 
 [urgency=critical]
 background-color=#282828
-text-color=#ea6962
-border-color=#ea6962
+text-color=#cc241d
+border-color=#cc241d
 
 [urgency=low]
 background-color=#282828
-text-color=#dfbf8e
-border-color=#dfbf8e
+text-color=#ebdbb2
+border-color=#ebdbb2

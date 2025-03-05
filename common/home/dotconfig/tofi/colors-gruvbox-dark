@@ -1,0 +1,16 @@
+# Tofi color scheme for gruvbox-dark
+
+background-color = #282828
+border-color = #ebdbb2
+text-cursor-color = #ebdbb2
+text-cursor-background = #00000000
+prompt-color = #ebdbb2
+prompt-background = #504945
+placeholder-color = #ebdbb2
+placeholder-background = #00000000
+input-color = #ebdbb2
+input-background = #00000000
+default-result-color = #ebdbb2
+default-result-background = #00000000
+selection-color = #282828
+selection-background = #ebdbb2
