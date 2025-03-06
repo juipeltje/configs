@@ -7,12 +7,12 @@ window {
 }
 
 prompt {
-	background-color: #24283b;
+	background-color: #414868;
         text-color: #a9b1d6;
 }
 
 entry {
-	background-color: #24283b;
+	background-color: #414868;
         text-color: #a9b1d6;
 }
 

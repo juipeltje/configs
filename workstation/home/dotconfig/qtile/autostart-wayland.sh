@@ -5,7 +5,7 @@
 pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
-mako -c ~/.config/mako/gruvbox-material-dark-config &
+mako -c ~/.config/mako/tokyonight-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &

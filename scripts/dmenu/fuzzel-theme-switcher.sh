@@ -93,7 +93,7 @@ case $theme in
 
 		# niri
 		sed -i --follow-symlinks 's|active-color.*|active-color "#a9b1d6"|' ~/.config/niri/config.kdl
-                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#24283b"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#414868"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark

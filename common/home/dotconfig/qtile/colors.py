@@ -17,7 +17,7 @@ GruvboxDark = [
 Tokyonight = [
 	["a9b1d6", "a9b1d6"], # foreground
 	["1a1b26", "1a1b26"], # background
-	["24283b", "24283b"], # alt-background
+	["414868", "414868"], # alt-background
 	["f7768e", "f7768e"]  # alert
 ]
 

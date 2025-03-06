@@ -4,7 +4,6 @@ max-history=10
 sort=-time
 
 # bindings
-
 on-button-left=none
 on-button-middle=none
 on-button-right=none
@@ -12,7 +11,6 @@ on-touch=none
 on-notify=none
 
 # styling
-
 font=Ubuntu Nerd Font Medium
 width=300
 height=150
@@ -35,7 +33,7 @@ output=
 layer=top
 anchor=top-right
 
-# Nordic colors
+# nordic colors
 background-color=#2e3440
 text-color=#8fbcbb
 border-color=#8fbcbb
