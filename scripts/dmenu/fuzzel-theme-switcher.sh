@@ -2,7 +2,7 @@
 
 # Theme switcher script for Fuzzel
 
-theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# sway
@@ -137,4 +137,22 @@ case $theme in
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Arc-Dark"
 		;;
+	catppuccin-mocha)
+                # execute function with variables
+                theme_switch
+
+                # qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.CatppuccinMocha|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+                # niri
+                sed -i --follow-symlinks 's|active-color.*|active-color "#cdd6f4"|' ~/.config/niri/config.kdl
+                sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#45475a"|' ~/.config/niri/config.kdl
+
+                # GTK
+                gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
+
+                # done. notify user
+                notify-send "Theme Switcher Script" "Current theme: Catppuccin-Mocha"
+                ;;
 esac

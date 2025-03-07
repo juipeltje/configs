@@ -15,7 +15,7 @@ riverctl xcursor-theme phinger-cursors-light 24
 riverctl border-width 4
 
 # import colors script
-riverctl spawn ~/.config/river/colors-gruvbox-dark.sh
+riverctl spawn ~/.config/river/colors-catppuccin-mocha.sh
 
 # layout settings
 rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.5 &
