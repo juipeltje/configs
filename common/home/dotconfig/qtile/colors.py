@@ -34,3 +34,10 @@ ArcDark = [
 	["4b5162", "4b5162"], # alt-background
 	["e14245", "e14245"]  # alert
 ]
+
+CatppuccinMocha = [
+	["cdd6f4", "cdd6f4"], # foreground
+	["1e1e2e", "1e1e2e"], # background
+	["45475a", "45475a"], # alt-background
+	["f38ba8", "f38ba8"]  # alert
+]

@@ -48,7 +48,7 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
 		# GTK
-		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Material-Dark"|' ~/.xsettingsd
+		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Dark"|' ~/.xsettingsd
                 killall -HUP xsettingsd
 
 		# done. notify user.
@@ -78,7 +78,7 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
                 # GTK
-                sed -i 's|^Net/ThemeName.*|Net/ThemeName "SolArc-Dark-solid"|' ~/.xsettingsd
+                sed -i 's|^Net/ThemeName.*|Net/ThemeName "NumixSolarizedDarkGreen"|' ~/.xsettingsd
                 killall -HUP xsettingsd
 
                 # done. notify user.

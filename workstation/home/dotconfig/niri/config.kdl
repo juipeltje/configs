@@ -55,8 +55,8 @@ layout {
 
   border {
     width 4
-    active-color "#a9b1d6"
-    inactive-color "#24283b"
+    active-color "#ebdbb2"
+    inactive-color "#504945"
   }
 
   struts {

@@ -1,0 +1,16 @@
+# Tofi color scheme for catppuccin-mocha
+
+background-color = #1e1e2e
+border-color = #cdd6f4
+text-cursor-color = #cdd6f4
+text-cursor-background = #00000000
+prompt-color = #cdd6f4
+prompt-background = #45475a
+placeholder-color = #cdd6f4
+placeholder-background = #00000000
+input-color = #cdd6f4
+input-background = #00000000
+default-result-color = #cdd6f4
+default-result-background = #00000000
+selection-color = #1e1e2e
+selection-background = #cdd6f4

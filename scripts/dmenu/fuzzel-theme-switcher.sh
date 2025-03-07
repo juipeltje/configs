@@ -78,7 +78,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#504945"|' ~/.config/niri/config.kdl
 
 		# GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Material-Dark
+		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark
 
 		# done. notify user
 		notify-send "Theme Switcher Script" "Current theme: Gruvbox-Dark"
@@ -114,7 +114,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#073642"|' ~/.config/niri/config.kdl
 
                 # GTK
-                gsettings set org.gnome.desktop.interface gtk-theme SolArc-Dark-solid
+                gsettings set org.gnome.desktop.interface gtk-theme NumixSolarizedDarkGreen
 
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
