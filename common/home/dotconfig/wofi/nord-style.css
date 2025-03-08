@@ -6,7 +6,7 @@
 
 window {
 	margin: 5px;
-	border: 4px #8fbcbb;
+	border: 4px #d8dee9;
 	background-color: #2e3440;
 }
 
@@ -42,12 +42,12 @@ window {
 } 
 
 #entry:selected {
-	background-color: #8fbcbb;
+	background-color: #d8dee9;
 	border-radius: 20px;
 	outline: none;
 }
 
 #text:selected {
-	background-color: #8fbcbb;
+	background-color: #d8dee9;
 	color: #2e3440;
 }

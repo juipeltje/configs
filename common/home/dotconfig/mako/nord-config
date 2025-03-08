@@ -33,15 +33,15 @@ output=
 layer=top
 anchor=top-right
 
-# nordic colors
+# nord colors
 background-color=#2e3440
-text-color=#8fbcbb
-border-color=#8fbcbb
+text-color=#d8dee9
+border-color=#d8dee9
 
 [urgency=normal]
 background-color=#2e3440
-text-color=#8fbcbb
-border-color=#8fbcbb
+text-color=#d8dee9
+border-color=#d8dee9
 
 [urgency=critical]
 background-color=#2e3440
@@ -50,5 +50,5 @@ border-color=#bf616a
 
 [urgency=low]
 background-color=#2e3440
-text-color=#8fbcbb
-border-color=#8fbcbb
+text-color=#d8dee9
+border-color=#d8dee9

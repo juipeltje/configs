@@ -1,7 +1,7 @@
 # Color schemes for my Qtile config
 
-Nordic = [
-	["8fbcbb", "8fbcbb"], # foreground
+Nord = [
+	["d8dee9", "d8dee9"], # foreground
 	["2e3440", "2e3440"], # background
 	["434c5e", "434c5e"], # alt-background
 	["bf616a", "bf616a"]  # alert

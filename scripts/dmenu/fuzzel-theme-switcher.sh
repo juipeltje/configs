@@ -2,7 +2,7 @@
 
 # Theme switcher script for Fuzzel
 
-theme=$( echo -e "󰔎  Nordic\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎  Nord\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# sway
@@ -47,23 +47,23 @@ theme_switch() {
 }
 
 case $theme in
-	nordic)
+	nord)
 		# execute function with variables
 		theme_switch
 
 		# qtile
-                sed -i --follow-symlinks 's|^colors.*|colors = colors.Nordic|' ~/.config/qtile/common.py
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.Nord|' ~/.config/qtile/common.py
                 qtile cmd-obj -o cmd -f reload_config
 
 		# niri
-		sed -i --follow-symlinks 's|active-color.*|active-color "#8fbcbb"|' ~/.config/niri/config.kdl
+		sed -i --follow-symlinks 's|active-color.*|active-color "#d8dee9"|' ~/.config/niri/config.kdl
 		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#434c5e"|' ~/.config/niri/config.kdl
 
 		# GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
 
 		# done. notify user.
-		notify-send "Theme Switcher Script" "Current theme: Nordic"
+		notify-send "Theme Switcher Script" "Current theme: Nord"
 		;;
 	gruvbox-dark)
 		# execute function with variables

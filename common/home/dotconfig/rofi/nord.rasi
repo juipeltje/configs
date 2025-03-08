@@ -3,25 +3,25 @@
 }
 
 window {
-        border-color: #8fbcbb;
+        border-color: #d8dee9;
 }
 
 prompt {
 	background-color: #434c5e;
-        text-color: #8fbcbb;
+        text-color: #d8dee9;
 }
 
 entry { 
 	background-color: #434c5e;
-        text-color: #8fbcbb;
+        text-color: #d8dee9;
 }
 
 element-text {
-        text-color: #8fbcbb;
+        text-color: #d8dee9;
 }
 
 element-text selected {
-	background-color: #8fbcbb;
+	background-color: #d8dee9;
 	text-color: #2e3440;
 }
 

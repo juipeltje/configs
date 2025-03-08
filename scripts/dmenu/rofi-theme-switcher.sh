@@ -2,7 +2,7 @@
 
 # Theme switcher script for Rofi
 
-theme=$( echo -e "󰔎 Nordic\n󰔎 Gruvbox-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark\n󰔎  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+theme=$( echo -e "󰔎 Nord\n󰔎 Gruvbox-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Arc-Dark\n󰔎  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 
 theme_switch() {
 	# qtile
@@ -24,12 +24,12 @@ theme_switch() {
 }
 
 case $theme in
-	nordic)
+	nord)
 		# execute function with variables
 		theme_switch
 
 		# qtile
-		sed -i --follow-symlinks 's|^colors.*|colors = colors.Nordic|' ~/.config/qtile/common.py
+		sed -i --follow-symlinks 's|^colors.*|colors = colors.Nord|' ~/.config/qtile/common.py
 		qtile cmd-obj -o cmd -f reload_config
 
 		# GTK
@@ -37,7 +37,7 @@ case $theme in
 		killall -HUP xsettingsd
 
 		# done. notify user.
-		notify-send "Theme Switcher Script" "Current theme: Nordic"
+		notify-send "Theme Switcher Script" "Current theme: Nord"
 		;;
 	gruvbox-dark)
 		# execute function with variables

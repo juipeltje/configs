@@ -1,4 +1,4 @@
-# Dunst nordic config
+# Dunst nord config
 
 [global]
     ### Display ###
@@ -26,7 +26,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 4
-    frame_color = "#8fbcbb"
+    frame_color = "#d8dee9"
     gap_size = 0
     separator_color = frame
     sort = yes
@@ -67,12 +67,12 @@
 
 [urgency_low]
     background = "#2e3440"
-    foreground = "#8fbcbb"
+    foreground = "#d8dee9"
     timeout = 5
 
 [urgency_normal]
     background = "#2e3440"
-    foreground = "#8fbcbb"
+    foreground = "#d8dee9"
     timeout = 5
 
 [urgency_critical]
@@ -80,5 +80,3 @@
     foreground = "#bf616a"
     frame_color = "#bf616a"
     timeout = 5
-
-
