@@ -5,9 +5,11 @@
 pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
-mako -c ~/.config/mako/catppuccin-mocha-config &
+mako -c ~/.config/mako/tokyonight-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
+mpd &
+mpDris2 &

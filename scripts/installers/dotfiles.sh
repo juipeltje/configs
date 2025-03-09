@@ -43,6 +43,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/kanshi
 	rm -rf /home/${user}/.config/kitty
 	rm -rf /home/${user}/.config/mako
+	rm -rf /home/${user}/.config/mpd
 	rm -rf /home/${user}/.config/mpv
 	rm -rf /home/${user}/.config/nano
 	rm -rf /home/${user}/.config/niri
@@ -71,6 +72,7 @@ make_directories() {
 	mkdir -p /home/${user}/.config/kanshi
 	mkdir -p /home/${user}/.config/kitty
         mkdir -p /home/${user}/.config/mako
+	mkdir -p /home/${user}/.config/mpd
         mkdir -p /home/${user}/.config/mpv
 	mkdir -p /home/${user}/.config/nano
 	mkdir -p /home/${user}/.config/niri
@@ -104,9 +106,9 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/kitty/* /home/${user}/.config/kitty/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpd/* /home/${user}/.config/mpd/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/

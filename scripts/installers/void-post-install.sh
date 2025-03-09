@@ -87,6 +87,7 @@ packages=(
 
         # Webbrowser
         "firefox"
+	"chromium"
 
         # File managers/utilities
 	"yazi"
@@ -129,6 +130,9 @@ packages=(
 	"kodi"
         "feh"
 	"strawberry"
+	"mpd"
+	"mpDris2"
+	"ncmpcpp"
 	"gimp"
 	"kdenlive"
 	"obs"
@@ -192,11 +196,16 @@ src_packages=(
 	"ubuntu-nerd-font-ttf"
         "mononoki-nerd-font-ttf"
         "nordic-gtk"
-        "gruvbox-material-gtk"
-	"tokyo-night-gtk"
+        "gruvbox-gtk"
+	"tokyonight-gtk"
+	"catppuccin-gtk"
+	"dracula-gtk"
+	"everforest-gtk"
+	"numix-solarized-gtk"
         "phinger-cursors"
         "mint-y-icons"
 	"river-bedload"
+	"rmpc"
 )
 
 options_1=(
@@ -216,16 +225,21 @@ xbps_src() {
 	sudo -u ${user} git clone --depth 1 https://github.com/void-linux/void-packages.git /home/${user}/void-packages
         cd /home/${user}/void-packages
         sudo -u ${user} ./xbps-src binary-bootstrap
-        sudo -u ${user} git clone https://github.com/juipeltje/void-templates /home/$user/void-templates
-        sudo -u ${user} cp -r /home/$user/void-templates/srcpkgs/* /home/$user/void-packages/srcpkgs/
+        sudo -u ${user} git clone https://github.com/juipeltje/void-templates /home/$user/repos/void-templates
+        sudo -u ${user} cp -r /home/$user/repos/void-templates/srcpkgs/* /home/$user/void-packages/srcpkgs/
         sudo -u ${user} ./xbps-src pkg ubuntu-nerd-font-ttf
         sudo -u ${user} ./xbps-src pkg mononoki-nerd-font-ttf
         sudo -u ${user} ./xbps-src pkg nordic-gtk
-        sudo -u ${user} ./xbps-src pkg gruvbox-material-gtk
-        sudo -u ${user} ./xbps-src pkg tokyo-night-gtk
+        sudo -u ${user} ./xbps-src pkg gruvbox-gtk
+        sudo -u ${user} ./xbps-src pkg tokyonight-gtk
+	sudo -u ${user} ./xbps-src pkg catppuccin-gtk
+	sudo -u ${user} ./xbps-src pkg dracula-gtk
+	sudo -u ${user} ./xbps-src pkg everforest-gtk
+	sudo -u ${user} ./xbps-src pkg numix-solarized-gtk
         sudo -u ${user} ./xbps-src pkg phinger-cursors
         sudo -u ${user} ./xbps-src pkg mint-y-icons
 	sudo -u ${user} ./xbps-src pkg river-bedload
+	sudo -u ${user} ./xbps-src pkg rmpc
         xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
         cd
 }
@@ -297,6 +311,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
 	sudo -u ${user} rm -rf /home/${user}/.config/kitty
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
+	sudo -u ${user} rm -rf /home/${user}/.config/mpd
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
 	sudo -u ${user} rm -rf /home/${user}/.config/nano
 	sudo -u ${user} rm -rf /home/${user}/.config/niri
@@ -312,67 +327,67 @@ rm_default_configs() {
 }
 
 configs() {
-	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/configs
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.Xresources /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.bash_profile /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.profile /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-i3 /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/configs/common/home/.xinitrc-qtile /home/${user}/
+	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/repos/configs
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.profile /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
 	sudo -u ${user} mkdir -p /home/${user}/.config
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/alacritty /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/dunst /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/git /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/gtklock /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/hypr /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/i3 /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/kitty /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mako /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/mpv /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/nano /home/${user}/.config/
-	#sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/niri /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/picom /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/pipewire /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/qtile /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/river /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/rofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/sway /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/tofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/waybar /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/wofi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/common/home/dotconfig/yazi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/alacritty /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/dunst /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/git /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/gtklock /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/hypr /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/i3 /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/kitty /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/mako /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/mpd /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/mpv /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/nano /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/picom /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/pipewire /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/qtile /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/river /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/rofi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/sway /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/tofi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/waybar /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/wofi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/yazi /home/${user}/.config/
 	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
- 	sudo -u ${user} cp -f /home/${user}/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
+ 	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
 	sudo -u ${user} cp -rf /usr/share/icons/* /home/${user}/.local/share/icons/
-	cp -rf /home/${user}/configs/common/etc/elogind /etc/
+	cp -rf /home/${user}/repos/configs/common/etc/elogind /etc/
 }
 
 configs_desktop() {
-	sudo -u ${user} cp -f /home/${user}/configs/workstation/home/.bashrc /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/kanshi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/niri /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
-	sudo -u ${user} cp -rf /home/${user}/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/workstation/home/.bashrc /home/${user}/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/kanshi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/niri /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/polybar /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/
 }
 
 configs_laptop() {
-	sudo -u ${user} cp -f /home/${user}/configs/laptop/home/.bashrc /home/${user}/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
-	#sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/niri /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
-	sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
-        sudo -u ${user} cp -rf /home/${user}/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/
-	cp -rf /home/${user}/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
-	cp -f /home/${user}/configs/laptop/etc/tlp.conf /etc/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/laptop/home/.bashrc /home/${user}/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
+        sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/niri /home/${user}/.config/
+        sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/polybar /home/${user}/.config/
+        sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
+        sudo -u ${user} cp -rf /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/
+	cp -rf /home/${user}/repos/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
+	cp -f /home/${user}/repos/configs/laptop/etc/tlp.conf /etc/
 }
 
 pipewire() {
@@ -388,7 +403,7 @@ select opt_1 in "${options_1[@]}"
 do
 	case ${opt_1} in
 		"confirm")
-                	echo -e "${green}Continuing with post-install script...${color_reset}" 
+                	echo -e "${green}Continuing with post-install script...${color_reset}"
 		   	break
 		   	;;
 		"exit script")
@@ -435,7 +450,7 @@ do
 			rm_default_configs
 			configs
 			configs_desktop
-			cp -rf /home/${user}/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
+			cp -rf /home/${user}/repos/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
 
 			# Pipewire
 			echo -e "${green}configuring pipewire...${color_reset}"
@@ -468,7 +483,7 @@ do
 
 			# SSD trim
 			echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
-        		cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
+        		cp /home/${user}/repos/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Services
 			echo -e "${green}Enabling runit services...${color_reset}"
@@ -477,7 +492,7 @@ do
 
 			# crontab
 			echo -e "${green}Installing crontab...${color_reset}"
-			crontab /home/${user}/configs/workstation/root-crontab.txt
+			crontab /home/${user}/repos/configs/workstation/root-crontab.txt
 
 			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
@@ -527,7 +542,7 @@ do
 
 			# SSD trim
                         echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
-                        cp /home/${user}/configs/scripts/fstrim.sh /etc/cron.weekly/
+                        cp /home/${user}/repos/configs/scripts/fstrim.sh /etc/cron.weekly/
 
 			# Services
 			echo -e "${green}Enabling runit services...${color_reset}"
@@ -536,7 +551,7 @@ do
 
 			# crontab
                         echo -e "${green}Installing crontab...${color_reset}"
-                        crontab /home/${user}/configs/laptop/root-crontab.txt
+                        crontab /home/${user}/repos/configs/laptop/root-crontab.txt
 
 			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"

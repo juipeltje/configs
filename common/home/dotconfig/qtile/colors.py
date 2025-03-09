@@ -28,13 +28,6 @@ SolarizedDark = [
 	["dc322f", "dc322f"]  # alert
 ]
 
-ArcDark = [
-	["5294e2", "5294e2"], # foreground
-	["383c4a", "383c4a"], # background
-	["4b5162", "4b5162"], # alt-background
-	["e14245", "e14245"]  # alert
-]
-
 CatppuccinMocha = [
 	["cdd6f4", "cdd6f4"], # foreground
 	["1e1e2e", "1e1e2e"], # background

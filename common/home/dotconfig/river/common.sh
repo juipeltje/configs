@@ -4,7 +4,7 @@
 
 # Variables
 terminal="kitty"
-webbrowser="firefox"
+webbrowser="chromium"
 
 # appearance
 
@@ -15,7 +15,7 @@ riverctl xcursor-theme phinger-cursors-light 24
 riverctl border-width 4
 
 # import colors script
-riverctl spawn ~/.config/river/colors-catppuccin-mocha.sh
+riverctl spawn ~/.config/river/colors-tokyonight.sh
 
 # layout settings
 rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.5 &

@@ -14,3 +14,5 @@ lxsession &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
+mpd &
+mpDris2 &
