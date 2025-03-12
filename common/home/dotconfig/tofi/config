@@ -4,7 +4,7 @@
 include = output
 
 # Include the color scheme to use
-include = colors-tokyonight
+include = colors-catppuccin-mocha
 
 # font 
 font = "Ubuntu Nerd Font Medium"

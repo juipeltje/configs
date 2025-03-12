@@ -4,7 +4,7 @@
 
 # Variables
 terminal="kitty"
-webbrowser="chromium"
+webbrowser="flatpak run io.gitlab.librewolf-community"
 
 # appearance
 
@@ -15,7 +15,7 @@ riverctl xcursor-theme phinger-cursors-light 24
 riverctl border-width 4
 
 # import colors script
-riverctl spawn ~/.config/river/colors-tokyonight.sh
+riverctl spawn ~/.config/river/colors-catppuccin-mocha.sh
 
 # layout settings
 rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.5 &
@@ -30,7 +30,7 @@ riverctl map normal Super T spawn ${terminal}
 riverctl map normal Super F spawn "${terminal} -e yazi"
 
 # open a webbrowser
-riverctl map normal Super W spawn ${webbrowser}
+riverctl map normal Super W spawn "${webbrowser}"
 
 # open pavucontrol
 riverctl map normal Super A spawn pavucontrol

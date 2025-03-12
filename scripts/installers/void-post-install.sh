@@ -87,7 +87,7 @@ packages=(
 
         # Webbrowser
         "firefox"
-	"chromium"
+	"badwolf"
 
         # File managers/utilities
 	"yazi"
@@ -129,7 +129,7 @@ packages=(
         "mpv"
 	"kodi"
         "feh"
-	"strawberry"
+	"mplayer"
 	"mpd"
 	"mpDris2"
 	"ncmpcpp"
@@ -167,7 +167,6 @@ packages=(
 	"curl"
 	"psmisc"
 	"fastfetch"
-	"flatpak"
 	"xtools"
 )
 
@@ -355,9 +354,6 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/waybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/wofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/common/home/dotconfig/yazi /home/${user}/.config/
-	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
- 	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
-	sudo -u ${user} cp -rf /usr/share/icons/* /home/${user}/.local/share/icons/
 	cp -rf /home/${user}/repos/configs/common/etc/elogind /etc/
 }
 
@@ -394,6 +390,31 @@ pipewire() {
 	mkdir -p /etc/pipewire/pipewire.conf.d
         ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
         ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+}
+
+flatpak() {
+	# install flatpak package and enable flathub repo
+	xbps-install -S flatpak xdg-desktop-portal-gtk
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+	# install flatpak packages
+	# flatseal
+	flatpak install flathub com.github.tchx84.Flatseal
+
+	# librewolf
+	flatpak install flathub io.gitlab.librewolf-community
+
+	# making sure flatpaks can use cursor theme
+	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default
+	sudo -u ${user} mkdir -p /home/${user}/.icons
+	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/index.theme /home/${user}/.local/share/icons/default/
+	sudo -u ${user} cp -rf /usr/share/icons/* /home/${user}/.local/share/icons/
+	sudo -u ${user} cp -rf /home/${user}/.local/share/icons/* /home/${user}/.icons/
+	sudo -u ${user} flatpak -u override --filesystem=/home/${user}/.icons/:ro
+	sudo -u ${user} flatpak -u override --filesystem=xdg-config/gtk-3.0:ro
+	sudo -u ${user} flatpak -u override --env=XCURSOR_PATH=/home/${user}/.icons
+	sudo -u ${user} flatpak -u override --env=XCURSOR_THEME=phinger-cursors-light
+	sudo -u ${user} flatpak -u override --env=XCURSOR_SIZE=24
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.

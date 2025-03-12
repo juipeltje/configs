@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/tokyonight.toml"]
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }
