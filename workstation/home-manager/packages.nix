@@ -1,15 +1,21 @@
 # workstation packages config
 
-{ config, lib, pkgs, nixgl, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # NixGL settings (not available yet in 24.05)
+  # NixGL settings
   nixGL = {
     packages = inputs.nixgl.packages;
     defaultWrapper = "mesa";
+  };
+
+  # Enable Hyprland
+  wayland.windowManager.hyprland = {
+    enable = false;
+    package = config.lib.nixGL.wrap pkgs.hyprland;
   };
 
   # Enable Librewolf, Freetube.
@@ -17,6 +23,32 @@
     librewolf = {
       enable = true;
       package = config.lib.nixGL.wrap pkgs.librewolf;
+      settings = {
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.downloads" = false;
+      };
+        
+      profiles = {
+        default = {
+          id = 0;
+          isDefault = true;
+          name = "default";
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
+          search = {
+            default = "Brave";
+            privateDefault = "Brave";
+            force = true;
+            engines = {
+              "Brave" = {
+                urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
+                iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+                updateInterval = 24 * 60 * 60 * 1000;
+                definedAliases = [ "@brave" ];
+              };
+            };
+          };
+        };
+      };
     };
 
     freetube = {
@@ -36,7 +68,7 @@
 
     # Wine/gamelaunchers
     bottles
-    heroic
+    (config.lib.nixGL.wrap pkgs.heroic)
 
     # Emulators
     duckstation
@@ -44,7 +76,7 @@
     rpcs3
     shadps4
     dolphin-emu
-    
+
     # Benchmarking
     unigine-heaven
     unigine-valley

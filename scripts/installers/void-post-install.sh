@@ -327,9 +327,8 @@ rm_default_configs() {
 
 configs() {
 	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/repos/configs
-	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
+	#sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.profile /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
 	sudo -u ${user} mkdir -p /home/${user}/.config
@@ -394,15 +393,12 @@ pipewire() {
 
 flatpak() {
 	# install flatpak package and enable flathub repo
-	xbps-install -S flatpak xdg-desktop-portal-gtk
+	xbps-install -Sy flatpak xdg-desktop-portal-gtk
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 	# install flatpak packages
 	# flatseal
 	flatpak install flathub com.github.tchx84.Flatseal
-
-	# librewolf
-	flatpak install flathub io.gitlab.librewolf-community
 
 	# making sure flatpaks can use cursor theme
 	sudo -u ${user} mkdir -p /home/${user}/.local/share/icons/default

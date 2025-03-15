@@ -29,10 +29,9 @@ options_2=(
 rm_default_configs() {
 	rm -rf /home/${user}/.bashrc
 	rm -rf /home/${user}/.bash_profile
-	rm -rf /home/${user}/.profile
 	rm -rf /home/${user}/.xinitrc-i3
 	rm -rf /home/${user}/.xinitrc-qtile
-	rm -rf /home/${user}/.Xresources
+	#rm -rf /home/${user}/.Xresources
 	rm -rf /home/${user}/.config/alacritty
 	rm -rf /home/${user}/.config/dunst
 	rm -rf /home/${user}/.config/fuzzel
@@ -91,9 +90,8 @@ make_directories() {
 }
 
 configs() {
-	ln -s /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
+	#ln -s /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
-	ln -s /home/${user}/repos/configs/common/home/.profile /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
 	ln -s /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
 	mkdir -p /home/${user}/.config

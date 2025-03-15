@@ -4,7 +4,7 @@
 
 # Variables
 terminal="kitty"
-webbrowser="flatpak run io.gitlab.librewolf-community"
+webbrowser="librewolf"
 
 # appearance
 
@@ -30,7 +30,7 @@ riverctl map normal Super T spawn ${terminal}
 riverctl map normal Super F spawn "${terminal} -e yazi"
 
 # open a webbrowser
-riverctl map normal Super W spawn "${webbrowser}"
+riverctl map normal Super W spawn ${webbrowser}
 
 # open pavucontrol
 riverctl map normal Super A spawn pavucontrol

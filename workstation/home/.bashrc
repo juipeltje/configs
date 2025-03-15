@@ -15,6 +15,8 @@ alias xr='sudo xbps-remove -R'
 alias xc='sudo xbps-remove -Oo'
 alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
+# Nix/home-manager aliases
+alias hs='home-manager switch --flake ~/repos/configs#joppe@Void-Rig'
 # NixOS aliases
 #alias rebuild='sudo nixos-rebuild boot --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
 #alias rebuild-switch='sudo nixos-rebuild switch --flake /home/joppe/repos/configs/nixos#NixOS-Rig'
