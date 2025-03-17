@@ -29,12 +29,12 @@ theme_switch() {
         kill -SIGUSR1 $(pgrep kitty)
 
         # mako
-        killall mako
+        kill $(pgrep mako)
         mako -c ~/.config/mako/${theme}-config &
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css
-        killall -SIGUSR2 waybar
+        kill -SIGUSR2 $(pgrep waybar)
 
         # fuzzel
         sed -i --follow-symlinks "s|^include.*|include=~/.config/fuzzel/${theme}.ini|" ~/.config/fuzzel/fuzzel.ini

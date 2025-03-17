@@ -10,7 +10,7 @@ case $op in
         suspend)
 		;&
 	hibernate)
-                loginctl $op
+                systemctl $op
                 ;;
         lock)
 		i3-lock

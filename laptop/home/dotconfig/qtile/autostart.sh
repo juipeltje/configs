@@ -2,7 +2,6 @@
 
 # script for autostarting applications in qtile
 
-pipewire &
 ~/.fehbg &
 picom &
 dunst -conf ~/.config/dunst/dunstrc-gruvbox-material-dark &
@@ -12,8 +11,5 @@ xsettingsd &
 xset s off -dpms &
 nm-applet &
 blueman-applet &
-~/repos/configs/scripts/cron/battery-low.sh &
-~/repos/configs/scripts/cron/battery-full.sh &
-~/repos/configs/scripts/cron/charger.sh &
 mpd &
 mpDris2 &

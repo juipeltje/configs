@@ -42,5 +42,8 @@
 
     # xwayland
     xwayland-satellite
+
+    # screenlocker
+    gtklock
   ];
 }

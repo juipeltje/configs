@@ -16,7 +16,7 @@
     PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"
   '';
 
-  # Enable Git, Nano, Gnupg, Htop, and Librewolf.
+  # Enable Git, Nano, Gnupg, Htop, Yazi, appimage-run, and Librewolf.
   programs = {
     git.enable = true;
     nano = {
@@ -33,6 +33,14 @@
     htop = {
       enable = true;
       package = pkgs.htop;
+    };
+
+    yazi = {
+      enable = true;
+    };
+
+    appimage = {
+      enable = true;
     };
 
     firefox = {
@@ -79,7 +87,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Networking
-    networkmanagerapplet
     qbittorrent
 
     # Terminal
@@ -88,7 +95,6 @@
 
     # File managers/utilities
     pcmanfm
-    yazi
     unzip
     unrar
     gnutar
@@ -96,7 +102,7 @@
     p7zip
 
     # E-mail
-    thunderbird
+    #thunderbird
 
     # Notifications
     libnotify
@@ -105,12 +111,9 @@
     libreoffice
 
     # Multimedia
-    alsa-utils
     pavucontrol
-    playerctl
     mpv
     feh
-    mpd
     mpdris2
     rmpc
     freetube
@@ -143,7 +146,6 @@
     curl
     wget
     lxde.lxsession
-    appimage-run
     vscodium-fhs
     autotiling
   ];

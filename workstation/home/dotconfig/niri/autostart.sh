@@ -4,7 +4,6 @@
 
 gtklock -d &
 #kitty --class scratchpad &
-pipewire &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-niri",|' ~/.config/waybar/config
 waybar &

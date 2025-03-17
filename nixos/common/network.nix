@@ -8,6 +8,9 @@
     networkmanager.enable = true;
   };
 
+  # Enable nm-applet
+  programs.nm-applet.enable = true;
+
   # Enable Mullvad vpn.
   services.mullvad-vpn = {
     enable = true;

@@ -16,15 +16,15 @@ case $op in
         river)
                 ;&
         niri)
-		sed -i --follow-symlinks "s|exec dbus-run-session.*|exec dbus-run-session $op|" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland)/$op/g" ~/.bash_profile
 		exit_compositor
                 ;;
 	swayfx)
-		sed -i --follow-symlinks "s|exec dbus-run-session.*|exec dbus-run-session sway|" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland)/sway/g" ~/.bash_profile
 		exit_compositor
 		;;
 	qtile)
-		sed -i --follow-symlinks "s|exec dbus-run-session.*|exec dbus-run-session qtile start -b wayland|" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland)/qtile start -b wayland/g" ~/.bash_profile
 		exit_compositor
 		;;
 esac

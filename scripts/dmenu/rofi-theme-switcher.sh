@@ -16,7 +16,7 @@ theme_switch() {
         kill -SIGUSR1 $(pgrep kitty)
 
         # dunst
-        killall dunst
+        kill $(pgrep dunst)
         dunst -conf ~/.config/dunst/dunstrc-${theme} &
 
         # rofi

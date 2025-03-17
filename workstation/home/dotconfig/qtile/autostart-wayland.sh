@@ -2,7 +2,6 @@
 
 # autostart script for qtile-wayland
 
-pipewire &
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 mako -c ~/.config/mako/catppuccin-mocha-config &

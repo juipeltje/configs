@@ -3,7 +3,6 @@
 # autostart script for hyprland
 
 gtklock -d &
-pipewire &
 hyprpaper &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-hyprland",|' ~/.config/waybar/config
 waybar &
@@ -12,8 +11,5 @@ playerctld daemon &
 lxsession &
 nm-applet &
 blueman-applet &
-~/repos/configs/scripts/cron/battery-low.sh &
-~/repos/configs/scripts/cron/battery-full.sh &
-~/repos/configs/scripts/cron/charger.sh &
 mpd &
 mpDris2 &

@@ -44,10 +44,10 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/mako
 	rm -rf /home/${user}/.config/mpd
 	rm -rf /home/${user}/.config/mpv
-	rm -rf /home/${user}/.config/nano
+	#rm -rf /home/${user}/.config/nano
 	rm -rf /home/${user}/.config/niri
 	rm -rf /home/${user}/.config/picom
-	rm -rf /home/${user}/.config/pipewire
+	#rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
 	rm -rf /home/${user}/.config/river
@@ -57,7 +57,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/waybar
 	rm -rf /home/${user}/.config/wofi
 	rm -rf /home/${user}/.config/yazi
-	rm -rf /home/${user}/.local/share/icons/default
+	#rm -rf /home/${user}/.local/share/icons/default
 }
 
 make_directories() {
@@ -73,10 +73,10 @@ make_directories() {
         mkdir -p /home/${user}/.config/mako
 	mkdir -p /home/${user}/.config/mpd
         mkdir -p /home/${user}/.config/mpv
-	mkdir -p /home/${user}/.config/nano
+	#mkdir -p /home/${user}/.config/nano
 	mkdir -p /home/${user}/.config/niri
 	mkdir -p /home/${user}/.config/picom
-	mkdir -p /home/${user}/.config/pipewire
+	#mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
 	mkdir -p /home/${user}/.config/river
@@ -86,7 +86,7 @@ make_directories() {
         mkdir -p /home/${user}/.config/waybar
         mkdir -p /home/${user}/.config/wofi
         mkdir -p /home/${user}/.config/yazi
-	mkdir -p /home/${user}/.local/share/icons/default
+	#mkdir -p /home/${user}/.local/share/icons/default
 }
 
 configs() {
@@ -106,9 +106,9 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpd/* /home/${user}/.config/mpd/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
+	#ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
+	#ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/rofi/* /home/${user}/.config/rofi/
@@ -117,7 +117,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/wofi/* /home/${user}/.config/wofi/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/yazi/* /home/${user}/.config/yazi/
-	ln -s /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/* /home/${user}/.local/share/icons/default/
+	#ln -s /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/* /home/${user}/.local/share/icons/default/
 }
 
 configs_desktop() {
