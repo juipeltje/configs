@@ -198,8 +198,8 @@ now_playing = widget.Mpris2(
             padding=2,
             **decoration_group_width)
 
-void_icon = widget.TextBox(
-            text=" ",
+nixos_icon = widget.TextBox(
+            text=" ",
             fontsize=20,
             **widget_defaults,
             padding=2,
@@ -328,7 +328,7 @@ screens = [
     music_icon,
     now_playing,
     spacer,
-    void_icon,
+    nixos_icon,
     kernel_version,
     spacer,
     cpu_icon,
@@ -372,7 +372,7 @@ screens = [
     music_icon,
     now_playing,
     spacer,
-    void_icon,
+    nixos_icon,
     kernel_version,
     spacer,
     cpu_icon,

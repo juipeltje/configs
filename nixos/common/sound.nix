@@ -30,5 +30,5 @@
   };
 
   # Enable alsa sound card state saving.
-  hardware.alsa.enablePersistence = true;
+  #hardware.alsa.enablePersistence = true;
 }

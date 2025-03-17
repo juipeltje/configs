@@ -22,7 +22,7 @@
     };
 
     hyprland.enable = true;
-    niri.enable = true;
+    niri.enable = false;
     xwayland.enable = true;
   };
 
