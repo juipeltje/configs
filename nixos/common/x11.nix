@@ -3,26 +3,33 @@
 { config, pkgs, ... }:
 
 {
-  # Enable the X11 windowing system, configure X11 keymap, X11 window managers, and Kodi.
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
-    excludePackages = [ pkgs.xterm ];
-    windowManager = {
-      i3.enable = true;
-      i3.extraPackages = [ ];
-      #qtile.enable = true;
-      #qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
+  # Enable the X11 windowing system, configure X11 keymap, X11 window managers, Kodi, and Picom.
+  services = {
+    xserver = {
+      enable = true;
+      xkb.layout = "us";
+      xkb.variant = "";
+      excludePackages = [ pkgs.xterm ];
+      windowManager = {
+        i3.enable = true;
+        i3.extraPackages = [ ];
+        #qtile.enable = true;
+        #qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
+      };
+
+      displayManager = {
+        startx.enable = true;
+      };
+
+      desktopManager = {
+        kodi.enable = true;
+        kodi.package = pkgs.kodi;
+      };
     };
 
-    displayManager = {
-      startx.enable = true;
-    };
-
-    desktopManager = {
-      kodi.enable = true;
-      kodi.package = pkgs.kodi;
+    picom = {
+      enable = true;
+      package = pkgs.picom;
     };
   };
 
@@ -36,9 +43,6 @@
 
     # Run launcher
     rofi
-
-    # Compositor
-    unstable.picom
 
     # Other tools 
     xdotool

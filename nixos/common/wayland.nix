@@ -46,4 +46,7 @@
     # screenlocker
     gtklock
   ];
+
+  # set up pam to make sure gtklock actually works.
+  security.pam.services.gtklock = { };
 }
