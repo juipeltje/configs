@@ -2,8 +2,13 @@
 
 # River common config
 
+# dbus/systemd integration settings
+riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY"
+
 # Variables
-terminal="kitty"
+terminal="alacritty"
+image_terminal="kitty"
 webbrowser="librewolf"
 
 # appearance
@@ -27,7 +32,7 @@ riverctl attach-mode bottom
 riverctl map normal Super T spawn ${terminal}
 
 # open file manager
-riverctl map normal Super F spawn "${terminal} -e yazi"
+riverctl map normal Super F spawn "${image_terminal} -e yazi"
 
 # open a webbrowser
 riverctl map normal Super W spawn ${webbrowser}

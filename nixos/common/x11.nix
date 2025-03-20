@@ -13,8 +13,8 @@
       windowManager = {
         i3.enable = true;
         i3.extraPackages = [ ];
-        #qtile.enable = true;
-        #qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
+        qtile.enable = true;
+        qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
       };
 
       displayManager = {

@@ -3,21 +3,23 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      efiSupport = true;
-      timeoutStyle = "hidden";
-      device = "nodev";
+  # Bootloader + plymouth
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+      grub = {
+        enable = true;
+        efiSupport = true;
+        timeoutStyle = "hidden";
+        device = "nodev";
+      };
     };
-  };
 
-  # Plymouth
-  boot.plymouth = {
-    enable = true;
-    theme = "bgrt";
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
   };
 
   # distro-grub-themes

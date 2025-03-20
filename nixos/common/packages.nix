@@ -16,7 +16,7 @@
     PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"
   '';
 
-  # Enable Git, Nano, Gnupg, Htop, Yazi, appimage-run, and Librewolf.
+  # Enable Git, Nano, Gnupg, Htop, and appimage-run.
   programs = {
     git.enable = true;
     nano = {
@@ -35,41 +35,8 @@
       package = pkgs.htop;
     };
 
-    yazi = {
-      enable = true;
-    };
-
     appimage = {
       enable = true;
-    };
-
-    firefox = {
-      enable = true;
-      package = pkgs.librewolf;
-      policies = {
-        DisableTelemetry = true;
-        DisableFirefoxStudies = true;
-        ExtensionSettings = {
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
-      };
-        
-      preferences = {
-        "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
-        "cookiebanners.service.mode" = 2; # Block cookie banners
-        "privacy.donottrackheader.enabled" = true;
-        "privacy.fingerprintingProtection" = true;
-        "privacy.resistFingerprinting" = true;
-        "privacy.trackingprotection.emailtracking.enabled" = true;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.fingerprinting.enabled" = true;
-        "privacy.trackingprotection.socialtracking.enabled" = true;
-        "privacy.clearOnShutdown.history" = false;
-        "privacy.clearOnShutdown.downloads" = false;
-      };
     };
   };
 
@@ -95,6 +62,7 @@
     kitty
 
     # File managers/utilities
+    yazi
     pcmanfm
     unzip
     unrar
@@ -138,7 +106,7 @@
     stress-ng
 
     # Python
-    (python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
+    #(python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
 
     # Other
     lm_sensors

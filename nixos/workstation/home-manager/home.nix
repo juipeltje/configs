@@ -7,6 +7,8 @@
   home.homeDirectory = "/home/joppe";
   programs.home-manager.enable = true;
   imports = [
+      # Librewolf settings
+      ./../../common/home-manager/librewolf.nix
       # Theme settings
       ./../../common/home-manager/theming.nix
       # Virt-manager settings

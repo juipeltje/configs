@@ -1,6 +1,6 @@
 # NixOS Wayland configuration
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Enable wayland compositors, Xwayland, and waybar.
@@ -22,7 +22,7 @@
     };
 
     hyprland.enable = true;
-    niri.enable = false;
+    niri.enable = true;
     xwayland.enable = true;
   };
 
@@ -49,4 +49,7 @@
 
   # set up pam to make sure gtklock actually works.
   security.pam.services.gtklock = { };
+
+  # xdg-desktop-portal settings
+  xdg.portal.wlr.enable = lib.mkForce false;
 }

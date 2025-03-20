@@ -20,7 +20,7 @@
       # Gaming
       ./../common/gaming.nix
       # gpu passthrough settings
-      ./gpu-passthrough.nix
+      #./gpu-passthrough.nix
       # greeter settings
       #./greeter.nix
       # Include the results of the hardware scan.

@@ -1,5 +1,9 @@
 // Niri config
 
+// dbus/systemd integration settings
+spawn-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "systemctl --user import-environment {,WAYLAND_}DISPLAY"
+
 // environment variables
 environment {
   DISPLAY ":0"

@@ -13,7 +13,7 @@
 
   gtk = {
     enable = true;
-    font.package = pkgs.nerdfonts;
+    font.package = (pkgs.nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; });
     font.name = "Ubuntu Nerd Font Medium";
     font.size = 11;
     theme.package = pkgs.tokyonight-gtk-theme;
