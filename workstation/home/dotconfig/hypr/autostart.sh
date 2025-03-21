@@ -8,10 +8,10 @@ sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-hyp
 waybar &
 hyprctl setcursor phinger-cursors-light 24 &
 mako -c ~/.config/mako/catppuccin-mocha-config &
-playerctld daemon &
+#playerctld daemon &
 lxpolkit &
 nm-applet &
 blueman-applet &
 openrgb --startminimized -p team-red.orp &
-mpd &
-mpDris2 &
+#mpd &
+#mpDris2 &
