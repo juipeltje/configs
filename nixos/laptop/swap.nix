@@ -13,7 +13,7 @@
   swapDevices = [ { device = "/swapfile"; size = 24*1024; } ];
 
   boot = {
-    resumeDevice = "/dev/disk/by-uuid/1493f887-e2da-4caf-92d9-19198bffee6b";
-    kernelParams = [ "resume_offset=114804736" ];
+    resumeDevice = "/dev/disk/by-uuid/61626aad-25d6-4484-b311-d1539f133eba";
+    kernelParams = [ "resume_offset=3088384" ];
   };
 }
