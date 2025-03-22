@@ -4,7 +4,7 @@
 
 kanshi &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
-mako -c ~/.config/mako/catppuccin-mocha-config &
+mako -c ~/.config/mako/gruvbox-dark-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &

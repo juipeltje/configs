@@ -15,6 +15,10 @@ theme_switch() {
         ~/.config/river/colors-${theme}.sh &
         sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/river/autostart.sh
 
+	# hyprland
+	sed -i --follow-symlinks "s|^source=~/.config/hypr/colors.*|source=~/.config/hypr/colors-${theme}.conf|" ~/.config/hypr/common.conf
+	sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/hypr/autostart.sh
+
         # qtile
         sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/qtile/autostart-wayland.sh
 
@@ -60,7 +64,15 @@ case $theme in
 		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#434c5e"|' ~/.config/niri/config.kdl
 
 		# GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Nordic
+		#gsettings set org.gnome.desktop.interface gtk-theme Nordic
+
+		# done with configs, now setting gtk theme with home manager
+		notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+		# home manager
+ 		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Nord"
@@ -78,7 +90,15 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#504945"|' ~/.config/niri/config.kdl
 
 		# GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark
+		#gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user
 		notify-send "Theme Switcher Script" "Current theme: Gruvbox-Dark"
@@ -96,7 +116,15 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#414868"|' ~/.config/niri/config.kdl
 
 		# GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
+		#gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user
 		notify-send "Theme Switcher Script" "Current theme: Tokyonight"
@@ -114,7 +142,15 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#073642"|' ~/.config/niri/config.kdl
 
                 # GTK
-                gsettings set org.gnome.desktop.interface gtk-theme NumixSolarizedDarkGreen
+                #gsettings set org.gnome.desktop.interface gtk-theme NumixSolarizedDarkGreen
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.numix-solarized-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "solarized-dark-green";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
@@ -132,7 +168,15 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#45475a"|' ~/.config/niri/config.kdl
 
                 # GTK
-                gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
+                #gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.catppuccin-gtk;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "catppuccin-dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Catppuccin-Mocha"

@@ -7,7 +7,7 @@ gtklock -d &
 swaybg -i ~/Pictures/sway/background.jpg -m fill &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-niri",|' ~/.config/waybar/config
 waybar &
-mako -c ~/.config/mako/catppuccin-mocha-config &
+mako -c ~/.config/mako/gruvbox-dark-config &
 playerctld daemon &
 lxpolkit &
 nm-applet &

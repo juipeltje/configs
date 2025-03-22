@@ -14,7 +14,7 @@ let
     if [ "$GUEST_NAME" == "win11-gaming" ]; then
       if [ "$OPERATION" == "prepare" ]; then
         if [ "$SUB_OPERATION" == "begin" ]; then
-          systemctl stop greetd
+          systemctl stop getty@tty1
 
 	  systemctl set-property --runtime -- user.slice AllowedCPUs=0,8,1,9
 	  systemctl set-property --runtime -- system.slice AllowedCPUs=0,8,1,9
@@ -48,7 +48,7 @@ let
 	  systemctl set-property --runtime -- system.slice AllowedCPUs=0-15
 	  systemctl set-property --runtime -- init.scope AllowedCPUs=0-15
 
-          systemctl start greetd
+          systemctl start getty@tty1
         fi
       fi
     fi

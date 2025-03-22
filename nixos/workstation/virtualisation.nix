@@ -6,7 +6,11 @@
   # Enable virt-manager and libvirtd daemon.
   programs.virt-manager.enable = true;
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
+
     spiceUSBRedirection.enable = true;
   };
 
