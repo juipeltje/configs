@@ -83,23 +83,11 @@
     pavucontrol
     mpv
     feh
-    mpdris2
     rmpc
     freetube
 
     # Fetch tools
     fastfetch
-
-    # Theming/Fonts
-    nordic
-    gruvbox-gtk-theme
-    tokyonight-gtk-theme
-    numix-solarized-gtk-theme
-    catppuccin-gtk
-    dracula-theme
-    phinger-cursors
-    mint-y-icons
-    (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; })
 
     # Benchmarking
     s-tui
@@ -114,9 +102,9 @@
     gparted
     curl
     wget
-    lxde.lxsession
     vscodium-fhs
     autotiling
+    polkit_gnome
   ];
 }
 

@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Enable sound with alsa and pipewire, set extra pipewire config options, and enable playerctld and mpd.
+  # Enable sound with alsa and pipewire, set extra pipewire config options, and enable playerctld.
   security.rtkit.enable = true;
   services = {
     pipewire = {
@@ -21,10 +21,6 @@
     };
 
     playerctld = {
-      enable = true;
-    };
-
-    mpd = {
       enable = true;
     };
   };

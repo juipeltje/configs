@@ -33,8 +33,16 @@ case $theme in
 		qtile cmd-obj -o cmd -f reload_config
 
 		# GTK
-		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Nordic"|' ~/.xsettingsd
-		killall -HUP xsettingsd
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Nordic"|' ~/.xsettingsd
+		#killall -HUP xsettingsd
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Nord"
@@ -48,8 +56,16 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
 		# GTK
-		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Dark"|' ~/.xsettingsd
-                killall -HUP xsettingsd
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Gruvbox-Dark"
@@ -63,8 +79,16 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
 		# GTK
-		sed -i 's|^Net/ThemeName.*|Net/ThemeName "Tokyonight-Dark"|' ~/.xsettingsd
-                killall -HUP xsettingsd
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Tokyonight-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user.
 		notify-send "Theme Switcher Script" "Current theme: Tokyonight"
@@ -78,8 +102,16 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
                 # GTK
-                sed -i 's|^Net/ThemeName.*|Net/ThemeName "NumixSolarizedDarkGreen"|' ~/.xsettingsd
-                killall -HUP xsettingsd
+                #sed -i 's|^Net/ThemeName.*|Net/ThemeName "NumixSolarizedDarkGreen"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.numix-solarized-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "NumixSolarizedDarkGreen";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user.
                 notify-send "Theme Switcher Script" "Current theme: Solarized-Dark"
@@ -93,8 +125,16 @@ case $theme in
                 qtile cmd-obj -o cmd -f reload_config
 
                 # GTK
-                sed -i 's|^Net/ThemeName.*|Net/ThemeName "Catppuccin-Dark"|' ~/.xsettingsd
-                killall -HUP xsettingsd
+                #sed -i 's|^Net/ThemeName.*|Net/ThemeName "Catppuccin-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
+
+		# done with configs, now setting gtk theme with home manager
+                notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+                # home manager
+                sed -i 's/theme.package.*/theme.package = pkgs.magnetic-catppuccin-gtk;/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Catppuccin-GTK-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user.
                 notify-send "Theme Switcher Script" "Current theme: Catppuccin-Mocha"
