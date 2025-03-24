@@ -3,13 +3,9 @@
 # autostart script for hyprland
 
 gtklock -d &
-hyprpaper &
+swaybg -i ~/Pictures/sway/background.jpg -m fill &
 sed -i --follow-symlinks 's|"include".*|"include": "~/.config/waybar/modules-hyprland",|' ~/.config/waybar/config
 waybar &
-mako &
-playerctld daemon &
-lxsession &
+mako -c ~/.config/mako/catppuccin-mocha-config &
 nm-applet &
 blueman-applet &
-mpd &
-mpDris2 &

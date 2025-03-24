@@ -5,11 +5,6 @@
 ~/.fehbg &
 picom &
 dunst -conf ~/.config/dunst/dunstrc-gruvbox-material-dark &
-playerctld daemon &
-lxpolkit &
-xsettingsd &
 xset s off -dpms &
 nm-applet &
 blueman-applet &
-mpd &
-mpDris2 &

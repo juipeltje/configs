@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Install GTK theme packages to switch between
+  # Install GTK theme.package = pkgs.magnetic-catppuccin-gtk;
   home.packages = with pkgs; [
     nordic
     gruvbox-gtk-theme
