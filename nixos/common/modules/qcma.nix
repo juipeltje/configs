@@ -1,6 +1,6 @@
 # NixOS custom qcma module
 
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 

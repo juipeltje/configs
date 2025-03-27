@@ -4,7 +4,7 @@
 include ~/.config/sway/common.conf
 
 # Include the color scheme
-include ~/.config/sway/colors-catppuccin-mocha.conf
+include ~/.config/sway/colors-gruvbox-dark.conf
 
 # monitor configuration
 output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off
@@ -17,8 +17,8 @@ bindsym $mod+Control+Down focus output DP-1
 bindsym $mod+Control+Up focus output DP-2
 
 # enable/disable adaptive sync
-bindsym $mod+Control+a exec ~/.config/sway/vrr-on.sh
-bindsym $mod+Control+v exec ~/.config/sway/vrr-off.sh
+bindsym $mod+Control+a exec swaymsg output DP-1 adaptive_sync on
+bindsym $mod+Control+v exec swaymsg output DP-1 adaptive_sync off
 
 # bind workspaces to monitors
 workspace $ws1 output DP-1

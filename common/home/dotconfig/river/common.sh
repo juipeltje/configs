@@ -3,8 +3,12 @@
 # River common config
 
 # dbus/systemd integration settings
-riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY"
+riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
+riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
+
+# Autostart
+riverctl spawn "mako -c ~/.config/mako/gruvbox-dark-config"
+riverctl spawn ~/.config/river/waybar.sh
 
 # Variables
 terminal="alacritty"
@@ -20,7 +24,7 @@ riverctl xcursor-theme phinger-cursors-light 24
 riverctl border-width 4
 
 # import colors script
-riverctl spawn ~/.config/river/colors-catppuccin-mocha.sh
+riverctl spawn ~/.config/river/colors-gruvbox-dark.sh
 
 # layout settings
 rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.5 &
@@ -42,6 +46,9 @@ riverctl map normal Super A spawn pavucontrol
 
 # open deezer in a firefox window
 riverctl map normal Super D spawn "${webbrowser} -new-window https://www.deezer.com/en/"
+
+# open rmpc
+riverctl map normal Super M spawn "${image_terminal} -e rmpc"
 
 # open application launcher
 riverctl map normal Super Space spawn fuzzel

@@ -8,22 +8,22 @@ theme_switch() {
 	# sway
         sed -i --follow-symlinks "s|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-${theme}.conf|" ~/.config/sway/config
         swaymsg reload
-        sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/sway/autostart.sh
+        sed -i --follow-symlinks "s|^exec mako.*|exec mako -c ~/.config/mako/${theme}-config|" ~/.config/sway/common.conf
 
         # river
         sed -i --follow-symlinks "s|^riverctl spawn ~/.config/river/colors.*|riverctl spawn ~/.config/river/colors-${theme}.sh|" ~/.config/river/common.sh
         ~/.config/river/colors-${theme}.sh &
-        sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/river/autostart.sh
+        sed -i --follow-symlinks "s|^riverctl spawn \"mako.*|riverctl spawn \"mako -c ~/.config/mako/${theme}-config\"|" ~/.config/river/common.sh
 
 	# hyprland
 	sed -i --follow-symlinks "s|^source=~/.config/hypr/colors.*|source=~/.config/hypr/colors-${theme}.conf|" ~/.config/hypr/common.conf
-	sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/hypr/autostart.sh
+	sed -i --follow-symlinks "s|^exec-once = mako.*|exec-once = mako -c ~/.config/mako/${theme}-config|" ~/.config/hypr/common.conf
 
         # qtile
         sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/qtile/autostart-wayland.sh
 
         # niri
-        sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/niri/autostart.sh
+        #sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/niri/autostart.sh
 
         # alacritty
         sed -i --follow-symlinks "s|^import.*|import = [\"~/.config/alacritty/${theme}.toml\"]|" ~/.config/alacritty/alacritty.toml

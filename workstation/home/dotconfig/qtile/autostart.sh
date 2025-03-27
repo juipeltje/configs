@@ -7,7 +7,6 @@ xrandr --output DisplayPort-0 --primary --mode 3440x1440 --rate 165.00 --output 
 ~/.fehbg &
 picom &
 dunst -conf ~/.config/dunst/dunstrc-tokyonight &
-lxpolkit &
 xset s off -dpms &
 nm-applet &
 blueman-applet &

@@ -11,8 +11,8 @@
   "spacing": 4,
 
   // choose the order of the modules
-  // include the modules-left option
-  "include": "~/.config/waybar/modules-hyprland",
+  // include modules-left
+  "include": "~/.config/waybar/modules-river",
   "modules-right": ["mpris", "custom/kernel", "custom/cpu", "custom/gpu", "custom/water", "custom/pump", "custom/fans", "custom/memory",
                     "custom/DualSense"],
 

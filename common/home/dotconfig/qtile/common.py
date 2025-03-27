@@ -12,8 +12,9 @@ import colors
 # Variables
 home = os.path.expanduser('~')
 mod = "mod4"
-terminal = "kitty"
-webbrowser = "firefox"
+terminal = "alacritty"
+image_terminal = "kitty"
+webbrowser = "librewolf"
 
 # autostart programs when starting window manager
 @hook.subscribe.startup_once
@@ -22,7 +23,13 @@ def autostart():
     autostart = "/.config/qtile/autostart.sh"
 
   elif qtile.core.name == "wayland":
-    autostart = "/.config/qtile/autostart-wayland.sh"
+    processes = [
+      [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+      [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY;', 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+    ]
+
+    for p in processes:
+      subprocess.Popen(p)
 
   subprocess.Popen([home + autostart])
 
@@ -32,7 +39,7 @@ keys = [
   Key([mod], "t", lazy.spawn(terminal) ),
 
   # Open file manager
-  Key([mod], "f", lazy.spawn(terminal + " -e yazi") ),
+  Key([mod], "f", lazy.spawn(image_terminal + " -e yazi") ),
 
   # Open a webbrowser
   Key([mod], "w", lazy.spawn(webbrowser) ),
@@ -42,6 +49,9 @@ keys = [
 
   # Open Deezer in firefox tab
   Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
+
+  # Open rmpc
+  Key([mod], "m", lazy.spawn(image_terminal + " -e rmpc") ),
 
   # play/pause/previous/next keyboard controls
   Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause") ),
@@ -213,7 +223,7 @@ elif qtile.core.name == "wayland":
   groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 # set colorscheme
-colors = colors.CatppuccinMocha
+colors = colors.GruvboxDark
 
 layout_theme = {
                 "border_focus":colors[0],

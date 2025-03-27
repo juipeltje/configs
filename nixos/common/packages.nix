@@ -46,10 +46,27 @@
     package = pkgs.bluez;
   };
 
+  # Enable Blueman.
   services.blueman.enable = true;
 
-  # Enable polkit.
-  security.polkit.enable = true;
+  # Improve Blueman applet systemd service so that it can be called by graphical-session.target.
+  systemd.user.services.blueman-applet = {
+    enable = true;
+    unitConfig = { 
+      Description = "Bluetooth management applet"; 
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    serviceConfig = {
+      Type = "simple";
+      Restart = "on-failure";
+    };
+
+    wantedBy = [ "graphical-session.target" ];
+  };
+
+  # Enable Soteria (polkit authentication agent).
+  security.soteria.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -80,6 +97,7 @@
     libreoffice
 
     # Multimedia
+    alsa-utils
     pavucontrol
     mpv
     feh
@@ -104,7 +122,6 @@
     wget
     vscodium-fhs
     autotiling
-    polkit_gnome
   ];
 }
 

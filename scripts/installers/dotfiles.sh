@@ -10,6 +10,7 @@ green="\033[0;32m"
 red="\033[0;31m"
 bright_green="\033[0;92m"
 PS3=$'\e[0;32m'"->"$'\e[m'
+user=$USER
 
 # Arrays
 
@@ -107,6 +108,7 @@ configs() {
 	#ln -s /home/${user}/repos/configs/common/home/dotconfig/mpd/* /home/${user}/.config/mpd/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
 	#ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
+	ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
 	#ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
 	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
@@ -147,7 +149,7 @@ configs_laptop() {
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
-echo -e "${green}This script will install dotfiles in the user's home folder using symlinks.
+echo -e "${green}This script will install dotfiles in the user's home folder using symlinks (user: ${user}).
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
 select opt_1 in "${options_1[@]}"
@@ -166,12 +168,6 @@ do
 			;;
 	esac
 done
-
-echo -e "${green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
-
-read user;
-
-echo -e "${green}Continuing install script as '${user}'...${color_reset}"
 
 echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 

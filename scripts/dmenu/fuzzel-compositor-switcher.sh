@@ -5,6 +5,12 @@
 op=$( echo -e "  River\n  Hyprland\n  Qtile\n  SwayFX\n  Niri" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
 
 exit_compositor() {
+        systemctl --user stop sway-session.target
+	systemctl --user stop river-session.target
+	systemctl --user stop hyprland-session.target
+	systemctl --user stop qtile-wayland-session.target
+	systemctl --user stop niri-session.target
+	systemctl --user stop graphical-session.target
 	swaymsg exit
         riverctl exit
         qtile cmd-obj -o cmd -f shutdown

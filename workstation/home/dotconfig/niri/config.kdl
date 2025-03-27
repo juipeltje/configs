@@ -1,8 +1,14 @@
 // Niri config
 
 // dbus/systemd integration settings
-spawn-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-spawn-at-startup "systemctl --user import-environment {,WAYLAND_}DISPLAY"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_SESSION_ID"
+spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY"
+spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
+
+// autostart
+spawn-at-startup "sh" "-c" "mako" "-c" "~/.config/mako/catppuccin-mocha-config"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "~/.config/niri/waybar.sh"
 
 // environment variables
 environment {
@@ -59,8 +65,8 @@ layout {
 
   border {
     width 4
-    active-color "#cdd6f4"
-    inactive-color "#45475a"
+    active-color "#ebdbb2"
+    inactive-color "#504945"
   }
 
   struts {
@@ -88,19 +94,22 @@ screenshot-path null
 // keybinds
 binds {
   // open a terminal
-  Mod+T { spawn "kitty"; }
+  Mod+T { spawn "alacritty"; }
 
   // open file manager
   Mod+F { spawn "kitty" "-e" "yazi"; }
 
   // open a webbrowser
-  Mod+W { spawn "firefox"; }
+  Mod+W { spawn "librewolf"; }
 
   // open pavucontrol
   Mod+A { spawn "pavucontrol"; }
 
   // open Deezer in a firefox window
-  Mod+D { spawn "firefox" "-new-window" "https://www.deezer.com/en/"; }
+  Mod+D { spawn "librewolf" "-new-window" "https://www.deezer.com/en/"; }
+
+  // open rmpc
+  Mod+M { spawn "kitty" "-e" "rmpc"; }
 
   // open application launcher
   Mod+Space { spawn "fuzzel"; }
@@ -158,7 +167,7 @@ binds {
   Mod+Shift+F { fullscreen-window; }
 
   // maximize column
-  Mod+M { maximize-column; }
+  Mod+Shift+M { maximize-column; }
 
   // center column
   Mod+S { center-column; }
