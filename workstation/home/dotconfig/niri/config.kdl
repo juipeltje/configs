@@ -6,7 +6,7 @@ spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY"
 spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
 
 // autostart
-spawn-at-startup "sh" "-c" "mako" "-c" "~/.config/mako/catppuccin-mocha-config"
+spawn-at-startup "mako" "-c" "~/.config/mako/catppuccin-mocha-config"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/niri/waybar.sh"
 
@@ -52,11 +52,11 @@ layout {
   gaps 10
   center-focused-column "never"
   preset-column-widths {
-    proportion 0.5
+    proportion 1.0
   }
 
   default-column-width {
-    proportion 0.5
+    proportion 1.0
   }
 
   focus-ring {
@@ -83,9 +83,6 @@ window-rule {
 //layer-rule {
 //  geometry-corner-radius 20
 //}
-
-// autostart
-spawn-at-startup "~/.config/niri/autostart.sh"
 
 prefer-no-csd
 
@@ -215,6 +212,6 @@ binds {
   Mod+Period { expel-window-from-column; }
 
   // enable/disable vrr
-  Mod+Ctrl+A { spawn "~/.config/niri/vrr-on.sh"; }
-  Mod+Ctrl+V { spawn "~/.config/niri/vrr-off.sh"; }
+  Mod+Ctrl+A { spawn "niri" "msg" "output" "DP-1" "vrr" "on"; }
+  Mod+Ctrl+V { spawn "niri" "msg" "output" "DP-1" "vrr" "off"; }
 }

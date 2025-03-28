@@ -21,17 +21,18 @@ webbrowser = "librewolf"
 def autostart():
   if qtile.core.name == "x11":
     autostart = "/.config/qtile/autostart.sh"
+    subprocess.Popen([home + autostart])
 
   elif qtile.core.name == "wayland":
     processes = [
       [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
-      [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY;', 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+      [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
+      [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ],
+      [ 'mako', '-c', 'home + /.config/mako/gruvbox-dark-config' ]
     ]
 
     for p in processes:
       subprocess.Popen(p)
-
-  subprocess.Popen([home + autostart])
 
 # Keybindings
 keys = [
