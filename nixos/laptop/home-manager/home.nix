@@ -16,6 +16,8 @@
     ./../../common/home-manager/librewolf.nix
     # Sound settings
     ./../../common/home-manager/sound.nix
+    # common Systemd settings
+    ./../../common/home-manager/soystemd.nix
     # Theme settings
     ./../../common/home-manager/theming.nix
   ];

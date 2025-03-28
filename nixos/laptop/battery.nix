@@ -27,12 +27,14 @@
         battery-low = {
           unitConfig = { 
             Description = "Service to notify users when battery is low/critical";
+            PartOf = [ "graphical-session.target" ];
           };
 
           serviceConfig = {
             Type = "oneshot";
           };
 
+          wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
             BATTERY="/sys/class/power_supply/BAT0"
@@ -51,14 +53,14 @@
         charger = {
           unitConfig = { 
             Description = "Service to notify users when battery is charging/discharging.";
+            PartOf = [ "graphical-session.target" ];
           };
 
           serviceConfig = {
             Type = "simple";
           };
 
-          wantedBy = [ "default.target" ];
-
+          wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
             BATTERY="/sys/class/power_supply/BAT0"
@@ -79,14 +81,14 @@
         battery-full = {
           unitConfig = { 
             Description = "Service to notify users when battery is fully charged.";
+            PartOf = [ "graphical-session.target" ];
           };
 
           serviceConfig = {
             Type = "simple";
           };
 
-          wantedBy = [ "default.target" ];
-
+          wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
             BATTERY="/sys/class/power_supply/BAT0"
