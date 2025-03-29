@@ -6,10 +6,6 @@
 riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
 riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
 
-# Autostart
-riverctl spawn "mako -c ~/.config/mako/gruvbox-dark-config"
-riverctl spawn ~/.config/river/waybar.sh
-
 # Variables
 terminal="alacritty"
 image_terminal="kitty"

@@ -6,9 +6,8 @@ spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY"
 spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
 
 // autostart
-spawn-at-startup "mako" "-c" "~/.config/mako/catppuccin-mocha-config"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/niri/waybar.sh"
+spawn-at-startup "waybar"
 
 // environment variables
 environment {

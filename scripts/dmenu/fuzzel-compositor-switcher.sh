@@ -11,6 +11,7 @@ exit_compositor() {
 	systemctl --user stop qtile-wayland-session.target
 	systemctl --user stop niri-session.target
 	systemctl --user stop graphical-session.target
+	sed -i --follow-symlinks "s|\"include\".*|\"include\": \"~/.config/waybar/modules-$op\",|" ~/.config/waybar/config
 	swaymsg exit
         riverctl exit
         qtile cmd-obj -o cmd -f shutdown

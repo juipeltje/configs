@@ -27,8 +27,7 @@ def autostart():
     processes = [
       [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
       [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
-      [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ],
-      [ 'mako', '-c', 'home + /.config/mako/gruvbox-dark-config' ]
+      [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
     ]
 
     for p in processes:

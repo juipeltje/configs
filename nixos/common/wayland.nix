@@ -51,8 +51,8 @@
   # set up pam to make sure gtklock actually works.
   security.pam.services.gtklock = { };
 
-  # Start gtklock on login with systemd service ( i use a screenlocker instead of a display manager) and
-  # start Kanshi for River and Qtile-wayland compositors.
+  # Systemd services for gtklock ( i use a screenlocker instead of a display manager),
+  # Waybar, and Kanshi.
   systemd.user.services = {
     gtklock = {
       enable = true;
@@ -67,6 +67,22 @@
       };
 
       wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+    };
+
+    waybar = {
+      enable = true;
+      unitConfig = {
+        Description = "Start Waybar";
+        PartOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
+      };
+
+      serviceConfig = {
+        ExecStart = "${pkgs.waybar}/bin/waybar";
+        Restart = "on-failure";
+      };
+
+      wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
+      path = with pkgs; [ bash gawk lm_sensors procps ];
     };
 
     kanshi = {
