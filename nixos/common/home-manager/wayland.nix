@@ -1,4 +1,4 @@
-# NixOS Systemd settings
+# NixOS Wayland settings
 
 { config, pkgs, ... }:
 

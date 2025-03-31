@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Compositor switcher script for Fuzzel
+# Compositor switcher script for Rofi
 
-op=$( echo -e "  Hyprland\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
+op=$( echo -e "  Hyprland\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | rofi -dmenu -p "Select a compositor:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 
 exit_compositor() {
         systemctl --user stop sway-session.target

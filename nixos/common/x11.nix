@@ -26,17 +26,15 @@
         kodi.package = pkgs.kodi;
       };
     };
-
-    picom = {
-      enable = true;
-      package = pkgs.picom;
-    };
   };
 
   # Additional xorg-specific packages
   environment.systemPackages = with pkgs; [
     # Bar
     polybarFull
+
+    # Compositor
+    picom
 
     # Notifications
     dunst
@@ -48,4 +46,50 @@
     xdotool
     xorg.xhost
   ];
+
+  # Systemd service for Picom, and setting up Systemd target for Qtile.
+  systemd.user = {
+    services = {
+      picom = {
+        enable = true;
+        unitConfig = {
+          Description = "Picom composite manager";
+          PartOf = [ "qtile-session.target" ];
+        };
+
+        serviceConfig = {
+          ExecStart = "${pkgs.picom}/bin/picom";
+          Restart = "on-failure";
+        };
+
+        wantedBy = [ "qtile-session.target" ];
+      };
+
+      xset = {
+        enable = true;
+        unitConfig = {
+          Description = "Run xset command on login";
+          Type = "oneshot";
+          PartOf = [ "qtile-session.target" ];
+        };
+
+        serviceConfig = {
+          ExecStart = "${pkgs.xorg.xset}/bin/xset s off -dpms";
+          Restart = "on-failure";
+        };
+
+        wantedBy = [ "qtile-session.target" ];
+      };
+    };
+
+    targets = {
+      qtile-session = {
+        description = "Qtile session";
+        documentation = [ "man:systemd.special(7)" ];
+        bindsTo = [ "graphical-session.target" ];
+        wants = [ "graphical-session-pre.target" ];
+        after = [ "graphical-session-pre.target" ];
+      };
+    };
+  };
 }

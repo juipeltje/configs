@@ -36,15 +36,15 @@ input {
 }
 
 // output configuration
-output "DP-1" {
-  mode "3440x1440@164.999"
-  position x=0 y=1080
-}
+//output "DP-1" {
+//  mode "3440x1440@164.999"
+//  position x=0 y=1080
+//}
   
-output "DP-2" {
-  mode "2560x1080@74.991"
-  position x=0 y=0
-}
+//output "DP-2" {
+//  mode "2560x1080@74.991"
+//  position x=0 y=0
+//}
 
 // layout configuration
 layout {
@@ -211,6 +211,9 @@ binds {
   Mod+Period { expel-window-from-column; }
 
   // enable/disable vrr
-  Mod+Ctrl+A { spawn "niri" "msg" "output" "DP-1" "vrr" "on"; }
-  Mod+Ctrl+V { spawn "niri" "msg" "output" "DP-1" "vrr" "off"; }
+  Mod+Ctrl+A { spawn "kanshictl" "switch" "gaming"; }
+  Mod+Ctrl+V { spawn "kanshictl" "switch" "desktop"; }
+
+  // set primary xwayland display
+  Mod+Ctrl+X { spawn "xrandr" "--output" "DP-1" "--primary"; }
 }

@@ -20,8 +20,14 @@ webbrowser = "librewolf"
 @hook.subscribe.startup_once
 def autostart():
   if qtile.core.name == "x11":
-    autostart = "/.config/qtile/autostart.sh"
-    subprocess.Popen([home + autostart])
+    processes = [
+      [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+      [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
+      [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
+    ]
+
+    for p in processes:
+      subprocess.Popen(p)
 
   elif qtile.core.name == "wayland":
     processes = [
@@ -112,10 +118,13 @@ if qtile.core.name == "x11":
       Key([mod], "space", lazy.spawn("rofi -show drun") ),
 
       # open theme switcher
-      Key([mod, "shift"], "t", lazy.spawn(home + '/.config/qtile/rofi-theme-switcher.sh') ),
+      Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-theme-switcher.sh') ),
 
       # open powermenu
       Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
+
+      # open compositor switcher
+      Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-compositor-switcher.sh') ),
 
       # notification history and close all notifications
       Key([mod], "n", lazy.spawn("dunstctl history-pop") ),

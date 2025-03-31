@@ -7,8 +7,8 @@ include ~/.config/sway/common.conf
 include ~/.config/sway/colors-gruvbox-dark.conf
 
 # monitor configuration
-output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off
-output DP-2 resolution 2560x1080@74.991Hz position 0,0
+#output DP-1 resolution 3440x1440@164.999Hz position 0,1080 adaptive_sync off
+#output DP-2 resolution 2560x1080@74.991Hz position 0,0
 
 ## keybindings
 
@@ -17,8 +17,11 @@ bindsym $mod+Control+Down focus output DP-1
 bindsym $mod+Control+Up focus output DP-2
 
 # enable/disable adaptive sync
-bindsym $mod+Control+a exec swaymsg output DP-1 adaptive_sync on
-bindsym $mod+Control+v exec swaymsg output DP-1 adaptive_sync off
+bindsym $mod+Control+a exec kanshictl switch gaming
+bindsym $mod+Control+v exec kanshictl switch desktop
+
+# set primary xwayland display
+bindsym $mod+Control+x exec xrandr --output DP-1 --primary
 
 # bind workspaces to monitors
 workspace $ws1 output DP-1

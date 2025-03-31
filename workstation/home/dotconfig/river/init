@@ -19,5 +19,8 @@ riverctl map normal Super+Control+Shift Down send-to-output DP-1
 riverctl map normal Super+Control A spawn 'kanshictl switch gaming'
 riverctl map normal Super+Control V spawn 'kanshictl switch desktop'
 
+# set primary xwayland display
+riverctl map normal Super+Control X spawn 'xrandr --output DP-1 --primary'
+
 # set kitty scratchpad terminal dimensions
 riverctl rule-add -app-id scratchpad dimensions 1720 1000
