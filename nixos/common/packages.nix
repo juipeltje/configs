@@ -16,7 +16,7 @@
     PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"
   '';
 
-  # Enable Git, Nano, Gnupg, Htop, and appimage-run.
+  # Enable Git, Nano, Gnupg, Htop, appimage-run, and Evolution.
   programs = {
     git.enable = true;
     nano = {
@@ -36,6 +36,10 @@
     };
 
     appimage = {
+      enable = true;
+    };
+
+    evolution = {
       enable = true;
     };
   };
@@ -86,9 +90,6 @@
     gnutar
     xz
     p7zip
-
-    # E-mail
-    #thunderbird
 
     # Notifications
     libnotify
