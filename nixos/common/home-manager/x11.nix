@@ -33,5 +33,18 @@
       };
     };
   };
+
+  # Install xinitrc files in home directory.
+  home.file = {
+    ".xinitrc-i3" = {
+      enable = true;
+      source = ./../../../common/home/.xinitrc-i3;
+    };
+
+    ".xinitrc-qtile" = {
+      enable = true;
+      source = ./../../../common/home/.xinitrc-qtile;
+    };
+  };
 }                   
       

@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Install GTK theme.package = pkgs.gruvbox-gtk-theme;
+  # Install GTK theme packages.
   home.packages = with pkgs; [
     nordic
     gruvbox-gtk-theme

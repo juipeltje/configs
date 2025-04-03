@@ -12,8 +12,8 @@ riverctl map normal Super+Control Up focus-output DP-2
 riverctl map normal Super+Control Down focus-output DP-1
 
 # send the focused view to the next/previous output
-riverctl map normal Super+Control+Shift Up send-to-output DP-2
-riverctl map normal Super+Control+Shift Down send-to-output DP-1
+riverctl map normal Super+Control+Shift Up send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift Down send-to-output -current-tags DP-1
 
 # enable/disable adaptive sync
 riverctl map normal Super+Control A spawn 'kanshictl switch gaming'

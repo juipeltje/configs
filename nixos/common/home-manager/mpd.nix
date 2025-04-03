@@ -1,4 +1,4 @@
-# NixOS sound settings
+# NixOS mpd settings
 
 { config, pkgs, ... }:
 
