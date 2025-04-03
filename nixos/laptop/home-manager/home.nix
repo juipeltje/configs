@@ -16,10 +16,12 @@
     ./../../common/home-manager/librewolf.nix
     # Sound settings
     ./../../common/home-manager/sound.nix
-    # common Systemd settings
-    ./../../common/home-manager/soystemd.nix
     # Theme settings
     ./../../common/home-manager/theming.nix
+    # common Wayland settings
+    ./../../common/home-manager/wayland.nix
+    # common X11 settings
+    ./../../common/home-manager/x11.nix
   ];
 
   # The state version is required and should stay at the version you
