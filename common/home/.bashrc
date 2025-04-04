@@ -13,25 +13,23 @@ alias ls='ls --color=auto'
 #alias xi='sudo xbps-install -S'
 #alias xr='sudo xbps-remove -R'
 #alias xc='sudo xbps-remove -Oo'
-alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
+#alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
-# Nix/home-manager aliases
-#alias hs='home-manager switch --flake ~/repos/configs#joppe@Void-Rig'
 # NixOS aliases
-alias rebuild='sudo nixos-rebuild boot --flake ~/repos/configs/nixos#NixOS-Rig'
-alias rebuild-switch='sudo nixos-rebuild switch --flake ~/repos/configs/nixos#NixOS-Rig'
-alias update='sudo nix flake update --flake ~/repos/configs/nixos && sudo nixos-rebuild switch --flake ~/repos/configs/nixos#NixOS-Rig'
+alias rebuild='sudo nixos-rebuild boot --flake ~/repos/configs/nixos'
+alias rebuild-switch='sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
+alias update='sudo nix flake update --flake ~/repos/configs/nixos && sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
 alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
 alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
-alias hs='home-manager switch --flake ~/repos/configs/nixos#joppe@NixOS-Rig'
+alias hs='home-manager switch --flake ~/repos/configs/nixos'
 #
 alias alsa-store='alsactl --file ~/.config/asound.state store'
 #alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
 #alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
-alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
-alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
-alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
+#alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
+#alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
+#alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
 # PS1="\[\e[0;36m\][\u@\h \W]\$ \[\e[m\]"
 # PS1="\[\e[0;34m\][\u@\h \W]\$ \[\e[m\]"
 PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"

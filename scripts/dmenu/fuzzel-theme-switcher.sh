@@ -6,24 +6,15 @@ theme=$( echo -e "󰔎  Nord\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solari
 
 theme_switch() {
 	# sway
-        sed -i --follow-symlinks "s|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-${theme}.conf|" ~/.config/sway/config
+        sed -i --follow-symlinks "s|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-${theme}.conf|" ~/.config/sway/common.conf
         swaymsg reload
-        sed -i --follow-symlinks "s|^exec mako.*|exec mako -c ~/.config/mako/${theme}-config|" ~/.config/sway/common.conf
 
         # river
         sed -i --follow-symlinks "s|^riverctl spawn ~/.config/river/colors.*|riverctl spawn ~/.config/river/colors-${theme}.sh|" ~/.config/river/common.sh
         ~/.config/river/colors-${theme}.sh &
-        sed -i --follow-symlinks "s|^riverctl spawn \"mako.*|riverctl spawn \"mako -c ~/.config/mako/${theme}-config\"|" ~/.config/river/common.sh
 
 	# hyprland
 	sed -i --follow-symlinks "s|^source=~/.config/hypr/colors.*|source=~/.config/hypr/colors-${theme}.conf|" ~/.config/hypr/common.conf
-	sed -i --follow-symlinks "s|^exec-once = mako.*|exec-once = mako -c ~/.config/mako/${theme}-config|" ~/.config/hypr/common.conf
-
-        # qtile
-        sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/qtile/autostart-wayland.sh
-
-        # niri
-        #sed -i --follow-symlinks "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/.config/niri/autostart.sh
 
         # alacritty
         sed -i --follow-symlinks "s|^import.*|import = [\"~/.config/alacritty/${theme}.toml\"]|" ~/.config/alacritty/alacritty.toml
@@ -35,6 +26,7 @@ theme_switch() {
         # mako
         kill $(pgrep mako)
         mako -c ~/.config/mako/${theme}-config &
+        sed -i --follow-symlinks "s|${pkgs.mako}/bin/mako.*|${pkgs.mako}/bin/mako -c ${config.home.homeDirectory}/.config/mako/${theme}-config|" ~/repos/configs/nixos/common/home-manager/wayland.nix
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css
