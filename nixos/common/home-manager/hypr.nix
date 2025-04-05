@@ -30,7 +30,7 @@
     };
 
     "hypr/common.conf" = {
-      enable = true;
+      enable = false;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/hypr/common.conf";
     };
   };

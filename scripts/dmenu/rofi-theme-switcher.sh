@@ -5,9 +5,6 @@
 theme=$( echo -e "󰔎 Nord\n󰔎 Gruvbox-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 
 theme_switch() {
-	# qtile
-        sed -i --follow-symlinks "s|^dunst.*|dunst -conf ~/.config/dunst/dunstrc-${theme} \&|" ~/.config/qtile/autostart.sh
-
         # alacritty
         sed -i --follow-symlinks "s|^import.*|import = [\"~/.config/alacritty/${theme}.toml\"]|" ~/.config/alacritty/alacritty.toml
 
@@ -18,6 +15,7 @@ theme_switch() {
         # dunst
         kill $(pgrep dunst)
         dunst -conf ~/.config/dunst/dunstrc-${theme} &
+	sed -i --follow-symlinks "s|\${pkgs.dunst}/bin/dunst.*|\${pkgs.dunst}/bin/dunst -conf \${config.home.homeDirectory}/.config/dunst/dunstrc-${theme}\";|" ~/repos/configs/nixos/common/home-manager/x11.nix
 
         # rofi
         sed -i --follow-symlinks "s/^@theme.*/@theme \"${theme}\"/" ~/.config/rofi/config.rasi

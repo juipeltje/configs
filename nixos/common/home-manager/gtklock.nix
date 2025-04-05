@@ -25,7 +25,7 @@
     };
 
     "gtklock/style.css" = {
-      enable = true;
+      enable = false;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/gtklock/style.css";
     };
 

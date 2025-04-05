@@ -64,6 +64,10 @@
     ./../../common/home-manager/swayfx.nix
     # SwayFX workstation-specific settings
     ./swayfx.nix
+    # Symlink common settings
+    ./../../common/home-manager/symlinks.nix
+    # Symlink workstation-specific settings
+    ./symlinks.nix
     # Systemd workstation-specific settings
     ./soystemd.nix
     # Theme settings

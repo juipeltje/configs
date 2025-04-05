@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Install GTK theme packages.
+  # Install GTK theme.package = pkgs.magnetic-catppuccin-gtk;
   home.packages = with pkgs; [
     nordic
     gruvbox-gtk-theme
@@ -27,8 +27,8 @@
     font.package = (pkgs.nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; });
     font.name = "Ubuntu Nerd Font Medium";
     font.size = 11;
-    theme.package = pkgs.gruvbox-gtk-theme;
-    theme.name = "Gruvbox-Dark";
+    theme.package = pkgs.magnetic-catppuccin-gtk;
+    theme.name = "Catppuccin-GTK-Dark";
     iconTheme.package = pkgs.mint-y-icons;
     iconTheme.name = "Mint-Y-Aqua";
   };

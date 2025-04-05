@@ -26,7 +26,7 @@
 
       Install = { WantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "qtile-wayland-session.target" "niri-session.target" ]; };
       Service = {
-        ExecStart = "${pkgs.mako}/bin/mako -c ${config.home.homeDirectory}/.config/mako/gruvbox-dark-config";
+        ExecStart = "${pkgs.mako}/bin/mako -c ${config.home.homeDirectory}/.config/mako/catppuccin-mocha-config";
         Restart = "on-failure";
       };
     };

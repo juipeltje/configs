@@ -26,7 +26,7 @@ theme_switch() {
         # mako
         kill $(pgrep mako)
         mako -c ~/.config/mako/${theme}-config &
-        sed -i --follow-symlinks "s|${pkgs.mako}/bin/mako.*|${pkgs.mako}/bin/mako -c ${config.home.homeDirectory}/.config/mako/${theme}-config|" ~/repos/configs/nixos/common/home-manager/wayland.nix
+        sed -i --follow-symlinks "s|\${pkgs.mako}/bin/mako.*|\${pkgs.mako}/bin/mako -c \${config.home.homeDirectory}/.config/mako/${theme}-config\";|" ~/repos/configs/nixos/common/home-manager/wayland.nix
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css
