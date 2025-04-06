@@ -4,7 +4,7 @@
 
 {
   home.activation = {
-    CommonSymlinks = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    CommonSymlinks = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       # Alacritty
       $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
         ${config.home.homeDirectory}/repos/configs/common/home/dotconfig/alacritty/alacritty.toml ${config.home.homeDirectory}/.config/alacritty/
