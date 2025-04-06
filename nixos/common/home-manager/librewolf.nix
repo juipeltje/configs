@@ -9,8 +9,8 @@
       enable = true;
       package = pkgs.librewolf;
       settings = {
-        "privacy.clearOnShutdown.history" = false;
-        "privacy.clearOnShutdown.downloads" = false;
+        "privacy.clearOnShutdown.history" = true;
+        "privacy.clearOnShutdown.downloads" = true;
       };
 
       profiles = {
@@ -19,15 +19,14 @@
           isDefault = true;
           name = "default";
           search = {
-            default = "Brave";
-            privateDefault = "Brave";
+            default = "SearXNG";
+            privateDefault = "SearXNG";
             force = true;
             engines = {
-              "Brave" = {
-                urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
-                iconMapObj."30" = "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/brave-browser-icon.png";
+              "SearXNG" = {
+                urls = [{ template = "https://searx.tiekoetter.com/search?q={searchTerms}"; }];
                 updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [ "@brave" ];
+                definedAliases = [ "@SearXNG" ];
               };
             };
           };

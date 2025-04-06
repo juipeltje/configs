@@ -4,6 +4,8 @@
 
 {
   imports = [
+    # AI settings
+    ./ai.nix
     # Autologin settings
     ./../common/autologin.nix 
     # Boot settings

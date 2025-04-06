@@ -18,9 +18,9 @@ alias ls='ls --color=auto'
 # NixOS aliases
 alias rebuild='sudo nixos-rebuild boot --flake ~/repos/configs/nixos'
 alias rebuild-switch='sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
-alias update='sudo nix flake update --flake ~/repos/configs/nixos && sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
-alias cleanup='sudo nix-collect-garbage && sudo nix-store --optimise'
-alias full-cleanup='sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo nix-store --optimise'
+alias update='sudo nix flake update --flake ~/repos/configs/nixos; sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
+alias cleanup='sudo nix-collect-garbage; sudo nix-store --optimise'
+alias full-cleanup='sudo nix-collect-garbage; sudo nix-collect-garbage -d; sudo nix-store --optimise'
 alias hs='home-manager switch --flake ~/repos/configs/nixos'
 #
 alias alsa-store='alsactl --file ~/.config/asound.state store'

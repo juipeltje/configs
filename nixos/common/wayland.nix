@@ -1,6 +1,6 @@
 # NixOS Wayland configuration
 
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   # Enable wayland compositors, Waybar, and Xwayland.
@@ -20,6 +20,8 @@
     hyprland = {
       enable = true;
       package = pkgs.hyprland;
+      #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
     niri = {

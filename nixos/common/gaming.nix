@@ -24,9 +24,10 @@
     # Emulators
     duckstation
     pcsx2
-    rpcs3
-    shadps4
+    unstable.rpcs3
+    unstable.shadps4
     dolphin-emu
+    flycast
     
     # Benchmarking
     mangohud
@@ -43,7 +44,7 @@
     };
 
     anime-game-launcher = {
-      enable = false;
+      enable = true;
       package = inputs.aagl.packages.x86_64-linux.anime-game-launcher;
     };
 

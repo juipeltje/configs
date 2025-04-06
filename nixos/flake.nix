@@ -43,7 +43,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [ 
-          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -54,7 +54,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -67,7 +67,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./workstation/home-manager/home.nix
         ];
       };
@@ -76,7 +76,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./laptop/home-manager/home.nix
         ];
       };
@@ -85,7 +85,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };
