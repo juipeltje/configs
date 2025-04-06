@@ -24,11 +24,6 @@
       source = ./../../../common/home/dotconfig/gtklock/solarized-dark.css;
     };
 
-    "gtklock/style.css" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/gtklock/style.css";
-    };
-
     "gtklock/tokyonight.css" = {
       enable = true;
       source = ./../../../common/home/dotconfig/gtklock/tokyonight.css;

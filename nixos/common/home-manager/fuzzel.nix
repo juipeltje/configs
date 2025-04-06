@@ -9,11 +9,6 @@
       source = ./../../../common/home/dotconfig/fuzzel/catppuccin-mocha.ini;
     };
 
-    "fuzzel/fuzzel.ini" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/fuzzel/fuzzel.ini";
-    };
-
     "fuzzel/gruvbox-dark.ini" = {
       enable = true;
       source = ./../../../common/home/dotconfig/fuzzel/gruvbox-dark.ini;

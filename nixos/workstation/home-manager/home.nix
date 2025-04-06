@@ -44,8 +44,6 @@
     ./../../common/home-manager/mpd.nix
     # mpv settings
     ./../../common/home-manager/mpv.nix
-    # Niri settings
-    ./niri.nix
     # Picom settings
     ./../../common/home-manager/picom.nix
     # Polybar settings
@@ -76,8 +74,6 @@
     ./virt-manager.nix
     # Waybar common settings
     ./../../common/home-manager/waybar.nix
-    # Waybar workstation-specific settings
-    ./waybar.nix
     # Wayland common settings
     ./../../common/home-manager/wayland.nix
     # X11 common settings

@@ -28,10 +28,5 @@
       enable = true;
       source = ./../../../common/home/dotconfig/river/colors-tokyonight.sh;
     };
-
-    "river/common.sh" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/river/common.sh";
-    };
   };
 }

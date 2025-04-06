@@ -9,11 +9,6 @@
       source = ./../../../common/home/dotconfig/rofi/catppuccin-mocha.rasi;
     };
 
-    "rofi/config.rasi" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/rofi/config.rasi";
-    };
-
     "rofi/gruvbox-dark.rasi" = {
       enable = true;
       source = ./../../../common/home/dotconfig/rofi/gruvbox-dark.rasi;

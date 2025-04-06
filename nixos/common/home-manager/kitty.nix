@@ -14,11 +14,6 @@
       source = ./../../../common/home/dotconfig/kitty/gruvbox-dark.conf;
     };
 
-    "kitty/kitty.conf" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/kitty/kitty.conf";
-    };
-
     "kitty/nord.conf" = {
       enable = true;
       source = ./../../../common/home/dotconfig/kitty/nord.conf;

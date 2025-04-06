@@ -4,11 +4,6 @@
 
 {
   xdg.configFile = {
-    "alacritty/alacritty.toml" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/alacritty/alacritty.toml";
-    };
-
     "alacritty/catppuccin-mocha.toml" = {
       enable = true;
       source = ./../../../common/home/dotconfig/alacritty/catppuccin-mocha.toml;

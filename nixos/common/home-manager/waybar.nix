@@ -44,11 +44,6 @@
       source = ./../../../common/home/dotconfig/waybar/solarized-dark.css;
     };
 
-    "waybar/style.css" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/waybar/style.css";
-    };
-
     "waybar/tokyonight.css" = {
       enable = true;
       source = ./../../../common/home/dotconfig/waybar/tokyonight.css;

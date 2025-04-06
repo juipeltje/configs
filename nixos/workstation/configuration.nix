@@ -32,6 +32,8 @@
     ./../common/locale.nix
     # Network settings
     ./../common/network.nix
+    # Nix settings
+    ./../common/nix.nix
     # OpenRGB settings
     ./openrgb.nix
     # Packages
@@ -57,13 +59,6 @@
     # Workstation-specific X11 settings
     ./x11.nix
   ];
-
-  # Enable flakes and additional cachix servers.
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://ezkea.cachix.org/" ];
-    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
