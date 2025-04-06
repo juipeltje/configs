@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    hyprland.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,18 +16,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      #inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, distro-grub-themes, aagl, nixgl, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -41,7 +43,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [ 
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
           ./workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -52,7 +54,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
           ./laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
@@ -65,7 +67,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
           ./workstation/home-manager/home.nix
         ];
       };
@@ -74,7 +76,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
           ./laptop/home-manager/home.nix
         ];
       };
@@ -83,7 +85,7 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlay ]; }
           ./steam-deck/home-manager/home.nix
         ];
       };
