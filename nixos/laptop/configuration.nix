@@ -3,7 +3,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
+  imports = [
+    # AI settings
+    ./../common/ai.nix 
     # Autologin settings
     ./../common/autologin.nix
     # Battery settings
