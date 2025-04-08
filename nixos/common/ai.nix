@@ -1,6 +1,6 @@
 # NixOS Workstation AI config
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Enable OpenCL (ROCM)
@@ -24,7 +24,7 @@
       Restart = "on-failure";
     };
 
-    environment = if "${config.networking.hostName}" == "NixOS-Rig" then { HSA_OVERRIDE_GFX_VERSION = "10.3.0"; } else { };
+    environment = lib.mkIf (config.networking.hostName == "NixOS-Rig") { HSA_OVERRIDE_GFX_VERSION = "10.3.0"; };
     wantedBy = [ "default.target" ];
   };
 }

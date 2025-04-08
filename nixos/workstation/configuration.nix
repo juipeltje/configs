@@ -58,8 +58,6 @@
     ./../common/wayland.nix
     # X11 settings
     ./../common/x11.nix
-    # Workstation-specific X11 settings
-    ./x11.nix
   ];
 
   # This value determines the NixOS release from which the default
