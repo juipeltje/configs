@@ -1,12 +1,23 @@
 # NixOS i3 configs
 
-{ config, pkgs, ... }:
+{ config, hostName, lib, pkgs, ... }:
 
 {
-  xdg.configFile = {
-    "i3/common.conf" = {
-      enable = false;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/repos/configs/common/home/dotconfig/i3/common.conf";
-    };
-  };
+  config = lib.mkMerge [
+    {
+      xdg.configFile = {
+        "i3/config" = {
+          enable = true;
+        };
+      };
+    }
+
+    (lib.mkIf (hostName == "NixOS-Rig") {
+      xdg.configFile."i3/config".source = ./../../../workstation/home/dotconfig/i3/config;
+    })
+
+    (lib.mkIf (hostName == "NixOS-Lappie") {
+      xdg.configFile."i3/config".source = ./../../../laptop/home/dotconfig/i3/config;
+    })
+  ];
 }

@@ -34,14 +34,12 @@
     ./../common/nix.nix
     # Packages
     ./../common/packages.nix
-    # Laptop-specific packages
-    ./packages.nix
     # qcma custom module
     ./../common/modules/qcma.nix
     # Sound settings
     ./../common/sound.nix
     # Swap settings
-    ./swap.nix
+    ./../common/swap.nix
     # Systemd service settings
     ./../common/soystemd.nix
     # User settings

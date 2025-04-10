@@ -14,8 +14,6 @@
     ./../common/containers.nix
     # Drive settings
     ./../common/drives.nix
-    # Workstation-specific drive settings
-    ./drives.nix
     # Environment variables
     ./../common/environment.nix
     # Gaming
@@ -40,20 +38,18 @@
     ./openrgb.nix
     # Packages
     ./../common/packages.nix
-    # Workstation-specific packages
-    ./packages.nix
     # qcma custom module
     ./../common/modules/qcma.nix
     # Sound settings
     ./../common/sound.nix
     # Swap settings
-    ./swap.nix
+    ./../common/swap.nix
     # Systemd service settings
     ./../common/soystemd.nix
     # User settings
     ./../common/users.nix
     # Virtualisation settings
-    ./virtualisation.nix
+    ./../common/virtualisation.nix
     # Wayland settings
     ./../common/wayland.nix
     # X11 settings

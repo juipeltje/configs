@@ -65,7 +65,11 @@
     homeConfigurations = {
       "joppe@NixOS-Rig" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { 
+          inherit inputs;
+          hostName = "NixOS-Rig";
+        };
+
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./workstation/home-manager/home.nix
@@ -74,7 +78,11 @@
 
       "joppe@NixOS-Lappie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { 
+          inherit inputs;
+          hostName = "NixOS-Lappie";
+        };
+
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./laptop/home-manager/home.nix
@@ -83,7 +91,11 @@
       
       "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { 
+          inherit inputs;
+          hostName = "Deckie";
+        };
+
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./steam-deck/home-manager/home.nix

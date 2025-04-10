@@ -26,14 +26,10 @@
     ./../../common/home-manager/gtklock.nix
     # Hyprland common settings
     ./../../common/home-manager/hypr.nix
-    # Hyprland workstation-specific settings
-    ./hypr.nix
     # i3 common settings
     ./../../common/home-manager/i3.nix
-    # i3 workstation-specific settings
-    ./i3.nix
     # Kanshi settings
-    ./kanshi.nix
+    ./../../common/home-manager/kanshi.nix
     # Kitty settings
     ./../../common/home-manager/kitty.nix
     # Librewolf settings
@@ -47,31 +43,23 @@
     # Picom settings
     ./../../common/home-manager/picom.nix
     # Polybar settings
-    ./polybar.nix
+    ./../../common/home-manager/polybar.nix
     # Qtile common settings
     ./../../common/home-manager/qtile.nix
-    # Qtile workstation-specific settings
-    ./qtile.nix
     # River common settings
     ./../../common/home-manager/river.nix
-    # River workstation-specific settings
-    ./river.nix
     # Rofi settings
     ./../../common/home-manager/rofi.nix
     # SwayFX common settings
     ./../../common/home-manager/swayfx.nix
-    # SwayFX workstation-specific settings
-    ./swayfx.nix
     # Symlink common settings
     ./../../common/home-manager/symlinks.nix
-    # Symlink workstation-specific settings
-    ./symlinks.nix
     # Systemd workstation-specific settings
     ./soystemd.nix
     # Theme settings
     ./../../common/home-manager/theming.nix
     # Virt-manager settings
-    ./virt-manager.nix
+    ./../../common/home-manager/virt-manager.nix
     # Waybar common settings
     ./../../common/home-manager/waybar.nix
     # Wayland common settings
