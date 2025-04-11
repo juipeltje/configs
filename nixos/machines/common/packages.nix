@@ -129,10 +129,16 @@
     }
 
     (lib.mkIf (config.networking.hostName == "NixOS-Rig") {
-      # Enable OpenRGB.
-      services.hardware.openrgb = {
-        enable = true;
-        motherboard = "amd";
+      # Enable OpenRGB and Yoda.
+      services.hardware = {
+        openrgb = {
+          enable = true;
+          motherboard = "amd";
+        };
+
+        yoda = {
+          enable = true;
+        };
       };
 
       # Select kernel version.

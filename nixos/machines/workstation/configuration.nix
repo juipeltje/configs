@@ -22,8 +22,6 @@
     ./hardware-configuration.nix
     # Hostname
     ./hostname.nix
-    # Liquidctl settings
-    ./liquidctl.nix
     # Locale settings
     ./../common/locale.nix
     # Network settings
@@ -48,6 +46,8 @@
     ./../common/wayland.nix
     # X11 settings
     ./../common/x11.nix
+    # Yoda custom module
+    ./../../modules/yoda.nix
   ];
 
   # This value determines the NixOS release from which the default
