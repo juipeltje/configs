@@ -14,14 +14,10 @@
     ./../common/containers.nix
     # Drive settings
     ./../common/drives.nix
-    # Environment variables
-    ./../common/environment.nix
     # Gaming
     ./../common/gaming.nix
     # gpu passthrough settings
     ./gpu-passthrough.nix
-    # greeter settings
-    #./greeter.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Hostname
@@ -34,8 +30,6 @@
     ./../common/network.nix
     # Nix settings
     ./../common/nix.nix
-    # OpenRGB settings
-    ./openrgb.nix
     # Packages
     ./../common/packages.nix
     # qcma custom module

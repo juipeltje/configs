@@ -16,12 +16,8 @@
     ./../common/containers.nix
     # Drive settings
     ./../common/drives.nix
-    # Environment variables
-    ./../common/environment.nix
     # Gaming
     ./../common/gaming.nix
-    # Greeter settings
-    #./greeter.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # Hostname

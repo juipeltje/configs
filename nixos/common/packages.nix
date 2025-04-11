@@ -129,6 +129,12 @@
     }
 
     (lib.mkIf (config.networking.hostName == "NixOS-Rig") {
+      # Enable OpenRGB.
+      services.hardware.openrgb = {
+        enable = true;
+        motherboard = "amd";
+      };
+
       # Select kernel version.
       boot = {
         kernelPackages = pkgs.linuxPackages_6_12;
