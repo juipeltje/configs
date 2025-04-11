@@ -6,27 +6,27 @@
   xdg.configFile = {
     "alacritty/catppuccin-mocha.toml" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/alacritty/catppuccin-mocha.toml;
+      source = ./../../../../common/home/dotconfig/alacritty/catppuccin-mocha.toml;
     };
 
     "alacritty/gruvbox-dark.toml" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/alacritty/gruvbox-dark.toml;
+      source = ./../../../../common/home/dotconfig/alacritty/gruvbox-dark.toml;
     };
 
     "alacritty/nord.toml" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/alacritty/nord.toml;
+      source = ./../../../../common/home/dotconfig/alacritty/nord.toml;
     };
 
     "alacritty/solarized-dark.toml" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/alacritty/solarized-dark.toml;
+      source = ./../../../../common/home/dotconfig/alacritty/solarized-dark.toml;
     };
 
     "alacritty/tokyonight.toml" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/alacritty/tokyonight.toml;
+      source = ./../../../../common/home/dotconfig/alacritty/tokyonight.toml;
     };
   };
 }

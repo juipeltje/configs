@@ -6,7 +6,7 @@
   xdg.configFile = {
     "distrobox/distrobox.conf" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/distrobox/distrobox.conf;
+      source = ./../../../../common/home/dotconfig/distrobox/distrobox.conf;
     };
   };
 }

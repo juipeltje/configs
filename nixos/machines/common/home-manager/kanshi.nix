@@ -13,7 +13,7 @@
     }
 
     (lib.mkIf (hostName == "NixOS-Rig") {
-      xdg.configFile."kanshi/config".source = ./../../../workstation/home/dotconfig/kanshi/config;
+      xdg.configFile."kanshi/config".source = ./../../../../workstation/home/dotconfig/kanshi/config;
     })
   ];
 }

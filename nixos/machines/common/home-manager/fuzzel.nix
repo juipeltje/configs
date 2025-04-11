@@ -6,27 +6,27 @@
   xdg.configFile = {
     "fuzzel/catppuccin-mocha.ini" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/fuzzel/catppuccin-mocha.ini;
+      source = ./../../../../common/home/dotconfig/fuzzel/catppuccin-mocha.ini;
     };
 
     "fuzzel/gruvbox-dark.ini" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/fuzzel/gruvbox-dark.ini;
+      source = ./../../../../common/home/dotconfig/fuzzel/gruvbox-dark.ini;
     };
 
     "fuzzel/nord.ini" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/fuzzel/nord.ini;
+      source = ./../../../../common/home/dotconfig/fuzzel/nord.ini;
     };
 
     "fuzzel/solarized-dark.ini" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/fuzzel/solarized-dark.ini;
+      source = ./../../../../common/home/dotconfig/fuzzel/solarized-dark.ini;
     };
 
     "fuzzel/tokyonight.ini" = {
       enable = true;
-      source = ./../../../common/home/dotconfig/fuzzel/tokyonight.ini;
+      source = ./../../../../common/home/dotconfig/fuzzel/tokyonight.ini;
     };
   };
 }

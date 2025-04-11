@@ -1,5 +1,5 @@
 {
-  description = "flake for my NixOS machines";
+  description = "juipeltje's flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
@@ -44,7 +44,7 @@
         specialArgs = { inherit inputs; };
         modules = [ 
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./workstation/configuration.nix
+          ./machines/workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
         ];
@@ -55,7 +55,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./laptop/configuration.nix
+          ./machines/laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
         ];
@@ -72,7 +72,7 @@
 
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./workstation/home-manager/home.nix
+          ./machines/workstation/home-manager/home.nix
         ];
       };
 
@@ -85,7 +85,7 @@
 
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./laptop/home-manager/home.nix
+          ./machines/laptop/home-manager/home.nix
         ];
       };
       
@@ -98,7 +98,7 @@
 
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./steam-deck/home-manager/home.nix
+          ./machines/steam-deck/home-manager/home.nix
         ];
       };
     };

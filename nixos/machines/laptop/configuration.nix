@@ -31,7 +31,7 @@
     # Packages
     ./../common/packages.nix
     # qcma custom module
-    ./../common/modules/qcma.nix
+    ./../../modules/qcma.nix
     # Sound settings
     ./../common/sound.nix
     # Swap settings

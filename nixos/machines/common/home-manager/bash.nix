@@ -6,7 +6,7 @@
   home.file = {
     ".bashrc" = {
       enable = true;
-      source = ./../../../common/home/.bashrc;
+      source = ./../../../../common/home/.bashrc;
     };
   };
 }
