@@ -16,7 +16,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       (python3.withPackages (subpkgs: with subpkgs; [ 
-        (python3Packages.callPackage ./../../derivations/yoda/derivation.nix { })
+        (python3Packages.callPackage ./../derivations/yoda/derivation.nix { })
       ]))
     ];
 
@@ -33,7 +33,7 @@ in
 
       path = with pkgs; [ 
         (python3.withPackages (subpkgs: with subpkgs; [ 
-          (python3Packages.callPackage ./../../derivations/yoda/derivation.nix { })
+          (python3Packages.callPackage ./../derivations/yoda/derivation.nix { })
         ])) 
       ];
 

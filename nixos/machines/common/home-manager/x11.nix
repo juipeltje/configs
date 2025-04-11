@@ -38,12 +38,12 @@
   home.file = {
     ".xinitrc-i3" = {
       enable = true;
-      source = ./../../../../common/home/.xinitrc-i3;
+      source = ./../../../../dotfiles/common/.xinitrc-i3;
     };
 
     ".xinitrc-qtile" = {
       enable = true;
-      source = ./../../../../common/home/.xinitrc-qtile;
+      source = ./../../../../dotfiles/common/.xinitrc-qtile;
     };
   };
 }                   

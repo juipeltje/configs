@@ -8,7 +8,7 @@
       xdg.configFile = {
         "qtile/colors.py" = {
           enable = true;
-          source = ./../../../../common/home/dotconfig/qtile/colors.py;
+          source = ./../../../../dotfiles/common/dotconfig/qtile/colors.py;
         };
 
         "qtile/config.py" = {
@@ -18,11 +18,11 @@
     }
 
     (lib.mkIf (hostName == "NixOS-Rig") {
-      xdg.configFile."qtile/config.py".source = ./../../../../workstation/home/dotconfig/qtile/config.py;
+      xdg.configFile."qtile/config.py".source = ./../../../../dotfiles/workstation/dotconfig/qtile/config.py;
     })
 
     (lib.mkIf (hostName == "NixOS-Lappie") {
-      xdg.configFile."qtile/config.py".source = ./../../../../laptop/home/dotconfig/qtile/config.py;
+      xdg.configFile."qtile/config.py".source = ./../../../../dotfiles/laptop/dotconfig/qtile/config.py;
     })
   ];
 }

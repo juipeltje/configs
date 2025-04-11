@@ -18,15 +18,15 @@
 
     (lib.mkIf (hostName == "NixOS-Rig") {
       xdg.configFile = {
-        "polybar/config.ini".source = ./../../../../workstation/home/dotconfig/polybar/config.ini;
-        "polybar/launch.sh".source = ./../../../../workstation/home/dotconfig/polybar/launch.sh;
+        "polybar/config.ini".source = ./../../../../dotfiles/workstation/dotconfig/polybar/config.ini;
+        "polybar/launch.sh".source = ./../../../../dotfiles/workstation/dotconfig/polybar/launch.sh;
       };
     })
 
     (lib.mkIf (hostName == "NixOS-Lappie") {
       xdg.configFile = {
-        "polybar/config.ini".source = ./../../../../laptop/home/dotconfig/polybar/config.ini;
-        "polybar/launch.sh".source = ./../../../../laptop/home/dotconfig/polybar/launch.sh;
+        "polybar/config.ini".source = ./../../../../dotfiles/laptop/dotconfig/polybar/config.ini;
+        "polybar/launch.sh".source = ./../../../../dotfiles/laptop/dotconfig/polybar/launch.sh;
       };
     })
   ];

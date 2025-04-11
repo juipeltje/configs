@@ -6,12 +6,12 @@
   xdg.configFile = {
     "mpv/input.conf" = {
       enable = true;
-      source = ./../../../../common/home/dotconfig/mpv/input.conf;
+      source = ./../../../../dotfiles/common/dotconfig/mpv/input.conf;
     };
 
     "mpv/mpv.conf" = {
       enable = true;
-      source = ./../../../../common/home/dotconfig/mpv/mpv.conf;
+      source = ./../../../../dotfiles/common/dotconfig/mpv/mpv.conf;
     };
   };
 }
