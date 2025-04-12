@@ -1,4 +1,4 @@
-# NixOS Qtile configs
+# Home Manager Qtile configuration
 
 { config, hostName, lib, pkgs, ... }:
 

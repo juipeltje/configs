@@ -1,4 +1,4 @@
-# NixOS Hyprland configs
+# Home Manager Hyprland configuration
 
 { config, hostName, lib, pkgs, ... }:
 

@@ -1,4 +1,4 @@
-# NixOS workstation config
+# NixOS workstation configuration
 
 { config, pkgs, ... }:
 

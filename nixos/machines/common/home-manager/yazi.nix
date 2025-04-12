@@ -1,4 +1,4 @@
-# NixOS Yazi configs
+# Home Manager Yazi configuration
 
 { config, pkgs, ... }:
 

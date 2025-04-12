@@ -1,4 +1,4 @@
-# NixOS i3 configs
+# Home Manager i3 configuration
 
 { config, hostName, lib, pkgs, ... }:
 

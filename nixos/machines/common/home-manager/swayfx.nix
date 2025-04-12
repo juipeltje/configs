@@ -1,4 +1,4 @@
-# NixOS SwayFX configs
+# Home Manager SwayFX configuration
 
 { config, hostName, lib, pkgs, ... }:
 

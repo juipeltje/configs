@@ -1,4 +1,4 @@
-# NixOS gtklock configs
+# Home Manager gtklock configuration
 
 { config, pkgs, ... }:
 

@@ -1,4 +1,4 @@
-# NixOS Distrobox config
+# Home Manager Distrobox configuration
 
 { config, pkgs, ... }:
 

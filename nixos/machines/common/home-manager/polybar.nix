@@ -1,4 +1,4 @@
-# NixOS Polybar configs
+# Home Manager Polybar configuration
 
 { config, hostName, lib, pkgs, ... }:
 

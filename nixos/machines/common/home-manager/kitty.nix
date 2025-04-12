@@ -1,4 +1,4 @@
-# NixOS Kitty configs
+# Home Manager Kitty configuration
 
 { config, pkgs, ... }:
 

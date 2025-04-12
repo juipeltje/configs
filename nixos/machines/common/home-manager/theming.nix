@@ -1,4 +1,4 @@
-# NixOS theme settings
+# Home Manager theme configuration
 
 { config, pkgs, ... }:
 

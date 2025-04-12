@@ -1,4 +1,4 @@
-# NixOS virt-manager config
+# Home Manager Virt-manager configuration
 
 { config, pkgs, ... }:
 

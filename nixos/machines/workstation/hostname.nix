@@ -1,4 +1,4 @@
-# NixOS workstation hostname
+# NixOS workstation hostname configuration
 
 { config, pkgs, ... }:
 

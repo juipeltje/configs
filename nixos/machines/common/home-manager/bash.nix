@@ -1,4 +1,4 @@
-# NixOS Bash configs
+# Home Manager Bash configuration
 
 { config, pkgs, ... }:
 

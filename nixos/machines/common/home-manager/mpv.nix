@@ -1,4 +1,4 @@
-# NixOS mpv configs
+# Home Manager mpv configuration
 
 { config, pkgs, ... }:
 

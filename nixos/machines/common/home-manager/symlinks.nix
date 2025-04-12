@@ -1,4 +1,4 @@
-# NixOS symlink configs
+# Home Manager symlink configuration
 
 { config, hostName, lib, pkgs, ... }:
 

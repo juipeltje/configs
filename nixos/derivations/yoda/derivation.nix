@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, liquidctl, psutil, }:
+{ buildPythonPackage, fetchFromGitHub, lib, liquidctl, psutil }:
 
 buildPythonPackage rec {
   pname = "yoda";

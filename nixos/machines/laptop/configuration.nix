@@ -1,4 +1,4 @@
-# NixOS laptop config
+# NixOS laptop configuration
 
 { config, pkgs, ... }:
 

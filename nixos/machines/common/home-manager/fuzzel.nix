@@ -1,4 +1,4 @@
-# NixOS Fuzzel configs
+# Home Manager Fuzzel configuration
 
 { config, pkgs, ... }:
 

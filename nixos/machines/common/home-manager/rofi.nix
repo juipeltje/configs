@@ -1,4 +1,4 @@
-# NixOS Rofi configs
+# Home Manager Rofi configuration
 
 { config, pkgs, ... }:
 

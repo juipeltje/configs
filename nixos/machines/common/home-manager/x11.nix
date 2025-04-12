@@ -1,4 +1,4 @@
-# NixOS X11 settings
+# Home Manager X11 configuration
 
 { config, pkgs, ... }:
 

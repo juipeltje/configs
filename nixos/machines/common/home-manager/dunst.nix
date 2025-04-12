@@ -1,4 +1,4 @@
-# NixOS Dunst configs
+# Home Manager Dunst configuration
 
 { config, pkgs, ... }:
 

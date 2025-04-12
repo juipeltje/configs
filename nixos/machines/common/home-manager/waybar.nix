@@ -1,4 +1,4 @@
-# NixOS Waybar configs
+# Home Manager Waybar configuration
 
 { config, pkgs, ... }:
 

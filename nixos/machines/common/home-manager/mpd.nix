@@ -1,4 +1,4 @@
-# NixOS mpd settings
+# Home Manager mpd configuration
 
 { config, pkgs, ... }:
 

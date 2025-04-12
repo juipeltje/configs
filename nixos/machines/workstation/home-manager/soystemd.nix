@@ -1,4 +1,4 @@
-# NixOS workstation Systemd services
+# Home Manager workstation Systemd services configuration
 
 { config, pkgs, ... }:
 

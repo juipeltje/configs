@@ -1,4 +1,4 @@
-# NixOS Mako configs
+# Home Manager Mako configuration
 
 { config, pkgs, ... }:
 

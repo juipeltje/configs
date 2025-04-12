@@ -1,4 +1,4 @@
-# NixOS locale settings
+# NixOS locale configuration
 
 { config, pkgs, ... }:
 

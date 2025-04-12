@@ -1,4 +1,4 @@
-# NixOS laptop hostname
+# NixOS laptop hostname configuration
 
 { config, pkgs, ... }:
 

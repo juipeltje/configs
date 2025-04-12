@@ -1,4 +1,4 @@
-# NixOS Wayland settings
+# Home Manager Wayland configuration
 
 { config, pkgs, ... }:
 

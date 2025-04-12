@@ -1,4 +1,4 @@
-# NixOS laptop home-manager config
+# Home Manager laptop configuration
 
 { config, pkgs, ... }:
 

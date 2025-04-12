@@ -1,4 +1,4 @@
-# NixOS Workstation AI config
+# NixOS AI configuration
 
 { config, lib, pkgs, ... }:
 

@@ -1,4 +1,4 @@
-# NixOS workstation home-manager config
+# Home Manager workstation configuration
 
 { config, pkgs, ... }:
 

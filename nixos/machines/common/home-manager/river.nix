@@ -1,4 +1,4 @@
-# NixOS River configs
+# Home Manager River configuration
 
 { config, hostName, lib, pkgs, ... }:
 

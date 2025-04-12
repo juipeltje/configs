@@ -1,4 +1,4 @@
-# NixOS Git config
+# Home Manager Git configuration
 
 { config, pkgs, ... }:
 

@@ -1,4 +1,4 @@
-# NixOS Picom configs
+# Home Manager Picom configuration
 
 { config, pkgs, ... }:
 

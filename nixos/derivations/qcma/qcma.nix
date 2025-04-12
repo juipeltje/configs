@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, qtbase, libnotify, qmake, qttools, wrapQtAppsHook, pkg-config, callPackage }:
+{ callPackage, fetchFromGitHub, lib, libnotify, pkg-config, qmake, qtbase, qttools, stdenv, wrapQtAppsHook }:
 
 let
   libvitamtp = callPackage ./libvitamtp.nix {};

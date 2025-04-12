@@ -1,4 +1,4 @@
-# NixOS Alacritty configs
+# Home Manager Alacritty configuration
 
 { config, pkgs, ... }:
 

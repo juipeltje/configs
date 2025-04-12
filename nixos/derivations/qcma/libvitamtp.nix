@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, pkg-config, automake, autoconf, libxml2, libusb1, libtool, gettext }:
+{ autoconf, automake, fetchFromGitHub, gettext, lib, libtool, libusb1, libxml2, pkg-config, stdenv }:
 
 stdenv.mkDerivation rec {
   pname = "libvitamtp";

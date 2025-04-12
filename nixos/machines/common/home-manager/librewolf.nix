@@ -1,4 +1,4 @@
-# NixOS Librewolf settings
+# Home Manager Librewolf configuration
 
 { config, pkgs, ... }:
 

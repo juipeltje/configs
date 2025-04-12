@@ -1,4 +1,4 @@
-# NixOS nix settings ( flakes, cachix, )
+# NixOS nix configuration ( flakes, cachix, )
 
 { config, pkgs, ... }:
 

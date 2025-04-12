@@ -1,4 +1,4 @@
-# NixOS Kanshi config
+# Home Manager Kanshi configuration
 
 { config, hostName, lib, pkgs, ... }:
 
