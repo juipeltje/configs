@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-op=$( echo -e "󱚟  Deepseek-r1\n󱚟  Qwen2.5-coder" | fuzzel -d -w 10 --placeholder="Select LLM:" | awk '{print tolower($2)}' )
+op=$( echo -e "󱚟  Deepseek-r1\n󱚟  Qwen2.5-coder" | rofi -dmenu -p "Select LLM:" -theme-str 'window {width: 250px;}' | awk '{print tolower($2)}' )
 
 terminal=alacritty
 hostname=$( cat /etc/hostname )
