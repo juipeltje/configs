@@ -43,6 +43,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [ 
+          { networking.hostName = "NixOS-Rig"; }
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
@@ -54,6 +55,7 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
+          { networking.hostName = "NixOS-Lappie"; }
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default

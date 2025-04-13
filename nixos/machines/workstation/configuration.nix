@@ -20,8 +20,6 @@
     ./gpu-passthrough.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # Hostname
-    ./hostname.nix
     # Locale settings
     ./../common/locale.nix
     # Network settings
