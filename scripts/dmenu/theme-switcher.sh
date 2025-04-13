@@ -30,12 +30,12 @@ theme_switch() {
         	# mako
         	kill $(pgrep mako)
         	mako -c ~/.config/mako/${theme}-config &
-        	sed -i --follow-symlinks "s|\${pkgs.mako}/bin/mako.*|\${pkgs.mako}/bin/mako -c \${config.home.homeDirectory}/.config/mako/${theme}-config\";|" ~/repos/configs/nixos/common/home-manager/wayland.nix
+        	sed -i --follow-symlinks "s|\${pkgs.mako}/bin/mako.*|\${pkgs.mako}/bin/mako -c \${config.home.homeDirectory}/.config/mako/${theme}-config\";|" ~/repos/configs/nixos/machines/common/home-manager/wayland.nix
 	else
 		# dunst
         	kill $(pgrep dunst)
         	dunst -conf ~/.config/dunst/dunstrc-${theme} &
-        	sed -i --follow-symlinks "s|\${pkgs.dunst}/bin/dunst.*|\${pkgs.dunst}/bin/dunst -conf \${config.home.homeDirectory}/.config/dunst/dunstrc-${theme}\";|" ~/repos/configs/nixos/common/home-manager/x11.nix
+        	sed -i --follow-symlinks "s|\${pkgs.dunst}/bin/dunst.*|\${pkgs.dunst}/bin/dunst -conf \${config.home.homeDirectory}/.config/dunst/dunstrc-${theme}\";|" ~/repos/configs/nixos/machines/common/home-manager/x11.nix
 	fi
 
         # waybar
@@ -77,8 +77,8 @@ case $theme in
 		notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
 
 		# home manager
- 		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+ 		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user.
@@ -105,8 +105,8 @@ case $theme in
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
 
                 # home manager
-		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user
@@ -133,8 +133,8 @@ case $theme in
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
 
                 # home manager
-		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos
 
 		# done. notify user
@@ -161,8 +161,8 @@ case $theme in
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
 
                 # home manager
-                sed -i 's/theme.package.*/theme.package = pkgs.numix-solarized-gtk-theme;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "NumixSolarizedDarkGreen";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.package.*/theme.package = pkgs.numix-solarized-gtk-theme;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "NumixSolarizedDarkGreen";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user
@@ -189,8 +189,8 @@ case $theme in
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
 
                 # home manager
-                sed -i 's/theme.package.*/theme.package = pkgs.magnetic-catppuccin-gtk;/' ~/repos/configs/nixos/common/home-manager/theming.nix
-                sed -i 's/theme.name.*/theme.name = "Catppuccin-GTK-Dark";/' ~/repos/configs/nixos/common/home-manager/theming.nix
+                sed -i 's/theme.package.*/theme.package = pkgs.magnetic-catppuccin-gtk;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Catppuccin-GTK-Dark";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
                 home-manager switch --flake ~/repos/configs/nixos
 
                 # done. notify user
