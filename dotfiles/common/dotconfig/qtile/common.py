@@ -59,6 +59,18 @@ keys = [
   # Open rmpc
   Key([mod], "m", lazy.spawn(image_terminal + " -e rmpc") ),
 
+  # open theme switcher
+  Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/theme-switcher.sh') ),
+
+  # open powermenu
+  Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/powermenu.sh') ),
+
+  # open compositor switcher
+  Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/compositor-switcher.sh') ),
+
+  # open LLM launcher
+  Key([mod], "l", lazy.spawn(home + '/repos/configs/scripts/dmenu/llm-launcher.sh') ),
+
   # play/pause/previous/next keyboard controls
   Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause") ),
   Key([], "XF86AudioNext", lazy.spawn("playerctl next") ),
@@ -117,15 +129,6 @@ if qtile.core.name == "x11":
       # open application launcher
       Key([mod], "space", lazy.spawn("rofi -show drun") ),
 
-      # open theme switcher
-      Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-theme-switcher.sh') ),
-
-      # open powermenu
-      Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-powermenu.sh') ),
-
-      # open compositor switcher
-      Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/rofi-compositor-switcher.sh') ),
-
       # notification history and close all notifications
       Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
       Key([mod], "c", lazy.spawn("dunstctl close-all") ),
@@ -141,15 +144,6 @@ elif qtile.core.name == "wayland":
     [
       # open application launcher
       Key([mod], "space", lazy.spawn("fuzzel") ),
-
-      # open theme switcher
-      Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh') ),
-
-      # open powermenu
-      Key([mod], "Escape", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-powermenu.sh') ),
-
-      # open compositor switcher
-      Key([mod, "shift"], "c", lazy.spawn(home + '/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh') ),
 
       # notification history and close all notifications
       Key([mod], "n", lazy.spawn("makoctl restore") ),

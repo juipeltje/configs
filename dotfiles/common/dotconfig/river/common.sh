@@ -49,14 +49,20 @@ riverctl map normal Super M spawn "${image_terminal} -e rmpc"
 # open application launcher
 riverctl map normal Super Space spawn fuzzel
 
+# open LLM launcher
+riverctl map normal Super L spawn ~/repos/configs/scripts/dmenu/llm-launcher.sh
+
 # open theme switcher
-riverctl map normal Super+Shift T spawn ~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh
+riverctl map normal Super+Shift T spawn ~/repos/configs/scripts/dmenu/theme-switcher.sh
 
 # open compositor switcher
-riverctl map normal Super+Shift C spawn ~/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh
+riverctl map normal Super+Shift C spawn ~/repos/configs/scripts/dmenu/compositor-switcher.sh
 
 # open powermenu
-riverctl map normal Super Escape spawn ~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh
+riverctl map normal Super Escape spawn ~/repos/configs/scripts/dmenu/powermenu.sh
+
+# Toggle hide/show Waybar
+riverctl map normal Super B spawn ~/repos/configs/scripts/waybar/toggle-bar.sh
 
 # Mako notification history and close all notifications
 riverctl map normal Super N spawn 'makoctl restore'

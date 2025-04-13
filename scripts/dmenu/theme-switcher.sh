@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-# Theme switcher script for Fuzzel
-
-theme=$( echo -e "󰔎  Nord\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+# Theme switcher script
+if [ -n "$WAYLAND_DISPLAY" ]; then
+	theme=$( echo -e "󰔎  Nord\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+else
+	theme=$( echo -e "󰔎 Nord\n󰔎 Gruvbox-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+fi
 
 theme_switch() {
 	# sway
@@ -23,10 +26,17 @@ theme_switch() {
         sed -i --follow-symlinks "s|^include.*|include ${theme}.conf|" ~/.config/kitty/kitty.conf
         kill -SIGUSR1 $(pgrep kitty)
 
-        # mako
-        kill $(pgrep mako)
-        mako -c ~/.config/mako/${theme}-config &
-        sed -i --follow-symlinks "s|\${pkgs.mako}/bin/mako.*|\${pkgs.mako}/bin/mako -c \${config.home.homeDirectory}/.config/mako/${theme}-config\";|" ~/repos/configs/nixos/common/home-manager/wayland.nix
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+        	# mako
+        	kill $(pgrep mako)
+        	mako -c ~/.config/mako/${theme}-config &
+        	sed -i --follow-symlinks "s|\${pkgs.mako}/bin/mako.*|\${pkgs.mako}/bin/mako -c \${config.home.homeDirectory}/.config/mako/${theme}-config\";|" ~/repos/configs/nixos/common/home-manager/wayland.nix
+	else
+		# dunst
+        	kill $(pgrep dunst)
+        	dunst -conf ~/.config/dunst/dunstrc-${theme} &
+        	sed -i --follow-symlinks "s|\${pkgs.dunst}/bin/dunst.*|\${pkgs.dunst}/bin/dunst -conf \${config.home.homeDirectory}/.config/dunst/dunstrc-${theme}\";|" ~/repos/configs/nixos/common/home-manager/x11.nix
+	fi
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css
@@ -34,6 +44,9 @@ theme_switch() {
 
         # fuzzel
         sed -i --follow-symlinks "s|^include.*|include=~/.config/fuzzel/${theme}.ini|" ~/.config/fuzzel/fuzzel.ini
+
+	# rofi
+        sed -i --follow-symlinks "s/^@theme.*/@theme \"${theme}\"/" ~/.config/rofi/config.rasi
 
         # gtklock
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/gtklock/style.css
@@ -57,6 +70,8 @@ case $theme in
 
 		# GTK
 		#gsettings set org.gnome.desktop.interface gtk-theme Nordic
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Nordic"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
 
 		# done with configs, now setting gtk theme with home manager
 		notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -83,6 +98,8 @@ case $theme in
 
 		# GTK
 		#gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Gruvbox-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -109,6 +126,8 @@ case $theme in
 
 		# GTK
 		#gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Tokyonight-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -135,6 +154,8 @@ case $theme in
 
                 # GTK
                 #gsettings set org.gnome.desktop.interface gtk-theme NumixSolarizedDarkGreen
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "NumixSolarizedDarkGreen"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -161,6 +182,8 @@ case $theme in
 
                 # GTK
                 #gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Catppuccin-Dark"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."

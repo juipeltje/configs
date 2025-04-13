@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-# Compositor switcher script for Fuzzel
-
-op=$( echo -e "  Hyprland\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
+# Compositor switcher script
+if [ -n "$WAYLAND_DISPLAY" ]; then
+	op=$( echo -e "  Hyprland\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
+else
+	op=$( echo -e "  Hyprland\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | rofi -dmenu -p "Select a compositor:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+fi
 
 exit_compositor() {
         systemctl --user stop sway-session.target

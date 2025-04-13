@@ -110,14 +110,20 @@ binds {
   // open application launcher
   Mod+Space { spawn "fuzzel"; }
 
+  // open LLM launcher
+  Mod+L { spawn "~/repos/configs/scripts/dmenu/llm-launcher.sh"; }
+
   // open theme switcher
-  Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/fuzzel-theme-switcher.sh"; }
+  Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/theme-switcher.sh"; }
 
   // open compositor switcher
-  Mod+Shift+C { spawn "~/repos/configs/scripts/dmenu/fuzzel-compositor-switcher.sh"; }
+  Mod+Shift+C { spawn "~/repos/configs/scripts/dmenu/compositor-switcher.sh"; }
 
   // open powermenu
-  Mod+Escape { spawn "~/repos/configs/scripts/dmenu/fuzzel-powermenu.sh"; }
+  Mod+Escape { spawn "~/repos/configs/scripts/dmenu/powermenu.sh"; }
+
+  // Toggle hide/show Waybar
+  Mod+B { spawn "~/repos/configs/scripts/waybar/toggle-bar.sh"; }
 
   // Mako notification history and close all notifications
   Mod+N { spawn "makoctl" "restore"; }
