@@ -12,7 +12,7 @@
 
   // choose the order of the modules
   // include the modules-left option
-  "include": "~/.config/waybar/modules-river",
+  "include": "~/.config/waybar/modules-niri",
   "modules-right": ["mpris", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 
   // modules configuration
@@ -61,6 +61,21 @@
   "river/window": {
     "format": "<span font='16' rise='-2000'></span> {}",
     "max-length": 40
+  },
+
+  "niri/workspaces": {
+    "all-outputs": false,
+    "format": "{icon}",
+    "disable-click": true,
+    "format-icons": {
+      "default": "",
+      "active": "",
+      "focused": ""
+    },
+  },
+
+  "niri/window": {
+    "format": "<span font='16' rise='-2000'></span> {}"
   },
 
   "hyprland/workspaces": {

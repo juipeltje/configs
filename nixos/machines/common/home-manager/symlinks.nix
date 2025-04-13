@@ -35,6 +35,9 @@
           $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
             ${config.home.homeDirectory}/repos/configs/dotfiles/common/dotconfig/kitty/kitty.conf ${config.home.homeDirectory}/.config/kitty/
 
+	  # Niri
+	  $DRY_RUN_CMD ${pkgs.coreutils}/bin/mkdir -p $VERBOSE_ARG ${config.home.homeDirectory}/.config/niri
+
           # Qtile
           $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
             ${config.home.homeDirectory}/repos/configs/dotfiles/common/dotconfig/qtile/common.py ${config.home.homeDirectory}/.config/qtile/
@@ -76,8 +79,8 @@
       home.activation = {
         LaptopSymlinks = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
           # Niri
-          #$DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
-          #  ${config.home.homeDirectory}/repos/configs/dotfiles/laptop/dotconfig/niri/config.kdl ${config.home.homeDirectory}/.config/niri/
+          $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
+            ${config.home.homeDirectory}/repos/configs/dotfiles/laptop/dotconfig/niri/config.kdl ${config.home.homeDirectory}/.config/niri/
 
           # Waybar
           $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \

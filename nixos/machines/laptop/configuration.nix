@@ -44,6 +44,8 @@
     ./../common/wayland.nix
     # X11 settings
     ./../common/x11.nix
+    # Yoda custom module
+    ./../../modules/yoda.nix
   ];
 
   # This value determines the NixOS release from which the default

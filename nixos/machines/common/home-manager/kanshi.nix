@@ -15,5 +15,9 @@
     (lib.mkIf (hostName == "NixOS-Rig") {
       xdg.configFile."kanshi/config".source = ./../../../../dotfiles/workstation/dotconfig/kanshi/config;
     })
+
+    (lib.mkIf (hostName == "NixOS-Lappie") {
+      xdg.configFile."kanshi/config".source = ./../../../../dotfiles/laptop/dotconfig/kanshi/config;
+    })
   ];
 }

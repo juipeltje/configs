@@ -1,0 +1,223 @@
+// Niri config
+
+// dbus/systemd integration settings
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_SESSION_ID"
+spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY"
+spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
+
+// autostart
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
+
+// environment variables
+environment {
+  DISPLAY ":0"
+}
+
+// set cursor theme
+cursor {
+  xcursor-theme "phinger-cursors-light"
+  xcursor-size 24
+}
+
+// hotkey overlay 
+hotkey-overlay {
+  skip-at-startup
+}
+
+// input configuration
+input {
+  warp-mouse-to-focus
+  focus-follows-mouse
+  keyboard {
+    repeat-rate 50
+    repeat-delay 300
+  }
+
+  touchpad {
+    tap
+  }
+}
+
+// output configuration
+//output "DP-1" {
+//  mode "3440x1440@164.999"
+//  position x=0 y=1080
+//}
+  
+//output "DP-2" {
+//  mode "2560x1080@74.991"
+//  position x=0 y=0
+//}
+
+// layout configuration
+layout {
+  gaps 10
+  center-focused-column "never"
+  preset-column-widths {
+    proportion 1.0
+  }
+
+  default-column-width {
+    proportion 1.0
+  }
+
+  focus-ring {
+    off
+  }
+
+  border {
+    width 4
+    active-color "#cdd6f4"
+    inactive-color "#45475a"
+  }
+
+  struts {
+  }
+}
+
+// window rules
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+// layer rules
+//layer-rule {
+//  geometry-corner-radius 20
+//}
+
+prefer-no-csd
+
+screenshot-path null
+
+// keybinds
+binds {
+  // open a terminal
+  Mod+T { spawn "alacritty"; }
+
+  // open file manager
+  Mod+F { spawn "kitty" "-e" "yazi"; }
+
+  // open a webbrowser
+  Mod+W { spawn "librewolf"; }
+
+  // open pavucontrol
+  Mod+A { spawn "pavucontrol"; }
+
+  // open Deezer in a firefox window
+  Mod+D { spawn "librewolf" "-new-window" "https://www.deezer.com/en/"; }
+
+  // open rmpc
+  Mod+M { spawn "kitty" "-e" "rmpc"; }
+
+  // open application launcher
+  Mod+Space { spawn "fuzzel"; }
+
+  // open LLM launcher
+  Mod+L { spawn "~/repos/configs/scripts/dmenu/llm-launcher.sh"; }
+
+  // open theme switcher
+  Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/theme-switcher.sh"; }
+
+  // open compositor switcher
+  Mod+Shift+C { spawn "~/repos/configs/scripts/dmenu/compositor-switcher.sh"; }
+
+  // open powermenu
+  Mod+Escape { spawn "~/repos/configs/scripts/dmenu/powermenu.sh"; }
+
+  // Toggle hide/show Waybar
+  Mod+B { spawn "~/repos/configs/scripts/waybar/toggle-bar.sh"; }
+
+  // Mako notification history and close all notifications
+  Mod+N { spawn "makoctl" "restore"; }
+  Mod+C { spawn "makoctl" "dismiss" "--all"; }
+
+  // play/pause/previous/next keyboard controls
+  XF86AudioPlay { spawn "playerctl" "play-pause"; }
+  XF86AudioNext { spawn "playerctl" "next"; }
+  XF86AudioPrev { spawn "playerctl" "previous"; }
+
+  // laptop volume controls
+  XF86AudioMute { spawn "pulsemixer" "--toggle-mute"; }
+  XF86AudioLowerVolume { spawn "pulsemixer" "--change-volume" "-5"; }
+  XF86AudioRaiseVolume { spawn "pulsemixer" "--change-volume" "+5"; }
+
+  // laptop brightness controls
+  XF86MonBrightnessDown { spawn "brightnessctl" "s" "10%-"; }
+  XF86MonBrightnessUp { spawn "brightnessctl" "s" "+10%"; }
+
+  // exit Niri
+  Mod+Ctrl+Q { quit; }
+
+  // close a window
+  Mod+Q { close-window; }
+
+  // switch focused column/window
+  Mod+Right { focus-column-right; }
+  Mod+Left { focus-column-left; }
+  Mod+Up { focus-window-up; }
+  Mod+Down { focus-window-down; }
+
+  // focus the first or last column in the row
+  Mod+Home { focus-column-first; }
+  Mod+End { focus-column-last; }
+
+  // move the focused column/window
+  Mod+Shift+Right { move-column-right; }
+  Mod+Shift+Left { move-column-left; }
+  Mod+Shift+Up { move-window-up; }
+  Mod+Shift+Down { move-window-down; }
+
+  // resize columns/windows
+  Mod+KP_Add { set-column-width "+10%"; }
+  Mod+KP_Subtract { set-column-width "-10%"; }
+  Mod+Alt+KP_Add { set-window-height "+10%"; }
+  Mod+Alt+KP_Subtract { set-window-height "-10%"; }
+
+  // toggle floating 
+  Mod+Shift+Space { toggle-window-floating; }
+
+  // toggle fullscreen
+  Mod+Shift+F { fullscreen-window; }
+
+  // maximize column
+  Mod+Shift+M { maximize-column; }
+
+  // center column
+  Mod+S { center-column; }
+
+  // move the focused column to the beginning or end of the row
+  Mod+Shift+Home { move-column-to-first; }
+  Mod+Shift+End { move-column-to-last; }
+
+  // switch to workspaces
+  Mod+KP_End { focus-workspace 1; }
+  Mod+KP_Down { focus-workspace 2; }
+  Mod+KP_Next { focus-workspace 3; }
+  Mod+KP_Left { focus-workspace 4; }
+  Mod+KP_Begin { focus-workspace 5; }
+  Mod+KP_Right { focus-workspace 6; }
+  Mod+KP_Home { focus-workspace 7; }
+  Mod+KP_Up { focus-workspace 8; }
+
+  // move columns/windows to workspaces
+  Mod+Shift+KP_End { move-column-to-workspace 1; }
+  Mod+Shift+KP_Down { move-column-to-workspace 2; }
+  Mod+Shift+KP_Next { move-column-to-workspace 3; }
+  Mod+Shift+KP_Left { move-column-to-workspace 4; }
+  Mod+Shift+KP_Begin { move-column-to-workspace 5; }
+  Mod+Shift+KP_Right { move-column-to-workspace 6; }
+  Mod+Shift+KP_Home { move-column-to-workspace 7; }
+  Mod+Shift+KP_Up { move-column-to-workspace 8; }
+
+  // move focused window in or out of a column
+  Mod+Alt+Shift+Right { consume-or-expel-window-right; }
+  Mod+Alt+Shift+Left { consume-or-expel-window-left; }
+
+  // move window from the right to the bottom of the focused column
+  Mod+Comma { consume-window-into-column; }
+  
+  // expel the bottom window from the focused column to the right
+  Mod+Period { expel-window-from-column; }
+}
