@@ -26,7 +26,7 @@ theme_switch() {
         sed -i --follow-symlinks "s|^include.*|include ${theme}.conf|" ~/.config/kitty/kitty.conf
         kill -SIGUSR1 $(pgrep kitty)
 
-	if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+	if [ -n "$WAYLAND_DISPLAY" ]; then
         	# mako
         	kill $(pgrep mako)
         	mako -c ~/.config/mako/${theme}-config &

@@ -66,48 +66,52 @@
   # set up pam to make sure gtklock actually works.
   security.pam.services.gtklock = { };
 
-  # Systemd services for gtklock ( i use a screenlocker instead of a display manager),
-  # Waybar, and Kanshi, and setting up Systemd targets for various compositors.
+  # Systemd services for gtklock, Waybar, Kanshi, and Swayidle, and setting up Systemd targets for various compositors.
   systemd.user = {
     services = {
       gtklock = {
         enable = true;
-        unitConfig = {
-          Description = "Start gtklock after logging into compositor";
-          PartOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
-        };
-
+        description = "Start gtklock after logging into compositor";
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.gtklock}/bin/gtklock";
           Restart = "on-failure";
         };
-
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
       };
 
       waybar = {
         enable = true;
-        unitConfig = {
-          PartOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
-        };
-
+        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
         wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
         path = with pkgs; [ bash gawk lm_sensors procps ];
       };
 
       kanshi = {
         enable = true;
+        description = "Start Kanshi";
+        partOf = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
         unitConfig = {
-          Description = "Start Kanshi";
-          PartOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "qtile-wayland-session.target" "niri-session.target" ];
+          ConditionEnvironment = "WAYLAND_DISPLAY";
         };
 
         serviceConfig = {
           ExecStart = "${pkgs.kanshi}/bin/kanshi";
           Restart = "on-failure";
         };
+      };
 
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "qtile-wayland-session.target" "niri-session.target" ];
+      swayidle = {
+        enable = true;
+        description = "Idle manager for Wayland";
+        documentation = [ "man:swayidle(1)" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        serviceConfig = {
+          ExecStart = "${pkgs.swayidle}/bin/swayidle";
+          Restart = "on-failure";
+        };
       };
     };
 

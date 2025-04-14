@@ -60,48 +60,36 @@
         services = {
           picom = {
             enable = true;
-            unitConfig = {
-              Description = "Picom composite manager";
-              PartOf = [ "qtile-session.target" ];
-            };
-
+            description = "Picom composite manager";
+            partOf = [ "qtile-session.target" ];
+            wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
               ExecStart = "${pkgs.picom}/bin/picom";
               Restart = "on-failure";
             };
-
-            wantedBy = [ "qtile-session.target" ];
           };
 
           xrandr = {
             enable = true;
-            unitConfig = {
-              Description = "Set resolution and refreshrate with xrandr";
-              Type = "oneshot";
-              PartOf = [ "qtile-session.target" ];
-            };
-
+            description = "Set resolution and refreshrate with xrandr";
+            partOf = [ "qtile-session.target" ];
+            wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
+              Type = "oneshot";
               Restart = "on-failure";
             };
-
-            wantedBy = [ "qtile-session.target" ];
           }; 
 
           xset = {
             enable = true;
-            unitConfig = {
-              Description = "Run xset command on login";
-              Type = "oneshot";
-              PartOf = [ "qtile-session.target" ];
-            };
-
+            description = "Run xset command on login";
+            partOf = [ "qtile-session.target" ];
+            wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
+              Type = "oneshot";
               ExecStart = "${pkgs.xorg.xset}/bin/xset s off -dpms";
               Restart = "on-failure";
             };
-
-            wantedBy = [ "qtile-session.target" ];
           };
         };
 

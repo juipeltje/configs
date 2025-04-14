@@ -25,16 +25,14 @@
     user = {
       services = { 
         battery-low = {
-          unitConfig = { 
-            Description = "Service to notify users when battery is low/critical";
-            PartOf = [ "graphical-session.target" ];
-          };
-
+          enable = true;
+          description = "Service to notify users when battery is low/critical";
+          partOf = [ "graphical-session.target" ];
+          wantedBy = [ "graphical-session.target" ];
           serviceConfig = {
             Type = "oneshot";
           };
 
-          wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
             BATTERY="/sys/class/power_supply/BAT0"
@@ -51,15 +49,9 @@
 
         # Service to notify when battery is charging/discharging.
         charger = {
-          unitConfig = { 
-            Description = "Service to notify users when battery is charging/discharging.";
-            PartOf = [ "graphical-session.target" ];
-          };
-
-          serviceConfig = {
-            Type = "simple";
-          };
-
+          enable = true;
+          description = "Service to notify users when battery is charging/discharging.";
+          partOf = [ "graphical-session.target" ];
           wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
@@ -79,15 +71,9 @@
 
         # Service to notify when battery is fully charged.
         battery-full = {
-          unitConfig = { 
-            Description = "Service to notify users when battery is fully charged.";
-            PartOf = [ "graphical-session.target" ];
-          };
-
-          serviceConfig = {
-            Type = "simple";
-          };
-
+          enable = true;
+          description = "Service to notify users when battery is fully charged.";
+          partOf = [ "graphical-session.target" ];
           wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
           script = ''
@@ -112,17 +98,14 @@
 
       timers = {
         battery-low = {
-          unitConfig = {
-            Description = "Periodical checking of battery status every 2 minutes";
-            Requires = "battery-low.service";
-          };
-
+          enable = true;
+          description = "Periodical checking of battery status every 2 minutes";
+          requires = "battery-low.service";
+          wantedBy = [ "timers.target" ];
           timerConfig = {
             OnBootSec = "2min";
             OnUnitActiveSec = "2min";
           };
-
-          wantedBy = [ "timers.target" ];
         };
       };
     };
@@ -130,10 +113,8 @@
     # systemd service and timer that hibernates laptop when battery is critical.
     services = {
       battery = {
-        unitConfig = {
-          Description = "Service that hibernates laptop when battery is critical";
-        };
-
+        enable = true;
+        description = "Service that hibernates laptop when battery is critical";
         serviceConfig = {
           Type = "oneshot";
         };
@@ -153,17 +134,14 @@
 
     timers = {
       battery = {
-        unitConfig = {
-          Description = "Periodical checking of battery status every 2 minutes";
-          Requires = "battery.service";
-        };
-
+        enable = true;
+        description = "Periodical checking of battery status every 2 minutes";
+        requires = "battery.service";
+        wantedBy = [ "timers.target" ];
         timerConfig = {
           OnBootSec = "2min";
           OnUnitActiveSec = "2min";
         };
-
-        wantedBy = [ "timers.target" ];
       };
     };
   };

@@ -58,17 +58,13 @@
       # Improve Blueman applet systemd service so that it can be called by graphical-session.target.
       systemd.user.services.blueman-applet = {
         enable = true;
-        unitConfig = { 
-          Description = "Bluetooth management applet"; 
-          PartOf = [ "graphical-session.target" ];
-        };
-
+        description = "Bluetooth management applet"; 
+        partOf = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
         serviceConfig = {
           Type = "simple";
           Restart = "on-failure";
         };
-
-        wantedBy = [ "graphical-session.target" ];
       };
 
       # Enable Soteria (polkit authentication agent).
