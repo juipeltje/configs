@@ -4,6 +4,17 @@
 
 {
   xdg.configFile = {
+    "gtklock/config.ini" = {
+      enable = true;
+      text = ''
+        [main]
+        modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so
+
+        [playerctl]
+        position=top-center
+      '';
+    };
+
     "gtklock/catppuccin-mocha.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/gtklock/catppuccin-mocha.css;

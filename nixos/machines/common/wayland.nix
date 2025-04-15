@@ -58,6 +58,8 @@
 
     # screenlocker
     gtklock
+    gtklock-powerbar-module
+    gtklock-playerctl-module
 
     # Kanshi
     kanshi
@@ -75,7 +77,7 @@
         partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         serviceConfig = {
-          ExecStart = "${pkgs.gtklock}/bin/gtklock";
+          ExecStart = "${pkgs.gtklock}/bin/gtklock --follow-focus";
           Restart = "on-failure";
         };
       };
@@ -108,8 +110,9 @@
         documentation = [ "man:swayidle(1)" ];
         partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        path = with pkgs; [ bash gtklock ];
         serviceConfig = {
-          ExecStart = "${pkgs.swayidle}/bin/swayidle";
+          ExecStart = "${pkgs.swayidle}/bin/swayidle -w before-sleep 'gtklock -d'";
           Restart = "on-failure";
         };
       };

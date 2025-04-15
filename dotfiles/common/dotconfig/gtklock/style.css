@@ -2,11 +2,23 @@
 
 window {
   background-image: url("/home/joppe/Pictures/sway/background.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-#window-box {
+#window-box,
+#powerbar-revealer > box,
+#playerctl-revealer > box {
   padding: 64px;
   border: 4px solid @foreground;
   border-radius: 20px;
   background-color: @background;
+}
+
+#powerbar-revealer > box {
+  padding: 16px;
+}
+
+#playerctl-revealer > box {
+  padding: 32px;
 }
