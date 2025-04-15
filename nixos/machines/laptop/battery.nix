@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Enable tlp and settings.
+  # Enable tlp and settings, and logind settings.
   services = {
     tlp = {
       enable = true;
@@ -17,6 +17,10 @@
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
       };
+    };
+
+    logind = {
+      lidSwitch = "suspend-then-hibernate";
     };
   };
 
@@ -110,11 +114,11 @@
       };
     };
 
-    # systemd service and timer that hibernates laptop when battery is critical.
+    # systemd service and timer that suspend-then-hibernates laptop when battery is critical.
     services = {
       battery = {
         enable = true;
-        description = "Service that hibernates laptop when battery is critical";
+        description = "Service that suspend-then-hibernates laptop when battery is critical";
         serviceConfig = {
           Type = "oneshot";
         };
@@ -126,7 +130,7 @@
 
           if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
           	sleep 5
-                systemctl hibernate
+                systemctl suspend-then-hibernate
           fi
         '';
       };
