@@ -29,7 +29,7 @@
     # i3 common settings
     ./../../common/home-manager/i3.nix
     # Kanshi settings
-    #./../../common/home-manager/kanshi.nix
+    ./../../common/home-manager/kanshi.nix
     # Kitty settings
     ./../../common/home-manager/kitty.nix
     # Librewolf settings

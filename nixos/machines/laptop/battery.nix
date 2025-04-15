@@ -100,7 +100,7 @@
         battery-low = {
           enable = true;
           description = "Periodical checking of battery status every 2 minutes";
-          requires = "battery-low.service";
+          requires = [ "battery-low.service" ];
           wantedBy = [ "timers.target" ];
           timerConfig = {
             OnBootSec = "2min";
@@ -136,7 +136,7 @@
       battery = {
         enable = true;
         description = "Periodical checking of battery status every 2 minutes";
-        requires = "battery.service";
+        requires = [ "battery.service" ];
         wantedBy = [ "timers.target" ];
         timerConfig = {
           OnBootSec = "2min";
