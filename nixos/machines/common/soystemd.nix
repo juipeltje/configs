@@ -4,7 +4,7 @@
 
 {
   # Disable Dunst service ( was causing hanging issues with home manager).
-  systemd = 
+  systemd = { 
     user.services = {
       dunst = {
         enable = false;
