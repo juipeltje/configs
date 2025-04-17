@@ -7,7 +7,7 @@
   systemd.user.services = {
     feh = {
       Unit = {
-        Description = "Set window manager background with feh";
+        Description = "Feh wallpaper tool for X";
         PartOf = [ "qtile-session.target" ];
         Requires = [ "xrandr.service" ];
         After = [ "xrandr.service" ];
@@ -22,7 +22,7 @@
 
     dunst = {
       Unit = {
-        Description = "Start Dunst notification daemon";
+        Description = "Dunst notification daemon";
         PartOf = [ "qtile-session.target" ];
       };
 

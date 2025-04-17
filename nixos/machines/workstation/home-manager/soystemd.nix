@@ -3,11 +3,11 @@
 { config, pkgs, ... }:
 
 {
-  # create OpenRGB and ollama systemd service
+  # Systemd service for OpenRGB.
   systemd.user.services = {
     openrgb = {
       Unit = {
-        Description = "Start OpenRGB GUI minimized in tray";
+        Description = "OpenRGB GUI minimized in tray";
         PartOf = [ "graphical-session.target" ];
       };
 

@@ -14,7 +14,7 @@
   # create ollama systemd user service
   systemd.user.services.ollama = {
     enable = true;
-    description = "Start ollama serve";
+    description = "Ollama serve";
     after = [ "network.target" ];
     wantedBy = [ "default.target" ];
     environment = lib.mkIf (config.networking.hostName == "NixOS-Rig") { HSA_OVERRIDE_GFX_VERSION = "10.3.0"; };

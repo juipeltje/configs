@@ -73,7 +73,7 @@
     services = {
       gtklock = {
         enable = true;
-        description = "Start gtklock after logging into compositor";
+        description = "gtklock screenlocker";
         partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         serviceConfig = {
@@ -91,7 +91,7 @@
 
       kanshi = {
         enable = true;
-        description = "Start Kanshi";
+        description = "Kanshi display configuration daemon";
         partOf = [ "graphical-session.target" ];
         wantedBy = [ "graphical-session.target" ];
         unitConfig = {
@@ -106,13 +106,13 @@
 
       swayidle = {
         enable = true;
-        description = "Idle manager for Wayland";
+        description = "Swayidle idle manager for Wayland";
         documentation = [ "man:swayidle(1)" ];
         partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
-        path = with pkgs; [ bash gtklock ];
+        #path = with pkgs; [ gtklock openrgb ];
         serviceConfig = {
-          ExecStart = "${pkgs.swayidle}/bin/swayidle -w before-sleep 'gtklock -d'";
+          ExecStart = "${pkgs.swayidle}/bin/swayidle -w";
           Restart = "on-failure";
         };
       };

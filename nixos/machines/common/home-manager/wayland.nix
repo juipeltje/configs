@@ -7,7 +7,7 @@
   systemd.user.services = {
     swaybg = {
       Unit = {
-        Description = "Set compositor background with swaybg";
+        Description = "Swaybg wallpaper tool for wayland compositors";
         ConditionEnvironment = "WAYLAND_DISPLAY";
         PartOf = [ "graphical-session.target" ];
       };
@@ -21,7 +21,7 @@
 
     mako = {
       Unit = {
-        Description = "Start Mako notification daemon";
+        Description = "Mako notification daemon";
         ConditionEnvironment = "WAYLAND_DISPLAY";
         PartOf = [ "graphical-session.target" ];
       };

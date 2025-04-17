@@ -10,7 +10,7 @@ in
 
 {
   options.services.hardware.yoda = {
-    enable = mkEnableOption "Enable Yoda, a fan curve script written in python utilizing liquidctl.";
+    enable = mkEnableOption "Yoda, a fan curve script written in python utilizing liquidctl.";
   };
 
   config = mkIf cfg.enable {
@@ -22,7 +22,7 @@ in
 
     systemd.services.yoda = {
       unitConfig = {
-        Description = "Service to initialize liquidctl and set yoda fancurve.";
+        Description = "initialize liquidctl and set yoda fancurve.";
       };
 
       serviceConfig = {

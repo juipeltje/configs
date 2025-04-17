@@ -55,7 +55,8 @@
         xorg.xhost
       ];
 
-      # Systemd service for Picom, xrandr, xset, and setting up Systemd target for Qtile.
+      # Systemd services for Picom, xrandr, xset, disabling Dunst service (was causing hanging issues with home manager), 
+      # and setting up Systemd target for Qtile.
       systemd.user = {
         services = {
           picom = {
@@ -71,7 +72,7 @@
 
           xrandr = {
             enable = true;
-            description = "Set resolution and refreshrate with xrandr";
+            description = "xrandr display configuration";
             partOf = [ "qtile-session.target" ];
             wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
@@ -82,7 +83,7 @@
 
           xset = {
             enable = true;
-            description = "Run xset command on login";
+            description = "xset user preference utility for X";
             partOf = [ "qtile-session.target" ];
             wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
@@ -91,6 +92,8 @@
               Restart = "on-failure";
             };
           };
+
+          dunst.enable = false;
         };
 
         targets = {

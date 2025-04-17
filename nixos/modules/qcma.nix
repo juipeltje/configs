@@ -10,7 +10,7 @@ in
 
 {
   options.programs.qcma = {
-    enable = mkEnableOption "Enable qcma, a content manager assistant for PS Vita";
+    enable = mkEnableOption "qcma, a content manager assistant for PS Vita";
   };
 
   config = mkIf cfg.enable {

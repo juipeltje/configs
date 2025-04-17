@@ -30,7 +30,7 @@
       services = { 
         battery-low = {
           enable = true;
-          description = "Service to notify users when battery is low/critical";
+          description = "Script to notify users when battery is low/critical";
           partOf = [ "graphical-session.target" ];
           wantedBy = [ "graphical-session.target" ];
           serviceConfig = {
@@ -54,7 +54,7 @@
         # Service to notify when battery is charging/discharging.
         charger = {
           enable = true;
-          description = "Service to notify users when battery is charging/discharging.";
+          description = "Script to notify users when battery is charging/discharging.";
           partOf = [ "graphical-session.target" ];
           wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
@@ -76,7 +76,7 @@
         # Service to notify when battery is fully charged.
         battery-full = {
           enable = true;
-          description = "Service to notify users when battery is fully charged.";
+          description = "Script to notify users when battery is fully charged.";
           partOf = [ "graphical-session.target" ];
           wantedBy = [ "graphical-session.target" ];
           path = with pkgs; [ libnotify dbus ];
@@ -116,9 +116,9 @@
 
     # systemd service and timer that suspend-then-hibernates laptop when battery is critical.
     services = {
-      battery = {
+      battery-critical = {
         enable = true;
-        description = "Service that suspend-then-hibernates laptop when battery is critical";
+        description = "Script that suspend-then-hibernates laptop when battery is critical";
         serviceConfig = {
           Type = "oneshot";
         };
@@ -137,7 +137,7 @@
     };
 
     timers = {
-      battery = {
+      battery-critical = {
         enable = true;
         description = "Periodical checking of battery status every 2 minutes";
         requires = [ "battery.service" ];

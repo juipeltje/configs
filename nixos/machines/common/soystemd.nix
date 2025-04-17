@@ -3,15 +3,8 @@
 { config, pkgs, ... }:
 
 {
-  # Disable Dunst service ( was causing hanging issues with home manager).
+  # Systemd sleep config
   systemd = { 
-    user.services = {
-      dunst = {
-        enable = false;
-      };
-    };
-
-    # Systemd sleep config
     sleep.extraConfig = ''
       HibernateDelaySec=1h
     '';
