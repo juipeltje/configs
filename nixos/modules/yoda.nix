@@ -23,8 +23,8 @@ in
     systemd.services = {
       yoda = {
         description = "Liquidctl and Yoda fancurve";
-        partOf = [ "default.target" ];
-        wantedBy = [ "default.target" ];
+        partOf = [ "multi-user.target" ];
+        wantedBy = [ "multi-user.target" ];
         serviceConfig.Restart = "always";
         path = with pkgs; [ 
           (python3.withPackages (subpkgs: with subpkgs; [ 

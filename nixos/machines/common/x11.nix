@@ -74,6 +74,8 @@
             enable = true;
             description = "xrandr display configuration";
             partOf = [ "qtile-session.target" ];
+            requiredBy = [ "feh.service" ];
+            before = [ "feh.service" ];
             wantedBy = [ "qtile-session.target" ];
             serviceConfig = {
               Type = "oneshot";
