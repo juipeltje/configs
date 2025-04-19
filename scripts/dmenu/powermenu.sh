@@ -11,16 +11,13 @@ case $op in
         poweroff)
                 ;&
         reboot)
-                systemctl $op
+		;&
+	hibernate)
+		systemctl $op
 		;;
         suspend)
 		systemctl suspend-then-hibernate
 		;;
-	hibernate)
-		gtklock -d
-		sleep 5
-                systemctl $op
-                ;;
         lock)
 		gtklock -d
                 ;;

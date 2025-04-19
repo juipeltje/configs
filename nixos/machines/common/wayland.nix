@@ -110,7 +110,6 @@
         documentation = [ "man:swayidle(1)" ];
         partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
         wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
-        #path = with pkgs; [ gtklock openrgb ];
         serviceConfig = {
           ExecStart = "${pkgs.swayidle}/bin/swayidle -w";
           Restart = "on-failure";

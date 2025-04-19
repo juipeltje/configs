@@ -34,8 +34,6 @@
     ./../common/sound.nix
     # Swap settings
     ./../common/swap.nix
-    # Systemd service settings
-    ./../common/soystemd.nix
     # User settings
     ./../common/users.nix
     # Virtualisation settings

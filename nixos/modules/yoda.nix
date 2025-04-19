@@ -20,29 +20,35 @@ in
       ]))
     ];
 
-    systemd.services.yoda = {
-      unitConfig = {
-        Description = "initialize liquidctl and set yoda fancurve.";
+    systemd.services = {
+      yoda = {
+        description = "Liquidctl and Yoda fancurve";
+        partOf = [ "default.target" ];
+        wantedBy = [ "default.target" ];
+        serviceConfig.Restart = "always";
+        path = with pkgs; [ 
+          (python3.withPackages (subpkgs: with subpkgs; [ 
+            (python3Packages.callPackage ./../derivations/yoda/derivation.nix { })
+          ])) 
+        ];
+
+        script = ''
+          liquidctl initialize all
+          sleep 2
+          liquidctl --match kraken set pump speed 100
+          yoda --match commander control sync with "(40,40),(50,45),(55,50),(60,60),(65,70),(70,80),(80,90),(85,100)" on k10temp.tctl
+        '';
       };
 
-      serviceConfig = {
-        Type = "simple";
+      yoda-stop = {
+        description = "Stop Liquidctl and Yoda fancurve before going to sleep";
+        before = [ "sleep.target" ];
+        wantedBy = [ "sleep.target" ];
+        serviceConfig = {
+          ExecStart = "${pkgs.procps}/bin/pkill yoda";
+          Restart = "on-failure";
+        };
       };
-
-      wantedBy = [ "default.target" ];
-
-      path = with pkgs; [ 
-        (python3.withPackages (subpkgs: with subpkgs; [ 
-          (python3Packages.callPackage ./../derivations/yoda/derivation.nix { })
-        ])) 
-      ];
-
-      script = ''
-        liquidctl initialize all
-        sleep 2
-        liquidctl --match kraken set pump speed 100
-        yoda --match commander control sync with "(40,40),(50,45),(55,50),(60,60),(65,70),(70,80),(80,90),(85,100)" on k10temp.tctl
-      '';
     };
   };
 }

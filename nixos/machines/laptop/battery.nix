@@ -114,11 +114,11 @@
       };
     };
 
-    # systemd service and timer that suspend-then-hibernates laptop when battery is critical.
+    # systemd service and timer that hibernates laptop when battery is critical.
     services = {
       battery-critical = {
         enable = true;
-        description = "Script that suspend-then-hibernates laptop when battery is critical";
+        description = "Script that hibernates laptop when battery is critical";
         serviceConfig = {
           Type = "oneshot";
         };
@@ -130,7 +130,7 @@
 
           if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
           	sleep 5
-                systemctl suspend-then-hibernate
+                systemctl hibernate
           fi
         '';
       };
