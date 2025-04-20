@@ -16,7 +16,7 @@
     enable = true;
     description = "Ollama serve";
     after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "default.target" ];
     environment = lib.mkIf (config.networking.hostName == "NixOS-Rig") { HSA_OVERRIDE_GFX_VERSION = "10.3.0"; };
     serviceConfig = {
       ExecStart = "${pkgs.ollama-rocm}/bin/ollama serve";

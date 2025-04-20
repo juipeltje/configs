@@ -101,7 +101,6 @@
         mpv
         feh
         rmpc
-        unstable.freetube
 
         # Fetch tools
         fastfetch
