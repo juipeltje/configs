@@ -14,9 +14,9 @@ case $op in
         deepseek-r1)
                 ;&
         qwen2.5-coder)
-                if [ "$hostname" = NixOS-Rig ]; then
+                if [ "$hostname" = "NixOS-Rig" ]; then
 			$terminal -e ollama run $op:32b
-		elif [ "$hostname" = NixOS-Lappie ]; then
+		elif [ "$hostname" = "NixOS-Lappie" ]; then
 			$terminal -e ollama run $op:7b
 		fi
 		;;

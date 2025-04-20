@@ -42,6 +42,9 @@
 
   # Additional wayland-specific packages
   environment.systemPackages = with pkgs; [
+    # Terminal
+    foot
+
     # Notifications
     mako
 

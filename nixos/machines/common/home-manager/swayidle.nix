@@ -15,7 +15,7 @@
     (lib.mkIf (hostName == "NixOS-Rig") {
       xdg.configFile."swayidle/config".text = ''
         before-sleep '${pkgs.gtklock}/bin/gtklock -d --follow-focus'
-        after-resume '${pkgs.openrgb}/bin/openrgb -p team-red.orp'
+        after-resume '${pkgs.openrgb}/bin/openrgb -p purple.orp'
       '';
     })
 

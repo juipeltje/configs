@@ -20,6 +20,9 @@ bindsym $mod+Control+v exec kanshictl switch desktop
 # set primary xwayland display
 bindsym $mod+Control+x exec xrandr --output DP-1 --primary
 
+# open RGB light color switcher
+bindsym $mod+Shift+o exec ~/repos/configs/scripts/dmenu/rgb-switcher.sh
+
 # bind workspaces to monitors
 workspace $ws1 output DP-1
 workspace $ws2 output DP-1

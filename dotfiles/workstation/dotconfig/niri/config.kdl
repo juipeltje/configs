@@ -222,4 +222,7 @@ binds {
 
   // set primary xwayland display
   Mod+Ctrl+X { spawn "xrandr" "--output" "DP-1" "--primary"; }
+
+  // open RGB light color switcher
+  Mod+Shift+O { spawn "~/repos/configs/scripts/dmenu/rgb-switcher.sh"; }
 }

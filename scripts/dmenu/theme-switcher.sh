@@ -2,9 +2,9 @@
 
 # Theme switcher script
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	theme=$( echo -e "󰔎  Nord\n󰔎  Gruvbox-Dark\n󰔎  Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+	theme=$( echo -e "  Nord\n  Gruvbox-Dark\n  Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 else
-	theme=$( echo -e "󰔎 Nord\n󰔎 Gruvbox-Dark\n󰔎 Tokyonight\n󰔎  Solarized-Dark\n󰔎  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+	theme=$( echo -e " Nord\n Gruvbox-Dark\n Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 fi
 
 theme_switch() {
@@ -21,6 +21,9 @@ theme_switch() {
 
         # alacritty
         sed -i --follow-symlinks "s|^import.*|import = [\"~/.config/alacritty/${theme}.toml\"]|" ~/.config/alacritty/alacritty.toml
+
+	# foot
+	sed -i --follow-symlinks "s|^include.*|include=~/.config/foot/${theme}.ini|" ~/.config/foot/foot.ini
 
         # kitty
         sed -i --follow-symlinks "s|^include.*|include ${theme}.conf|" ~/.config/kitty/kitty.conf

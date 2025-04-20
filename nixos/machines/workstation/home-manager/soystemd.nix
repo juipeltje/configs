@@ -13,7 +13,7 @@
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
       Service = { 
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --startminimized -p team-red.orp"; 
+        ExecStart = "${pkgs.openrgb}/bin/openrgb --startminimized -p purple.orp";
         Restart = "on-failure";
       };
     };
