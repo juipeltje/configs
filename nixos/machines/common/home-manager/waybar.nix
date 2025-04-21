@@ -2,6 +2,25 @@
 
 { config, pkgs, ... }:
 
+# wrapping sed commands inside of bash scripts for systemd services.
+let
+  waybar_modules_hyprland = pkgs.writers.writeBash "waybar-modules-hyprland" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-hyprland\",|' ${config.home.homeDirectory}/.config/waybar/config
+  '';
+
+  waybar_modules_niri = pkgs.writers.writeBash "waybar-modules-niri" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-niri\",|' ${config.home.homeDirectory}/.config/waybar/config
+  '';
+
+  waybar_modules_river = pkgs.writers.writeBash "waybar-modules-river" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-river\",|' ${config.home.homeDirectory}/.config/waybar/config
+  '';
+
+  waybar_modules_sway = pkgs.writers.writeBash "waybar-modules-sway" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-sway\",|' ${config.home.homeDirectory}/.config/waybar/config
+  '';
+in
+
 {
   xdg.configFile = {
     "waybar/catppuccin-mocha.css" = {
@@ -47,6 +66,69 @@
     "waybar/tokyonight.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/waybar/tokyonight.css;
+    };
+  };
+
+  # create Systemd services for loading waybar modules depending on which compositor is started.
+  systemd.user.services = {
+    waybar-hyprland = {
+      Unit = {
+        Description = "Waybar Hyprland modules";
+        PartOf = [ "hyprland-session.target" ];
+        Before = [ "waybar.service" ];
+      };
+
+      Install = { WantedBy = [ "hyprland-session.target" ]; };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${waybar_modules_hyprland}";
+        Restart = "on-failure";
+      };
+    };
+
+    waybar-niri = {
+      Unit = {
+        Description = "Waybar Niri modules";
+        PartOf = [ "niri-session.target" ];
+        Before = [ "waybar.service" ];
+      };
+
+      Install = { WantedBy = [ "niri-session.target" ]; };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${waybar_modules_niri}";
+        Restart = "on-failure";
+      };
+    };
+
+    waybar-river = {
+      Unit = {
+        Description = "Waybar River modules";
+        PartOf = [ "river-session.target" ];
+        Before = [ "waybar.service" ];
+      };
+
+      Install = { WantedBy = [ "river-session.target" ]; };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${waybar_modules_river}";
+        Restart = "on-failure";
+      };
+    };
+
+    waybar-sway = {
+      Unit = {
+        Description = "Waybar Sway modules";
+        PartOf = [ "sway-session.target" ];
+        Before = [ "waybar.service" ];
+      };
+
+      Install = { WantedBy = [ "sway-session.target" ]; };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${waybar_modules_sway}";
+        Restart = "on-failure";
+      };
     };
   };
 }

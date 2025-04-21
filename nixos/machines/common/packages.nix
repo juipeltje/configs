@@ -74,7 +74,7 @@
       # $ nix search wget
       environment.systemPackages = with pkgs; [
         # Networking
-        qbittorrent
+        transmission_4-gtk
 
         # Terminal
         alacritty

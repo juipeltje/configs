@@ -27,12 +27,10 @@ case $op in
                 ;&
         niri)
 		sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|Hyprland)/$op/g" ~/.bash_profile
-		sed -i --follow-symlinks "s|\"include\".*|\"include\": \"~/.config/waybar/modules-$op\",|" ~/.config/waybar/config
 		exit_compositor
                 ;;
 	swayfx)
 		sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|Hyprland)/sway/g" ~/.bash_profile
-		sed -i --follow-symlinks "s|\"include\".*|\"include\": \"~/.config/waybar/modules-sway\",|" ~/.config/waybar/config
 		exit_compositor
 		;;
 	qtile)
@@ -45,7 +43,6 @@ case $op in
 		;;
 	hyprland)
                 sed -i -E --follow-symlinks "s/(river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|Hyprland)/Hyprland/g" ~/.bash_profile
-		sed -i --follow-symlinks "s|\"include\".*|\"include\": \"~/.config/waybar/modules-$op\",|" ~/.config/waybar/config
                 exit_compositor
                 ;;
 esac

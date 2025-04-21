@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # create swaybg and mako systemd service.
+  # create swaybg and Mako Systemd services.
   systemd.user.services = {
     swaybg = {
       Unit = {
