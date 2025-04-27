@@ -8,7 +8,7 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
 import os
 import sys
-sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/qtile')
+sys.path.append(os.path.expanduser('~') + '/repos/configs/dotfiles/common/dotconfig/qtile')
 from common import *
 
 # Keybindings
@@ -16,7 +16,8 @@ keys.extend(
   [
     # open RGB light color switcher
     Key([mod, "shift"], "o", lazy.spawn(home + '/repos/configs/scripts/dmenu/rgb-switcher.sh') ),
-]
+  ]
+)
 
 if qtile.core.name == "x11":
   keys.extend(

@@ -168,7 +168,7 @@ riverctl focus-follows-cursor normal
 # make all applications use server side decorations
 riverctl rule-add ssd
 
-# spawn a kitty terminal scratchpad at startup
+# spawn a terminal scratchpad at startup
 riverctl rule-add -app-id scratchpad float
 riverctl rule-add -app-id scratchpad tags ${scratch_tag}
-riverctl spawn "kitty --class scratchpad"
+riverctl spawn "${terminal} --class scratchpad"

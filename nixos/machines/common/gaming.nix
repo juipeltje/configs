@@ -20,6 +20,7 @@
     bottles
     heroic
     prismlauncher
+    mcpelauncher-ui-qt
   
     # Emulators
     duckstation
@@ -34,6 +35,9 @@
     unigine-heaven
     unigine-valley
     unigine-superposition
+
+    # Chat
+    webcord
   ];
 
   # Enable anime game launchers

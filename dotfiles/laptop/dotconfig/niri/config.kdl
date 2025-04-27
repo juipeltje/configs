@@ -1,8 +1,8 @@
 // Niri config
 
 // dbus/systemd integration settings
-spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_SESSION_ID"
-spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "NIRI_SOCKET" "XDG_CURRENT_DESKTOP" "XDG_SESSION_ID"
+spawn-at-startup "systemctl" "--user" "import-environment" "{,WAYLAND_}DISPLAY" "NIRI_SOCKET"
 spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
 
 // autostart

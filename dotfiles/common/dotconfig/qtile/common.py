@@ -113,7 +113,7 @@ keys = [
   Key([mod], "KP_Enter", lazy.layout.reset() ),
 
   # Toggle between the different layouts
-  Key([mod], "l", lazy.next_layout() ),
+  Key([mod, "shift"], "l", lazy.next_layout() ),
 
   # Go to next/previous group
   Key([mod, "control"], "Right", lazy.screen.next_group() ),
@@ -127,7 +127,7 @@ if qtile.core.name == "x11":
   keys.extend(
     [
       # open application launcher
-      Key([mod], "space", lazy.spawn("rofi -show drun") ),
+      Key([mod], "space", lazy.spawn('rofi -show drun') ),
 
       # notification history and close all notifications
       Key([mod], "n", lazy.spawn("dunstctl history-pop") ),
@@ -189,7 +189,7 @@ if qtile.core.name == "x11":
     )
 
   # Scratchpad window settings
-  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
+  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --class scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 elif qtile.core.name == "wayland":
   groups = [
@@ -223,7 +223,7 @@ elif qtile.core.name == "wayland":
     )
 
   # Scratchpad window settings
-  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --name scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
+  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --class scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 # set colorscheme
 colors = colors.GruvboxDark

@@ -17,7 +17,7 @@
             i3.enable = true;
             i3.extraPackages = [ ];
             qtile.enable = true;
-            qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
+            qtile.extraPackages = python3Packages: with python3Packages; [ qtile-extras pyxdg dbus-fast ];
           };
 
           displayManager = {
@@ -62,8 +62,8 @@
           picom = {
             enable = true;
             description = "Picom composite manager";
-            partOf = [ "qtile-session.target" ];
-            wantedBy = [ "qtile-session.target" ];
+            partOf = [ "qtile-session.target" "i3-session.target" ];
+            wantedBy = [ "qtile-session.target" "i3-session.target" ];
             serviceConfig = {
               ExecStart = "${pkgs.picom}/bin/picom";
               Restart = "on-failure";
@@ -73,10 +73,10 @@
           xrandr = {
             enable = true;
             description = "xrandr display configuration";
-            partOf = [ "qtile-session.target" ];
+            partOf = [ "qtile-session.target" "i3-session.target" ];
             requiredBy = [ "feh.service" ];
             before = [ "feh.service" ];
-            wantedBy = [ "qtile-session.target" ];
+            wantedBy = [ "qtile-session.target" "i3-session.target" ];
             serviceConfig = {
               Type = "oneshot";
               Restart = "on-failure";
@@ -86,8 +86,8 @@
           xset = {
             enable = true;
             description = "xset user preference utility for X";
-            partOf = [ "qtile-session.target" ];
-            wantedBy = [ "qtile-session.target" ];
+            partOf = [ "qtile-session.target" "i3-session.target" ];
+            wantedBy = [ "qtile-session.target" "i3-session.target" ];
             serviceConfig = {
               Type = "oneshot";
               ExecStart = "${pkgs.xorg.xset}/bin/xset s off -dpms";
@@ -103,6 +103,14 @@
             description = "Qtile session";
             documentation = [ "man:systemd.special(7)" ];
             bindsTo = [ "graphical-session.target" ];
+            wants = [ "graphical-session-pre.target" ];
+            after = [ "graphical-session-pre.target" ];
+          };
+
+          i3-session = {
+            description = "i3 session";
+            documentation = [ "man:systemd.special(7)" ];
+            bindsTo = [ "graphical-session-pre.target" ];
             wants = [ "graphical-session-pre.target" ];
             after = [ "graphical-session-pre.target" ];
           };

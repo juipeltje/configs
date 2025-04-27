@@ -8,12 +8,12 @@
     feh = {
       Unit = {
         Description = "Feh wallpaper tool for X";
-        PartOf = [ "qtile-session.target" ];
+        PartOf = [ "qtile-session.target" "i3-session.target" ];
         Requires = [ "xrandr.service" ];
         After = [ "xrandr.service" ];
       };
 
-      Install = { WantedBy = [ "qtile-session.target" ]; };
+      Install = { WantedBy = [ "qtile-session.target" "i3-session.target" ]; };
       Service = {
         ExecStart = "${config.home.homeDirectory}/.fehbg"; 
         Restart = "on-failure";
@@ -23,12 +23,12 @@
     dunst = {
       Unit = {
         Description = "Dunst notification daemon";
-        PartOf = [ "qtile-session.target" ];
+        PartOf = [ "qtile-session.target" "i3-session.target" ];
       };
 
-      Install = { WantedBy = [ "qtile-session.target" ]; };
+      Install = { WantedBy = [ "qtile-session.target" "i3-session.target" ]; };
       Service = {
-        ExecStart = "${pkgs.dunst}/bin/dunst -conf ${config.home.homeDirectory}/.config/dunst/dunstrc-tokyonight";
+        ExecStart = "${pkgs.dunst}/bin/dunst -conf ${config.home.homeDirectory}/.config/dunst/dunstrc-gruvbox-dark";
         Restart = "on-failure";
       };
     };

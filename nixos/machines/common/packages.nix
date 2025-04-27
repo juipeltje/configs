@@ -100,7 +100,7 @@
         pavucontrol
         mpv
         feh
-        rmpc
+        unstable.rmpc
 
         # Fetch tools
         fastfetch
@@ -138,7 +138,7 @@
 
       # Select kernel version.
       boot = {
-        kernelPackages = pkgs.linuxPackages_6_12;
+        kernelPackages = pkgs.linuxPackages_latest;
       };
     })
 

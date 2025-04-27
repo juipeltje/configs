@@ -8,6 +8,10 @@ else
 fi
 
 theme_switch() {
+	# i3
+	sed -i --follow-symlinks "s|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-${theme}.conf|" ~/.config/i3/common.conf
+        i3msg reload
+
 	# sway
         sed -i --follow-symlinks "s|^include ~/.config/sway/colors.*|include ~/.config/sway/colors-${theme}.conf|" ~/.config/sway/common.conf
         swaymsg reload
