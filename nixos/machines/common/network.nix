@@ -3,9 +3,10 @@
 { config, pkgs, ... }:
 
 {
-  # Enable networkmanager.
+  # Enable Networkmanager and firewall.
   networking = {
     networkmanager.enable = true;
+    firewall.enable = true;
   };
 
   # Enable networkmanager applet.
@@ -25,7 +26,4 @@
 
   # Enable openssh
   services.openssh.enable = true;
-
-  # Firewall settings
-  networking.firewall.enable = false;
 }

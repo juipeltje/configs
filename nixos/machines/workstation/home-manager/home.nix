@@ -18,6 +18,8 @@
     ./../../common/home-manager/distrobox.nix
     # Dunst settings
     ./../../common/home-manager/dunst.nix
+    # DWL settings
+    ./../../common/home-manager/dwl.nix
     # Foot settings
     ./../../common/home-manager/foot.nix
     # Fuzzel settings
