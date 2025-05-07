@@ -1,0 +1,6 @@
+// waybar dwl modules
+
+{
+  // choose the order of the modules
+  "modules-left": ["clock#time", "clock#date", "tray", "dwl/tags", "dwl/window"],
+}

@@ -77,8 +77,8 @@
       gtklock = {
         enable = true;
         description = "gtklock screenlocker";
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.gtklock}/bin/gtklock --follow-focus";
           Restart = "on-failure";
@@ -87,8 +87,8 @@
 
       waybar = {
         enable = true;
-        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
-        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" ];
+        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
         path = with pkgs; [ bash gawk lm_sensors procps ];
       };
 
@@ -111,8 +111,8 @@
         enable = true;
         description = "Swayidle idle manager for Wayland";
         documentation = [ "man:swayidle(1)" ];
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.swayidle}/bin/swayidle -w";
           Restart = "on-failure";

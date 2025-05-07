@@ -4,6 +4,10 @@
 
 # wrapping sed commands inside of bash scripts for systemd services.
 let
+  waybar_modules_dwl = pkgs.writers.writeBash "waybar-modules-dwl" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-dwl\",|' ${config.home.homeDirectory}/.config/waybar/config
+  '';
+
   waybar_modules_hyprland = pkgs.writers.writeBash "waybar-modules-hyprland" ''
     ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/modules-hyprland\",|' ${config.home.homeDirectory}/.config/waybar/config
   '';
@@ -31,6 +35,11 @@ in
     "waybar/gruvbox-dark.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/waybar/gruvbox-dark.css;
+    };
+
+    "waybar/modules-dwl" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/waybar/modules-dwl;
     };
 
     "waybar/modules-hyprland" = {
@@ -71,6 +80,21 @@ in
 
   # create Systemd services for loading waybar modules depending on which compositor is started.
   systemd.user.services = {
+    waybar-dwl = {
+      Unit = {
+        Description = "Waybar DWL modules";
+        PartOf = [ "dwl-session.target" ];
+        Before = [ "waybar.service" ];
+      };
+
+      Install = { WantedBy = [ "dwl-session.target" ]; };
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${waybar_modules_dwl}";
+        Restart = "on-failure";
+      };
+    };
+
     waybar-hyprland = {
       Unit = {
         Description = "Waybar Hyprland modules";
