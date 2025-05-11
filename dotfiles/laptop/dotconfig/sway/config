@@ -9,6 +9,7 @@ include ~/.config/sway/common.conf
 ## input configuration
 input type:touchpad {
   tap enabled
+  dwt disabled
 }
 
 ## keybindings

@@ -36,8 +36,14 @@
       ];
     })
 
-    #(lib.mkIf (hostName == "NixOS-Lappie") {
-    #  xdg.configFile."kanshi/config".source = ./../../../../dotfiles/laptop/dotconfig/kanshi/config;
-    #})
+    (lib.mkIf (hostName == "NixOS-Lappie") {
+      nixpkgs.overlays = [
+        (final: prev: {
+          dwl = prev.dwl.override {
+            configH = ./../../../../dotfiles/laptop/dotconfig/dwl/config.h;
+          };
+        })
+      ];
+    })
   ];
 }

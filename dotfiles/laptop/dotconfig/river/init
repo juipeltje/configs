@@ -10,6 +10,7 @@ riverctl spawn ~/.config/river/autostart.sh
 
 # input settings
 riverctl input pointer-1267-12608-MSFT0001:00_04F3:3140_Touchpad tap enabled
+riverctl input pointer-1267-12608-MSFT0001:00_04F3:3140_Touchpad disable-while-typing disabled
 
 # Keybindings
 
