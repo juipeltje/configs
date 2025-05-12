@@ -147,9 +147,9 @@ static const char *audio_next[] = { "playerctl", "next", NULL };
 static const char *audio_previous[] = { "playerctl", "previous", NULL };
 static const char *audio_mute[] = { "pulsemixer", "--toggle-mute", NULL };
 static const char *audio_lower[] = { "pulsemixer", "--change-volume", "-5", NULL };
-static const char *audio_raise[] { "pulsemixer", "--change-volume", "+5", NULL };
-static const char *brightness_down[] { "brightnessctl", "s", "10%-", NULL };
-static const char *brightness_up[] { "brightnessctl", "s", "+10%", NULL };
+static const char *audio_raise[] = { "pulsemixer", "--change-volume", "+5", NULL };
+static const char *brightness_down[] = { "brightnessctl", "s", "10%-", NULL };
+static const char *brightness_up[] = { "brightnessctl", "s", "+10%", NULL };
 
 /* keybinds */
 static const Key keys[] = {
