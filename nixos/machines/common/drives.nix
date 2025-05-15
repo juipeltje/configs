@@ -19,12 +19,5 @@
       fsType = "ext4";
       label = "6TB-HDD";
     };
-
-    "VM-SSD" = {
-      mountPoint = "/VM-SSD";
-      device = "/dev/disk/by-uuid/bac8097e-736c-48a4-9fbf-0ae206677c16";
-      fsType = "ext4";
-      label = "VM-SSD";
-    };
   };
 }
