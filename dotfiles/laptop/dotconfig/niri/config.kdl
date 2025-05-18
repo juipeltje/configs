@@ -7,7 +7,6 @@ spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
 
 // autostart
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "waybar"
 
 // environment variables
 environment {

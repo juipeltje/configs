@@ -9,7 +9,7 @@ from qtile_extras.widget.decorations import RectDecoration
 import os
 import subprocess
 import sys
-sys.path.append(os.path.expanduser('~') + '/repos/configs/common/home/dotconfig/qtile')
+sys.path.append(os.path.expanduser('~') + '/repos/configs/dotfiles/common/dotconfig/qtile')
 from common import *
 
 # Keybindings
@@ -396,3 +396,12 @@ screens = [
      border_width=[0,0,0,0],
      border_color=colors[0]), ),
 ]
+
+# wayland-specific settings
+if qtile.core.name == "wayland":
+  # input
+  wl_input_rules_laptop = {
+    "type:touchpad": InputConfig(dwt=False, tap=True),
+  }
+
+  wl_input_rules.update(wl_input_rules_laptop)
