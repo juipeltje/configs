@@ -22,4 +22,22 @@
       notifications = true;
     };
   };
+
+  # Add rmpc to home packages.
+  home.packages = with pkgs; [
+    unstable.rmpc
+  ];
+
+  # rmpc configuration files.
+  xdg.configFile = {
+    "rmpc/config.ron" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/rmpc/config.ron;
+    };
+
+    "rmpc/themes/default.ron" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/rmpc/themes/default.ron;
+    };
+  };
 }

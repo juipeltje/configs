@@ -100,7 +100,6 @@
         pavucontrol
         mpv
         feh
-        unstable.rmpc
 
         # Fetch tools
         fastfetch

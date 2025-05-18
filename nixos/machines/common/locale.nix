@@ -3,8 +3,11 @@
 { config, pkgs, ... }:
 
 {
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
+  # Set time zone and keep hardware clock in local time (for dualbooting with windows).
+  time = {
+    timeZone = "Europe/Amsterdam";
+    hardwareClockInLocalTime = true;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
