@@ -17,6 +17,7 @@
               ./../../../../dotfiles/common/dotconfig/dwl/patches/attachbottom.patch
               ./../../../../dotfiles/common/dotconfig/dwl/patches/autostart-0.7.patch
               ./../../../../dotfiles/common/dotconfig/dwl/patches/ipc.patch
+              ./../../../../dotfiles/common/dotconfig/dwl/patches/restore-monitor.patch
               #./../../../../dotfiles/common/dotconfig/dwl/patches/simple_scratchpad-v0.7.patch
               ./../../../../dotfiles/common/dotconfig/dwl/patches/vanitygaps-0.7.patch
               ./../../../../dotfiles/common/dotconfig/dwl/patches/warpcursor.patch
