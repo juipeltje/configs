@@ -20,6 +20,8 @@
     ./../../common/home-manager/dunst.nix
     # DWL settings
     ./../../common/home-manager/dwl.nix
+    # Fastfetch settings
+    ./../../common/home-manager/fastfetch.nix
     # Foot settings
     ./../../common/home-manager/foot.nix
     # Fuzzel settings
@@ -64,6 +66,8 @@
     ./../../common/home-manager/theming.nix
     # Virt-manager settings
     ./../../common/home-manager/virt-manager.nix
+    # vscode settings
+    ./../../common/home-manager/vscode.nix
     # Waybar settings
     ./../../common/home-manager/waybar.nix
     # Wayland settings

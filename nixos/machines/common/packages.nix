@@ -117,7 +117,6 @@
         gparted
         curl
         wget
-        vscodium-fhs
         autotiling
       ];
     }

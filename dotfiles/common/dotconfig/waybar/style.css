@@ -61,7 +61,8 @@ window#waybar {
     padding: 0px 10px;
 }
 
-#mpris, 
+#mpris,
+#custom-os-version, 
 #custom-kernel, 
 #custom-cpu, 
 #custom-gpu, 
