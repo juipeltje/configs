@@ -58,6 +58,11 @@
           $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
             ${config.home.homeDirectory}/repos/configs/dotfiles/common/dotconfig/sway/common.conf ${config.home.homeDirectory}/.config/sway/
 
+	  # VSCodium
+	  $DRY_RUN_CMD ${pkgs.coreutils}/bin/mkdir -p $VERBOSE_ARG ${config.home.homeDirectory}/.config/VSCodium/User
+          $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
+            ${config.home.homeDirectory}/repos/configs/dotfiles/common/dotconfig/VSCodium/User/settings.json ${config.home.homeDirectory}/.config/VSCodium/User/
+
           # Waybar
           $DRY_RUN_CMD ${pkgs.coreutils}/bin/ln -sf $VERBOSE_ARG \
             ${config.home.homeDirectory}/repos/configs/dotfiles/common/dotconfig/waybar/style.css ${config.home.homeDirectory}/.config/waybar/

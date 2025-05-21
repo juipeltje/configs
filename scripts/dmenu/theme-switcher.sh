@@ -81,7 +81,7 @@ case $theme in
                 #killall -HUP xsettingsd
 
 		# vscode
-		sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Nord"/' ~/.config/VSCodium/User/settings.json
+		sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Nord"/' ~/.config/VSCodium/User/settings.json
 
 		# done with configs, now setting gtk theme with home manager
 		notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -112,7 +112,7 @@ case $theme in
                 #killall -HUP xsettingsd
 
 		# vscode
-                sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Gruvbox Dark Medium"/' ~/.config/VSCodium/User/settings.json
+                sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Gruvbox Dark Medium"/' ~/.config/VSCodium/User/settings.json
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -143,7 +143,7 @@ case $theme in
                 #killall -HUP xsettingsd
 
 		# vscode
-                sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Tokyo Night"/' ~/.config/VSCodium/User/settings.json
+                sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Tokyo Night"/' ~/.config/VSCodium/User/settings.json
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -174,7 +174,7 @@ case $theme in
                 #killall -HUP xsettingsd
 
 		# vscode
-                sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Solarized Dark"/' ~/.config/VSCodium/User/settings.json
+                sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Solarized Dark"/' ~/.config/VSCodium/User/settings.json
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
@@ -205,7 +205,7 @@ case $theme in
                 #killall -HUP xsettingsd
 
 		# vscode
-                sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Catppuccin Mocha"/' ~/.config/VSCodium/User/settings.json
+                sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Catppuccin Mocha"/' ~/.config/VSCodium/User/settings.json
 
 		# done with configs, now setting gtk theme with home manager
                 notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
