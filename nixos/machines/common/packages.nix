@@ -100,6 +100,7 @@
         pavucontrol
         mpv
         feh
+        audacious
 
         # Fetch tools
         fastfetch

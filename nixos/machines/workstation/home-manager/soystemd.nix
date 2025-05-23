@@ -5,15 +5,18 @@
 {
   # Systemd service for OpenRGB.
   systemd.user.services = {
-    openrgb = {
+    openrgb-profile = {
       Unit = {
-        Description = "OpenRGB GUI minimized in tray";
-        PartOf = [ "graphical-session.target" ];
+        Description = "OpenRGB color profile";
+        PartOf = [ "default.target" ];
+        Requires = [ "openrgb.service" ];
+        After = [ "openrgb.service" ];
       };
 
-      Install = { WantedBy = [ "graphical-session.target" ]; };
+      Install = { WantedBy = [ "default.target" ]; };
       Service = { 
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --startminimized -p purple.orp";
+        Type = "oneshot";
+        ExecStart = "${pkgs.openrgb}/bin/openrgb -p purple.orp";
         Restart = "on-failure";
       };
     };

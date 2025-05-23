@@ -35,8 +35,8 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.package = pkgs.libsForQt5.qtstyleplugins;
+    platformTheme.name = "gtk3";
+    #style.package = pkgs.libsForQt5.qtstyleplugins;
     style.name = "gtk2";
   };
 }
