@@ -9,8 +9,6 @@
       Unit = {
         Description = "OpenRGB color profile";
         PartOf = [ "default.target" ];
-        Requires = [ "openrgb.service" ];
-        After = [ "openrgb.service" ];
       };
 
       Install = { WantedBy = [ "default.target" ]; };
