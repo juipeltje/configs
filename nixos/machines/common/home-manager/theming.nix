@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Install GTK theme.package = pkgs.gruvbox-gtk-theme;
+  # Install GTK theme packages and any extra font packages.
   home.packages = with pkgs; [
     nordic
     gruvbox-gtk-theme
@@ -11,6 +11,7 @@
     numix-solarized-gtk-theme
     magnetic-catppuccin-gtk
     dracula-theme
+    nerd-fonts.mononoki
   ];
 
   # Setting themes 
@@ -24,7 +25,7 @@
 
   gtk = {
     enable = true;
-    font.package = (pkgs.nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; });
+    font.package = pkgs.nerd-fonts.ubuntu;
     font.name = "Ubuntu Nerd Font Medium";
     font.size = 11;
     theme.package = pkgs.gruvbox-gtk-theme;

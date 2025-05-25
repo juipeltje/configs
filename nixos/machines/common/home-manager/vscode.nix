@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with pkgs; [
+    profiles.default.extensions = with pkgs; [
       vscode-extensions.jnoortheen.nix-ide
       vscode-extensions.catppuccin.catppuccin-vsc
       vscode-extensions.jdinhlife.gruvbox

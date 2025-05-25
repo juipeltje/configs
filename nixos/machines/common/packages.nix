@@ -10,7 +10,8 @@
   
       # Font packages to install.
       fonts.packages = with pkgs; [ 
-        (nerdfonts.override { fonts = [ "Mononoki" "Ubuntu" ]; })
+        nerd-fonts.mononoki
+        nerd-fonts.ubuntu
       ];
 
       # Bash prompt.
