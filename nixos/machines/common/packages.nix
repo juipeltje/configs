@@ -135,11 +135,6 @@
           enable = true;
         };
       };
-
-      # Select kernel version.
-      boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
-      };
     })
 
     (lib.mkIf (config.networking.hostName == "NixOS-Lappie") {
