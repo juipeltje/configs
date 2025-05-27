@@ -9,8 +9,8 @@ riverctl spawn ~/.config/river/common.sh
 riverctl spawn ~/.config/river/autostart.sh
 
 # input settings
-riverctl input pointer-1267-12608-MSFT0001:00_04F3:3140_Touchpad tap enabled
-riverctl input pointer-1267-12608-MSFT0001:00_04F3:3140_Touchpad disable-while-typing disabled
+riverctl input *Touchpad tap enabled
+riverctl input *Touchpad disable-while-typing disabled
 
 # Keybindings
 
@@ -23,5 +23,5 @@ riverctl map normal None XF86AudioRaiseVolume spawn 'pulsemixer --change-volume 
 riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl s 10%-'
 riverctl map normal None XF86MonBrightnessUp spawn 'brightnessctl s +10%'
 
-# set kitty scratchpad terminal dimensions
+# set scratchpad terminal dimensions
 riverctl rule-add -app-id scratchpad dimensions 960 700

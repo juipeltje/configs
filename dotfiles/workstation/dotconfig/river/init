@@ -25,5 +25,5 @@ riverctl map normal Super+Control X spawn 'xrandr --output DP-1 --primary'
 # open RGB light color switcher
 riverctl map normal Super+Shift O spawn ~/repos/configs/scripts/dmenu/rgb-switcher.sh
 
-# set kitty scratchpad terminal dimensions
+# set scratchpad terminal dimensions
 riverctl rule-add -app-id scratchpad dimensions 1720 1000

@@ -12,7 +12,7 @@
 
   // choose the order of the modules
   // include the modules-left option
-  "include": "~/.config/waybar/modules-dwl",
+  "include": "~/.config/waybar/modules-river",
   "modules-right": ["mpris", "custom/os-version", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 
   // modules configuration
