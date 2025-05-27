@@ -102,6 +102,7 @@
         mpv
         feh
         audacious
+        cyanrip
 
         # Fetch tools
         fastfetch
