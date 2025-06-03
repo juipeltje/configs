@@ -103,6 +103,7 @@
         feh
         audacious
         cyanrip
+        picard
 
         # Fetch tools
         fastfetch
