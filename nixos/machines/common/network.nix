@@ -6,7 +6,7 @@
   # Enable Networkmanager and firewall.
   networking = {
     networkmanager.enable = true;
-    firewall.enable = true;
+    firewall.enable = false;
   };
 
   # Enable networkmanager applet.
