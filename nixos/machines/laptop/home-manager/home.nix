@@ -43,7 +43,7 @@
     # Mako settings
     ./../../common/home-manager/mako.nix
     # mpd settings
-    ./../../common/home-manager/mpd.nix
+    #./../../common/home-manager/mpd.nix
     # mpv settings
     ./../../common/home-manager/mpv.nix
     # Picom settings

@@ -8,7 +8,7 @@
     cache_dir: None,
     on_song_change: None,
     volume_step: 5,
-    max_fps: 30,
+    max_fps: 60,
     scrolloff: 0,
     wrap_navigation: false,
     enable_mouse: true,
@@ -116,7 +116,31 @@
             name: "Queue",
             pane: Split(
                 direction: Horizontal,
-                panes: [(size: "60%", pane: Pane(Queue)), (size: "40%", pane: Pane(AlbumArt))],
+                panes: [
+                    (
+                        size: "80%",
+                        pane: Pane(Queue),
+                        borders: "ALL",
+                    ),
+                    (
+                        size: "20%", 
+                        pane: Split( 
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "75%",
+                                    pane: Pane(AlbumArt),
+                                    borders: "ALL",
+                                ),
+                                (
+                                    size: "25%",
+                                    pane: Pane(Lyrics),
+                                    borders: "ALL"
+                                )
+                            ]
+                        )
+                    ),
+                ],
             ),
         ),
         (

@@ -11,8 +11,8 @@
       network.startWhenNeeded = true;
       extraConfig = ''
         audio_output {
-        	type            "pipewire"
-        	name            "PipeWire Sound Server"
+          type	"pipewire"
+          name	"PipeWire Sound Server"
         }
       '';
     };
@@ -23,9 +23,12 @@
     };
   };
 
-  # Add rmpc to home packages.
+  # Install mpd clients.
   home.packages = with pkgs; [
     unstable.rmpc
+    plattenalbum
+    ymuse
+    ncmpcpp
   ];
 
   # rmpc configuration files.
