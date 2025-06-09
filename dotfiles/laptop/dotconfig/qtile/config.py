@@ -205,6 +205,21 @@ nixos_icon = widget.TextBox(
             padding=2,
             **decoration_group_width)
 
+os_version = widget.GenPollText(
+            func=lambda: subprocess.check_output(home + '/repos/configs/scripts/waybar/os-version.sh', shell=True, text=True).strip(),
+            update_interval=60,
+            fontsize=16,
+            **widget_defaults,
+            padding=2,
+            **decoration_group_width)
+
+kernel_icon = widget.TextBox(
+            text=" ",
+            fontsize=20,
+            **widget_defaults,
+            padding=2,
+            **decoration_group_width)
+
 kernel_version = widget.GenPollText(
             func=lambda: subprocess.check_output("uname -r", shell=True, text=True).strip(),
             update_interval=60,
@@ -329,6 +344,9 @@ screens = [
     now_playing,
     spacer,
     nixos_icon,
+    os_version,
+    spacer,
+    kernel_icon,
     kernel_version,
     spacer,
     cpu_icon,
@@ -373,6 +391,9 @@ screens = [
     now_playing,
     spacer,
     nixos_icon,
+    os_version,
+    spacer,
+    kernel_icon,
     kernel_version,
     spacer,
     cpu_icon,

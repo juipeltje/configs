@@ -3,10 +3,9 @@
 { config, pkgs, ... }:
 
 {
-  # Set time zone and keep hardware clock in local time (for dualbooting with windows).
+  # Set time zone.
   time = {
     timeZone = "Europe/Amsterdam";
-    hardwareClockInLocalTime = true;
   };
 
   # Select internationalisation properties.
