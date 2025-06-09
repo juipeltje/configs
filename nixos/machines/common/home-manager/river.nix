@@ -11,6 +11,11 @@
           source = ./../../../../dotfiles/common/dotconfig/river/colors-catppuccin-mocha.sh;
         };
 
+        "river/colors-dracula.sh" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/river/colors-dracula.sh;
+        };
+
         "river/colors-gruvbox-dark.sh" = {
           enable = true;
           source = ./../../../../dotfiles/common/dotconfig/river/colors-gruvbox-dark.sh;

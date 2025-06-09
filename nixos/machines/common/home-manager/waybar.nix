@@ -32,6 +32,11 @@ in
       source = ./../../../../dotfiles/common/dotconfig/waybar/catppuccin-mocha.css;
     };
 
+    "waybar/dracula.css" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/waybar/dracula.css;
+    };
+
     "waybar/gruvbox-dark.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/waybar/gruvbox-dark.css;

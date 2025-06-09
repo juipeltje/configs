@@ -11,6 +11,11 @@
           source = ./../../../../dotfiles/common/dotconfig/hypr/colors-catppuccin-mocha.conf;
         };
 
+        "hypr/colors-dracula.conf" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/hypr/colors-dracula.conf;
+        };
+
         "hypr/colors-gruvbox-dark.conf" = {
           enable = true;
           source = ./../../../../dotfiles/common/dotconfig/hypr/colors-gruvbox-dark.conf;

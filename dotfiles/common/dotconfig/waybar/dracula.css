@@ -1,0 +1,4 @@
+@define-color foreground #f8f8f2;
+@define-color background rgba(40, 42, 54, 0.999);
+@define-color alt-background #44475a;
+@define-color alert #ff5555;

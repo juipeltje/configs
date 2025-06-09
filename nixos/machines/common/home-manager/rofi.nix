@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/rofi/catppuccin-mocha.rasi;
     };
 
+    "rofi/dracula.rasi" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/rofi/dracula.rasi;
+    };
+
     "rofi/gruvbox-dark.rasi" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/rofi/gruvbox-dark.rasi;

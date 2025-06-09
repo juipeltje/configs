@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/mako/catppuccin-mocha-config;
     };
 
+    "mako/dracula-config" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/mako/dracula-config;
+    };
+
     "mako/gruvbox-dark-config" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/mako/gruvbox-dark-config;

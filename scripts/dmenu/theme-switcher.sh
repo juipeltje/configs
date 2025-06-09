@@ -2,9 +2,9 @@
 
 # Theme switcher script
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	theme=$( echo -e "  Nord\n  Gruvbox-Dark\n  Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+	theme=$( echo -e "  Nord\n  Gruvbox-Dark\n  Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha\n  Dracula" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 else
-	theme=$( echo -e " Nord\n Gruvbox-Dark\n Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+	theme=$( echo -e " Nord\n Gruvbox-Dark\n Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha\n  Dracula" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 fi
 
 theme_switch() {
@@ -76,7 +76,7 @@ case $theme in
 		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#434c5e"|' ~/.config/niri/config.kdl
 
 		# foot
-		for i in $(pgrep bash); do
+		for i in $(pgrep -x 'bash|yazi'); do
 		  printf '\e]10;#d8dee9\007' >> /proc/$i/fd/0
 		  printf '\e]11;#2e3440\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#3b4252\007' >> /proc/$i/fd/0
@@ -129,7 +129,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#504945"|' ~/.config/niri/config.kdl
 
 		# foot
-                for i in $(pgrep bash); do
+                for i in $(pgrep -x 'bash|yazi'); do
                   printf '\e]10;#ebdbb2\007' >> /proc/$i/fd/0
                   printf '\e]11;#282828\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#282828\007' >> /proc/$i/fd/0
@@ -182,7 +182,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#414868"|' ~/.config/niri/config.kdl
 
 		# foot
-                for i in $(pgrep bash); do
+                for i in $(pgrep -x 'bash|yazi'); do
                   printf '\e]10;#c0caf5\007' >> /proc/$i/fd/0
                   printf '\e]11;#1a1b26\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#15161E\007' >> /proc/$i/fd/0
@@ -235,7 +235,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#073642"|' ~/.config/niri/config.kdl
 
 		# foot
-                for i in $(pgrep bash); do
+                for i in $(pgrep -x 'bash|yazi'); do
                   printf '\e]10;#839496\007' >> /proc/$i/fd/0
                   printf '\e]11;#002b36\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#073642\007' >> /proc/$i/fd/0
@@ -288,7 +288,7 @@ case $theme in
                 sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#45475a"|' ~/.config/niri/config.kdl
 
 		# foot
-                for i in $(pgrep bash); do
+                for i in $(pgrep -x 'bash|yazi'); do
                   printf '\e]10;#cdd6f4\007' >> /proc/$i/fd/0
                   printf '\e]11;#1e1e2e\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#45475a\007' >> /proc/$i/fd/0
@@ -328,4 +328,57 @@ case $theme in
                 # done. notify user
                 notify-send "Theme Switcher Script" "Current theme: Catppuccin-Mocha"
                 ;;
+        dracula)
+		# execute function with variables
+		theme_switch
+
+		# qtile
+                sed -i --follow-symlinks 's|^colors.*|colors = colors.Dracula|' ~/.config/qtile/common.py
+                qtile cmd-obj -o cmd -f reload_config
+
+		# niri
+		sed -i --follow-symlinks 's|active-color.*|active-color "#f8f8f2"|' ~/.config/niri/config.kdl
+		sed -i --follow-symlinks 's|inactive-color.*|inactive-color "#44475a"|' ~/.config/niri/config.kdl
+
+		# foot
+		for i in $(pgrep -x 'bash|yazi'); do
+		  printf '\e]10;#f8f8f2\007' >> /proc/$i/fd/0
+		  printf '\e]11;#282a36\007' >> /proc/$i/fd/0
+                  printf '\e]04;0;#000000\007' >> /proc/$i/fd/0
+		  printf '\e]04;1;#ff5555\007' >> /proc/$i/fd/0
+		  printf '\e]04;2;#50fa7b\007' >> /proc/$i/fd/0
+		  printf '\e]04;3;#f1fa8c\007' >> /proc/$i/fd/0
+		  printf '\e]04;4;#bd93f9\007' >> /proc/$i/fd/0
+		  printf '\e]04;5;#ff79c6\007' >> /proc/$i/fd/0
+		  printf '\e]04;6;#8be9fd\007' >> /proc/$i/fd/0
+		  printf '\e]04;7;#bfbfbf\007' >> /proc/$i/fd/0
+		  printf '\e]04;8;#4d4d4d\007' >> /proc/$i/fd/0
+		  printf '\e]04;9;#ff6e67\007' >> /proc/$i/fd/0
+		  printf '\e]04;10;#5af78e\007' >> /proc/$i/fd/0
+		  printf '\e]04;11;#f4f99d\007' >> /proc/$i/fd/0
+		  printf '\e]04;12;#caa9fa\007' >> /proc/$i/fd/0
+		  printf '\e]04;13;#ff92d0\007' >> /proc/$i/fd/0
+		  printf '\e]04;14;#9aedfe\007' >> /proc/$i/fd/0
+		  printf '\e]04;15;#e6e6e6\007' >> /proc/$i/fd/0
+                done
+
+		# GTK
+		#gsettings set org.gnome.desktop.interface gtk-theme Nordic
+		#sed -i 's|^Net/ThemeName.*|Net/ThemeName "Nordic"|' ~/.xsettingsd
+                #killall -HUP xsettingsd
+
+		# vscode
+		sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Dracula Theme"/' ~/.config/VSCodium/User/settings.json
+
+		# done with configs, now setting gtk theme with home manager
+		notify-send "Theme Switcher Script" "switching gtk theme with home manager..."
+
+		# home manager
+ 		sed -i 's/theme.package.*/theme.package = pkgs.dracula-theme;/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Dracula";/' ~/repos/configs/nixos/machines/common/home-manager/theming.nix
+                home-manager switch --flake ~/repos/configs/nixos
+
+		# done. notify user.
+		notify-send "Theme Switcher Script" "Current theme: Dracula"
+		;;
 esac

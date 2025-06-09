@@ -34,3 +34,10 @@ CatppuccinMocha = [
 	["45475a", "45475a"], # alt-background
 	["f38ba8", "f38ba8"]  # alert
 ]
+
+Dracula = [
+	["f8f8f2", "f8f8f2"], # foreground
+	["282a36", "282a36"], # background
+	["44475a", "44475a"], # alt-background
+	["ff5555", "ff5555"]  # alert
+]

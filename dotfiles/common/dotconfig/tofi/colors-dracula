@@ -1,0 +1,16 @@
+# Tofi color scheme for dracula
+
+background-color = #282a36
+border-color = #f8f8f2
+text-cursor-color = #f8f8f2
+text-cursor-background = #00000000
+prompt-color = #f8f8f2
+prompt-background = #44475a
+placeholder-color = #f8f8f2
+placeholder-background = #00000000
+input-color = #f8f8f2
+input-background = #00000000
+default-result-color = #f8f8f2
+default-result-background = #00000000
+selection-color = #282a36
+selection-background = #f8f8f2

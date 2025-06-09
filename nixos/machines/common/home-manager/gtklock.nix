@@ -20,6 +20,11 @@
       source = ./../../../../dotfiles/common/dotconfig/gtklock/catppuccin-mocha.css;
     };
 
+    "gtklock/dracula.css" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/gtklock/dracula.css;
+    };
+
     "gtklock/gruvbox-dark.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/gtklock/gruvbox-dark.css;

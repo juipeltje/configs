@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/foot/catppuccin-mocha.ini;
     };
 
+    "foot/dracula.ini" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/foot/dracula.ini;
+    };
+
     "foot/gruvbox-dark.ini" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/foot/gruvbox-dark.ini;

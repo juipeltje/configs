@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/kitty/catppuccin-mocha.conf;
     };
 
+    "kitty/dracula.conf" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/kitty/dracula.conf;
+    };
+
     "kitty/gruvbox-dark.conf" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/kitty/gruvbox-dark.conf;

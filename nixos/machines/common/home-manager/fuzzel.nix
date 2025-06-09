@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/fuzzel/catppuccin-mocha.ini;
     };
 
+    "fuzzel/dracula.ini" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/fuzzel/dracula.ini;
+    };
+
     "fuzzel/gruvbox-dark.ini" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/fuzzel/gruvbox-dark.ini;

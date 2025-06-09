@@ -9,6 +9,7 @@
     profiles.default.extensions = with pkgs; [
       vscode-extensions.jnoortheen.nix-ide
       vscode-extensions.catppuccin.catppuccin-vsc
+      vscode-extensions.dracula-theme.theme-dracula
       vscode-extensions.jdinhlife.gruvbox
       vscode-extensions.arcticicestudio.nord-visual-studio-code
       vscode-extensions.brandonkirbyson.solarized-palenight

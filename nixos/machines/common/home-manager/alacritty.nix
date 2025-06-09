@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/alacritty/catppuccin-mocha.toml;
     };
 
+    "alacritty/dracula.toml" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/alacritty/dracula.toml;
+    };
+
     "alacritty/gruvbox-dark.toml" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/alacritty/gruvbox-dark.toml;

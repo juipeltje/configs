@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/dunst/dunstrc-catppuccin-mocha;
     };
 
+    "dunst/dunstrc-dracula" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/dunst/dunstrc-dracula;
+    };
+
     "dunst/dunstrc-gruvbox-dark" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/dunst/dunstrc-gruvbox-dark;

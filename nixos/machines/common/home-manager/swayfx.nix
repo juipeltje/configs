@@ -11,6 +11,11 @@
           source = ./../../../../dotfiles/common/dotconfig/sway/colors-catppuccin-mocha.conf;
         };
 
+        "sway/colors-dracula.conf" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/sway/colors-dracula.conf;
+        };
+
         "sway/colors-gruvbox-dark.conf" = {
           enable = true;
           source = ./../../../../dotfiles/common/dotconfig/sway/colors-gruvbox-dark.conf;
