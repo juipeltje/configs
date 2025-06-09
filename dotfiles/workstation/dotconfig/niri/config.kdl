@@ -89,10 +89,10 @@ screenshot-path null
 // keybinds
 binds {
   // open a terminal
-  Mod+T { spawn "alacritty"; }
+  Mod+T { spawn "foot"; }
 
   // open file manager
-  Mod+F { spawn "kitty" "-e" "yazi"; }
+  Mod+F { spawn "foot" "-e" "yazi"; }
 
   // open a webbrowser
   Mod+W { spawn "librewolf"; }
@@ -102,9 +102,6 @@ binds {
 
   // open Deezer in a firefox window
   Mod+D { spawn "librewolf" "-new-window" "https://www.deezer.com/en/"; }
-
-  // open rmpc
-  Mod+M { spawn "kitty" "-e" "rmpc"; }
 
   // open application launcher
   Mod+Space { spawn "fuzzel"; }

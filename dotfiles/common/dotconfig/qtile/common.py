@@ -14,6 +14,7 @@ home = os.path.expanduser('~')
 mod = "mod4"
 terminal = "alacritty"
 image_terminal = "kitty"
+wayland_terminal = "foot"
 webbrowser = "librewolf"
 
 # autostart programs when starting window manager
@@ -41,12 +42,6 @@ def autostart():
 
 # Keybindings
 keys = [
-  # Open a terminal
-  Key([mod], "t", lazy.spawn(terminal) ),
-
-  # Open file manager
-  Key([mod], "f", lazy.spawn(image_terminal + " -e yazi") ),
-
   # Open a webbrowser
   Key([mod], "w", lazy.spawn(webbrowser) ),
 
@@ -55,9 +50,6 @@ keys = [
 
   # Open Deezer in firefox tab
   Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
-
-  # Open rmpc
-  Key([mod], "m", lazy.spawn(image_terminal + " -e rmpc") ),
 
   # open theme switcher
   Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/theme-switcher.sh') ),
@@ -126,6 +118,12 @@ keys = [
 if qtile.core.name == "x11":
   keys.extend(
     [
+      # Open a terminal
+      Key([mod], "t", lazy.spawn(terminal) ),
+
+      # Open file manager
+      Key([mod], "f", lazy.spawn(image_terminal + " -e yazi") ),
+
       # open application launcher
       Key([mod], "space", lazy.spawn('rofi -show drun') ),
 
@@ -142,6 +140,12 @@ if qtile.core.name == "x11":
 elif qtile.core.name == "wayland":
   keys.extend(
     [
+      # Open a terminal
+      Key([mod], "t", lazy.spawn(wayland_terminal) ),
+
+      # Open file manager
+      Key([mod], "f", lazy.spawn(wayland_terminal + " -e yazi") ),
+
       # open application launcher
       Key([mod], "space", lazy.spawn("fuzzel") ),
 
@@ -223,7 +227,7 @@ elif qtile.core.name == "wayland":
     )
 
   # Scratchpad window settings
-  groups.append(ScratchPad("0", [ DropDown("term", terminal + " --class scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
+  groups.append(ScratchPad("0", [ DropDown("term", wayland_terminal + " --class scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 # set colorscheme
 colors = colors.GruvboxDark

@@ -77,7 +77,6 @@ case $theme in
 
 		# foot
 		for i in $(pgrep bash); do
-		  printf '\e]112\007' >> /proc/$i/fd/0
 		  printf '\e]10;#d8dee9\007' >> /proc/$i/fd/0
 		  printf '\e]11;#2e3440\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#3b4252\007' >> /proc/$i/fd/0
@@ -131,7 +130,6 @@ case $theme in
 
 		# foot
                 for i in $(pgrep bash); do
-                  printf '\e]112\007' >> /proc/$i/fd/0
                   printf '\e]10;#ebdbb2\007' >> /proc/$i/fd/0
                   printf '\e]11;#282828\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#282828\007' >> /proc/$i/fd/0
@@ -185,7 +183,6 @@ case $theme in
 
 		# foot
                 for i in $(pgrep bash); do
-                  printf '\e]112\007' >> /proc/$i/fd/0
                   printf '\e]10;#c0caf5\007' >> /proc/$i/fd/0
                   printf '\e]11;#1a1b26\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#15161E\007' >> /proc/$i/fd/0
@@ -239,7 +236,6 @@ case $theme in
 
 		# foot
                 for i in $(pgrep bash); do
-                  printf '\e]112\007' >> /proc/$i/fd/0
                   printf '\e]10;#839496\007' >> /proc/$i/fd/0
                   printf '\e]11;#002b36\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#073642\007' >> /proc/$i/fd/0
@@ -293,7 +289,6 @@ case $theme in
 
 		# foot
                 for i in $(pgrep bash); do
-                  printf '\e]112\007' >> /proc/$i/fd/0
                   printf '\e]10;#cdd6f4\007' >> /proc/$i/fd/0
                   printf '\e]11;#1e1e2e\007' >> /proc/$i/fd/0
                   printf '\e]04;0;#45475a\007' >> /proc/$i/fd/0
@@ -312,8 +307,6 @@ case $theme in
                   printf '\e]04;13;#f5c2e7\007' >> /proc/$i/fd/0
                   printf '\e]04;14;#94e2d5\007' >> /proc/$i/fd/0
                   printf '\e]04;15;#a6adc8\007' >> /proc/$i/fd/0
-		  printf '\e]19;#cdd6f4\007' >> /proc/$i/fd/0
-		  printf '\e]17;#414356\007' >> /proc/$i/fd/0
                 done
 
                 # GTK

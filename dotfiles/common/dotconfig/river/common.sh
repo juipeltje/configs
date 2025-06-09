@@ -7,8 +7,7 @@ riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DIS
 riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
 
 # Variables
-terminal="alacritty"
-image_terminal="kitty"
+terminal="foot"
 webbrowser="librewolf"
 
 # appearance
@@ -32,7 +31,7 @@ riverctl attach-mode bottom
 riverctl map normal Super T spawn ${terminal}
 
 # open file manager
-riverctl map normal Super F spawn "${image_terminal} -e yazi"
+riverctl map normal Super F spawn "${terminal} -e yazi"
 
 # open a webbrowser
 riverctl map normal Super W spawn ${webbrowser}
@@ -42,9 +41,6 @@ riverctl map normal Super A spawn pavucontrol
 
 # open deezer in a firefox window
 riverctl map normal Super D spawn "${webbrowser} -new-window https://www.deezer.com/en/"
-
-# open rmpc
-riverctl map normal Super M spawn "${image_terminal} -e rmpc"
 
 # open application launcher
 riverctl map normal Super Space spawn fuzzel
