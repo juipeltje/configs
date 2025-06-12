@@ -167,4 +167,4 @@ riverctl rule-add ssd
 # spawn a terminal scratchpad at startup
 riverctl rule-add -app-id scratchpad float
 riverctl rule-add -app-id scratchpad tags ${scratch_tag}
-riverctl spawn "${terminal} --class scratchpad"
+riverctl spawn "${terminal} --app-id scratchpad"

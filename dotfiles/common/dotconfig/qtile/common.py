@@ -227,7 +227,7 @@ elif qtile.core.name == "wayland":
     )
 
   # Scratchpad window settings
-  groups.append(ScratchPad("0", [ DropDown("term", wayland_terminal + " --class scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
+  groups.append(ScratchPad("0", [ DropDown("term", wayland_terminal + " --app-id scratchpad", opacity=1, width=0.4, height=0.6, x=0.3, y=0.2, on_focus_lost_hide=False), ]), )
 
 # set colorscheme
 colors = colors.GruvboxDark
