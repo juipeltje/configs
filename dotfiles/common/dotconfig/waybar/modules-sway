@@ -2,5 +2,5 @@
 
 {
   // choose the order of the modules
-  "modules-left": ["clock#time", "clock#date", "tray", "sway/workspaces", "sway/window"],
+  "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "sway/workspaces", "sway/window"],
 }

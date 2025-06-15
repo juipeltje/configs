@@ -104,6 +104,10 @@
         audacious
         cyanrip
         picard
+        makemkv
+        mkvtoolnix
+        ffmpeg
+        streamrip
 
         # Fetch tools
         fastfetch

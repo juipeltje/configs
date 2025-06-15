@@ -2,5 +2,5 @@
 
 {
   // choose the order of the modules
-  "modules-left": ["clock#time", "clock#date", "tray", "hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "hyprland/workspaces", "hyprland/window"],
 }

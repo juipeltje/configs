@@ -28,6 +28,12 @@
     "timezone": "Europe/Amsterdam"
   },
 
+  "custom/weather": {
+    "exec": "~/repos/configs/scripts/waybar/weather.sh",
+    "interval": 1800,
+    "format": " <span font='14' rise='-2000'></span> {}"
+  },
+
   "tray": {
     "icon-size": "30",
     "show-passive-items": false,

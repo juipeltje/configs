@@ -13,9 +13,9 @@ exit_compositor() {
 	systemctl --user stop i3-session.target
 	systemctl --user stop niri-session.target
 	systemctl --user stop qtile-session.target
-    systemctl --user stop qtile-wayland-session.target
+    	systemctl --user stop qtile-wayland-session.target
 	systemctl --user stop river-session.target
-    systemctl --user stop sway-session.target
+    	systemctl --user stop sway-session.target
 	systemctl --user stop graphical-session.target
 	kill $(pgrep dwl)
 	hyprctl dispatch exit
@@ -30,11 +30,11 @@ case $op in
 	dwl)
 		;&
         river)
-        ;&
+        	;&
         niri)
 		sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/$op/g" ~/.bash_profile
 		exit_compositor
-        ;;
+        	;;
 	swayfx)
 		sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/sway/g" ~/.bash_profile
 		exit_compositor
@@ -43,14 +43,14 @@ case $op in
 		;&
 	i3)
 		sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/startx ~\/.xinitrc-$op/g" ~/.bash_profile
-        exit_compositor
+        	exit_compositor
 		;;
 	qtile-wayland)
 		sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/qtile start -b wayland/g" ~/.bash_profile
 		exit_compositor
 		;;
 	hyprland)
-        sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/Hyprland/g" ~/.bash_profile
-        exit_compositor
-        ;;
+        	sed -i -E --follow-symlinks "s/(dwl|river|niri|sway|qtile start -b wayland|startx ~\/.xinitrc-qtile|startx ~\/.xinitrc-i3|Hyprland)/Hyprland/g" ~/.bash_profile
+        	exit_compositor
+        	;;
 esac

@@ -12,7 +12,7 @@
 
   // choose the order of the modules
   // include modules-left
-  "include": "~/.config/waybar/modules-river",
+  "include": "~/.config/waybar/modules-dwl",
   "modules-right": ["mpris", "custom/os-version", "custom/kernel", "custom/cpu", "custom/gpu", "custom/water", "custom/pump", "custom/fans", 
                       "custom/memory", "custom/DualSense"],
 
@@ -27,6 +27,12 @@
     "interval": 60,
     "format": "<span font='15' rise='-1500'></span> {:%d-%m-%Y}  ",
     "timezone": "Europe/Amsterdam"
+  },
+
+  "custom/weather": {
+    "exec": "~/repos/configs/scripts/waybar/weather.sh",
+    "interval": 1800,
+    "format": " <span font='14' rise='-2000'></span> {}"
   },
 
   "tray": {
