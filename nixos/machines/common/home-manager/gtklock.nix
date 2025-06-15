@@ -40,6 +40,11 @@
       source = ./../../../../dotfiles/common/dotconfig/gtklock/solarized-dark.css;
     };
 
+    "gtklock/style.css" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/gtklock/style.css;
+    };
+
     "gtklock/tokyonight.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/gtklock/tokyonight.css;

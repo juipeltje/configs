@@ -9,6 +9,11 @@
       source = ./../../../../dotfiles/common/dotconfig/rofi/catppuccin-mocha.rasi;
     };
 
+    "rofi/config.rasi" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/rofi/config.rasi;
+    };
+
     "rofi/dracula.rasi" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/rofi/dracula.rasi;

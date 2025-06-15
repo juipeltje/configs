@@ -36,6 +36,11 @@
           source = ./../../../../dotfiles/common/dotconfig/river/colors-tokyonight.sh;
         };
 
+        "river/common.sh" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/river/common.sh;
+        };
+
         "river/init" = {
           enable = true;
         };

@@ -77,6 +77,11 @@ in
       source = ./../../../../dotfiles/common/dotconfig/waybar/solarized-dark.css;
     };
 
+    "waybar/style.css" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/waybar/style.css;
+    };
+
     "waybar/tokyonight.css" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/waybar/tokyonight.css;

@@ -6,6 +6,11 @@
   config = lib.mkMerge [
     {
       xdg.configFile = {
+        "i3/common.conf" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/i3/common.conf;
+        };
+        
         "i3/config" = {
           enable = true;
         };

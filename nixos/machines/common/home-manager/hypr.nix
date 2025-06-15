@@ -36,6 +36,11 @@
           source = ./../../../../dotfiles/common/dotconfig/hypr/colors-tokyonight.conf;
         };
 
+        "hypr/common.conf" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/hypr/common.conf;
+        };
+
         "hypr/hyprland.conf" = {
           enable = true;
         };

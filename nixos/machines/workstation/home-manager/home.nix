@@ -46,6 +46,8 @@
     #./../../common/home-manager/mpd.nix
     # mpv settings
     ./../../common/home-manager/mpv.nix
+    # Niri settings
+    ./../../common/home-manager/niri.nix
     # Picom settings
     ./../../common/home-manager/picom.nix
     # Polybar settings

@@ -4,6 +4,11 @@
 
 {
   xdg.configFile = {
+    "alacritty/alacritty.toml" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/alacritty/alacritty.toml;
+    };
+    
     "alacritty/catppuccin-mocha.toml" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/alacritty/catppuccin-mocha.toml;

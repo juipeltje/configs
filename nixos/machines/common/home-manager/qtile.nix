@@ -11,6 +11,11 @@
           source = ./../../../../dotfiles/common/dotconfig/qtile/colors.py;
         };
 
+        "qtile/common.py" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/qtile/common.py;
+        };
+
         "qtile/config.py" = {
           enable = true;
         };

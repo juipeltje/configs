@@ -11,13 +11,13 @@ terminal=alacritty
 hostname=$( cat /etc/hostname )
 
 case $op in
-        deepseek-r1)
-                ;&
-        qwen2.5-coder)
-                if [ "$hostname" = "NixOS-Rig" ]; then
-			$terminal -e ollama run $op:32b
+	deepseek-r1)
+        ;&
+    qwen2.5-coder)
+        if [ "$hostname" = "NixOS-Rig" ]; then
+				$terminal -e ollama run $op:32b
 		elif [ "$hostname" = "NixOS-Lappie" ]; then
-			$terminal -e ollama run $op:7b
+				$terminal -e ollama run $op:7b
 		fi
 		;;
 esac

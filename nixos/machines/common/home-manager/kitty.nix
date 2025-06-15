@@ -19,6 +19,11 @@
       source = ./../../../../dotfiles/common/dotconfig/kitty/gruvbox-dark.conf;
     };
 
+    "kitty/kitty.conf" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/kitty/kitty.conf;
+    };
+
     "kitty/nord.conf" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/kitty/nord.conf;

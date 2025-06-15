@@ -14,6 +14,11 @@
       source = ./../../../../dotfiles/common/dotconfig/fuzzel/dracula.ini;
     };
 
+    "fuzzel/fuzzel.ini" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/fuzzel/fuzzel.ini;
+    };
+
     "fuzzel/gruvbox-dark.ini" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/fuzzel/gruvbox-dark.ini;

@@ -36,6 +36,11 @@
           source = ./../../../../dotfiles/common/dotconfig/sway/colors-tokyonight.conf;
         };
 
+        "sway/common.conf" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/sway/common.conf;
+        };
+
         "sway/config" = {
           enable = true;
         };

@@ -14,6 +14,11 @@
       source = ./../../../../dotfiles/common/dotconfig/foot/dracula.ini;
     };
 
+    "foot/foot.ini" = {
+      enable = true;
+      source = ./../../../../dotfiles/common/dotconfig/foot/foot.ini;
+    };
+
     "foot/gruvbox-dark.ini" = {
       enable = true;
       source = ./../../../../dotfiles/common/dotconfig/foot/gruvbox-dark.ini;
