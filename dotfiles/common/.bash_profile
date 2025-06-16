@@ -14,5 +14,5 @@
 
 # autologin on tty1
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-  exec dwl
+  exec maomao
 fi

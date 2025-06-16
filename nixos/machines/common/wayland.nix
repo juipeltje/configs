@@ -24,6 +24,10 @@
       #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
+    maomaowm = {
+      enable = true;
+    };
+
     niri = {
       enable = true;
       package = pkgs.niri;
@@ -77,8 +81,8 @@
       gtklock = {
         enable = true;
         description = "gtklock screenlocker";
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.gtklock}/bin/gtklock --follow-focus";
           Restart = "on-failure";
@@ -87,8 +91,8 @@
 
       waybar = {
         enable = true;
-        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
         path = with pkgs; [ bash gawk lm_sensors procps curl ];
       };
 
@@ -111,8 +115,8 @@
         enable = true;
         description = "Swayidle idle manager for Wayland";
         documentation = [ "man:swayidle(1)" ];
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.swayidle}/bin/swayidle -w";
           Restart = "on-failure";
@@ -131,6 +135,14 @@
 
       hyprland-session = {
         description = "Hyprland compositor session";
+        documentation = [ "man:systemd.special(7)" ];
+        bindsTo = [ "graphical-session.target" ];
+        wants = [ "graphical-session-pre.target" ];
+        after = [ "graphical-session-pre.target" ];
+      };
+
+      maomao-session = {
+        description = "maomaowm compositor session";
         documentation = [ "man:systemd.special(7)" ];
         bindsTo = [ "graphical-session.target" ];
         wants = [ "graphical-session-pre.target" ];

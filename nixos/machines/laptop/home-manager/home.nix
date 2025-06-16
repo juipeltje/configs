@@ -42,6 +42,8 @@
     ./../../common/home-manager/librewolf.nix
     # Mako settings
     ./../../common/home-manager/mako.nix
+    # maomao settings
+    ./../../common/home-manager/maomao.nix
     # mpd settings
     #./../../common/home-manager/mpd.nix
     # mpv settings

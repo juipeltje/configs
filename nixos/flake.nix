@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     hyprland.url = "github:hyprwm/Hyprland";
+    maomaowm.url = "github:DreamMaoMao/maomaowm";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +28,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -47,6 +48,7 @@
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/workstation/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
+          maomaowm.nixosModules.maomaowm
           aagl.nixosModules.default
         ];
       };
@@ -59,6 +61,7 @@
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/laptop/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
+          maomaowm.nixosModules.maomaowm
           aagl.nixosModules.default
         ];
       };

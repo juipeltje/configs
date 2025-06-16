@@ -93,11 +93,11 @@ in
     waybar-dwl = {
       Unit = {
         Description = "Waybar DWL modules";
-        PartOf = [ "dwl-session.target" ];
+        PartOf = [ "dwl-session.target" "maomao-session.target" ];
         Before = [ "waybar.service" ];
       };
 
-      Install = { WantedBy = [ "dwl-session.target" ]; };
+      Install = { WantedBy = [ "dwl-session.target" "maomao-session.target" ]; };
       Service = {
         Type = "oneshot";
         ExecStart = "${waybar_modules_dwl}";

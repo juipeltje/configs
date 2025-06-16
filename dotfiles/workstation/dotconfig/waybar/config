@@ -2,7 +2,7 @@
 
 {
   // bar size/position
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
   "height": 38,
   "margin-top": 10,
@@ -99,8 +99,8 @@
   },
 
   "dwl/tags": {
-    "num-tags": 8,
-    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8"],
+    "num-tags": 9,
+    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9"],
     "disable-click": true
   },
 

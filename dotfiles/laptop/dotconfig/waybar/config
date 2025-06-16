@@ -2,7 +2,7 @@
 
 {
   // bar size/position
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
   "height": 38,
   "margin-top": 10,
