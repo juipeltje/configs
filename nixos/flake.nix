@@ -7,6 +7,7 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     hyprland.url = "github:hyprwm/Hyprland";
     maomaowm.url = "github:DreamMaoMao/maomaowm";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, chaotic, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -50,6 +51,9 @@
           distro-grub-themes.nixosModules.${system}.default
           maomaowm.nixosModules.maomaowm
           aagl.nixosModules.default
+          chaotic.nixosModules.nyx-cache
+          chaotic.nixosModules.nyx-overlay
+          chaotic.nixosModules.nyx-registry
         ];
       };
 
@@ -63,6 +67,9 @@
           distro-grub-themes.nixosModules.${system}.default
           maomaowm.nixosModules.maomaowm
           aagl.nixosModules.default
+          chaotic.nixosModules.nyx-cache
+          chaotic.nixosModules.nyx-overlay
+          chaotic.nixosModules.nyx-registry
         ];
       };
     };
@@ -78,6 +85,7 @@
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/workstation/home-manager/home.nix
+          #chaotic.homeManagerModules.default
         ];
       };
 
@@ -91,6 +99,7 @@
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
           ./machines/laptop/home-manager/home.nix
+          #chaotic.homeManagerModules.default
         ];
       };
       

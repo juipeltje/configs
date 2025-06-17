@@ -46,6 +46,9 @@
 
   # Additional wayland-specific packages
   environment.systemPackages = with pkgs; [
+    # compositors
+    mwc_git
+    
     # Terminal
     foot
 
@@ -81,8 +84,8 @@
       gtklock = {
         enable = true;
         description = "gtklock screenlocker";
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.gtklock}/bin/gtklock --follow-focus";
           Restart = "on-failure";
@@ -91,8 +94,8 @@
 
       waybar = {
         enable = true;
-        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
         path = with pkgs; [ bash gawk lm_sensors procps curl ];
       };
 
@@ -115,8 +118,8 @@
         enable = true;
         description = "Swayidle idle manager for Wayland";
         documentation = [ "man:swayidle(1)" ];
-        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
-        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "niri-session.target" "dwl-session.target" ];
+        partOf = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
+        wantedBy = [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
         serviceConfig = {
           ExecStart = "${pkgs.swayidle}/bin/swayidle -w";
           Restart = "on-failure";
@@ -143,6 +146,14 @@
 
       maomao-session = {
         description = "maomaowm compositor session";
+        documentation = [ "man:systemd.special(7)" ];
+        bindsTo = [ "graphical-session.target" ];
+        wants = [ "graphical-session-pre.target" ];
+        after = [ "graphical-session-pre.target" ];
+      };
+
+      mwc-session = {
+        description = "mwc compositor session";
         documentation = [ "man:systemd.special(7)" ];
         bindsTo = [ "graphical-session.target" ];
         wants = [ "graphical-session-pre.target" ];

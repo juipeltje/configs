@@ -27,6 +27,9 @@ theme_switch() {
 	# hyprland
 	sed -i "s|^source=~/.config/hypr/colors.*|source=~/.config/hypr/colors-${theme}.conf|" ${COMMON_CONFIG_PATH}/hypr/common.conf
 
+        # maomao
+	sed -i "s|^source=~/.config/maomao/colors.*|source=~/.config/maomao/colors-${theme}.conf|" ${COMMON_CONFIG_PATH}/maomao/common.conf
+
         # alacritty
         sed -i "s|^import.*|import = [\"~/.config/alacritty/${theme}.toml\"]|" ${COMMON_CONFIG_PATH}/alacritty/alacritty.toml
 
