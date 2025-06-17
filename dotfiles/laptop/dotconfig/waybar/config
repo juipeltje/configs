@@ -12,7 +12,7 @@
 
   // choose the order of the modules
   // include the modules-left option
-  "include": "~/.config/waybar/modules-river",
+  "include": "~/.config/waybar/modules-dwl",
   "modules-right": ["mpris", "custom/os-version", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 
   // modules configuration
@@ -98,8 +98,8 @@
   },
 
   "dwl/tags": {
-    "num-tags": 8,
-    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8"],
+    "num-tags": 9,
+    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9"],
     "disable-click": true
   },
 
