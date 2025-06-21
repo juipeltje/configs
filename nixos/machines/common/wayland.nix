@@ -33,6 +33,10 @@
       package = pkgs.niri;
     };
 
+    wayland.miracle-wm = {
+      enable = true;
+    };
+
     waybar = {
       enable = true;
       package = pkgs.waybar;

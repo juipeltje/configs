@@ -22,10 +22,11 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
 
 /* Autostart */
 static const char *const autostart[] = {
-  "dbus-update-activation-environment", "--systemd", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP", "XDG_SESSION_ID", NULL,
-  "systemctl", "--user", "import-environment", "{,WAYLAND_}DISPLAY", NULL,
-  "systemctl", "--user", "start", "dwl-session.target", NULL,
-  NULL /* terminate */
+    "dbus-update-activation-environment", "--systemd", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP", "XDG_SESSION_ID", NULL,
+    "systemctl", "--user", "import-environment", "{,WAYLAND_}DISPLAY", NULL,
+    "systemctl", "--user", "start", "dwl-session.target", NULL,
+    "export" "ELECTRON_OZONE_PLATFORM_HINT=wayland", NULL,
+    NULL /* terminate */
 };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
