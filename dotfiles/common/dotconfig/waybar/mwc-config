@@ -1,0 +1,9 @@
+// waybar mwc config
+
+{
+  // bar size/position
+  "layer": "bottom",
+
+  // choose the order of the modules
+  "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "custom/mwc-workspaces", "custom/mwc-window"],
+}

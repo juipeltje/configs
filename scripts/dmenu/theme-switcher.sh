@@ -122,6 +122,15 @@ case $theme in
 		        sed -i 's|inactive-color.*|inactive-color "#434c5e"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
 
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color d8dee9ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 434c5eff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color d8dee9ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 434c5eff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
+
                 # vscode
 		sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Nord";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix
 
@@ -182,6 +191,15 @@ case $theme in
 			sed -i 's|active-color.*|active-color "#ebdbb2"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		        sed -i 's|inactive-color.*|inactive-color "#504945"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
+
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color ebdbb2ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 504945ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color ebdbb2ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 504945ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
 
                 # vscode
                 sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Gruvbox Dark Medium";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix
@@ -244,6 +262,15 @@ case $theme in
 		        sed -i 's|inactive-color.*|inactive-color "#414868"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
 
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color a9b1d6ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 414868ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color a9b1d6ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 414868ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
+
                 # vscode
                 sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Tokyo Night";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix
 
@@ -304,6 +331,15 @@ case $theme in
 			sed -i 's|active-color.*|active-color "#93a1a1"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		        sed -i 's|inactive-color.*|inactive-color "#073642"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
+
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color 93a1a1ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 073642ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color 93a1a1ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 073642ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
 
                 # vscode
                 sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Solarized Dark";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix
@@ -366,6 +402,15 @@ case $theme in
 		        sed -i 's|inactive-color.*|inactive-color "#45475a"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
 
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color cdd6f4ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 45475aff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color cdd6f4ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 45475aff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
+
                 # vscode
                 sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Catppuccin Mocha";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix
 
@@ -426,6 +471,15 @@ case $theme in
 			sed -i 's|active-color.*|active-color "#f8f8f2"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		        sed -i 's|inactive-color.*|inactive-color "#44475a"|' ${LAPTOP_CONFIG_PATH}/niri/config.kdl
 		fi
+
+		# mwc
+                if [ "$hostname" = "NixOS-Rig" ]; then
+                        sed -i 's|active_border_color.*|active_border_color f8f8f2ff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 44475aff|' ${WORKSTATION_CONFIG_PATH}/mwc/mwc.conf
+                elif [ "$hostname" = "NixOS-Lappie" ]; then
+                        sed -i 's|active_border_color.*|active_border_color f8f8f2ff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                        sed -i 's|inactive_border_color.*|inactive_border_color 44475aff|' ${LAPTOP_CONFIG_PATH}/mwc/mwc.conf
+                fi
 
                 # vscode
 		sed -i 's/"workbench.colorTheme".*/"workbench.colorTheme" = "Dracula Theme";/' ${COMMON_NIX_CONFIG_PATH}/vscode.nix

@@ -48,6 +48,8 @@
     #./../../common/home-manager/mpd.nix
     # mpv settings
     ./../../common/home-manager/mpv.nix
+    # mwc settings
+    ./../../common/home-manager/mwc.nix
     # Niri settings
     ./../../common/home-manager/niri.nix
     # Picom settings

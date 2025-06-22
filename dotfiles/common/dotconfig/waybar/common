@@ -11,7 +11,7 @@
 
   // choose the order of the modules
   // include modules-left
-  "include": "~/.config/waybar/dwl-config",
+  "include": "~/.config/waybar/mwc-config",
 
   // modules configuration
   "clock#time": {
@@ -19,7 +19,6 @@
     "format": " <span font='16' rise='-2000'></span> {:%H:%M} ",
     "timezone": "Europe/Amsterdam"
   },
-
   "clock#date": {
     "interval": 60,
     "format": "<span font='15' rise='-1500'></span> {:%d-%m-%Y}  ",
@@ -104,6 +103,16 @@
   "dwl/window": {
     "format": "<span font='16' rise='-2000'></span> {}",
     "max-length": 40
+  },
+
+  "custom/mwc-workspaces": {
+    "exec": "~/repos/configs/scripts/waybar/mwc-workspaces.sh",
+    "format": "<span font='16' rise='-2000'></span> {}",
+  },
+
+  "custom/mwc-window": {
+    "exec": "~/repos/configs/scripts/waybar/mwc-window.sh",
+    "format": "<span font='16' rise='-2000'></span> {}",
   },
 
   "mpris": {

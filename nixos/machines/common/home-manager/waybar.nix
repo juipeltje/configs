@@ -12,6 +12,10 @@ let
     ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/hyprland-config\",|' ${config.home.homeDirectory}/.config/waybar/common
   '';
 
+  waybar_mwc = pkgs.writers.writeBash "waybar-mwc" ''
+    ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/mwc-config\",|' ${config.home.homeDirectory}/.config/waybar/common
+  '';
+
   waybar_niri = pkgs.writers.writeBash "waybar-niri" ''
     ${pkgs.gnused}/bin/sed -i --follow-symlinks 's|\"include\".*|\"include\": \"~/.config/waybar/niri-config\",|' ${config.home.homeDirectory}/.config/waybar/common
   '';
@@ -56,6 +60,11 @@ in
         "waybar/hyprland-config" = {
           enable = true;
           source = ./../../../../dotfiles/common/dotconfig/waybar/hyprland-config;
+        };
+
+        "waybar/mwc-config" = {
+          enable = true;
+          source = ./../../../../dotfiles/common/dotconfig/waybar/mwc-config;
         };
 
         "waybar/niri-config" = {
@@ -122,6 +131,21 @@ in
           Service = {
             Type = "oneshot";
             ExecStart = "${waybar_hyprland}";
+            Restart = "on-failure";
+          };
+        };
+
+        waybar-mwc = {
+          Unit = {
+            Description = "Waybar mwc config";
+            PartOf = [ "mwc-session.target" ];
+            Before = [ "waybar.service" ];
+          };
+
+          Install = { WantedBy = [ "mwc-session.target" ]; };
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${waybar_mwc}";
             Restart = "on-failure";
           };
         };

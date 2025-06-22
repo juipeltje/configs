@@ -100,7 +100,7 @@
         enable = true;
         partOf = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
         wantedBy = lib.mkForce [ "sway-session.target" "river-session.target" "hyprland-session.target" "maomao-session.target" "mwc-session.target" "niri-session.target" "dwl-session.target" ];
-        path = with pkgs; [ bash gawk lm_sensors procps curl ];
+        path = with pkgs; [ bash curl gawk lm_sensors mwc_git procps ];
       };
 
       kanshi = {
