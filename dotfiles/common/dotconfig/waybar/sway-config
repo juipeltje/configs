@@ -1,6 +1,9 @@
-// waybar sway modules
+// waybar sway config
 
 {
+  // bar size/position
+  "layer": "top",
+
   // choose the order of the modules
   "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "sway/workspaces", "sway/window"],
 }

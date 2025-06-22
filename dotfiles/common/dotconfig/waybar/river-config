@@ -1,6 +1,9 @@
-// waybar river modules
+// waybar river config
 
 {
+  // bar size/position
+  "layer": "top",
+
   // choose the order of the modules
   "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "river/tags", "river/window"],
 }

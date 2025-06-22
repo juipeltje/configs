@@ -1,17 +1,31 @@
 #!/usr/bin/env bash
 
 # Compositor switcher script
-if [ -n "$WAYLAND_DISPLAY" ]; then
-	op=$( echo -e "  DWL\n  Hyprland\n  i3\n  maomao\n  mwc\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
-else
-	op=$( echo -e "  DWL\n  Hyprland\n  i3\n  maomao\n  mwc\n  Niri\n  Qtile\n  Qtile-wayland\n  River\n  SwayFX" | rofi -dmenu -p "Select a compositor:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
-fi
-
 # arrays
+options=(
+  "   DWL\n"
+  "  Hyprland\n"
+  "  i3\n"
+  "  maomao\n"
+  "  mwc\n"
+  "  Niri\n"
+  "  Qtile\n"
+  "  Qtile-wayland\n"
+  "  River\n"
+  "  SwayFX"
+)
+
 wayland_vars=(
   # make electron apps use wayland backend
   "ELECTRON_OZONE_PLATFORM_HINT=wayland"
 )
+
+
+if [ -n "$WAYLAND_DISPLAY" ]; then
+	op=$( echo -e "${options[@]}" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
+else
+	op=$( echo -e "${options[@]}" | rofi -dmenu -p "Select a compositor:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+fi
 
 # functions
 exit_compositor() {

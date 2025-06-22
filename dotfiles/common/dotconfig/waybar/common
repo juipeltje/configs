@@ -1,0 +1,198 @@
+// waybar common config
+
+{
+  // bar size/position
+  "position": "top",
+  "height": 38,
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 4,
+
+  // choose the order of the modules
+  // include modules-left
+  "include": "~/.config/waybar/dwl-config",
+
+  // modules configuration
+  "clock#time": {
+    "interval": 60,
+    "format": " <span font='16' rise='-2000'></span> {:%H:%M} ",
+    "timezone": "Europe/Amsterdam"
+  },
+
+  "clock#date": {
+    "interval": 60,
+    "format": "<span font='15' rise='-1500'></span> {:%d-%m-%Y}  ",
+    "timezone": "Europe/Amsterdam"
+  },
+
+  "custom/weather": {
+    "exec": "~/repos/configs/scripts/waybar/weather.sh",
+    "interval": 60,
+    "format": " <span font='14' rise='-2000'></span>{}"
+  },
+
+  "tray": {
+    "icon-size": "30",
+    "show-passive-items": false,
+    "spacing": 4,
+    "reverse-direction": false
+  },
+
+  "sway/workspaces": {
+    "current-only": false,
+    "all-outputs": true,
+    "format": "   {name}",
+    "disable-scroll": true,
+    "disable-click": true
+  },
+
+  "sway/window": {
+    "format": "<span font='16' rise='-2000'></span> {title}",
+    "max-length": 40
+  },
+
+  "river/mode": {
+    "format": "mode: {}"
+  },
+
+  "river/tags": {
+    "num-tags": 8,
+    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8"],
+    "disable-click": true
+  },
+
+  "river/window": {
+    "format": "<span font='16' rise='-2000'></span> {}",
+    "max-length": 40
+  },
+
+  "niri/workspaces": {
+    "all-outputs": false,
+    "format": "{icon}",
+    "disable-click": true,
+    "format-icons": {
+      "default": "",
+      "active": "",
+      "focused": ""
+    },
+  },
+
+  "niri/window": {
+    "format": "<span font='16' rise='-2000'></span> {}"
+  },
+
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "   {name}",
+    "show-special": false,
+    "sort-by-number": true
+  },
+
+  "hyprland/window": {
+    "format": "<span font='16' rise='-2000'></span> {title}",
+    "max-length": 40
+  },
+
+  "dwl/tags": {
+    "num-tags": 9,
+    "tag-labels": ["  1", "  2", "  3", "  4", "  5", "  6", "  7", "  8", "  9"],
+    "disable-click": true
+  },
+
+  "dwl/window": {
+    "format": "<span font='16' rise='-2000'></span> {}",
+    "max-length": 40
+  },
+
+  "mpris": {
+    "player": "playerctld",
+    "interval": 5,
+    "format": "<span font='16' rise='-2000'>󰝚</span> {title} - {artist} ",
+    "max-length": 40
+  },
+
+  "custom/os-version": {
+    "exec": "~/repos/configs/scripts/waybar/os-version.sh",
+    "interval": "once",
+    "format": "<span font='16' rise='-2000'></span>  {}"
+  },
+
+  "custom/kernel": {
+    "exec": "uname -r",
+    "interval": "once",
+    "format": "<span font='16' rise='-2000'></span>  {}"
+  },
+
+  "custom/cpu": {
+    "exec": "~/repos/configs/scripts/waybar/cpu-temp.sh",
+    "interval": 5,
+    "format": "<span font='18' rise='-3000'>󰻠</span>{} "
+  },
+
+  "custom/gpu": {
+    "exec": "~/repos/configs/scripts/waybar/gpu-temp.sh",
+    "interval": 5,
+    "format": "<span font='18' rise='-3000'>󰢮</span>{}"
+  },
+
+  "custom/water": {
+    "exec": "~/repos/configs/scripts/waybar/water-temp.sh",
+    "interval": 5,
+    "format": "<span font='18' rise='-3000'>󰖌</span>{}"
+  },
+
+  "custom/pump": {
+    "exec": "~/repos/configs/scripts/waybar/pump.sh",
+    "interval": 5,
+    "format": " <span font='16' rise='-2000'>󱩃</span> {}"
+  },
+
+  "custom/fans": {
+    "exec": "~/repos/configs/scripts/waybar/fans.sh",
+    "interval": 5,
+    "format": " <span font='16' rise='-2000'>󰈐</span> {}"
+  },
+
+  "custom/memory": {
+    "exec": "~/repos/configs/scripts/waybar/memory.sh",
+    "interval": 5,
+    "format": " <span font='14' rise='-2000'> </span> {}"
+  },
+
+  "custom/DualSense": {
+    "exec": "~/repos/configs/scripts/waybar/dualsense.sh",
+    "interval": 60,
+    "format": " <span font='16' rise='-2000'>{icon}</span> {} ",
+    "format-icons": {
+      "discharging": [ "󰖺" ],
+      "charging": [ "󰨢" ],
+      "disconnected": [ "󰖻" ]
+    },
+
+    "return-type": "json",
+  },
+
+  "battery": {
+    "bat": 0,
+    "adapter": 0,
+    "interval": 60,
+    "states": {
+      "critical": 15
+    },
+
+    "format": "{icon} {capacity}% - {time}",
+    "format-icons": {
+      "default": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
+      "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" ]
+    },
+
+    "format-time": "{H}:{m}",
+    "format-discharging": "<span font='16' rise='-2000'>{icon}</span> {capacity}% - {time} ",
+    "format-charging": "<span font='16' rise='-2000'>{icon}</span> {capacity}% - {time} ",
+    "format-full": "<span font='16' rise='-2000'>{icon}</span> Full!",
+    "format-critical": "<span font='16' rise='-2000'>󱃍</span> {capacity}% - {time} ",
+    "max-length": 25
+  },
+}

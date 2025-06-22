@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
 # Theme switcher script
+options=(
+  "   Nord\n"
+  "  Gruvbox-Dark\n"
+  "  Tokyonight\n"
+  "  Solarized-Dark\n"
+  "  Catppuccin-Mocha\n"
+  "  Dracula"
+)
+
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	theme=$( echo -e "  Nord\n  Gruvbox-Dark\n  Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha\n  Dracula" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
+	theme=$( echo -e "${options[@]}" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}' )
 else
-	theme=$( echo -e " Nord\n Gruvbox-Dark\n Tokyonight\n  Solarized-Dark\n  Catppuccin-Mocha\n  Dracula" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
+	theme=$( echo -e "${options[@]}" | rofi -dmenu -p "Select a theme:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 fi
 
 # Variables

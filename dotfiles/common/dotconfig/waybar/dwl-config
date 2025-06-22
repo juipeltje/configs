@@ -1,6 +1,9 @@
-// waybar dwl modules
+// waybar dwl config
 
 {
+  // bar size/position
+  "layer": "bottom",
+
   // choose the order of the modules
   "modules-left": ["clock#time", "clock#date", "custom/weather", "tray", "dwl/tags", "dwl/window"],
 }
