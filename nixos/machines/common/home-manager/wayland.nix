@@ -14,7 +14,7 @@
 
       Install = { WantedBy = [ "graphical-session.target" ]; };
       Service = { 
-        ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${config.home.homeDirectory}/Pictures/sway/background.jpg -m fill"; 
+        ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${config.home.homeDirectory}/Pictures/background/background.jpg -m fill"; 
         Restart = "on-failure";
       };
     };

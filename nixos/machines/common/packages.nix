@@ -108,6 +108,8 @@
         mkvtoolnix
         ffmpeg
         streamrip
+        imagemagick
+        corrupter
 
         # Fetch tools
         fastfetch

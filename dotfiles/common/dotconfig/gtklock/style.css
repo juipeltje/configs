@@ -1,7 +1,7 @@
 @import "gruvbox-dark.css";
 
 window {
-  background-image: url("/home/joppe/Pictures/sway/background.jpg");
+  background-image: url("/home/joppe/Pictures/background/blur-background.jpg");
   background-size: cover;
   background-position: center;
 }
