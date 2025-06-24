@@ -9,9 +9,11 @@
       text = ''
         [main]
         modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so
+        time-format=  %H:%M
+        date-format=  %A, %d %B
 
         [playerctl]
-        position=top-center
+        position=bottom-center
       '';
     };
 

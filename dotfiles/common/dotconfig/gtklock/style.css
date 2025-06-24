@@ -6,12 +6,11 @@ window {
   background-position: center;
 }
 
-#window-box,
 #powerbar-revealer > box,
 #playerctl-revealer > box {
-  padding: 24px;
-  border: 4px solid @foreground;
-  border-radius: 20px;
+  padding: 0px;
+  border: 0px solid @foreground;
+  border-radius: 15px;
   background-color: @background;
 }
 
@@ -21,4 +20,28 @@ window {
 
 #playerctl-revealer > box {
   padding: 12px;
+  margin-bottom: 4em;
 }
+
+#input-label {
+  font-size: 0;
+}
+
+#clock-label,
+#date-label {
+  font-size: 5.8em;
+  color: @foreground;
+}
+
+#date-label {
+  margin-bottom: 5em;
+}
+
+#input-field,
+#unlock-button {
+  background-color: @background;
+  border: 0px;
+  margin-left: 11.5em;
+  margin-right: -11.5em;
+}
+

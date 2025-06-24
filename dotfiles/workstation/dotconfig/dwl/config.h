@@ -25,7 +25,6 @@ static const char *const autostart[] = {
     "dbus-update-activation-environment", "--systemd", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP", "XDG_SESSION_ID", NULL,
     "systemctl", "--user", "import-environment", "{,WAYLAND_}DISPLAY", NULL,
     "systemctl", "--user", "start", "dwl-session.target", NULL,
-    "export" "ELECTRON_OZONE_PLATFORM_HINT=wayland", NULL,
     NULL /* terminate */
 };
 
