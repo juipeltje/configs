@@ -29,19 +29,23 @@ window {
 
 #clock-label,
 #date-label {
-  font-size: 5.8em;
   color: @foreground;
 }
 
+#clock-label {
+  font-size: 10em;
+}
+
 #date-label {
-  margin-bottom: 5em;
+  margin-bottom: 12em;
+  font-size: 2.5em;
 }
 
 #input-field,
 #unlock-button {
   background-color: @background;
   border: 0px;
-  margin-left: 11.5em;
-  margin-right: -11.5em;
+  margin-left: 6.5em;
+  margin-right: -6.5em;
 }
 

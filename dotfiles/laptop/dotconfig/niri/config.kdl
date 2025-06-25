@@ -49,6 +49,54 @@ input {
 //  position x=0 y=0
 //}
 
+// animations
+animations {
+  workspace-switch {
+    duration-ms 150
+    curve "linear"
+  }
+
+  window-open {
+    duration-ms 150
+    curve "linear"
+  }
+
+  window-close {
+    duration-ms 150
+    curve "linear"
+  }
+
+  horizontal-view-movement {
+    duration-ms 150
+    curve "linear"
+  }
+
+  window-movement {
+    duration-ms 150
+    curve "linear"
+  }
+
+  window-resize {
+    duration-ms 150
+    curve "linear"
+  }
+
+  config-notification-open-close {
+    duration-ms 150
+    curve "linear"
+  }
+
+  screenshot-ui-open {
+    duration-ms 150
+    curve "linear"
+  }
+
+  overview-open-close {
+    duration-ms 150
+    curve "linear"
+  }
+}
+
 // layout configuration
 layout {
   gaps 10
@@ -58,7 +106,7 @@ layout {
   }
 
   default-column-width {
-    proportion 1.0
+    proportion 0.5
   }
 
   focus-ring {
@@ -75,16 +123,34 @@ layout {
   }
 }
 
+// overview
+overview {
+  zoom 0.4
+}
+
+// gestures
+gestures {
+  hot-corners {
+    off
+  }
+}
+
 // window rules
 window-rule {
-  geometry-corner-radius 20
+  geometry-corner-radius 15
   clip-to-geometry true
 }
 
 // layer rules
-//layer-rule {
-//  geometry-corner-radius 20
-//}
+layer-rule {
+  match namespace="^launcher$"
+  baba-is-float false
+}
+
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop false
+}
 
 prefer-no-csd
 
@@ -176,6 +242,9 @@ binds {
 
   // toggle fullscreen
   Mod+Shift+F { fullscreen-window; }
+
+  // toggle overview
+  Mod+Tab { toggle-overview; }
 
   // maximize column
   Mod+Shift+M { maximize-column; }

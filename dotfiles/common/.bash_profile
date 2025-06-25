@@ -14,5 +14,5 @@
 
 # autologin on tty1
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-  ELECTRON_OZONE_PLATFORM_HINT=wayland exec dwl
+  ELECTRON_OZONE_PLATFORM_HINT=wayland exec maomao
 fi

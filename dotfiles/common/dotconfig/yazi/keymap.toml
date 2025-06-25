@@ -5,7 +5,7 @@ append_keymap = [
                       magick $0 -blur 0x7 ~/Pictures/background/blur-background.jpg
                       kill $(pgrep swaybg)
                       swaybg -i $0 -m fill
-                    ''' },
+                    ''', desc = "Sets image as wallpaper with swaybg and blurred wallpaper for lockscreen" },
   
 { on = [ "<C-x>" ], run = "shell --confirm 'feh --bg-scale $0'", desc = "Sets image as wallpaper with feh" },
 ]
