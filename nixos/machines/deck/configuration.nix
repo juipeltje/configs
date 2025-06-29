@@ -7,9 +7,9 @@
     # Battery settings
     #./battery.nix
     # Boot settings
-    ./../common/boot.nix
+    ./boot.nix
     # Container settings
-    #./../common/containers.nix
+    #./containers.nix
     # Gaming
     ./gaming.nix
     # Include the results of the hardware scan.
@@ -17,17 +17,17 @@
     # Jovian settings
     ./jovian.nix
     # Locale settings
-    ./../common/locale.nix
+    ./locale.nix
     # Network settings
-    ./../common/network.nix
+    ./network.nix
     # Packages
     ./packages.nix
     # Sound settings
-    ./../common/sound.nix
+    ./sound.nix
     # Swap settings
-    #./../common/swap.nix
+    #./swap.nix
     # User settings
-    ./../common/users.nix
+    ./users.nix
   ];
 
   # This value determines the NixOS release from which the default

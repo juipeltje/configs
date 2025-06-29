@@ -15,7 +15,7 @@
     # Distrobox settings
     #./../../common/home-manager/distrobox.nix
     # Fastfetch settings
-    ./../../common/home-manager/fastfetch.nix
+    #./../../common/home-manager/fastfetch.nix
     # Librewolf settings
     ./../../common/home-manager/librewolf.nix
     # vscode settings
