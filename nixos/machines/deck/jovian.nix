@@ -15,7 +15,7 @@
   };
 
   # Enable Gnome and Xwayland
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
   programs.xwayland.enable = true;
   
   # Enable automatic login for the user.

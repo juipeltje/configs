@@ -7,6 +7,7 @@
   hardware = {
     graphics.enable32Bit = true;
     amdgpu.overdrive.ppfeaturemask = "0xffffffff";
+  };
 
   # Enable Steam, Gamemode, and Corectrl.
   programs = {
