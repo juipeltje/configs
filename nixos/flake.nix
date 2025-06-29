@@ -94,6 +94,7 @@
           ./machines/deck/configuration.nix
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
+          jovian.nixosModules.default
           chaotic.nixosModules.nyx-cache
           chaotic.nixosModules.nyx-overlay
           chaotic.nixosModules.nyx-registry
