@@ -27,14 +27,26 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, chaotic, home-manager, distro-grub-themes, nixgl, nur, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, chaotic, home-manager, distro-grub-themes, nixgl, nur, jovian, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+
+      overlay-stable = final: prev: {
+        stable = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
@@ -72,6 +84,21 @@
           chaotic.nixosModules.nyx-registry
         ];
       };
+
+      NixOS-Deckie = nixpkgs-unstable.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          { networking.hostName = "NixOS-Deckie"; }
+          { nixpkgs.overlays = [ overlay-stable nur.overlays.default ]; }
+          ./machines/deck/configuration.nix
+          distro-grub-themes.nixosModules.${system}.default
+          aagl.nixosModules.default
+          chaotic.nixosModules.nyx-cache
+          chaotic.nixosModules.nyx-overlay
+          chaotic.nixosModules.nyx-registry
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -103,16 +130,17 @@
         ];
       };
       
-      "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
+      "joppe@NixOS-Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { 
           inherit inputs;
-          hostName = "Deckie";
+          hostName = "NixOS-Deckie";
         };
 
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
-          ./machines/steam-deck/home-manager/home.nix
+          { nixpkgs.overlays = [ overlay-stable nur.overlays.default ]; }
+          ./machines/deck/home-manager/home.nix
+          #chaotic.homeManagerModules.default
         ];
       };
     };
