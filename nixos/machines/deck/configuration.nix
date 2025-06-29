@@ -20,6 +20,8 @@
     ./locale.nix
     # Network settings
     ./network.nix
+    # Nix settings
+    ./nix.nix
     # Packages
     ./packages.nix
     # Sound settings

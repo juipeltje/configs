@@ -3,15 +3,16 @@
 { config, inputs, pkgs, ... }:
 
 {
-  # Enable Vulkan.
-  hardware.graphics.enable32Bit = true;
+  # Enable Vulkan and overclocking.
+  hardware = {
+    graphics.enable32Bit = true;
+    amdgpu.overdrive.ppfeaturemask = "0xffffffff";
 
-  # Enable Steam, Gamemode, and corectrl overclocking.
+  # Enable Steam, Gamemode, and Corectrl.
   programs = {
     steam.enable = true;
     gamemode.enable = true;
     corectrl.enable = true;
-    corectrl.gpuOverclock.ppfeaturemask = "0xffffffff";
   };
 
   # install other gaming related packages
