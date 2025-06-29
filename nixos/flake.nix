@@ -97,9 +97,6 @@
           aagl.nixosModules.default
           jovian.nixosModules.default
           chaotic.nixosModules.default
-          chaotic.nixosModules.nyx-cache
-          chaotic.nixosModules.nyx-overlay
-          chaotic.nixosModules.nyx-registry
         ];
       };
     };
