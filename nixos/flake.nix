@@ -31,6 +31,7 @@
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+      follows = "chaotic/jovian";
     };
   };
 
@@ -95,6 +96,7 @@
           distro-grub-themes.nixosModules.${system}.default
           aagl.nixosModules.default
           jovian.nixosModules.default
+          chaotic.nixosModules.default
           chaotic.nixosModules.nyx-cache
           chaotic.nixosModules.nyx-overlay
           chaotic.nixosModules.nyx-registry
