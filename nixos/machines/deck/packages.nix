@@ -19,6 +19,7 @@
 
   # Enable Git, Nano, Gnupg, Htop, appimage-run, and Evolution.
   programs = {
+    git.enable = true;
     nano = {
       enable = true;
       syntaxHighlight = true;
@@ -39,30 +40,6 @@
       enable = true;
     };
   };
-
-  # Enable bluetooth support.
-  hardware.bluetooth = {
-    enable = true;
-    package = pkgs.bluez;
-  };
-
-  # Enable Blueman.
-  services.blueman.enable = true;
-
-  # Improve Blueman applet systemd service so that it can be called by graphical-session.target.
-  systemd.user.services.blueman-applet = {
-    enable = true;
-    description = "Bluetooth management applet"; 
-    partOf = [ "graphical-session.target" ];
-    wantedBy = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      Restart = "on-failure";
-    };
-  };
-
-  # Enable Soteria (polkit authentication agent).
-  security.soteria.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
