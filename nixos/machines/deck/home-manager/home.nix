@@ -4,16 +4,14 @@
 
 {
   home = {
-    username = "joppe";
-    homeDirectory = "/home/joppe";
+    username = "deck";
+    homeDirectory = "/home/deck";
   };
 
   programs.home-manager.enable = true;
   imports = [
     # Bash settings
-    ./../../common/home-manager/bash.nix
-    # Distrobox settings
-    #./../../common/home-manager/distrobox.nix
+    #./../../common/home-manager/bash.nix
     # Fastfetch settings
     #./../../common/home-manager/fastfetch.nix
     # Librewolf settings
