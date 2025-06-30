@@ -7,7 +7,7 @@
     # Battery settings
     #./battery.nix
     # Boot settings
-    #./boot.nix
+    ./boot.nix
     # Container settings
     #./containers.nix
     # Gaming
@@ -17,9 +17,9 @@
     # Jovian settings
     ./jovian.nix
     # Locale settings
-    #./locale.nix
+    ./locale.nix
     # Network settings
-    #./network.nix
+    ./network.nix
     # Nix settings
     ./nix.nix
     # Packages
