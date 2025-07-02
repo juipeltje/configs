@@ -9,7 +9,6 @@
       programs = {
         librewolf = {
           enable = true;
-          package = pkgs.librewolf;
           settings = {
             "privacy.clearOnShutdown.history" = true;
             "privacy.clearOnShutdown.downloads" = true;
