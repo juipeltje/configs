@@ -16,6 +16,8 @@
     #./../../common/home-manager/fastfetch.nix
     # Librewolf settings
     ./../../common/home-manager/librewolf.nix
+    # NixGL settings
+    ./../../common/home-manager/nixgl.nix
     # vscode settings
     #./../../common/home-manager/vscode.nix
   ];
