@@ -107,6 +107,7 @@
         inherit pkgs;
         extraSpecialArgs = { 
           inherit inputs;
+          inherit nixgl;
           hostName = "Deckie";
         };
 

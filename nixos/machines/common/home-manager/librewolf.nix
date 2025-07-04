@@ -42,7 +42,7 @@
     })
 
     (lib.mkIf (hostName == "Deckie") {
-      programs.librewolf.package = config.lib.nixGL.wrap pkgs.librewolf;
+      programs.librewolf.package = pkgs.librewolf;
     })
   ];
 }
