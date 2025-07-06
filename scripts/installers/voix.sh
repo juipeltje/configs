@@ -275,7 +275,7 @@ rm_default_configs() {
 configs() {
 	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/repos/configs
 	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.Xresources /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.bashrc /home/${user}/
+	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.bashrc /home/${user}/.bashrc
 	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.bash_profile /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
