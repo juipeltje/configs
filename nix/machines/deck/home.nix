@@ -11,13 +11,19 @@
   programs.home-manager.enable = true;
   imports = [
     # Driver settings
-    ./../../common/drivers.nix
+    ./../common/drivers.nix
+    # Gaming settings
+    ./../common/gaming.nix
     # Librewolf settings
-    ./../../common/librewolf.nix
+    ./../common/librewolf.nix
     # Nix settings
-    ./../../common/nix.nix
+    ./../common/nix.nix
+    # Theme settings
+    ./../common/theming.nix
     # vscode settings
-    ./../../common/vscode.nix
+    ./../common/vscode.nix
+    # Wayland settings
+    ./../common/wayland.nix
   ];
 
   # The state version is required and should stay at the version you

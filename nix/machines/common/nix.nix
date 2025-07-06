@@ -8,7 +8,7 @@
     package = pkgs.nix;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      extra-substituters = [ 
+      extra-trusted-substituters = [ 
         "https://ezkea.cachix.org/"
         "https://hyprland.cachix.org"
       ];

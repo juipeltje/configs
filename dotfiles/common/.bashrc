@@ -6,15 +6,18 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-# void aliases
-#alias xl="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
-#alias xu='sudo /home/joppe/repos/configs/scripts/installers/void-updater.sh'
-#alias xs='xbps-query -Rs'
-#alias xi='sudo xbps-install -S'
-#alias xr='sudo xbps-remove -R'
-#alias xc='sudo xbps-remove -Oo'
-#alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
+# Void aliases
+alias xl="xbps-query -l | awk '{ print \$2 }' | xargs -n1 xbps-uhelper getpkgname"
+alias xu='sudo /home/joppe/repos/configs/scripts/installers/void-updater.sh'
+alias xs='xbps-query -Rs'
+alias xi='sudo xbps-install -S'
+alias xr='sudo xbps-remove -R'
+alias xc='sudo xbps-remove -Oo'
+alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
+# Nix aliases
+alias nu="sudo nix-env --install --file '<nixpkgs>' --attr nix cacert -I nixpkgs=channel:nixos-25.05"
+alias ni="nix run --extra-experimental-features 'nix-command flakes' home-manager/release-25.05 -- switch --extra-experimental-features 'nix-command flakes'"
 # NixOS aliases
 alias rb='sudo nixos-rebuild boot --flake ~/repos/configs/nixos'
 alias rs='sudo nixos-rebuild switch --flake ~/repos/configs/nixos'
@@ -26,8 +29,8 @@ alias fugc='nix-collect-garbage; nix-collect-garbage -d; nix-store --optimise'
 alias hs='home-manager switch --flake ~/repos/configs/nixos'
 #
 alias alsa-store='alsactl --file ~/.config/asound.state store'
-#alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
-#alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
+alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
+alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
 #alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
 #alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
