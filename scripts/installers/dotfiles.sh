@@ -35,28 +35,32 @@ rm_default_configs() {
 	#rm -rf /home/${user}/.Xresources
 	rm -rf /home/${user}/.config/alacritty
 	rm -rf /home/${user}/.config/dunst
+	rm -rf /home/${user}/.config/fastfetch
+	rm -rf /home/${user}/.config/foot
 	rm -rf /home/${user}/.config/fuzzel
-	#rm -rf /home/${user}/.config/git
+	rm -rf /home/${user}/.config/git
 	rm -rf /home/${user}/.config/gtklock
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
 	rm -rf /home/${user}/.config/kanshi
 	rm -rf /home/${user}/.config/kitty
 	rm -rf /home/${user}/.config/mako
-	#rm -rf /home/${user}/.config/mpd
+	rm -rf /home/${user}/.config/maomao
+	rm -rf /home/${user}/.config/mpd
 	rm -rf /home/${user}/.config/mpv
-	#rm -rf /home/${user}/.config/nano
+	rm -rf /home/${user}/.config/mwc
+	rm -rf /home/${user}/.config/nano
 	rm -rf /home/${user}/.config/niri
 	rm -rf /home/${user}/.config/picom
-	#rm -rf /home/${user}/.config/pipewire
+	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/polybar
 	rm -rf /home/${user}/.config/qtile
 	rm -rf /home/${user}/.config/river
 	rm -rf /home/${user}/.config/rofi
 	rm -rf /home/${user}/.config/sway
+	rm -rf /home/${user}/.config/swayidle
 	rm -rf /home/${user}/.config/tofi
 	rm -rf /home/${user}/.config/waybar
-	rm -rf /home/${user}/.config/wofi
 	rm -rf /home/${user}/.config/yazi
 	#rm -rf /home/${user}/.local/share/icons/default
 }
@@ -64,28 +68,32 @@ rm_default_configs() {
 make_directories() {
 	mkdir -p /home/${user}/.config/alacritty
         mkdir -p /home/${user}/.config/dunst
+	mkdir -p /home/${user}/.config/fastfetch
+	mkdir -p /home/${user}/.config/foot
 	mkdir -p /home/${user}/.config/fuzzel
-        #mkdir -p /home/${user}/.config/git
+        mkdir -p /home/${user}/.config/git
 	mkdir -p /home/${user}/.config/gtklock
         mkdir -p /home/${user}/.config/hypr
         mkdir -p /home/${user}/.config/i3
 	mkdir -p /home/${user}/.config/kanshi
 	mkdir -p /home/${user}/.config/kitty
         mkdir -p /home/${user}/.config/mako
-	#mkdir -p /home/${user}/.config/mpd
+	mkdir -p /home/${user}/.config/maomao
+	mkdir -p /home/${user}/.config/mpd
         mkdir -p /home/${user}/.config/mpv
-	#mkdir -p /home/${user}/.config/nano
+	mkdir -p /home/${user}/.config/mwc
+	mkdir -p /home/${user}/.config/nano
 	mkdir -p /home/${user}/.config/niri
 	mkdir -p /home/${user}/.config/picom
-	#mkdir -p /home/${user}/.config/pipewire
+	mkdir -p /home/${user}/.config/pipewire
         mkdir -p /home/${user}/.config/polybar
         mkdir -p /home/${user}/.config/qtile
 	mkdir -p /home/${user}/.config/river
         mkdir -p /home/${user}/.config/rofi
         mkdir -p /home/${user}/.config/sway
+	mkdir -p /home/${user}/.config/swayidle
 	mkdir -p /home/${user}/.config/tofi
         mkdir -p /home/${user}/.config/waybar
-        mkdir -p /home/${user}/.config/wofi
         mkdir -p /home/${user}/.config/yazi
 	#mkdir -p /home/${user}/.local/share/icons/default
 }

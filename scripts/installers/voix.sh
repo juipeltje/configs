@@ -103,7 +103,7 @@ packages=(
         #"pass"
         #"pass-otp"
         "gparted"
-        #"wget"
+        "wget"
         "lxsession"
         "nano"
         "htop"

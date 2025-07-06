@@ -73,7 +73,7 @@
         (pass.withExtensions (subpkgs: with subpkgs; [ pass-otp ]))
         #gparted
         curl
-        wget
+        #wget
         autotiling
       ];
     }
