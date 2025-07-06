@@ -14,7 +14,7 @@
         hyprland
         niri
         inputs.maomaowm.packages.x86_64-linux.maomaowm
-        mwc_git
+        #mwc_git
 
         # Terminal
         foot

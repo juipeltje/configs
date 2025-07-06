@@ -126,6 +126,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/rofi/* /home/${user}/.config/rofi/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/swayidle/* /home/${user}/.config/swayidle/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/tofi/* /home/${user}/.config/tofi/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/waybar/* /home/${user}/.config/waybar/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/yazi/* /home/${user}/.config/yazi/
