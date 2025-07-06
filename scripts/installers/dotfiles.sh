@@ -126,7 +126,6 @@ configs() {
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/rofi/* /home/${user}/.config/rofi/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/sway/* /home/${user}/.config/sway/
-	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/swayidle/* /home/${user}/.config/swayidle/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/tofi/* /home/${user}/.config/tofi/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/waybar/* /home/${user}/.config/waybar/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/yazi/* /home/${user}/.config/yazi/
@@ -134,21 +133,22 @@ configs() {
 }
 
 configs_desktop() {
-	ln -s /home/${user}/repos/configs/workstation/home/.bashrc /home/${user}/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/i3/* /home/${user}/.config/i3/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/kanshi/* /home/${user}/.config/kanshi/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/niri/* /home/${user}/.config/niri/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/polybar/* /home/${user}/.config/polybar/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/qtile/* /home/${user}/.config/qtile/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/river/* /home/${user}/.config/river/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/sway/* /home/${user}/.config/sway/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/tofi/* /home/${user}/.config/tofi/
-	ln -s /home/${user}/repos/configs/workstation/home/dotconfig/waybar/* /home/${user}/.config/waybar/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/hypr/* /home/${user}/.config/hypr/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/kanshi/* /home/${user}/.config/kanshi/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mwc/* /home/${user}/.config/mwc/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/niri/* /home/${user}/.config/niri/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/polybar/* /home/${user}/.config/polybar/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/river/* /home/${user}/.config/river/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/sway/* /home/${user}/.config/sway/
+	#ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/swayidle/* /home/${user}/.config/swayidle/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/tofi/* /home/${user}/.config/tofi/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 configs_laptop() {
-	ln -s /home/${user}/repos/configs/laptop/home/.bashrc /home/${user}/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
         ln -s /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
 	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/niri/* /home/${user}/.config/niri/
