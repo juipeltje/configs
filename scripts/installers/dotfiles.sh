@@ -99,34 +99,36 @@ make_directories() {
 }
 
 configs() {
-	#ln -s /home/${user}/repos/configs/common/home/.Xresources /home/${user}/
-	ln -s /home/${user}/repos/configs/common/home/.bash_profile /home/${user}/
-	ln -s /home/${user}/repos/configs/common/home/.xinitrc-i3 /home/${user}/
-	ln -s /home/${user}/repos/configs/common/home/.xinitrc-qtile /home/${user}/
+	ln -s /home/${user}/repos/configs/dotfiles/common/.bashrc /home/${user}/
+	#ln -s /home/${user}/repos/configs/dotfiles/common/.Xresources /home/${user}/
+	ln -s /home/${user}/repos/configs/dotfiles/common/.bash_profile /home/${user}/
+	ln -s /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
+	ln -s /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
 	mkdir -p /home/${user}/.config
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/alacritty/* /home/${user}/.config/alacritty/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/dunst/* /home/${user}/.config/dunst/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/git/* /home/${user}/.config/git/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/gtklock/* /home/${user}/.config/gtklock/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/i3/* /home/${user}/.config/i3/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/kitty/* /home/${user}/.config/kitty/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/mako/* /home/${user}/.config/mako/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/mpd/* /home/${user}/.config/mpd/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/mpv/* /home/${user}/.config/mpv/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/nano/* /home/${user}/.config/nano/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/niri/* /home/${user}/.config/niri/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/picom/* /home/${user}/.config/picom/
-	#ln -s /home/${user}/repos/configs/common/home/dotconfig/pipewire/* /home/${user}/.config/pipewire/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/qtile/* /home/${user}/.config/qtile/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/river/* /home/${user}/.config/river/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/rofi/* /home/${user}/.config/rofi/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/sway/* /home/${user}/.config/sway/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/tofi/* /home/${user}/.config/tofi/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/waybar/* /home/${user}/.config/waybar/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/wofi/* /home/${user}/.config/wofi/
-	ln -s /home/${user}/repos/configs/common/home/dotconfig/yazi/* /home/${user}/.config/yazi/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/alacritty/* /home/${user}/.config/alacritty/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/dunst/* /home/${user}/.config/dunst/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/fastfetch/* /home/${user}/.config/fastfetch/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/foot/* /home/${user}/.config/foot/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/git/* /home/${user}/.config/git/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/gtklock/* /home/${user}/.config/gtklock/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr/* /home/${user}/.config/hypr/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty/* /home/${user}/.config/kitty/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mako/* /home/${user}/.config/mako/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mpd/* /home/${user}/.config/mpd/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mpv/* /home/${user}/.config/mpv/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/nano/* /home/${user}/.config/nano/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/picom/* /home/${user}/.config/picom/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/pipewire/* /home/${user}/.config/pipewire/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/river/* /home/${user}/.config/river/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/rofi/* /home/${user}/.config/rofi/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/sway/* /home/${user}/.config/sway/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/tofi/* /home/${user}/.config/tofi/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/waybar/* /home/${user}/.config/waybar/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/yazi/* /home/${user}/.config/yazi/
 	#ln -s /home/${user}/repos/configs/common/home/dotlocal/share/icons/default/* /home/${user}/.local/share/icons/default/
 }
 

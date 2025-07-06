@@ -4,7 +4,7 @@
 
 {
   # install gaming related packages
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     # Wine/gamelaunchers
     steam
     bottles
