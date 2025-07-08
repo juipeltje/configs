@@ -3,7 +3,7 @@
 { config, pkgs, ... }:
 
 {
-  # Install gtk themes and additional font packages.
+  # Install gtk themes and font packages.
   home.packages = with pkgs; [
     nordic
     gruvbox-gtk-theme
@@ -11,8 +11,19 @@
     numix-solarized-gtk-theme
     magnetic-catppuccin-gtk
     dracula-theme
+    nerd-fonts.ubuntu
     nerd-fonts.mononoki
   ];
+
+  # Allow fontconfig to discover fonts installed through home.packages, and set default fonts.
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Ubuntu Nerd Font" ];
+      sansSerif = [ "Ubuntu Nerd Font" ];
+      monospace = [ "Mononoki Nerd Font" ];
+    };
+  };
 
   # Setting themes 
   home.pointerCursor = {

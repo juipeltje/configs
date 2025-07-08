@@ -7,13 +7,6 @@
     {
       # Allow unfree packages.
       nixpkgs.config.allowUnfree = true;
-  
-      # Enable Git, Nano, Gnupg, Htop, appimage-run, and Evolution.
-      programs = {
-        evolution = {
-          enable = true;
-        };
-      };
 
       # list of packages to install in user environment.
       home.packages = with pkgs; [
@@ -78,7 +71,7 @@
       ];
     }
 
-    (lib.mkIf (hostName == "NixOS-Lappie") {
+    (lib.mkIf (hostName == "Void-Lappie") {
       # Laptop-specific packages installed in system profile.
       home.packages = with pkgs; [
         # Control screen brightness.

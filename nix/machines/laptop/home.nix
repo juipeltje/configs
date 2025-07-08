@@ -18,6 +18,10 @@
     ./../common/librewolf.nix
     # Nix settings
     ./../common/nix.nix
+    # Packages settings
+    ./../common/packages.nix
+    # Symlinks
+    ./../common/symlinks.nix
     # Theme settings
     ./../common/theming.nix
     # vscode settings

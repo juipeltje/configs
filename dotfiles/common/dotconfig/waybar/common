@@ -11,7 +11,7 @@
 
   // choose the order of the modules
   // include modules-left
-  "include": "~/.config/waybar/dwl-config",
+  "include": "~/.config/waybar/sway-config",
 
   // modules configuration
   "clock#time": {
