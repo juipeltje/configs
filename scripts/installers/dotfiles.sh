@@ -149,15 +149,19 @@ configs_desktop() {
 }
 
 configs_laptop() {
-	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/hypr/* /home/${user}/.config/hypr/
-        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/i3/* /home/${user}/.config/i3/
-	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/niri/* /home/${user}/.config/niri/
-        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/polybar/* /home/${user}/.config/polybar/
-        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/qtile/* /home/${user}/.config/qtile/
-	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/river/* /home/${user}/.config/river/
-	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/sway/* /home/${user}/.config/sway/
-	ln -s /home/${user}/repos/configs/laptop/home/dotconfig/tofi/* /home/${user}/.config/tofi/
-        ln -s /home/${user}/repos/configs/laptop/home/dotconfig/waybar/* /home/${user}/.config/waybar/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/hypr/* /home/${user}/.config/hypr/
+        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/i3/* /home/${user}/.config/i3/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/kanshi/* /home/${user}/.config/kanshi/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/mwc/* /home/${user}/.config/mwc/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/niri/* /home/${user}/.config/niri/
+        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/polybar/* /home/${user}/.config/polybar/
+        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/river/* /home/${user}/.config/river/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/sway/* /home/${user}/.config/sway/
+	#ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle/* /home/${user}/.config/swayidle/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
+        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 echo -e "${green}This script will install dotfiles in the user's home folder using symlinks (user: ${user}).

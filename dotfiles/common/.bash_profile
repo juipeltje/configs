@@ -6,8 +6,8 @@
 # set qt platformtheme
 #QT_QPA_PLATFORMTHEME=gtk3
 
-# add desktop shortcuts for nix programs to xdg-data-dirs
-#export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
+# add paths for themes and desktop shortcuts installed through nix
+#export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:$HOME/.local/share/:$HOME/.nix-profile/share/
 
 # set locale archive variable for nix programs
 #export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
