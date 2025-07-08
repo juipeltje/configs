@@ -37,8 +37,7 @@
         xwayland
         xwayland-satellite
 
-        # screenlocker
-        gtklock
+        # gtklock modules
         gtklock-powerbar-module
         gtklock-playerctl-module
 

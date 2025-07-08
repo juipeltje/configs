@@ -29,7 +29,6 @@ packages=(
         #"xdotool"
 	#"xsettingsd"
         #"i3"
-	#"autotiling"
         #"qtile"
 	#"python3-qtile-extras"
 	#"python3-dbus-next"
@@ -73,9 +72,6 @@ packages=(
         "fuse3"
 	#"ffmpegthumbnailer"
 
-        # Notifications
-        #"libnotify"
-
         # Multimedia
 	"pipewire"
         "wireplumber"
@@ -99,7 +95,6 @@ packages=(
 
         # Other
         "git"
-        #"lm_sensors"
         #"pass"
         #"pass-otp"
         "gparted"
@@ -320,7 +315,7 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/sway/* /home/${user}/.config/sway/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/tofi/* /home/${user}/.config/tofi/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 configs_laptop() {
@@ -333,7 +328,7 @@ configs_laptop() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/sway/* /home/${user}/.config/sway/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
-        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/
+        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
 	#cp -rf /home/${user}/repos/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
 	#cp -f /home/${user}/repos/configs/laptop/etc/tlp.conf /etc/
 }

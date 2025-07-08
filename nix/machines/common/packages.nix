@@ -29,9 +29,6 @@
         unrar
         p7zip
 
-        # Notifications
-        #libnotify
-
         # Office suite
         libreoffice
 
@@ -62,7 +59,7 @@
         #(python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
 
         # Other
-        #lm_sensors
+        lm_sensors
         (pass.withExtensions (subpkgs: with subpkgs; [ pass-otp ]))
         #gparted
         curl
