@@ -55,6 +55,9 @@
         s-tui
         stress-ng
 
+        # AI
+        ollama-rocm
+
         # Python
         #(python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
 

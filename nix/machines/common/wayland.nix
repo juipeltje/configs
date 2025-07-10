@@ -14,7 +14,7 @@
         hyprland
         niri
         inputs.maomaowm.packages.x86_64-linux.maomaowm
-        #mwc_git
+        mwc_git
 
         # Terminal
         foot
@@ -45,6 +45,22 @@
         kanshi
         swayidle
       ];
+
+      # writing gtklock config.ini inside of nix in order to reference the module paths in the store
+      xdg.configFile = {
+        "gtklock/config.ini" = {
+          enable = true;
+          text = ''
+            [main]
+            modules=${pkgs.gtklock-powerbar-module}/lib/gtklock/powerbar-module.so;${pkgs.gtklock-playerctl-module}/lib/gtklock/playerctl-module.so
+            time-format=  %H:%M
+            date-format=  %A, %d %B
+
+            [playerctl]
+            position=bottom-center
+          '';
+        };
+      };
 
       # dwl patching
       nixpkgs.overlays = [

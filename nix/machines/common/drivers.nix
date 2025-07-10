@@ -8,7 +8,7 @@
       let
         driversEnv = pkgs.buildEnv {
           name = "graphics-drivers";
-          paths = with pkgs; [ mesa rocmPackages.clr.icd ];
+          paths = with pkgs; [ mesa rocmPackages.clr rocmPackages.clr.icd ];
         };
 
         driversEnv32 = pkgs.buildEnv {

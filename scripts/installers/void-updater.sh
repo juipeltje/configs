@@ -26,9 +26,5 @@ echo -e "${green}Checking for services that need to be restarted with xcheckrest
 echo -e "${green}The following services need to be restarted:${color_reset}"
 sudo -u ${user} xcheckrestart
 
-# Update Flatpaks
-echo -e "${green}Checking for flatpak updates...${color_reset}"
-sudo -u ${user} flatpak update
-
 # Finished
 echo -e "${green}Finished! system is fully updated.${color_reset}"

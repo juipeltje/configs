@@ -39,9 +39,8 @@
         };
 
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
           ./machines/workstation/home.nix
-          #chaotic.homeManagerModules.default
         ];
       };
 
@@ -53,9 +52,8 @@
         };
 
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
           ./machines/laptop/home.nix
-          #chaotic.homeManagerModules.default
         ];
       };
       
@@ -67,9 +65,8 @@
         };
 
         modules = [
-          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default ]; }
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
           ./machines/deck/home.nix
-          #chaotic.homeManagerModules.default
         ];
       };
     };
