@@ -34,5 +34,8 @@
     inputs.aagl.packages.x86_64-linux.anime-game-launcher
     inputs.aagl.packages.x86_64-linux.wavey-launcher
     inputs.aagl.packages.x86_64-linux.sleepy-launcher
+
+    # qcma
+    (libsForQt5.callPackage ./../../derivations/qcma/qcma.nix { })
   ];
 }

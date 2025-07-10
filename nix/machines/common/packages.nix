@@ -71,8 +71,17 @@
       ];
     }
 
+    (lib.mkIf (hostName == "Void-Rig") {
+      # Workstation-specific packages.
+      home.packages = with pkgs; [
+        (python3.withPackages (subpkgs: with subpkgs; [ 
+          (callPackage ./../../derivations/yoda/derivation.nix { })
+        ]))
+      ];
+    })
+    
     (lib.mkIf (hostName == "Void-Lappie") {
-      # Laptop-specific packages installed in system profile.
+      # Laptop-specific packages.
       home.packages = with pkgs; [
         # Control screen brightness.
         brightnessctl

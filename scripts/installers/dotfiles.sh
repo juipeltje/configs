@@ -39,7 +39,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/foot
 	rm -rf /home/${user}/.config/fuzzel
 	rm -rf /home/${user}/.config/git
-	rm -rf /home/${user}/.config/gtklock
+	rm -f /home/${user}/.config/gtklock/*.css
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/i3
 	rm -rf /home/${user}/.config/kanshi
