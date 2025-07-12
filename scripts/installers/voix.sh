@@ -21,20 +21,6 @@ repos=(
 )
 
 packages=(
-        # Xorg/Window managers
-        #"xorg-minimal"
-        #"xf86-video-amdgpu"
-	#"xrdb"
-	#"xrandr"
-        #"xdotool"
-	#"xsettingsd"
-        #"i3"
-        #"qtile"
-	#"python3-qtile-extras"
-	#"python3-dbus-next"
-        #"python3-xdg"
-	#"picom"
-
         # Wayland/Compositors
 	"gtklock"
 
@@ -57,7 +43,6 @@ packages=(
 
         # Networking
 	"NetworkManager"
-        #"network-manager-applet"
         "openssh"
 	"wireguard-dkms"
         "wireguard-tools"
@@ -70,20 +55,10 @@ packages=(
 	"xz"
         "gvfs"
         "fuse3"
-	#"ffmpegthumbnailer"
 
         # Multimedia
 	"pipewire"
         "wireplumber"
-        #"alsa-utils"
-
-        # Theming/Fonts
-        #"lxappearance"
-        #"nwg-look"
-        #"qt5ct"
-        #"qt6ct"
-        #"papirus-icon-theme"
-	#"papirus-folders"
 
 	# Virtualisation
         "qemu"
@@ -95,8 +70,6 @@ packages=(
 
         # Other
         "git"
-        #"pass"
-        #"pass-otp"
         "gparted"
         "wget"
         "lxsession"
@@ -120,24 +93,6 @@ desktop_packages=(
 laptop_packages=(
 	# Power management/Screen brightness/Volume control
 	"tlp"
-	#"brightnessctl"
-	#"pulsemixer"
-)
-
-src_packages=(
-	"ubuntu-nerd-font-ttf"
-        "mononoki-nerd-font-ttf"
-        "nordic-gtk"
-        "gruvbox-gtk"
-	"tokyonight-gtk"
-	"catppuccin-gtk"
-	"dracula-gtk"
-	"everforest-gtk"
-	"numix-solarized-gtk"
-        "phinger-cursors"
-        "mint-y-icons"
-	"river-bedload"
-	"rmpc"
 )
 
 options_1=(
@@ -152,39 +107,6 @@ options_2=(
 )
 
 # Functions
-
-xbps_src() {
-	sudo -u ${user} git clone --depth 1 https://github.com/void-linux/void-packages.git /home/${user}/void-packages
-        cd /home/${user}/void-packages
-        sudo -u ${user} ./xbps-src binary-bootstrap
-        sudo -u ${user} git clone https://github.com/juipeltje/void-templates /home/$user/repos/void-templates
-        sudo -u ${user} cp -r /home/$user/repos/void-templates/srcpkgs/* /home/$user/void-packages/srcpkgs/
-        sudo -u ${user} ./xbps-src pkg ubuntu-nerd-font-ttf
-        sudo -u ${user} ./xbps-src pkg mononoki-nerd-font-ttf
-        sudo -u ${user} ./xbps-src pkg nordic-gtk
-        sudo -u ${user} ./xbps-src pkg gruvbox-gtk
-        sudo -u ${user} ./xbps-src pkg tokyonight-gtk
-	sudo -u ${user} ./xbps-src pkg catppuccin-gtk
-	sudo -u ${user} ./xbps-src pkg dracula-gtk
-	sudo -u ${user} ./xbps-src pkg everforest-gtk
-	sudo -u ${user} ./xbps-src pkg numix-solarized-gtk
-        sudo -u ${user} ./xbps-src pkg phinger-cursors
-        sudo -u ${user} ./xbps-src pkg mint-y-icons
-	sudo -u ${user} ./xbps-src pkg river-bedload
-	sudo -u ${user} ./xbps-src pkg rmpc
-        xbps-install -R hostdir/binpkgs "${src_packages[@]}" -y
-        cd
-}
-
-xbps_src_desktop() {
-	sudo -u ${user} git clone --depth 1 https://github.com/void-linux/void-packages.git /home/${user}/void-packages
-	cd /home/${user}/void-packages
-        sudo -u ${user} ./xbps-src pkg python3-hidapi
-        sudo -u ${user} ./xbps-src pkg liquidctl
-        xbps-install -R hostdir/binpkgs liquidctl -y
-        cd
-}
-
 services() {
 	ln -s /etc/sv/NetworkManager /var/service/
         ln -s /etc/sv/dbus /var/service/
@@ -195,6 +117,7 @@ services() {
         ln -s /etc/sv/cronie /var/service/
 	ln -s /etc/sv/nix-daemon /var/service/
 	rm -rf /var/service/dhcpcd
+	rm -rf /var/service/wpa_supplicant
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
 }
@@ -203,6 +126,7 @@ desktop_services() {
 	ln -s /etc/sv/libvirtd /var/service/
 	ln -s /etc/sv/virtlockd /var/service/
 	ln -s /etc/sv/virtlogd /var/service/
+	ln -s /etc/sv/openrgb /var/service/
 }
 
 laptop_services() {
@@ -224,6 +148,7 @@ grub() {
 	mkdir -p /boot/grub/themes
 	cp -r /home/${user}/Downloads/void-grub-theme /boot/grub/themes/void
 	echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >> /etc/default/grub
+	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 	rm -r /home/${user}/Downloads/void-grub-theme
 	rm -r /home/${user}/Downloads/void-linux.tar
 	swap_uuid=$(cat /etc/fstab | head -n1 | awk '{print $1}')
@@ -233,18 +158,24 @@ grub() {
 }
 
 rm_default_configs() {
+	# Xorg-related configs, disabled for now.
+	#sudo -u ${user} rm -rf /home/${user}/.Xresources
+	#sudo -u ${user} rm -rf /home/${user}/.config/dunst
+	#sudo -u ${user} rm -rf /home/${user}/.config/i3
+	#sudo -u ${user} rm -rf /home/${user}/.config/picom
+	#sudo -u ${user} rm -rf /home/${user}/.config/polybar
+	#sudo -u ${user} rm -rf /home/${user}/.config/rofi
+
+	# remove default configs if present.
 	sudo -u ${user} rm -rf /home/${user}/.bashrc
 	sudo -u ${user} rm -rf /home/${user}/.bash_profile
-	sudo -u ${user} rm -rf /home/${user}/.Xresources
 	sudo -u ${user} rm -rf /home/${user}/.config/alacritty
-	sudo -u ${user} rm -rf /home/${user}/.config/dunst
 	sudo -u ${user} rm -rf /home/${user}/.config/fastfetch
 	sudo -u ${user} rm -rf /home/${user}/.config/foot
 	sudo -u ${user} rm -rf /home/${user}/.config/fuzzel
 	sudo -u ${user} rm -rf /home/${user}/.config/git
 	sudo -u ${user} rm -rf /home/${user}/.config/gtklock
 	sudo -u ${user} rm -rf /home/${user}/.config/hypr
-	sudo -u ${user} rm -rf /home/${user}/.config/i3
 	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
 	sudo -u ${user} rm -rf /home/${user}/.config/kitty
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
@@ -254,62 +185,67 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/mwc
 	sudo -u ${user} rm -rf /home/${user}/.config/nano
 	sudo -u ${user} rm -rf /home/${user}/.config/niri
-	sudo -u ${user} rm -rf /home/${user}/.config/picom
 	sudo -u ${user} rm -rf /home/${user}/.config/pipewire
-	sudo -u ${user} rm -rf /home/${user}/.config/polybar
 	sudo -u ${user} rm -rf /home/${user}/.config/qtile
 	sudo -u ${user} rm -rf /home/${user}/.config/river
-	sudo -u ${user} rm -rf /home/${user}/.config/rofi
 	sudo -u ${user} rm -rf /home/${user}/.config/sway
 	sudo -u ${user} rm -rf /home/${user}/.config/swayidle
 	sudo -u ${user} rm -rf /home/${user}/.config/tofi
+	sudo -u ${user} rm -rf /home/${user}/.config/VSCodium
 	sudo -u ${user} rm -rf /home/${user}/.config/waybar
 	sudo -u ${user} rm -rf /home/${user}/.config/yazi
 }
 
 configs() {
-	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/repos/configs
+	# Xorg-related configs, disabled for now.
 	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.Xresources /home/${user}/
+	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
+        #sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/dunst /home/${user}/.config/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/i3 /home/${user}/.config/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/picom /home/${user}/.config/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/rofi /home/${user}/.config/
+
+	# copy common configs to .config
+	sudo -u ${user} git clone https://github.com/juipeltje/configs /home/${user}/repos/configs
 	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.bashrc /home/${user}/
 	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.bash_profile /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
-	sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
 	sudo -u ${user} mkdir -p /home/${user}/.config
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/alacritty /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/dunst /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/fastfetch /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/foot /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/fuzzel /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/git /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/gtklock /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/i3 /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mako /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/maomao /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mpd /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/nano /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/picom /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/pipewire /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/qtile /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/river /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/rofi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/sway /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/tofi /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/VSCodium /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/waybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/yazi /home/${user}/.config/
-	#cp -rf /home/${user}/repos/configs/common/etc/elogind /etc/
 }
 
 configs_desktop() {
+	# Xorg-related configs, disabled for now.
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/i3/* /home/${user}/.config/i3/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/polybar /home/${user}/.config/
+	#cp -rf /home/${user}/repos/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
+
+	# copy desktop configs to .config
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/hypr/* /home/${user}/.config/hypr/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/i3/* /home/${user}/.config/i3/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/kanshi /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/maomao/* /home/${user}/.config/maomao/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mwc /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/niri /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/polybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/sway/* /home/${user}/.config/sway/
@@ -319,18 +255,21 @@ configs_desktop() {
 }
 
 configs_laptop() {
+	# Xorg-related configs, disabled for now.
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/i3/* /home/${user}/.config/i3/
+	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/polybar /home/${user}/.config/
+	#cp -rf /home/${user}/repos/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
+
+	# copy laptop configs to .config
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/hypr/* /home/${user}/.config/hypr/
-        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/i3/* /home/${user}/.config/i3/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/niri /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/polybar /home/${user}/.config/
         sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/sway/* /home/${user}/.config/sway/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
         sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
-	#cp -rf /home/${user}/repos/configs/laptop/etc/X11/xorg.conf.d /etc/X11/
-	#cp -f /home/${user}/repos/configs/laptop/etc/tlp.conf /etc/
+	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
 }
 
 pipewire() {
@@ -380,9 +319,6 @@ do
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
         		xbps-install -Sy "${desktop_packages[@]}"
-        		echo -e "${green}installing xbps-src packages...${color_reset}"
-        		#xbps_src
-        		#xbps_src_desktop
 
 			# Creating user directories
 			echo -e "${green}Creating user directories...${color_reset}"
@@ -393,7 +329,6 @@ do
 			rm_default_configs
 			configs
 			configs_desktop
-			#cp -rf /home/${user}/repos/configs/workstation/etc/X11/xorg.conf.d /etc/X11/
 
 			# Pipewire
 			echo -e "${green}configuring pipewire...${color_reset}"
@@ -451,8 +386,6 @@ do
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
         		xbps-install -Sy "${laptop_packages[@]}"
-        		echo -e "${green}installing xbps-src packages...${color_reset}"
-        		#xbps_src
 
 			# Creating user directories
                         echo -e "${green}Creating user directories...${color_reset}"
@@ -509,8 +442,6 @@ do
         		xbps-install -Suy
         		xbps-install -Sy "${repos[@]}"
         		xbps-install -Sy "${packages[@]}"
-        		echo -e "${green}installing xbps-src packages...${color_reset}"
-        		#xbps_src
 
 			# Creating user directories
                         echo -e "${green}Creating user directories...${color_reset}"

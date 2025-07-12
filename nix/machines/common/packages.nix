@@ -67,7 +67,6 @@
         #gparted
         curl
         #wget
-        autotiling
       ];
     }
 

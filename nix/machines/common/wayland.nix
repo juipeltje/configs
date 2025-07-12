@@ -44,6 +44,10 @@
         # Display configuration
         kanshi
         swayidle
+        xorg.xrandr # still need xrandr to set primary xwayland display before starting a game.
+
+        # Sway autotiling
+        autotiling
       ];
 
       # writing gtklock config.ini inside of nix in order to reference the module paths in the store

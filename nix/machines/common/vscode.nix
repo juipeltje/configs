@@ -16,13 +16,6 @@
         vscode-extensions.brandonkirbyson.solarized-palenight
         vscode-extensions.enkia.tokyo-night
       ];
-
-      userSettings = {
-        "workbench.colorTheme" = "Gruvbox Dark Medium";
-        "window.titleBarStyle" = "custom";
-        "editor.fontFamily" = "Mononoki Nerd Font";
-        "editor.fontSize" = 18;
-      };
     };
   };
 }
