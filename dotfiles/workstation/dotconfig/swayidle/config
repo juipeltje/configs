@@ -1,0 +1,2 @@
+before-sleep 'gtklock -d --follow-focus'
+after-resume 'openrgb -p purple.orp'
