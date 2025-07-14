@@ -15,8 +15,7 @@
         transmission_4-gtk
 
         # Mail
-        evolution
-        gnome-keyring
+        evolution # gnome-keyring has to be installed on the host system!
 
         # Terminal
         alacritty

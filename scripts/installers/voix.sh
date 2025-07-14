@@ -82,6 +82,7 @@ packages=(
 	"curl"
 	"xtools"
 	"nix"
+	"gnome-keyring"
 )
 
 desktop_packages=(
