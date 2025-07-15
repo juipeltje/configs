@@ -1,2 +1,1 @@
-@reboot sleep 5;/home/joppe/repos/configs/scripts/cron/liquidctl.sh
 @reboot /home/joppe/repos/configs/scripts/cron/nix-drivers.sh

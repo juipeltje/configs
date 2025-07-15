@@ -23,16 +23,17 @@
 
         # File managers/utilities
         yazi
-        pcmanfm
         unzip
         unrar
         p7zip
+        xdg-utils
 
         # Office suite
         libreoffice
 
         # Multimedia
         #alsa-utils
+        playerctl
         pavucontrol
         mpv
         kodi-wayland

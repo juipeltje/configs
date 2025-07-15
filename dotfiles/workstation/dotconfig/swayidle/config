@@ -1,2 +1,3 @@
 before-sleep 'gtklock -d --follow-focus'
 after-resume 'openrgb -p purple.orp'
+after-resume 'liquidctl --match kraken set pump speed 100'

@@ -17,7 +17,7 @@ alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
 # Nix aliases
 alias nu="sudo nix-env --install --file '<nixpkgs>' --attr nix cacert -I nixpkgs=channel:nixos-25.05"
-alias ni="nix run --extra-experimental-features 'nix-command flakes' home-manager/release-25.05 -- switch --extra-experimental-features 'nix-command flakes'"
+alias ni="dbus-run-session nix run --extra-experimental-features 'nix-command flakes' home-manager/release-25.05 -- switch --extra-experimental-features 'nix-command flakes'"
 # NixOS aliases
 alias rb='sudo nixos-rebuild boot --flake ~/repos/configs/nixos'
 alias rs='sudo nixos-rebuild switch --flake ~/repos/configs/nixos'

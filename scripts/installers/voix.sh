@@ -52,6 +52,7 @@ packages=(
         "blueman"
 
         # File managers/utilities
+	"pcmanfm"
 	"xz"
         "gvfs"
         "fuse3"
@@ -72,7 +73,7 @@ packages=(
         "git"
         "gparted"
         "wget"
-        "lxsession"
+        "polkit-gnome"
         "nano"
         "htop"
         "xdg-user-dirs"
