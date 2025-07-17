@@ -38,7 +38,8 @@ packages=(
         "mesa-vdpau"
 	"mesa-vdpau-32bit"
 	"corectrl"
-	"qt5-wayland"
+	"qt6-wayland"
+	"steam"
         "gamemode"
 
         # Networking
@@ -338,7 +339,7 @@ do
 
 			# Add user to groups
 			echo -e "${green}Adding user to groups...${color_reset}"
-			usermod -aG i2c,kvm,libvirt,bluetooth,socklog ${user}
+			usermod -aG i2c,kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
 			# Kernel modules
 			echo -e "${green}Adding kernel modules to load on boot...${color_reset}"
@@ -405,7 +406,7 @@ do
 
 			# Add user to groups
 			echo -e "${green}Adding user to groups...${color_reset}"
-        		usermod -aG bluetooth,socklog ${user}
+        		usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
 			# Swap
 			echo -e "${green}Setting up swapfile...${color_reset}"
@@ -461,7 +462,7 @@ do
 
 			# Add user to groups
 			echo -e "${green}Adding user to groups...${color_reset}"
-			usermod -aG bluetooth,socklog ${user}
+			usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
 			# Services
 			echo -e "${green}Enabling runit services...${color_reset}"

@@ -5,11 +5,11 @@
 options=(
   "   DWL\n"
   "  Hyprland\n"
-  "  i3\n"
+ # "  i3\n"
   "  maomao\n"
   "  mwc\n"
   "  Niri\n"
-  "  Qtile\n"
+ # "  Qtile\n"
   "  Qtile-wayland\n"
   "  River\n"
   "  SwayFX"
@@ -20,6 +20,8 @@ wayland_vars=(
   "ELECTRON_OZONE_PLATFORM_HINT=wayland"
 )
 
+# Variables
+dbus=dbus-run-session
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
 	op=$( echo -e "${options[@]}" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}' )
@@ -29,20 +31,23 @@ fi
 
 # functions
 exit_compositor() {
-	systemctl --user stop dwl-session.target
-	systemctl --user stop hyprland-session.target
-	systemctl --user stop i3-session.target
-	systemctl --user stop maomao-session.target
-	systemctl --user stop mwc-session.target
-	systemctl --user stop niri-session.target
-	systemctl --user stop qtile-session.target
-    	systemctl --user stop qtile-wayland-session.target
-	systemctl --user stop river-session.target
-    	systemctl --user stop sway-session.target
-	systemctl --user stop graphical-session.target
+	# kill any programs that were autostarted.
+	kill $(pgrep mako)
+	kill $(pgrep pipewire)
+	kill $(pgrep nm-applet)
+	kill $(pgrep blueman-applet)
+	kill $(pgrep playerctld)
+	kill $(pgrep swayidle)
+	kill $(pgrep liquidctl)
+	kill $(pgrep yoda)
+	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/battery-full.sh)
+	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/battery-low.sh)
+	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/charger.sh)
+
+	# kill running compositor.
 	kill $(pgrep dwl)
 	hyprctl dispatch exit
-	i3msg exit
+	# i3msg exit
 	kill $(pgrep maomao)
 	kill $(pgrep mwc)
 	niri msg action quit -s
@@ -61,25 +66,25 @@ case $op in
 	mwc)
 		;&
         niri)
-		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec dwl|${wayland_vars[@]} exec river|${wayland_vars[@]} exec maomao|${wayland_vars[@]} exec mwc|${wayland_vars[@]} exec niri|${wayland_vars[@]} exec sway|${wayland_vars[@]} exec qtile start -b wayland|exec startx ~\/.xinitrc-qtile|exec startx ~\/.xinitrc-i3|${wayland_vars[@]} exec Hyprland)/${wayland_vars[@]} exec $op/g" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec ${dbus} dwl|${wayland_vars[@]} exec ${dbus} river|${wayland_vars[@]} exec ${dbus} maomao|${wayland_vars[@]} exec ${dbus} mwc|${wayland_vars[@]} exec ${dbus} niri|${wayland_vars[@]} exec ${dbus} sway|${wayland_vars[@]} exec ${dbus} qtile start -b wayland|exec ${dbus} startx ~\/.xinitrc-qtile|exec ${dbus} startx ~\/.xinitrc-i3|${wayland_vars[@]} exec ${dbus} Hyprland)/${wayland_vars[@]} exec ${dbus} $op/g" ~/.bash_profile
 		exit_compositor
         	;;
 	swayfx)
-		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec dwl|${wayland_vars[@]} exec river|${wayland_vars[@]} exec maomao|${wayland_vars[@]} exec mwc|${wayland_vars[@]} exec niri|${wayland_vars[@]} exec sway|${wayland_vars[@]} exec qtile start -b wayland|exec startx ~\/.xinitrc-qtile|exec startx ~\/.xinitrc-i3|${wayland_vars[@]} exec Hyprland)/${wayland_vars[@]} exec sway/g" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec ${dbus} dwl|${wayland_vars[@]} exec ${dbus} river|${wayland_vars[@]} exec ${dbus} maomao|${wayland_vars[@]} exec ${dbus} mwc|${wayland_vars[@]} exec ${dbus} niri|${wayland_vars[@]} exec ${dbus} sway|${wayland_vars[@]} exec ${dbus} qtile start -b wayland|exec ${dbus} startx ~\/.xinitrc-qtile|exec ${dbus} startx ~\/.xinitrc-i3|${wayland_vars[@]} exec ${dbus} Hyprland)/${wayland_vars[@]} exec ${dbus} sway/g" ~/.bash_profile
 		exit_compositor
 		;;
 	qtile)
 		;&
 	i3)
-		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec dwl|${wayland_vars[@]} exec river|${wayland_vars[@]} exec maomao|${wayland_vars[@]} exec mwc|${wayland_vars[@]} exec niri|${wayland_vars[@]} exec sway|${wayland_vars[@]} exec qtile start -b wayland|exec startx ~\/.xinitrc-qtile|exec startx ~\/.xinitrc-i3|${wayland_vars[@]} exec Hyprland)/exec startx ~\/.xinitrc-$op/g" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec ${dbus} dwl|${wayland_vars[@]} exec ${dbus} river|${wayland_vars[@]} exec ${dbus} maomao|${wayland_vars[@]} exec ${dbus} mwc|${wayland_vars[@]} exec ${dbus} niri|${wayland_vars[@]} exec ${dbus} sway|${wayland_vars[@]} exec ${dbus} qtile start -b wayland|exec ${dbus} startx ~\/.xinitrc-qtile|exec ${dbus} startx ~\/.xinitrc-i3|${wayland_vars[@]} exec ${dbus} Hyprland)/exec ${dbus} startx ~\/.xinitrc-$op/g" ~/.bash_profile
         	exit_compositor
 		;;
 	qtile-wayland)
-		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec dwl|${wayland_vars[@]} exec river|${wayland_vars[@]} exec maomao|${wayland_vars[@]} exec mwc|${wayland_vars[@]} exec niri|${wayland_vars[@]} exec sway|${wayland_vars[@]} exec qtile start -b wayland|exec startx ~\/.xinitrc-qtile|exec startx ~\/.xinitrc-i3|${wayland_vars[@]} exec Hyprland)/${wayland_vars[@]} exec qtile start -b wayland/g" ~/.bash_profile
+		sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec ${dbus} dwl|${wayland_vars[@]} exec ${dbus} river|${wayland_vars[@]} exec ${dbus} maomao|${wayland_vars[@]} exec ${dbus} mwc|${wayland_vars[@]} exec ${dbus} niri|${wayland_vars[@]} exec ${dbus} sway|${wayland_vars[@]} exec ${dbus} qtile start -b wayland|exec ${dbus} startx ~\/.xinitrc-qtile|exec ${dbus} startx ~\/.xinitrc-i3|${wayland_vars[@]} exec ${dbus} Hyprland)/${wayland_vars[@]} exec ${dbus} qtile start -b wayland/g" ~/.bash_profile
 		exit_compositor
 		;;
 	hyprland)
-        	sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec dwl|${wayland_vars[@]} exec river|${wayland_vars[@]} exec maomao|${wayland_vars[@]} exec mwc|${wayland_vars[@]} exec niri|${wayland_vars[@]} exec sway|${wayland_vars[@]} exec qtile start -b wayland|exec startx ~\/.xinitrc-qtile|exec startx ~\/.xinitrc-i3|${wayland_vars[@]} exec Hyprland)/${wayland_vars[@]} exec Hyprland/g" ~/.bash_profile
+        	sed -i -E --follow-symlinks "s/(${wayland_vars[@]} exec ${dbus} dwl|${wayland_vars[@]} exec ${dbus} river|${wayland_vars[@]} exec ${dbus} maomao|${wayland_vars[@]} exec ${dbus} mwc|${wayland_vars[@]} exec ${dbus} niri|${wayland_vars[@]} exec ${dbus} sway|${wayland_vars[@]} exec ${dbus} qtile start -b wayland|exec ${dbus} startx ~\/.xinitrc-qtile|exec ${dbus} startx ~\/.xinitrc-i3|${wayland_vars[@]} exec ${dbus} Hyprland)/${wayland_vars[@]} exec ${dbus} Hyprland/g" ~/.bash_profile
         	exit_compositor
         	;;
 esac

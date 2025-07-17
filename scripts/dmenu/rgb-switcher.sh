@@ -17,10 +17,8 @@ case $color in
                 ;&
         red)
 		openrgb -p ${color}.orp
-		sed -i "s|ExecStart = \"\${pkgs.openrgb}.*|ExecStart = \"\${pkgs.openrgb}/bin/openrgb -p ${color}.orp\";|" ~/repos/configs/nixos/machines/workstation/home-manager/soystemd.nix
-		sed -i "s|after-resume '\${pkgs.openrgb}.*|after-resume '\${pkgs.openrgb}/bin/openrgb -p ${color}.orp'|" ~/repos/configs/nixos/machines/common/home-manager/swayidle.nix
-		notify-send "RGB Script" "Switched lighting color, running home manager switch..."
-		home-manager switch --flake ~/repos/configs/nixos
+		sed -i "s|^openrgb.*|openrgb -p ${color}.orp|" ~/repos/configs/scripts/autostart/workstation-autostart.sh
+		sed -i --follow-symlinks "s|'openrgb.*|'openrgb -p ${color}.orp'|" ~/.config/swayidle/config
 		notify-send "RGB Script" "Done! current color: ${color}"
                 ;;
 esac

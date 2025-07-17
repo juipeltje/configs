@@ -6,13 +6,11 @@
   # install gaming related packages
   home.packages = with pkgs; [
     # Wine/gamelaunchers
-    steam
     heroic-unwrapped # unwrapped version seems to be required in order for games to be able to launch on non-NixOS. might also be required for other packages?
     prismlauncher
     mcpelauncher-ui-qt
   
     # Emulators
-    duckstation
     pcsx2
     rpcs3
     shadps4

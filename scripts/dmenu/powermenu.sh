@@ -7,7 +7,7 @@ else
 	op=$( echo -e " Poweroff\n Reboot" | rofi -dmenu -p "Powermenu:" -theme-str 'window {width: 200px;}' | awk '{print tolower($2)}' )
 fi
 
-hostname=$( cat /etc/hostname )
+hostname=$(cat /etc/hostname)
 
 case $op in
         poweroff)
@@ -15,13 +15,13 @@ case $op in
         reboot)
 		;&
 	hibernate)
-		systemctl $op
+		loginctl $op
 		;;
         suspend)
-		if [ "$hostname" = "NixOS-Rig" ]; then
-			systemctl $op
-		elif [ "$hostname" = "NixOS-Lappie" ]; then
-			systemctl suspend-then-hibernate
+		if [ "$hostname" = "Void-Rig" ]; then
+			loginctl $op
+		elif [ "$hostname" = "Void-Lappie" ]; then
+			loginctl suspend-then-hibernate
 		fi
 		;;
         lock)

@@ -14,15 +14,15 @@ else
 	terminal=alacritty
 fi
 
-hostname=$( cat /etc/hostname )
+hostname=$(cat /etc/hostname)
 
 case $op in
 	deepseek-r1)
         	;&
     	qwen2.5-coder)
-        	if [ "$hostname" = "NixOS-Rig" ]; then
+        	if [ "$hostname" = "Void-Rig" ]; then
 			$terminal -e ollama run $op:32b
-		elif [ "$hostname" = "NixOS-Lappie" ]; then
+		elif [ "$hostname" = "Void-Lappie" ]; then
 			$terminal -e ollama run $op:7b
 		fi
 		;;

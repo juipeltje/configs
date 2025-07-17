@@ -370,7 +370,7 @@ case $theme in
 		sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Dracula Theme"/' ~/.config/VSCodium/User/settings.json
 
                 # GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Nordic
+		gsettings set org.gnome.desktop.interface gtk-theme Dracula
 
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
