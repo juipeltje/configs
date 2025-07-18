@@ -14,6 +14,9 @@
         networkmanagerapplet
         transmission_4-gtk
 
+        # Bluetooth
+        blueman
+
         # Mail
         evolution # gnome-keyring has to be installed on the host system!
 
@@ -30,6 +33,9 @@
 
         # Office suite
         libreoffice
+
+        # Notifications
+        libnotify
 
         # Multimedia
         #alsa-utils

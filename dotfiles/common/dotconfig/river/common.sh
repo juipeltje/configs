@@ -3,8 +3,11 @@
 # River common config
 
 # dbus/systemd integration settings
-riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
-riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
+#riverctl spawn "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_ID"
+#riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
+
+# Autostart programs
+riverctl spawn ~/repos/configs/scripts/autostart/common-autostart.sh
 
 # Variables
 terminal="foot"

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # workstation autostart script to be executed by window managers.
-openrgb -p purple.orp
+openrgb -p purple.orp &
+HSA_OVERRIDE_GFX_VERSION="10.3.0" ollama serve &
 
 # start liquidctl and yoda script.
 liquidctl initialize all

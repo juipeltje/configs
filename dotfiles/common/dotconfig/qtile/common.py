@@ -22,9 +22,10 @@ webbrowser = "librewolf"
 def autostart():
   if qtile.core.name == "x11":
     processes = [
-      [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
-      [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
-      [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
+      # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+      # [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
+      # [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
+      [ '~/repos/configs/scripts/autostart/common-autostart.sh' ]
     ]
 
     for p in processes:
@@ -32,9 +33,10 @@ def autostart():
 
   elif qtile.core.name == "wayland":
     processes = [
-      [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
-      [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
-      [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+      # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+      # [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
+      # [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+      [ '~/repos/configs/scripts/autostart/common-autostart.sh' ]
     ]
 
     for p in processes:

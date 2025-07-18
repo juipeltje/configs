@@ -50,7 +50,6 @@ packages=(
 
         # Bluetooth
         "bluez"
-        "blueman"
 
         # File managers/utilities
 	"pcmanfm"

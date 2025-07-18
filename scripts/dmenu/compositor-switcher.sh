@@ -40,9 +40,15 @@ exit_compositor() {
 	kill $(pgrep swayidle)
 	kill $(pgrep liquidctl)
 	kill $(pgrep yoda)
-	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/battery-full.sh)
-	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/battery-low.sh)
-	kill $(pgrep /home/joppe/repos/configs/scripts/autostart/laptop/charger.sh)
+	kill $(pgrep autotiling)
+	kill $(pgrep ollama)
+	kill $(pgrep -f /usr/libexec/polkit-gnome-authentication-agent-1)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/common-autostart.sh)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/workstation-autostart.sh)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/laptop-autostart.sh)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/laptop/battery-full.sh)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/laptop/battery-low.sh)
+	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/laptop/charger.sh)
 
 	# kill running compositor.
 	kill $(pgrep dwl)

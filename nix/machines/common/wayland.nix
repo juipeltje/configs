@@ -62,6 +62,11 @@
 
             [playerctl]
             position=bottom-center
+
+            [powerbar]
+            poweroff-command=loginctl poweroff
+            reboot-command=loginctl reboot
+            suspend-command=loginctl suspend
           '';
         };
       };

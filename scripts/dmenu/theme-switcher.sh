@@ -97,6 +97,10 @@ case $theme in
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Nordic
 
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.nordic;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Nordic";/' ~/repos/configs/nix/machines/common/theming.nix
+
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
                 reload_programs
@@ -151,6 +155,10 @@ case $theme in
 
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark
+
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.gruvbox-gtk-theme;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Gruvbox-Dark";/' ~/repos/configs/nix/machines/common/theming.nix
 
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
@@ -207,6 +215,10 @@ case $theme in
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark
 
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.tokyonight-gtk-theme;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Tokyonight-Dark";/' ~/repos/configs/nix/machines/common/theming.nix
+
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
                 reload_programs
@@ -261,6 +273,10 @@ case $theme in
 
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme NumixSolarizedDarkGreen
+
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.numix-solarized-gtk-theme;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "NumixSolarizedDarkGreen";/' ~/repos/configs/nix/machines/common/theming.nix
 
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
@@ -317,6 +333,10 @@ case $theme in
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
 
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.magnetic-catppuccin-gtk;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Catppuccin-GTK-Dark";/' ~/repos/configs/nix/machines/common/theming.nix
+
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
                 reload_programs
@@ -371,6 +391,10 @@ case $theme in
 
                 # GTK
 		gsettings set org.gnome.desktop.interface gtk-theme Dracula
+
+		# home manager
+		sed -i 's/theme.package.*/theme.package = pkgs.dracula-theme;/' ~/repos/configs/nix/machines/common/theming.nix
+                sed -i 's/theme.name.*/theme.name = "Dracula";/' ~/repos/configs/nix/machines/common/theming.nix
 
                 # reload programs
                 notify-send "Theme Switcher Script" "Done! Now reloading programs..."
