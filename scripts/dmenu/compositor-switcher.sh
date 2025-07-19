@@ -32,6 +32,8 @@ fi
 # functions
 exit_compositor() {
 	# kill any programs that were autostarted.
+	kill $(pgrep swaybg)
+	kill $(pgrep kanshi)
 	kill $(pgrep mako)
 	kill $(pgrep pipewire)
 	kill $(pgrep nm-applet)
@@ -42,6 +44,7 @@ exit_compositor() {
 	kill $(pgrep yoda)
 	kill $(pgrep autotiling)
 	kill $(pgrep ollama)
+	kill $(pgrep xwayland-satellite)
 	kill $(pgrep -f /usr/libexec/polkit-gnome-authentication-agent-1)
 	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/common-autostart.sh)
 	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/workstation-autostart.sh)

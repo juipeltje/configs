@@ -5,6 +5,9 @@
 # import the common config script
 riverctl spawn ~/.config/river/common.sh
 
+# Autostart programs
+riverctl spawn ~/repos/configs/scripts/autostart/laptop-autostart.sh
+
 # input settings
 riverctl input *Touchpad tap enabled
 riverctl input *Touchpad disable-while-typing disabled

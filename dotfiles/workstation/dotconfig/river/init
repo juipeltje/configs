@@ -5,6 +5,9 @@
 # import the common config script
 riverctl spawn ~/.config/river/common.sh
 
+# Autostart programs
+riverctl spawn ~/repos/configs/scripts/autostart/workstation-autostart.sh
+
 # Keybindings
 
 # switch focus between outputs

@@ -3,6 +3,9 @@
 # Include the common config
 include ~/.config/i3/common.conf
 
+# Autostart programs
+exec ~/repos/configs/scripts/autostart/workstation-autostart.sh
+
 ## variables
 set $mod Mod4
 
