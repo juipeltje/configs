@@ -112,6 +112,9 @@ options_2=(
 services() {
 	ln -s /etc/sv/NetworkManager /var/service/
         ln -s /etc/sv/dbus /var/service/
+	ln -s /etc/sv/libvirtd /var/service/
+        ln -s /etc/sv/virtlockd /var/service/
+        ln -s /etc/sv/virtlogd /var/service/
         ln -s /etc/sv/bluetoothd /var/service/
         ln -s /etc/sv/ntpd /var/service/
         ln -s /etc/sv/socklog-unix /var/service/
@@ -125,9 +128,6 @@ services() {
 }
 
 desktop_services() {
-	ln -s /etc/sv/libvirtd /var/service/
-	ln -s /etc/sv/virtlockd /var/service/
-	ln -s /etc/sv/virtlogd /var/service/
 	ln -s /etc/sv/openrgb /var/service/
 }
 

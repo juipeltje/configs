@@ -7,6 +7,7 @@
 #riverctl spawn "systemctl --user import-environment {,WAYLAND_}DISPLAY; systemctl --user start river-session.target"
 
 # Autostart programs
+riverctl spawn ~/repos/configs/scripts/waybar/river-modules.sh
 riverctl spawn ~/repos/configs/scripts/autostart/common-autostart.sh
 
 # Variables

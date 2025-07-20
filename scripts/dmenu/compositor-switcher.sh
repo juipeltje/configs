@@ -32,8 +32,10 @@ fi
 # functions
 exit_compositor() {
 	# kill any programs that were autostarted.
+	kill $(pgrep gtklock)
 	kill $(pgrep swaybg)
 	kill $(pgrep kanshi)
+	kill $(pgrep waybar)
 	kill $(pgrep mako)
 	kill $(pgrep pipewire)
 	kill $(pgrep nm-applet)

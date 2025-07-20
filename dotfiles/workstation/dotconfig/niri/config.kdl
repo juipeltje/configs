@@ -6,6 +6,7 @@
 //spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
 
 // Autostart programs
+spawn-at-startup "~/repos/configs/scripts/waybar/niri-modules.sh"
 spawn-at-startup "~/repos/configs/scripts/autostart/common-autostart.sh"
 spawn-at-startup "~/repos/configs/scripts/autostart/workstation-autostart.sh"
 spawn-at-startup "xwayland-satellite"

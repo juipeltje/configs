@@ -64,9 +64,6 @@
         # AI
         ollama-rocm
 
-        # Python
-        #(python312.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
-
         # Other
         lm_sensors
         (pass.withExtensions (subpkgs: with subpkgs; [ pass-otp ]))
