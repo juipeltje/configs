@@ -84,6 +84,8 @@ packages=(
 	"xtools"
 	"nix"
 	"gnome-keyring"
+	"pass"
+	"pass-otp"
 )
 
 desktop_packages=(
