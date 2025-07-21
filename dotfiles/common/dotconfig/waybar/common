@@ -31,6 +31,16 @@
     "format": " <span font='14' rise='-2000'></span>{}"
   },
 
+  "network": {
+    "interval": 60,
+    "format-ethernet": "<span font='14' rise='-2000'></span> {ifname} ",
+    "format-wifi": "<span font='14' rise='-2000'>󰖩</span> ({signalStrength}%) ",
+    "format-disconnected": "<span font='14' rise='-2000'> </span> ",
+    "tooltip-format-ethernet": "{ifname}: Connected",
+    "tooltip-format-wifi": "{ifname}: Connected, Signal:({signalStrength}%), Band:({frequency}GHz)",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
   "tray": {
     "icon-size": "30",
     "show-passive-items": false,

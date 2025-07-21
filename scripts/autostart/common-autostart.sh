@@ -5,10 +5,9 @@ gtklock -d &
 swaybg -i ~/Pictures/background/background.jpg -m fill &
 kanshi &
 waybar &
-mako -c ~/.config/mako/gruvbox-dark-config &
+mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config mako -c ~/.config/mako/gruvbox-dark-config &
 pipewire &
 /usr/libexec/polkit-gnome-authentication-agent-1 &
-nm-applet &
 blueman-applet &
 playerctld &
 swayidle -w &

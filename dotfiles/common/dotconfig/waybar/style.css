@@ -39,14 +39,31 @@ window#waybar {
     border: 0;
 }
 
-#battery.critical {
+#battery.critical,
+#network.disconnected {
     color: @alert;
 }
 
 #clock.time,
 #clock.date, 
 #tray,
-#window {
+#window,
+#mpris,
+#custom-weather,
+#custom-mwc-window,
+#custom-os-version, 
+#custom-kernel, 
+#custom-cpu, 
+#custom-gpu, 
+#custom-water, 
+#custom-pump, 
+#custom-fans, 
+#custom-memory, 
+#custom-DualSense,
+#battery,
+#network,
+#network.ethernet,
+#network.wifi {
     background-color: @alt-background;
     border-radius: 20px;
     margin: 4px 4px 4px 4px;
@@ -74,8 +91,5 @@ window#waybar {
 #custom-memory, 
 #custom-DualSense,
 #battery {
-    background-color: @alt-background;
-    border-radius: 20px;
     margin: 4px 4px 4px 0px;
-    padding: 0px 4px;
 }

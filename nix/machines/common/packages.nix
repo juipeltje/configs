@@ -11,7 +11,6 @@
       # list of packages to install in user environment.
       home.packages = with pkgs; [
         # Networking
-        networkmanagerapplet
         transmission_4-gtk
 
         # Bluetooth

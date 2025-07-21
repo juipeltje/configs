@@ -43,7 +43,6 @@ packages=(
         "gamemode"
 
         # Networking
-	"NetworkManager"
         "openssh"
 	"wireguard-dkms"
         "wireguard-tools"
@@ -112,7 +111,6 @@ options_2=(
 
 # Functions
 services() {
-	ln -s /etc/sv/NetworkManager /var/service/
         ln -s /etc/sv/dbus /var/service/
 	ln -s /etc/sv/libvirtd /var/service/
         ln -s /etc/sv/virtlockd /var/service/
@@ -123,8 +121,6 @@ services() {
         ln -s /etc/sv/nanoklogd /var/service/
         ln -s /etc/sv/cronie /var/service/
 	ln -s /etc/sv/nix-daemon /var/service/
-	rm -rf /var/service/dhcpcd
-	rm -rf /var/service/wpa_supplicant
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
 }
