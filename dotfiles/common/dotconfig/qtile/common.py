@@ -50,9 +50,6 @@ keys = [
   # Open pavucontrol
   Key([mod], "a", lazy.spawn("pavucontrol") ),
 
-  # Open Deezer in firefox tab
-  Key([mod], "d", lazy.spawn(webbrowser + " -new-window https://www.deezer.com/en/") ),
-
   # open theme switcher
   Key([mod, "shift"], "t", lazy.spawn(home + '/repos/configs/scripts/dmenu/theme-switcher.sh') ),
 

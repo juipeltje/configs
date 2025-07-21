@@ -173,9 +173,6 @@ binds {
   // open pavucontrol
   Mod+A { spawn "pavucontrol"; }
 
-  // open Deezer in a firefox window
-  Mod+D { spawn "librewolf" "-new-window" "https://www.deezer.com/en/"; }
-
   // open application launcher
   Mod+Space { spawn "fuzzel"; }
 

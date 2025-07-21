@@ -43,9 +43,6 @@ riverctl map normal Super W spawn ${webbrowser}
 # open pavucontrol
 riverctl map normal Super A spawn pavucontrol
 
-# open deezer in a firefox window
-riverctl map normal Super D spawn "${webbrowser} -new-window https://www.deezer.com/en/"
-
 # open application launcher
 riverctl map normal Super Space spawn fuzzel
 

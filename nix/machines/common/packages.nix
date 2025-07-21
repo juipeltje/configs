@@ -38,7 +38,6 @@
         libnotify
 
         # Multimedia
-        #alsa-utils
         playerctl
         pavucontrol
         mpv
@@ -66,9 +65,7 @@
 
         # Other
         lm_sensors
-        #gparted
         curl
-        #wget
       ];
     }
 

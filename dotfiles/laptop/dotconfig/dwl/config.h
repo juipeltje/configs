@@ -140,7 +140,6 @@ static const char *term[] = { "foot", NULL };
 static const char *file_manager[] = { "foot", "-e", "yazi", NULL };
 static const char *webbrowser[] = { "librewolf", NULL };
 static const char *pavucontrol[] = { "pavucontrol", NULL };
-static const char *deezer[] = { "librewolf", "-new-window", "https://www.deezer.com/en/", NULL };
 static const char *launcher[] = { "fuzzel", NULL };
 static const char *mako_restore[] = { "makoctl", "restore", NULL };
 static const char *mako_close[] = { "makoctl", "dismiss", "--all", NULL };
@@ -168,9 +167,6 @@ static const Key keys[] = {
 
 	/* open pavucontrol */
         { MODKEY,                    			XKB_KEY_a,          		spawn,          {.v = pavucontrol} },
-
-	/* open Deezer in a browser window */
-        { MODKEY,                    			XKB_KEY_d,          		spawn,          {.v = deezer} },
 
 	/* open application launcher */
 	{ MODKEY,                    			XKB_KEY_space,      		spawn,          {.v = launcher} },
