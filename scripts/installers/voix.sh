@@ -252,6 +252,9 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/tofi/* /home/${user}/.config/tofi/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
+
+	# copy workstation configs to /etc/
+	cp -f /home/${user}/repos/configs/void-stuff/workstation/etc/rc.local /etc/
 }
 
 configs_laptop() {
@@ -269,7 +272,10 @@ configs_laptop() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
         sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
+
+	# copy laptop configs to /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
+	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/rc.local /etc/
 }
 
 pipewire() {

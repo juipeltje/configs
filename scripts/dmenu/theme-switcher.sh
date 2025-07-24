@@ -331,7 +331,7 @@ case $theme in
                 sed -i --follow-symlinks 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Catppuccin Mocha"/' ~/.config/VSCodium/User/settings.json
 
                 # GTK
-		gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Dark
+		gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-GTK-Dark
 
 		# home manager
 		sed -i 's/theme.package.*/theme.package = pkgs.magnetic-catppuccin-gtk;/' ~/repos/configs/nix/machines/common/theming.nix
