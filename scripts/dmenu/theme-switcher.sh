@@ -36,7 +36,7 @@ theme_switch() {
         sed -i --follow-symlinks "s|^include.*|include ${theme}.conf|" ~/.config/kitty/kitty.conf
 
         # mako
-        sed -i "s|^mako.*|mako -c ~/.config/mako/${theme}-config &|" ~/repos/configs/scripts/autostart/common-autostart.sh
+        sed -i "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/repos/configs/scripts/autostart/common-autostart.sh
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css
