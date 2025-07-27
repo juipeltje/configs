@@ -48,6 +48,7 @@ exit_compositor() {
 	kill $(pgrep ollama)
 	kill $(pgrep xwayland-satellite)
 	kill $(pgrep -f /usr/libexec/polkit-gnome-authentication-agent-1)
+	kill $(pgrep -f /home/joppe/repos/configs/dotfiles/common/dotconfig/qtile/autostart.sh)
 	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/common-autostart.sh)
 	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/workstation-autostart.sh)
 	kill $(pgrep -f /home/joppe/repos/configs/scripts/autostart/laptop-autostart.sh)

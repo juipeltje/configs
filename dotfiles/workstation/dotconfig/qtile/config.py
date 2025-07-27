@@ -1,4 +1,4 @@
-# Qile config
+# Qtile workstation config
 
 # Import libraries
 #from libqtile.lazy import lazy
@@ -383,9 +383,9 @@ screens = [
     widget.Spacer(),
     music_icon,
     now_playing,
-    spacer,
-    nixos_icon,
-    os_version,
+    #spacer,
+    #nixos_icon,
+    #os_version,
     spacer,
     kernel_icon,
     kernel_version,
@@ -437,9 +437,9 @@ screens = [
     widget.Spacer(),
     music_icon,
     now_playing,
-    spacer,
-    nixos_icon,
-    os_version,
+    #spacer,
+    #nixos_icon,
+    #os_version,
     spacer,
     kernel_icon,
     kernel_version,

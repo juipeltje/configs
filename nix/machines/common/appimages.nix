@@ -10,7 +10,7 @@
         pname = "Vita3K";
         version = "3807";
         url = "https://github.com/${pname}/${pname}-builds/releases/download/${version}/${pname}-x86_64.AppImage";
-        hash = "";
+        hash = "sha256-N9S8qEsFgzayyWwqgE1EwSNBMajSJldlqyLwEK/GKJM=";
         executable = true;
       };
     };
@@ -21,7 +21,7 @@
         pname = "DuckStation";
         version = "0.1-9226";
         url = "https://github.com/stenzek/duckstation/releases/download/v${version}/${pname}-x64.AppImage";
-        hash = "";
+        hash = "sha256-1hJx8e6Qp5U6zxg8lco9LpzT/AblO92kHIK3SgJGeu8=";
         executable = true;
       };
     };

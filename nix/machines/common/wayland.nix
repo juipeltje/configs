@@ -15,7 +15,6 @@
         niri
         inputs.maomaowm.packages.x86_64-linux.maomaowm
         mwc_git
-        #(python313.withPackages (subpkgs: with subpkgs; [ qtile qtile-extras ]))
 
         # Terminal
         foot

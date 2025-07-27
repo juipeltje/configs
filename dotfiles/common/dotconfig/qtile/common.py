@@ -16,31 +16,64 @@ terminal = "alacritty"
 image_terminal = "kitty"
 wayland_terminal = "foot"
 webbrowser = "librewolf"
+hostname = os.uname()[1]
 
 # autostart programs when starting window manager
 @hook.subscribe.startup_once
 def autostart():
-  if qtile.core.name == "x11":
-    processes = [
-      # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
-      # [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
-      # [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
-      [ '~/repos/configs/scripts/autostart/common-autostart.sh' ]
-    ]
+  common_autostart = os.path.expanduser('~/repos/configs/dotfiles/common/dotconfig/qtile/autostart.sh')
+  workstation_autostart = os.path.expanduser('~/repos/configs/scripts/autostart/workstation-autostart.sh')
+  laptop_autostart = os.path.expanduser('~/repos/configs/scripts/autostart/laptop-autostart.sh')
 
-    for p in processes:
-      subprocess.Popen(p)
+  if qtile.core.name == "x11":
+    if hostname == "Void-Rig":
+      processes = [
+        # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+        # [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
+        # [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
+        [ common_autostart ],
+        [ workstation_autostart ]
+      ]
+
+      for p in processes:
+        subprocess.Popen(p)
+
+    elif hostname == "Void-Lappie":
+      processes = [
+        # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+        # [ 'systemctl', '--user', 'import-environment', 'DISPLAY' ],
+        # [ 'systemctl', '--user', 'start', 'qtile-session.target' ]
+        [ common_autostart ],
+        [ laptop_autostart ]
+      ]
+
+      for p in processes:
+        subprocess.Popen(p)
 
   elif qtile.core.name == "wayland":
-    processes = [
-      # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
-      # [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
-      # [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
-      [ '~/repos/configs/scripts/autostart/common-autostart.sh' ]
-    ]
+    if hostname == "Void-Rig":
+      processes = [
+        # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_ID' ],
+        # [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
+        # [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+        [ common_autostart ],
+        [ workstation_autostart ]
+      ]
 
-    for p in processes:
-      subprocess.Popen(p)
+      for p in processes:
+        subprocess.Popen(p)
+
+    elif hostname == "Void-Lappie":
+      processes = [
+        # [ 'dbus-update-activation-environment', '--systemd', 'DISPLAY', 'WAYLAND_DISPLAY', 'XDG_CURRENT_DESKTOP', 'XDG_SESSION_I>
+        # [ 'systemctl', '--user', 'import-environment', '{,WAYLAND_}DISPLAY' ],
+        # [ 'systemctl', '--user', 'start', 'qtile-wayland-session.target' ]
+        [ common_autostart ],
+        [ laptop_autostart ]
+      ]
+
+      for p in processes:
+        subprocess.Popen(p)
 
 # Keybindings
 keys = [

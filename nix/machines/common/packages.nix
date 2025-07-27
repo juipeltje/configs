@@ -71,8 +71,11 @@
     (lib.mkIf (hostName == "Void-Rig") {
       # Workstation-specific packages.
       home.packages = with pkgs; [
-        (python3.withPackages (subpkgs: with subpkgs; [ 
+        # Python packages
+        (python313.withPackages (subpkgs: with subpkgs; [ 
           (callPackage ./../../derivations/yoda/derivation.nix { })
+          qtile 
+          qtile-extras
         ]))
       ];
     })
@@ -80,6 +83,12 @@
     (lib.mkIf (hostName == "Void-Lappie") {
       # Laptop-specific packages.
       home.packages = with pkgs; [
+        # Python packages
+        (python313.withPackages (subpkgs: with subpkgs; [ 
+          qtile 
+          qtile-extras
+        ]))
+        
         # Control screen brightness.
         brightnessctl
 
