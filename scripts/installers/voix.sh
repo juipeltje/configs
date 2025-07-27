@@ -111,27 +111,29 @@ options_2=(
 
 # Functions
 services() {
-        ln -s /etc/sv/dbus /var/service/
-	ln -s /etc/sv/libvirtd /var/service/
-        ln -s /etc/sv/virtlockd /var/service/
-        ln -s /etc/sv/virtlogd /var/service/
-        ln -s /etc/sv/bluetoothd /var/service/
-        ln -s /etc/sv/ntpd /var/service/
-        ln -s /etc/sv/socklog-unix /var/service/
-        ln -s /etc/sv/nanoklogd /var/service/
-        ln -s /etc/sv/cronie /var/service/
-	ln -s /etc/sv/nix-daemon /var/service/
+        ln -sf /etc/sv/dbus /var/service/
+	ln -sf /etc/sv/libvirtd /var/service/
+        ln -sf /etc/sv/virtlockd /var/service/
+        ln -sf /etc/sv/virtlogd /var/service/
+        ln -sf /etc/sv/bluetoothd /var/service/
+        ln -sf /etc/sv/ntpd /var/service/
+        ln -sf /etc/sv/socklog-unix /var/service/
+        ln -sf /etc/sv/nanoklogd /var/service/
+        ln -sf /etc/sv/cronie /var/service/
+	ln -sf /etc/sv/nix-daemon /var/service/
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
 }
 
 desktop_services() {
-	ln -s /etc/sv/openrgb /var/service/
+	ln -sf /etc/sv/openrgb /var/service/
 }
 
 laptop_services() {
-	ln -s /etc/sv/tlp /var/service/
+	ln -sf /etc/sv/tlp /var/service/
 	rm -rf /var/service/acpid
+	cp -rf /home/${user}/repos/configs/void-stuff/laptop/etc/sv/battery-crit /etc/sv/
+	ln -sf /etc/sv/battery-crit /var/service/
 }
 
 swapfile() {
@@ -374,10 +376,6 @@ do
         		services
 			desktop_services
 
-			# crontab
-			echo -e "${green}Installing crontab...${color_reset}"
-			crontab /home/${user}/repos/configs/void-stuff/workstation/root-crontab.txt
-
 			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
 			exit 69
@@ -430,10 +428,6 @@ do
 			echo -e "${green}Enabling runit services...${color_reset}"
         		services
         		laptop_services
-
-			# crontab
-                        echo -e "${green}Installing crontab...${color_reset}"
-                        crontab /home/${user}/repos/configs/void-stuff/laptop/root-crontab.txt
 
 			# Done
 			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"

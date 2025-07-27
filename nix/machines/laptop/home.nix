@@ -10,6 +10,8 @@
 
   programs.home-manager.enable = true;
   imports = [
+    # Appimage settings
+    ./../common/appimages.nix
     # Driver settings
     ./../common/drivers.nix
     # Gaming settings

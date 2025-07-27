@@ -1,2 +1,0 @@
-*/2 * * * * /home/joppe/repos/configs/scripts/cron/battery-crit.sh
-@reboot /home/joppe/repos/configs/scripts/cron/nix-drivers.sh

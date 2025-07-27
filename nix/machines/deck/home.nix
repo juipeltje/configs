@@ -10,6 +10,8 @@
 
   programs.home-manager.enable = true;
   imports = [
+    # Appimage settings
+    ./../common/appimages.nix
     # Driver settings
     ./../common/drivers.nix
     # Gaming settings
@@ -19,13 +21,13 @@
     # Nix settings
     ./../common/nix.nix
     # Packages settings
-    ./../common/packages.nix
+    #./../common/packages.nix
     # Theme settings
     ./../common/theming.nix
     # vscode settings
-    ./../common/vscode.nix
+    #./../common/vscode.nix
     # Wayland settings
-    ./../common/wayland.nix
+    #./../common/wayland.nix
   ];
 
   # The state version is required and should stay at the version you

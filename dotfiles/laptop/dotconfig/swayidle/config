@@ -1,1 +1,1 @@
-before-sleep 'gtklock -d --follow-focus'
+before-sleep 'gtklock -d --follow-focus --poweroff-command="" --reboot-command=""'

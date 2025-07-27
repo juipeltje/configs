@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# crontab script to notify users when battery is charging/discharging.
+# script to notify user when battery is charging/discharging.
 
 # redirect stderr and stdout to logfile.
 user=joppe

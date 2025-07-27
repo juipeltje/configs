@@ -5,6 +5,6 @@
   "include": "~/.config/waybar/common",
 
   // choose the order of the modules
-  "modules-right": ["mpris", "custom/os-version", "network", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
+  "modules-right": ["mpris", "network", "custom/kernel", "custom/cpu", "custom/gpu", "custom/memory", "custom/DualSense", "battery"],
 }
   

@@ -25,6 +25,6 @@ case $op in
 		fi
 		;;
         lock)
-		gtklock -d --follow-focus
+		gtklock -d --follow-focus --poweroff-command="" --reboot-command=""
                 ;;
 esac

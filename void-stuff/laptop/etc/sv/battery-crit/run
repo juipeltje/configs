@@ -3,14 +3,16 @@ exec 2>&1
 set -e
 
 while true; do
+  sleep 120
+
   BATTERY="/sys/class/power_supply/BAT0"
   CAPACITY=$(cat $BATTERY/capacity)
   STATUS=$(cat $BATTERY/status)
 
-  if [ "$STATUS" = Discharging -a "$CAPACITY" -lt 5 ]; then
+  if [ "$STATUS" = "Discharging" -a "$CAPACITY" -lt 5 ]; then
   	sleep 5
         loginctl hibernate
   else
-	sleep 120
+	:
   fi
 done

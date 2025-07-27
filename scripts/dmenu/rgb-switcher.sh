@@ -18,7 +18,7 @@ case $color in
         red)
 		openrgb -p ${color}.orp
 		sed -i "s|^openrgb.*|openrgb -p ${color}.orp|" ~/repos/configs/scripts/autostart/workstation-autostart.sh
-		sed -i --follow-symlinks "s|'openrgb.*|'openrgb -p ${color}.orp'|" ~/.config/swayidle/config
+		sed -i --follow-symlinks "s|openrgb.*|openrgb -p ${color}.orp'|" ~/.config/swayidle/config
 		notify-send "RGB Script" "Done! current color: ${color}"
                 ;;
 esac
