@@ -76,6 +76,9 @@
           (callPackage ./../../derivations/yoda/derivation.nix { })
           qtile 
           qtile-extras
+          dbus-fast
+          pyxdg
+          iwlib
         ]))
       ];
     })
@@ -87,6 +90,9 @@
         (python313.withPackages (subpkgs: with subpkgs; [ 
           qtile 
           qtile-extras
+          dbus-fast
+          pyxdg
+          iwlib
         ]))
         
         # Control screen brightness.

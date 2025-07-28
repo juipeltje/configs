@@ -37,6 +37,7 @@ theme_switch() {
 
         # mako
         sed -i "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/repos/configs/scripts/autostart/common-autostart.sh
+	sed -i "s|^mako.*|mako -c ~/.config/mako/${theme}-config \&|" ~/repos/configs/dotfiles/common/dotconfig/qtile/autostart.sh
 
         # waybar
         sed -i --follow-symlinks "s|^@import.*|@import \"${theme}.css\";|" ~/.config/waybar/style.css

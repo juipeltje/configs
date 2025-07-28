@@ -45,7 +45,7 @@ wifi = widget.Wlan(
 
 water_icon = widget.TextBox(
   text="󰖌",
-  fontsize=20,
+  fontsize=24,
   **widget_defaults,
   padding=0,
   **decoration_group_width
@@ -62,7 +62,7 @@ water_temp = widget.ThermalSensor(
 
 pump_icon = widget.TextBox(
   text="󱩃",
-  fontsize=20,
+  fontsize=22,
   **widget_defaults,
   padding=2,
   **decoration_group_width
@@ -79,7 +79,7 @@ pump_rpm = widget.GenPollText(
 
 fan_icon = widget.TextBox(
   text="󰈐",
-  fontsize=20,
+  fontsize=22,
   **widget_defaults,
   padding=2,
   **decoration_group_width

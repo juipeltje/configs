@@ -373,7 +373,7 @@ clock = widget.Clock(
 
 date_icon = widget.TextBox(
   text=" ",
-  fontsize=18,
+  fontsize=20,
   **widget_defaults,
   padding=2,
   **decoration_group_width
@@ -483,22 +483,22 @@ window_icon = widget.TextBox(
 
 window_name = widget.WindowName(
   format='{name}',
-  max_chars=20,
+  max_chars=40,
   fontsize=16,
   **widget_defaults,
   padding=2,
   **decoration_group,
-  width=420
+  width=320
 )
 
 window_name2 = widget.WindowName(
   format='{name}',
-  max_chars=20,
+  max_chars=40,
   fontsize=16,
   **widget_defaults,
   padding=2,
   **decoration_group,
-  width=420
+  width=320
 )
 
 music_icon = widget.TextBox(
@@ -595,8 +595,8 @@ cpu_temp = widget.ThermalSensor(
 )
 
 gpu_icon = widget.TextBox(
-  text=" ",
-  fontsize=20,
+  text=" 󰢮",
+  fontsize=26,
   **widget_defaults,
   padding=2,
   **decoration_group_width
