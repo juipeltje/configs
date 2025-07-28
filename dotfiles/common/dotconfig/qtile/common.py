@@ -326,6 +326,15 @@ widget_defaults = dict(
   foreground=colors[0]
 )
 
+wlan_defaults = dict(
+  disconnected_message='',
+  ethernet_message='',
+  fontsize=16,
+  format='({percent:2.0%})',
+  padding=2,
+  use_ethernet=True
+)
+
 decoration_group = {
   "decorations": [
     RectDecoration(colour=colors[2], radius=15, filled=True, padding_y=4, group=True)
@@ -388,7 +397,7 @@ systrayV2 = widget.StatusNotifier(
   icon_size=20,
   icon_theme="Mint-Y-Sand",
   **widget_defaults,
-  padding=0,
+  padding=4,
   **decoration_group_width
 )
 
@@ -544,22 +553,9 @@ os_version = widget.GenPollText(
 
 wifi_icon = widget.TextBox(
   text="󰖩",
-  fontsize=18,
+  fontsize=20,
   **widget_defaults,
   padding=2,
-  **decoration_group_width
-)
-
-wifi = widget.Wlan(
-  disconnected_message='',
-  ethernet_interface='enp5s0',
-  ethernet_message='',
-  fontsize=16,
-  format='󰖩 {percent:2.0%}',
-  interface='wlp4s0',
-  padding=2,
-  use_ethernet=True,
-  **widget_defaults,
   **decoration_group_width
 )
 
@@ -637,7 +633,7 @@ ds5_icon = widget.GenPollText(
   update_interval=60,
   fontsize=20,
   **widget_defaults,
-  padding=2,
+  padding=4,
   **decoration_group_width
 )
 

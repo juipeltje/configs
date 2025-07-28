@@ -1,11 +1,8 @@
 # Qtile workstation config
 
 # Import libraries
-#from libqtile.lazy import lazy
 from libqtile.config import Key, Click, Drag, Group, Match, Screen, ScratchPad, DropDown
 from libqtile import layout, bar, qtile
-#from qtile_extras import widget
-#from qtile_extras.widget.decorations import RectDecoration
 import os
 import sys
 sys.path.append(os.path.expanduser('~') + '/repos/configs/dotfiles/common/dotconfig/qtile')
@@ -38,6 +35,14 @@ elif qtile.core.name == "wayland":
   )
 
 # Bar
+wifi = widget.Wlan(
+  ethernet_interface='enp5s0',
+  interface='wlp4s0',
+  **wlan_defaults,
+  **widget_defaults,
+  **decoration_group_width
+)
+
 water_icon = widget.TextBox(
   text="󰖌",
   fontsize=20,

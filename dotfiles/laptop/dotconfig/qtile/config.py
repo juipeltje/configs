@@ -33,6 +33,14 @@ if qtile.core.name == "wayland":
   wl_input_rules.update(wl_input_rules_laptop)
 
 # Bar 
+wifi = widget.Wlan(
+  #ethernet_interface='enp5s0',
+  interface='wlp1s0',
+  **wlan_defaults,
+  **widget_defaults,
+  **decoration_group_width
+)
+
 battery = widget.Battery(
   battery=0,
   charge_char='󰂄',
