@@ -278,6 +278,8 @@ configs_laptop() {
 	# copy laptop configs to /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/rc.local /etc/
+	mkdir -p /etc/elogind/logind.conf.d
+	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/elogind/logind.conf.d/lid.conf /etc/elogind/logind.conf.d/
 }
 
 pipewire() {

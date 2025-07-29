@@ -14,5 +14,5 @@ export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:$HOME/.local/share/:$HOME/.ni
 
 # autologin on tty1
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-  ELECTRON_OZONE_PLATFORM_HINT=wayland exec dbus-run-session qtile start -b wayland
+  ELECTRON_OZONE_PLATFORM_HINT=wayland exec dbus-run-session dwl
 fi
