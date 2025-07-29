@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "Mononoki Nerd Font",
   "editor.fontSize": 18,
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "custom"
   "workbench.colorTheme": "Gruvbox Dark Medium"
 }

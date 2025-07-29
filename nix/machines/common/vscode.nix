@@ -7,14 +7,16 @@
     enable = true;
     package = pkgs.vscodium;
     profiles.default = {
-      extensions = with pkgs; [
-        vscode-extensions.jnoortheen.nix-ide
-        vscode-extensions.catppuccin.catppuccin-vsc
-        vscode-extensions.dracula-theme.theme-dracula
-        vscode-extensions.jdinhlife.gruvbox
-        vscode-extensions.arcticicestudio.nord-visual-studio-code
-        vscode-extensions.brandonkirbyson.solarized-palenight
-        vscode-extensions.enkia.tokyo-night
+      extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+        catppuccin.catppuccin-vsc
+        dracula-theme.theme-dracula
+        jdinhlife.gruvbox
+        arcticicestudio.nord-visual-studio-code
+        brandonkirbyson.solarized-palenight
+        enkia.tokyo-night
+        ms-python.python
+        ms-python.black-formatter
       ];
     };
   };
