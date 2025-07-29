@@ -17,6 +17,7 @@
         enkia.tokyo-night
         ms-python.python
         ms-python.black-formatter
+        #foxundermoon.shell-format
       ];
     };
   };

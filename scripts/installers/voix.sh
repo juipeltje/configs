@@ -279,7 +279,9 @@ configs_laptop() {
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/rc.local /etc/
 	mkdir -p /etc/elogind/logind.conf.d
+	mkdir -p /etc/elogind/sleep.conf.d
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/elogind/logind.conf.d/lid.conf /etc/elogind/logind.conf.d/
+	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/elogind/sleep.conf.d/hibernation.conf /etc/elogind/sleep.conf.d/
 }
 
 pipewire() {

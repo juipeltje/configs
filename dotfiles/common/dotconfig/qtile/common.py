@@ -89,67 +89,70 @@ def autostart():
 keys = [
     # Open a webbrowser
     Key([mod], "w", lazy.spawn(webbrowser)),
+    
     # Open pavucontrol
     Key([mod], "a", lazy.spawn("pavucontrol")),
+    
     # open theme switcher
-    Key(
-        [mod, "shift"],
-        "t",
-        lazy.spawn(home + "/repos/configs/scripts/dmenu/theme-switcher.sh"),
-    ),
+    Key([mod, "shift"], "t", lazy.spawn(home + "/repos/configs/scripts/dmenu/theme-switcher.sh")),
+    
     # open powermenu
-    Key(
-        [mod], "Escape", lazy.spawn(home + "/repos/configs/scripts/dmenu/powermenu.sh")
-    ),
+    Key([mod], "Escape", lazy.spawn(home + "/repos/configs/scripts/dmenu/powermenu.sh")),
+    
     # open compositor switcher
-    Key(
-        [mod, "shift"],
-        "c",
-        lazy.spawn(home + "/repos/configs/scripts/dmenu/compositor-switcher.sh"),
-    ),
+    Key([mod, "shift"], "c", lazy.spawn(home + "/repos/configs/scripts/dmenu/compositor-switcher.sh")),
+    
     # open LLM launcher
     Key([mod], "l", lazy.spawn(home + "/repos/configs/scripts/dmenu/llm-launcher.sh")),
+    
     # play/pause/previous/next keyboard controls
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    
     # Reload config and restart qtile
     Key([mod], "r", lazy.reload_config()),
-    Key(
-        [mod, "control"],
-        "r",
-        lazy.restart(),
-    ),
+    Key([mod, "control"], "r", lazy.restart()),
+    
     # Kill a window
     Key([mod], "q", lazy.window.kill()),
+    
     # Switch focused window
     Key([mod], "Right", lazy.layout.right()),
     Key([mod], "Left", lazy.layout.left()),
     Key([mod], "Up", lazy.layout.up()),
     Key([mod], "Down", lazy.layout.down()),
+    
     # Toggle floating window
     Key([mod, "shift"], "space", lazy.window.toggle_floating()),
+    
     # Toggle fullscreen
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
+    
     # Grow windows
     Key([mod, "mod1"], "Right", lazy.layout.grow_right()),
     Key([mod, "mod1"], "Left", lazy.layout.grow_left()),
     Key([mod, "mod1"], "Up", lazy.layout.grow_up()),
     Key([mod, "mod1"], "Down", lazy.layout.grow_down()),
+    
     # Move windows between left/right columns or move up/down in current stack
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    
     # Grow/shrink windows in layout and reset
     Key([mod], "KP_Add", lazy.layout.grow()),
     Key([mod], "KP_Subtract", lazy.layout.shrink()),
     Key([mod], "KP_Enter", lazy.layout.reset()),
+    
     # Toggle between the different layouts
     Key([mod, "shift"], "l", lazy.next_layout()),
+    
     # Go to next/previous group
     Key([mod, "control"], "Right", lazy.screen.next_group()),
     Key([mod, "control"], "Left", lazy.screen.prev_group()),
+    
     # Toggle Scratchpad
     Key([mod], "s", lazy.group["0"].dropdown_toggle("term")),
 ]
@@ -159,22 +162,20 @@ if qtile.core.name == "x11":
         [
             # Open a terminal
             Key([mod], "t", lazy.spawn(terminal)),
+            
             # Open file manager
             Key([mod], "f", lazy.spawn(image_terminal + " -e yazi")),
+            
             # open application launcher
             Key([mod], "space", lazy.spawn("rofi -show drun")),
+            
             # notification history and close all notifications
             Key([mod], "n", lazy.spawn("dunstctl history-pop")),
             Key([mod], "c", lazy.spawn("dunstctl close-all")),
+            
             # Start/stop picom keybindings for playing games
-            Key(
-                [mod],
-                "g",
-                lazy.spawn(home + "/repos/configs/scripts/start-gamemode.sh"),
-            ),
-            Key(
-                [mod], "p", lazy.spawn(home + "/repos/configs/scripts/stop-gamemode.sh")
-            ),
+            Key([mod], "g", lazy.spawn(home + "/repos/configs/scripts/start-gamemode.sh")),
+            Key([mod], "p", lazy.spawn(home + "/repos/configs/scripts/stop-gamemode.sh")),
         ]
     )
 
@@ -183,10 +184,13 @@ elif qtile.core.name == "wayland":
         [
             # Open a terminal
             Key([mod], "t", lazy.spawn(wayland_terminal)),
+            
             # Open file manager
             Key([mod], "f", lazy.spawn(wayland_terminal + " -e yazi")),
+            
             # open application launcher
             Key([mod], "space", lazy.spawn("fuzzel")),
+            
             # notification history and close all notifications
             Key([mod], "n", lazy.spawn("makoctl restore")),
             Key([mod], "c", lazy.spawn("makoctl dismiss --all")),
@@ -195,15 +199,8 @@ elif qtile.core.name == "wayland":
 
 mouse = [
     # Dragging and resizing floating windows with mod + mouse buttons
-    Drag(
-        [mod],
-        "Button1",
-        lazy.window.set_position_floating(),
-        start=lazy.window.get_position(),
-    ),
-    Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
-    ),
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
 ]
 
 if qtile.core.name == "x11":
@@ -234,10 +231,13 @@ if qtile.core.name == "x11":
             [
                 # mod + number of group = switch to group
                 Key([mod], i.name, lazy.group[i.name].toscreen()),
+                
                 # move window to group
                 Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+                
                 # switch between groups using the numpad
                 Key([mod], numpad_key, lazy.group[i.name].toscreen()),
+                
                 # move windows to group using the numpad
                 Key([mod, "shift"], numpad_key, lazy.window.togroup(i.name)),
             ]
@@ -290,10 +290,13 @@ elif qtile.core.name == "wayland":
             [
                 # mod + number of group = switch to group
                 Key([mod], i.name, lazy.group[i.name].toscreen()),
+                
                 # move window to group
                 Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+                
                 # switch between groups using the numpad
                 Key([mod], numpad_key, lazy.group[i.name].toscreen()),
+                
                 # move windows to group using the numpad
                 Key([mod, "shift"], numpad_key, lazy.window.togroup(i.name)),
             ]
