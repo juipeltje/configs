@@ -620,7 +620,10 @@ mem_icon = widget.TextBox(
     text="  ", fontsize=18, **widget_defaults, padding=0, **decoration_group_width
 )
 
-memory = widget.Memory(
+memory = widget.GenPollText(
+    func=lambda: subprocess.check_output(
+        home + "/repos/configs/scripts/waybar/memory.sh", shell=True, text=True
+    ).strip(),
     fontsize=16,
     update_interval=5,
     **widget_defaults,

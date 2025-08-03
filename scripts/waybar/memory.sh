@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# waybar script to monitor memory usage in MB
+# waybar script to monitor memory usage in GB
 
-free --mega | awk '/Mem/ {print$3" "$2}' | sed 's/ /\//' | sed 's/$/ MB/'
+free --giga --human | awk '/Mem:/ {print $3"/"$7}' | sed 's/G//g' | sed 's/$/ GB/'
