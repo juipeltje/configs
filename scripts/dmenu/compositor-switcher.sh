@@ -31,6 +31,9 @@ fi
 
 # functions
 exit_compositor() {
+	# making sure gtklock isn't started everytime the compositor is restarted by commenting it out in autostart script.
+	sed -i -E "s/(^gtklock.*|^#gtklock.*)/#gtklock -d \&/g" ~/repos/configs/scripts/autostart/common-autostart.sh
+
 	# kill any programs that were autostarted.
 	kill $(pgrep gtklock)
 	kill $(pgrep swaybg)

@@ -30,7 +30,7 @@ alias ugc='nix-collect-garbage; nix-store --optimise'
 alias fugc='nix-collect-garbage; nix-collect-garbage -d; nix-store --optimise'
 #alias hs='home-manager switch --flake ~/repos/configs/nixos'
 #
-alias alsa-store='alsactl --file ~/.config/asound.state store'
+#alias alsa-store='alsactl --file ~/.config/asound.state store'
 alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
 alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'

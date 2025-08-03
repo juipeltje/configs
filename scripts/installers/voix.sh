@@ -234,6 +234,10 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/VSCodium /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/waybar /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/yazi /home/${user}/.config/
+
+	# copy common configs to /etc/
+	cp -f /home/${user}/repos/configs/void-stuff/common/etc/rc.local /etc/
+	cp -f /home/${user}/repos/configs/void-stuff/common/etc/rc.shutdown /etc/
 }
 
 configs_desktop() {
@@ -254,9 +258,6 @@ configs_desktop() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/tofi/* /home/${user}/.config/tofi/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
-
-	# copy workstation configs to /etc/
-	cp -f /home/${user}/repos/configs/void-stuff/workstation/etc/rc.local /etc/
 }
 
 configs_laptop() {
@@ -277,7 +278,6 @@ configs_laptop() {
 
 	# copy laptop configs to /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
-	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/rc.local /etc/
 	mkdir -p /etc/elogind/logind.conf.d
 	mkdir -p /etc/elogind/sleep.conf.d
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/elogind/logind.conf.d/lid.conf /etc/elogind/logind.conf.d/
