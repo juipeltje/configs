@@ -13,10 +13,9 @@ PS3=$'\e[0;32m'"->"$'\e[m'
 user=$USER
 
 # Arrays
-
 options_1=(
 	"confirm"
-      	"exit script"
+	"exit script"
 )
 
 options_2=(
@@ -26,12 +25,11 @@ options_2=(
 )
 
 # Functions
-
 rm_default_configs() {
 	# Xorg-related configs, disabled for now.
 	#rm -rf /home/${user}/.Xresources
 	#rm -rf /home/${user}/.xinitrc-i3
-        #rm -rf /home/${user}/.xinitrc-qtile
+	#rm -rf /home/${user}/.xinitrc-qtile
 	#rm -rf /home/${user}/.config/dunst
 	#rm -rf /home/${user}/.config/i3
 	#rm -rf /home/${user}/.config/picom
@@ -47,6 +45,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/fuzzel
 	rm -rf /home/${user}/.config/git
 	rm -f /home/${user}/.config/gtklock/*.css
+	rm -rf /home/${user}/.config/helix
 	rm -rf /home/${user}/.config/hypr
 	rm -rf /home/${user}/.config/kanshi
 	rm -rf /home/${user}/.config/kitty
@@ -82,27 +81,28 @@ make_directories() {
 	mkdir -p /home/${user}/.config/fastfetch
 	mkdir -p /home/${user}/.config/foot
 	mkdir -p /home/${user}/.config/fuzzel
-        mkdir -p /home/${user}/.config/git
+	mkdir -p /home/${user}/.config/git
 	mkdir -p /home/${user}/.config/gtklock
-        mkdir -p /home/${user}/.config/hypr
+	mkdir -p /home/${user}/.config/helix
+	mkdir -p /home/${user}/.config/hypr
 	mkdir -p /home/${user}/.config/kanshi
 	mkdir -p /home/${user}/.config/kitty
-        mkdir -p /home/${user}/.config/mako
+	mkdir -p /home/${user}/.config/mako
 	mkdir -p /home/${user}/.config/maomao
 	mkdir -p /home/${user}/.config/mpd
-        mkdir -p /home/${user}/.config/mpv
+	mkdir -p /home/${user}/.config/mpv
 	mkdir -p /home/${user}/.config/mwc
 	mkdir -p /home/${user}/.config/nano
 	mkdir -p /home/${user}/.config/niri
 	mkdir -p /home/${user}/.config/pipewire
-        mkdir -p /home/${user}/.config/qtile
+	mkdir -p /home/${user}/.config/qtile
 	mkdir -p /home/${user}/.config/river
-        mkdir -p /home/${user}/.config/sway
+	mkdir -p /home/${user}/.config/sway
 	mkdir -p /home/${user}/.config/swayidle
 	mkdir -p /home/${user}/.config/tofi
 	mkdir -p /home/${user}/.config/VSCodium/User
-        mkdir -p /home/${user}/.config/waybar
-        mkdir -p /home/${user}/.config/yazi
+	mkdir -p /home/${user}/.config/waybar
+	mkdir -p /home/${user}/.config/yazi
 	#mkdir -p /home/${user}/.local/share/icons/default
 }
 
@@ -110,7 +110,7 @@ configs() {
 	# Xorg-related configs, disabled for now.
 	#ln -s /home/${user}/repos/configs/dotfiles/common/.Xresources /home/${user}/
 	#ln -s /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
-        #ln -s /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
+	#ln -s /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
 	#ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/dunst/* /home/${user}/.config/dunst/
 	#ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/i3/* /home/${user}/.config/i3/
 	#ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/picom/* /home/${user}/.config/picom/
@@ -126,6 +126,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/git/* /home/${user}/.config/git/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/gtklock/* /home/${user}/.config/gtklock/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/helix/* /home/${user}/.config/helix/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty/* /home/${user}/.config/kitty/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mako/* /home/${user}/.config/mako/
@@ -174,80 +175,78 @@ configs_laptop() {
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/maomao/* /home/${user}/.config/maomao/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/mwc/* /home/${user}/.config/mwc/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/niri/* /home/${user}/.config/niri/
-        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/sway/* /home/${user}/.config/sway/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle/* /home/${user}/.config/swayidle/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
-        ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
 echo -e "${green}This script will install dotfiles in the user's home folder using symlinks (user: ${user}).
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
-select opt_1 in "${options_1[@]}"
-do
+select opt_1 in "${options_1[@]}"; do
 	case ${opt_1} in
-		"confirm")
-                	echo -e "${green}Continuing with install script...${color_reset}" 
-		   	break
-		   	;;
-		"exit script")
-			echo -e "${green}Exiting install script...${color_reset}"
-	           	exit 68
-		   	;;
-		*)
-			echo -e "${red}Invalid option, please try again.${color_reset}"
-			;;
+	"confirm")
+		echo -e "${green}Continuing with install script...${color_reset}"
+		break
+		;;
+	"exit script")
+		echo -e "${green}Exiting install script...${color_reset}"
+		exit 68
+		;;
+	*)
+		echo -e "${red}Invalid option, please try again.${color_reset}"
+		;;
 	esac
 done
 
 echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 
-select opt_2 in "${options_2[@]}"
-do
+select opt_2 in "${options_2[@]}"; do
 	case ${opt_2} in
-		"desktop")
-			echo -e "${green}Continuing install script with settings for desktop${color_reset}"
+	"desktop")
+		echo -e "${green}Continuing install script with settings for desktop${color_reset}"
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-			rm_default_configs
-			make_directories
-			configs
-			configs_desktop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		make_directories
+		configs
+		configs_desktop
 
-			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
-			exit 69
-			;;
-		"laptop")
-			echo -e "${green}Continuing install script with settings for laptop...${color_reset}"
+		echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
+		exit 69
+		;;
+	"laptop")
+		echo -e "${green}Continuing install script with settings for laptop...${color_reset}"
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-                        rm_default_configs
-			make_directories
-                        configs
-			configs_laptop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		make_directories
+		configs
+		configs_laptop
 
-			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
-			exit 69
-			;;
-		"virtual machine")
-			echo -e "${green}Continuing install script with settings for virtual machine...${color_reset}"
+		echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
+		exit 69
+		;;
+	"virtual machine")
+		echo -e "${green}Continuing install script with settings for virtual machine...${color_reset}"
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-                        rm_default_configs
-			make_directories
-                        configs
-                        configs_desktop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		make_directories
+		configs
+		configs_desktop
 
-			echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
-			exit 69
-			;;
-		*)
-			echo -e "${red}Invalid option, please try again.${color_reset}"
-			;;
+		echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
+		exit 69
+		;;
+	*)
+		echo -e "${red}Invalid option, please try again.${color_reset}"
+		;;
 	esac
 done

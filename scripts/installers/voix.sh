@@ -15,70 +15,70 @@ PS3=$'\e[0;32m'"->"$'\e[m'
 
 repos=(
 	# extra repos
-        "void-repo-multilib"
-        "void-repo-multilib-nonfree"
-        "void-repo-nonfree"
+	"void-repo-multilib"
+	"void-repo-multilib-nonfree"
+	"void-repo-nonfree"
 )
 
 packages=(
-        # Wayland/Compositors
+	# Wayland/Compositors
 	"gtklock"
 
-        # Gaming
-        "vulkan-loader"
+	# Gaming
+	"vulkan-loader"
 	"vulkan-loader-32bit"
 	"mesa-vulkan-radeon"
-        "mesa-vulkan-radeon-32bit"
+	"mesa-vulkan-radeon-32bit"
 	"mesa"
-        "mesa-32bit"
+	"mesa-32bit"
 	"mesa-dri"
-        "mesa-dri-32bit"
+	"mesa-dri-32bit"
 	"mesa-vaapi"
 	"mesa-vaapi-32bit"
-        "mesa-vdpau"
+	"mesa-vdpau"
 	"mesa-vdpau-32bit"
 	"corectrl"
 	"qt6-wayland"
 	"steam"
-        "gamemode"
+	"gamemode"
 
-        # Networking
-        "openssh"
+	# Networking
+	"openssh"
 	"wireguard-dkms"
-        "wireguard-tools"
+	"wireguard-tools"
 
-        # Bluetooth
-        "bluez"
+	# Bluetooth
+	"bluez"
 
-        # File managers/utilities
+	# File managers/utilities
 	"pcmanfm"
 	"xz"
-        "gvfs"
-        "fuse3"
+	"gvfs"
+	"fuse3"
 
-        # Multimedia
+	# Multimedia
 	"pipewire"
-        "wireplumber"
+	"wireplumber"
 
 	# Virtualisation
-        "qemu"
-        "libvirt"
-        "virt-manager"
-        "dnsmasq"
-        "nftables"
-        "swtpm"
+	"qemu"
+	"libvirt"
+	"virt-manager"
+	"dnsmasq"
+	"nftables"
+	"swtpm"
 
-        # Other
-        "git"
-        "gparted"
-        "wget"
-        "polkit-gnome"
-        "nano"
-        "htop"
-        "xdg-user-dirs"
+	# Other
+	"git"
+	"gparted"
+	"wget"
+	"polkit-gnome"
+	"nano"
+	"htop"
+	"xdg-user-dirs"
 	"elogind"
-        "socklog-void"
-        "cronie"
+	"socklog-void"
+	"cronie"
 	"curl"
 	"xtools"
 	"nix"
@@ -100,7 +100,7 @@ laptop_packages=(
 
 options_1=(
 	"confirm"
-      	"exit script"
+	"exit script"
 )
 
 options_2=(
@@ -111,15 +111,15 @@ options_2=(
 
 # Functions
 services() {
-        ln -sf /etc/sv/dbus /var/service/
+	ln -sf /etc/sv/dbus /var/service/
 	ln -sf /etc/sv/libvirtd /var/service/
-        ln -sf /etc/sv/virtlockd /var/service/
-        ln -sf /etc/sv/virtlogd /var/service/
-        ln -sf /etc/sv/bluetoothd /var/service/
-        ln -sf /etc/sv/ntpd /var/service/
-        ln -sf /etc/sv/socklog-unix /var/service/
-        ln -sf /etc/sv/nanoklogd /var/service/
-        ln -sf /etc/sv/cronie /var/service/
+	ln -sf /etc/sv/virtlockd /var/service/
+	ln -sf /etc/sv/virtlogd /var/service/
+	ln -sf /etc/sv/bluetoothd /var/service/
+	ln -sf /etc/sv/ntpd /var/service/
+	ln -sf /etc/sv/socklog-unix /var/service/
+	ln -sf /etc/sv/nanoklogd /var/service/
+	ln -sf /etc/sv/cronie /var/service/
 	ln -sf /etc/sv/nix-daemon /var/service/
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
@@ -140,7 +140,7 @@ swapfile() {
 	chmod 0600 /swapfile
 	mkswap -U clear /swapfile
 	swapon /swapfile
-	echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+	echo "/swapfile none swap defaults 0 0" >>/etc/fstab
 }
 
 grub() {
@@ -149,12 +149,12 @@ grub() {
 	tar -xf /home/${user}/Downloads/void-linux.tar -C /home/${user}/Downloads/void-grub-theme
 	mkdir -p /boot/grub/themes
 	cp -r /home/${user}/Downloads/void-grub-theme /boot/grub/themes/void
-	echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >> /etc/default/grub
-	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
+	echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >>/etc/default/grub
+	echo "GRUB_DISABLE_OS_PROBER=false" >>/etc/default/grub
 	rm -r /home/${user}/Downloads/void-grub-theme
 	rm -r /home/${user}/Downloads/void-linux.tar
 	swap_uuid=$(cat /etc/fstab | head -n1 | awk '{print $1}')
-        swap_offset=$(filefrag -v /swapfile | head -n 4 | tail -n 1 | awk '{print $4}' | sed 's/\..//')
+	swap_offset=$(filefrag -v /swapfile | head -n 4 | tail -n 1 | awk '{print $4}' | sed 's/\..//')
 	sed -i 's/^GRUB_TIMEOUT.*/GRUB_TIMEOUT=0/' /etc/default/grub
 	sed -i 's/^#GRUB_HIDDEN_TIMEOUT=.*/GRUB_HIDDEN_TIMEOUT=1/' /etc/default/grub
 }
@@ -177,6 +177,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/fuzzel
 	sudo -u ${user} rm -rf /home/${user}/.config/git
 	sudo -u ${user} rm -rf /home/${user}/.config/gtklock
+	sudo -u ${user} rm -rf /home/${user}/.config/helix
 	sudo -u ${user} rm -rf /home/${user}/.config/hypr
 	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
 	sudo -u ${user} rm -rf /home/${user}/.config/kitty
@@ -202,7 +203,7 @@ configs() {
 	# Xorg-related configs, disabled for now.
 	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.Xresources /home/${user}/
 	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-i3 /home/${user}/
-        #sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
+	#sudo -u ${user} cp -f /home/${user}/repos/configs/dotfiles/common/.xinitrc-qtile /home/${user}/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/dunst /home/${user}/.config/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/i3 /home/${user}/.config/
 	#sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/picom /home/${user}/.config/
@@ -219,6 +220,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/fuzzel /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/git /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/gtklock /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/helix /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mako /home/${user}/.config/
@@ -269,12 +271,12 @@ configs_laptop() {
 	# copy laptop configs to .config
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/niri /home/${user}/.config/
-        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/river/* /home/${user}/.config/river/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/sway/* /home/${user}/.config/sway/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/swayidle /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/tofi/* /home/${user}/.config/tofi/
-        sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
 
 	# copy laptop configs to /etc/
 	cp -f /home/${user}/repos/configs/void-stuff/laptop/etc/tlp.conf /etc/
@@ -286,195 +288,193 @@ configs_laptop() {
 
 pipewire() {
 	mkdir -p /etc/pipewire/pipewire.conf.d
-        ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
-        ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+	ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
+	ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
-select opt_1 in "${options_1[@]}"
-do
+select opt_1 in "${options_1[@]}"; do
 	case ${opt_1} in
-		"confirm")
-                	echo -e "${green}Continuing with post-install script...${color_reset}"
-		   	break
-		   	;;
-		"exit script")
-			echo -e "${green}Exiting post-install script...${color_reset}"
-	           	exit 68
-		   	;;
-		*)
-			echo -e "${red}Invalid option, please try again.${color_reset}"
-			;;
+	"confirm")
+		echo -e "${green}Continuing with post-install script...${color_reset}"
+		break
+		;;
+	"exit script")
+		echo -e "${green}Exiting post-install script...${color_reset}"
+		exit 68
+		;;
+	*)
+		echo -e "${red}Invalid option, please try again.${color_reset}"
+		;;
 	esac
 done
 
 echo -e "${green}Please enter the username of your machine. this will be used as a variable in the install script.${color_reset}"
 
-read user;
+read user
 
 echo -e "${green}Continuing post-install script as '${user}'...${color_reset}"
 
 echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
 
-select opt_2 in "${options_2[@]}"
-do
+select opt_2 in "${options_2[@]}"; do
 	case ${opt_2} in
-		"desktop")
-			echo -e "${green}Continuing post-install script with settings for desktop${color_reset}"
+	"desktop")
+		echo -e "${green}Continuing post-install script with settings for desktop${color_reset}"
 
-			# Install packages
-			echo -e "${green}Installing packages...${color_reset}"
-			xbps-install -uy xbps
-        		xbps-install -Suy
-        		xbps-install -Sy "${repos[@]}"
-        		xbps-install -Sy "${packages[@]}"
-        		xbps-install -Sy "${desktop_packages[@]}"
+		# Install packages
+		echo -e "${green}Installing packages...${color_reset}"
+		xbps-install -uy xbps
+		xbps-install -Suy
+		xbps-install -Sy "${repos[@]}"
+		xbps-install -Sy "${packages[@]}"
+		xbps-install -Sy "${desktop_packages[@]}"
 
-			# Creating user directories
-			echo -e "${green}Creating user directories...${color_reset}"
-			sudo -u ${user} xdg-user-dirs-update
+		# Creating user directories
+		echo -e "${green}Creating user directories...${color_reset}"
+		sudo -u ${user} xdg-user-dirs-update
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-			rm_default_configs
-			configs
-			configs_desktop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		configs
+		configs_desktop
 
-			# Pipewire
-			echo -e "${green}configuring pipewire...${color_reset}"
-        		pipewire
+		# Pipewire
+		echo -e "${green}configuring pipewire...${color_reset}"
+		pipewire
 
-			# Add user to groups
-			echo -e "${green}Adding user to groups...${color_reset}"
-			usermod -aG i2c,kvm,libvirt,bluetooth,socklog,gamemode ${user}
+		# Add user to groups
+		echo -e "${green}Adding user to groups...${color_reset}"
+		usermod -aG i2c,kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
-			# Kernel modules
-			echo -e "${green}Adding kernel modules to load on boot...${color_reset}"
-        		echo "i2c-dev" > /etc/modules-load.d/i2c.conf
-        		echo "i2c-piix4" > /etc/modules-load.d/i2c-piix4.conf
-        		echo "options vfio-pci ids=10de:1287,10de:0e0f" > /etc/modprobe.d/vfio.conf
-			echo "softdep drm pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
-			echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" > /etc/dracut.conf.d/10-vfio.conf
-        		dracut --force
+		# Kernel modules
+		echo -e "${green}Adding kernel modules to load on boot...${color_reset}"
+		echo "i2c-dev" >/etc/modules-load.d/i2c.conf
+		echo "i2c-piix4" >/etc/modules-load.d/i2c-piix4.conf
+		echo "options vfio-pci ids=10de:1287,10de:0e0f" >/etc/modprobe.d/vfio.conf
+		echo "softdep drm pre: vfio-pci" >>/etc/modprobe.d/vfio.conf
+		echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" >/etc/dracut.conf.d/10-vfio.conf
+		dracut --force
 
-			# Swap
-			echo -e "${green}Setting up swapfile...${color_reset}"
-			dd if=/dev/zero of=/swapfile bs=1M count=48k status=progress
-			swapfile
+		# Swap
+		echo -e "${green}Setting up swapfile...${color_reset}"
+		dd if=/dev/zero of=/swapfile bs=1M count=48k status=progress
+		swapfile
 
-			# Grub
-			echo -e "${green}Configuring grub...${color_reset}"
-        		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff iommu=pt vfio-pci.ids=10de:1287,10de:0e0f loglevel=4\"/" /etc/default/grub
-        		sed -i 's/^#GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
-        		update-grub
+		# Grub
+		echo -e "${green}Configuring grub...${color_reset}"
+		grub
+		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff iommu=pt vfio-pci.ids=10de:1287,10de:0e0f loglevel=4\"/" /etc/default/grub
+		sed -i 's/^#GRUB_GFXMODE.*/GRUB_GFXMODE=3440x1440x32,1920x1080x32,auto/' /etc/default/grub
+		update-grub
 
-			# SSD trim
-			echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
-        		cp /home/${user}/repos/configs/scripts/cron/fstrim.sh /etc/cron.weekly/
+		# SSD trim
+		echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
+		cp /home/${user}/repos/configs/scripts/cron/fstrim.sh /etc/cron.weekly/
 
-			# Services
-			echo -e "${green}Enabling runit services...${color_reset}"
-        		services
-			desktop_services
+		# Services
+		echo -e "${green}Enabling runit services...${color_reset}"
+		services
+		desktop_services
 
-			# Done
-			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
-			exit 69
-			;;
-		"laptop")
-			echo -e "${green}Continuing post-install script with settings for laptop...${color_reset}"
+		# Done
+		echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
+		exit 69
+		;;
+	"laptop")
+		echo -e "${green}Continuing post-install script with settings for laptop...${color_reset}"
 
-			# Install packages
-			echo -e "${green}Installing packages...${color_reset}"
-			xbps-install -uy xbps
-        		xbps-install -Suy
-        		xbps-install -Sy "${repos[@]}"
-        		xbps-install -Sy "${packages[@]}"
-        		xbps-install -Sy "${laptop_packages[@]}"
+		# Install packages
+		echo -e "${green}Installing packages...${color_reset}"
+		xbps-install -uy xbps
+		xbps-install -Suy
+		xbps-install -Sy "${repos[@]}"
+		xbps-install -Sy "${packages[@]}"
+		xbps-install -Sy "${laptop_packages[@]}"
 
-			# Creating user directories
-                        echo -e "${green}Creating user directories...${color_reset}"
-                        sudo -u ${user} xdg-user-dirs-update
+		# Creating user directories
+		echo -e "${green}Creating user directories...${color_reset}"
+		sudo -u ${user} xdg-user-dirs-update
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-                        rm_default_configs
-                        configs
-			configs_laptop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		configs
+		configs_laptop
 
-			# Pipewire
-                        echo -e "${green}configuring pipewire...${color_reset}"
-                        pipewire
+		# Pipewire
+		echo -e "${green}configuring pipewire...${color_reset}"
+		pipewire
 
-			# Add user to groups
-			echo -e "${green}Adding user to groups...${color_reset}"
-        		usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
+		# Add user to groups
+		echo -e "${green}Adding user to groups...${color_reset}"
+		usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
-			# Swap
-			echo -e "${green}Setting up swapfile...${color_reset}"
-			dd if=/dev/zero of=/swapfile bs=1M count=24k status=progress
-			swapfile
+		# Swap
+		echo -e "${green}Setting up swapfile...${color_reset}"
+		dd if=/dev/zero of=/swapfile bs=1M count=24k status=progress
+		swapfile
 
-			# Grub
-			echo -e "${green}Configuring grub...${color_reset}"
-        		grub
-        		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff loglevel=4\"/" /etc/default/grub
-        		update-grub
+		# Grub
+		echo -e "${green}Configuring grub...${color_reset}"
+		grub
+		sed -i "s/^GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT=\"resume=${swap_uuid} resume_offset=${swap_offset} amdgpu.ppfeaturemask=0xffffffff loglevel=4\"/" /etc/default/grub
+		update-grub
 
-			# SSD trim
-                        echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
-                        cp /home/${user}/repos/configs/scripts/cron/fstrim.sh /etc/cron.weekly/
+		# SSD trim
+		echo -e "${green}setting up weekly cronjob for SSD trimming...${color_reset}"
+		cp /home/${user}/repos/configs/scripts/cron/fstrim.sh /etc/cron.weekly/
 
-			# Services
-			echo -e "${green}Enabling runit services...${color_reset}"
-        		services
-        		laptop_services
+		# Services
+		echo -e "${green}Enabling runit services...${color_reset}"
+		services
+		laptop_services
 
-			# Done
-			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
-			exit 69
-			;;
-		"virtual machine")
-			echo -e "${green}Continuing post-install script with settings for virtual machine...${color_reset}"
+		# Done
+		echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
+		exit 69
+		;;
+	"virtual machine")
+		echo -e "${green}Continuing post-install script with settings for virtual machine...${color_reset}"
 
-			# Install packages
-			echo -e "${green}Installing packages...${color_reset}"
-			xbps-install -uy xbps
-        		xbps-install -Suy
-        		xbps-install -Sy "${repos[@]}"
-        		xbps-install -Sy "${packages[@]}"
+		# Install packages
+		echo -e "${green}Installing packages...${color_reset}"
+		xbps-install -uy xbps
+		xbps-install -Suy
+		xbps-install -Sy "${repos[@]}"
+		xbps-install -Sy "${packages[@]}"
 
-			# Creating user directories
-                        echo -e "${green}Creating user directories...${color_reset}"
-                        sudo -u ${user} xdg-user-dirs-update
+		# Creating user directories
+		echo -e "${green}Creating user directories...${color_reset}"
+		sudo -u ${user} xdg-user-dirs-update
 
-			# Install config files
-			echo -e "${green}Installing config files...${color_reset}"
-                        rm_default_configs
-                        configs
-                        configs_desktop
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		configs
+		configs_desktop
 
-			# Pipewire
-                        echo -e "${green}configuring pipewire...${color_reset}"
-                        pipewire
+		# Pipewire
+		echo -e "${green}configuring pipewire...${color_reset}"
+		pipewire
 
-			# Add user to groups
-			echo -e "${green}Adding user to groups...${color_reset}"
-			usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
+		# Add user to groups
+		echo -e "${green}Adding user to groups...${color_reset}"
+		usermod -aG kvm,libvirt,bluetooth,socklog,gamemode ${user}
 
-			# Services
-			echo -e "${green}Enabling runit services...${color_reset}"
-        		services
+		# Services
+		echo -e "${green}Enabling runit services...${color_reset}"
+		services
 
-			# Done
-			echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
-			exit 69
-			;;
-		*)
-			echo -e "${red}Invalid option, please try again.${color_reset}"
-			;;
+		# Done
+		echo -e "${bright_green}Finished!! You can now reboot your machine.${color_reset}"
+		exit 69
+		;;
+	*)
+		echo -e "${red}Invalid option, please try again.${color_reset}"
+		;;
 	esac
 done

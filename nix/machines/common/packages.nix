@@ -42,7 +42,7 @@
         mpv
         kodi-wayland
         feh
-        audacious
+        deadbeef-with-plugins
         cyanrip
         picard
         makemkv
@@ -62,9 +62,27 @@
         # AI
         ollama-rocm
 
+        # Text editors
+        helix
+
+        # LSP
+        bash-language-server
+        shfmt
+        nil
+        ruff
+
         # Other
         lm_sensors
         curl
+      ];
+
+      # configure deadbeef plugins
+      nixpkgs.overlays = [
+        (final: prev: {
+          deadbeef-with-plugins = prev.deadbeef-with-plugins.override {
+            plugins = with prev.deadbeefPlugins; [ mpris2 ];
+          };
+        })
       ];
     }
 

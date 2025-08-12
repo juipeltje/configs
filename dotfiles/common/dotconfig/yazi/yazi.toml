@@ -6,5 +6,5 @@ linemode = "size"
 
 [opener]
 edit = [
-	{ run = 'nano "$@"', block = true },
+	{ run = 'hx "$@"', block = true },
 ]
