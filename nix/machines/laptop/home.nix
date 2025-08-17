@@ -24,8 +24,6 @@
     ./../common/packages.nix
     # Theme settings
     ./../common/theming.nix
-    # vscode settings
-    ./../common/vscode.nix
     # Wayland settings
     ./../common/wayland.nix
   ];

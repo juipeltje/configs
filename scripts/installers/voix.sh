@@ -325,7 +325,7 @@ select opt_2 in "${options_2[@]}"; do
 
 		# Install packages
 		echo -e "${green}Installing packages...${color_reset}"
-		xbps-install -uy xbps
+		xbps-install -Suy xbps
 		xbps-install -Suy
 		xbps-install -Sy "${repos[@]}"
 		xbps-install -Sy "${packages[@]}"

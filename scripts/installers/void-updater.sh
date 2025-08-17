@@ -12,7 +12,7 @@ green="\033[0;32m"
 # Update xbps package manager
 echo -e "${green}Starting Void-updater script... (current user is '${user}')${color_reset}"
 echo -e "${green}Checking if the xbps package need to be updated...${color_reset}"
-xbps-install -u xbps
+xbps-install -Su xbps
 
 # Update packages with xbps
 echo -e "${green}Checking for updates with xbps...${color_reset}"
