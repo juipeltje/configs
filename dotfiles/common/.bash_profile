@@ -3,6 +3,9 @@
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
+# Source .profile
+[ -f $HOME/.profile ] && . $HOME/.profile
+
 # set qt platformtheme
 #QT_QPA_PLATFORMTHEME=gtk3
 

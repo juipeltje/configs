@@ -13,8 +13,8 @@
         swayfx
         hyprland
         niri
-        inputs.maomaowm.packages.x86_64-linux.maomaowm
-        mwc_git
+        inputs.mango.packages.x86_64-linux.mango
+        #mwc_git
 
         # Terminal
         foot

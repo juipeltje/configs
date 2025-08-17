@@ -5,7 +5,7 @@
 # (see /etc/runit/2).
 
 # Variables
-DRIVERS="/nix/var/nix/profiles/per-user/joppe/profile/drivers"
+DRIVERS="/home/joppe/.local/state/nix/profiles/profile/drivers"
 hostname=$(cat /etc/hostname)
 AUTOSTART="/home/joppe/repos/configs/scripts/autostart/common-autostart.sh"
 

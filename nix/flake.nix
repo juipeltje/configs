@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     hyprland.url = "github:hyprwm/Hyprland";
-    maomaowm.url = "github:DreamMaoMao/maomaowm";
+    mango.url = "github:DreamMaoMao/mango";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, maomaowm, chaotic, home-manager, nur, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, mango, chaotic, home-manager, nur, ... } @ inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

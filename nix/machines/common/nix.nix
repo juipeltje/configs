@@ -1,6 +1,6 @@
 # Home Manager Nix configuration ( flakes, cachix, )
 
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   # Set nix package to use, and enable flakes and additional cachix servers.
@@ -22,5 +22,14 @@
         "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       ];
     };
+  };
+
+  # create .profile file which export NIX_PATH variable for nixd language server.
+  home.file.".profile" = {
+    enable = true;
+    executable = true;
+    text = ''
+      export NIX_PATH=/home/joppe/.nix-defexpr/channels:nixpkgs=${inputs.nixpkgs}
+    '';
   };
 }

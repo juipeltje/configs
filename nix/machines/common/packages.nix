@@ -68,7 +68,7 @@
         # LSP
         bash-language-server
         shfmt
-        nil
+        nixd
         ruff
 
         # Other

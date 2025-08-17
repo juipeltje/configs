@@ -81,7 +81,6 @@ packages=(
 	"cronie"
 	"curl"
 	"xtools"
-	"nix"
 	"gnome-keyring"
 	"pass"
 	"pass-otp"
@@ -120,7 +119,7 @@ services() {
 	ln -sf /etc/sv/socklog-unix /var/service/
 	ln -sf /etc/sv/nanoklogd /var/service/
 	ln -sf /etc/sv/cronie /var/service/
-	ln -sf /etc/sv/nix-daemon /var/service/
+	cp -rf /home/${user}/repos/configs/void-stuff/common/etc/sv/nix-daemon /etc/sv/
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
 }
@@ -182,7 +181,7 @@ rm_default_configs() {
 	sudo -u ${user} rm -rf /home/${user}/.config/kanshi
 	sudo -u ${user} rm -rf /home/${user}/.config/kitty
 	sudo -u ${user} rm -rf /home/${user}/.config/mako
-	sudo -u ${user} rm -rf /home/${user}/.config/maomao
+	sudo -u ${user} rm -rf /home/${user}/.config/mango
 	sudo -u ${user} rm -rf /home/${user}/.config/mpd
 	sudo -u ${user} rm -rf /home/${user}/.config/mpv
 	sudo -u ${user} rm -rf /home/${user}/.config/mwc
@@ -224,7 +223,7 @@ configs() {
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mako /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/maomao /home/${user}/.config/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mango /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mpd /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/mpv /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/common/dotconfig/nano /home/${user}/.config/
@@ -251,7 +250,7 @@ configs_desktop() {
 	# copy desktop configs to .config
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/hypr/* /home/${user}/.config/hypr/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/kanshi /home/${user}/.config/
-	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/maomao/* /home/${user}/.config/maomao/
+	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mango/* /home/${user}/.config/mango/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mwc /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/niri /home/${user}/.config/
 	sudo -u ${user} cp -rf /home/${user}/repos/configs/dotfiles/workstation/dotconfig/qtile/* /home/${user}/.config/qtile/

@@ -50,7 +50,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/kanshi
 	rm -rf /home/${user}/.config/kitty
 	rm -rf /home/${user}/.config/mako
-	rm -rf /home/${user}/.config/maomao
+	rm -rf /home/${user}/.config/mango
 	rm -rf /home/${user}/.config/mpd
 	rm -rf /home/${user}/.config/mpv
 	rm -rf /home/${user}/.config/mwc
@@ -88,7 +88,7 @@ make_directories() {
 	mkdir -p /home/${user}/.config/kanshi
 	mkdir -p /home/${user}/.config/kitty
 	mkdir -p /home/${user}/.config/mako
-	mkdir -p /home/${user}/.config/maomao
+	mkdir -p /home/${user}/.config/mango
 	mkdir -p /home/${user}/.config/mpd
 	mkdir -p /home/${user}/.config/mpv
 	mkdir -p /home/${user}/.config/mwc
@@ -130,7 +130,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/kitty/* /home/${user}/.config/kitty/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mako/* /home/${user}/.config/mako/
-	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mango/* /home/${user}/.config/mango/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mpd/* /home/${user}/.config/mpd/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/mpv/* /home/${user}/.config/mpv/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/nano/* /home/${user}/.config/nano/
@@ -153,7 +153,7 @@ configs_desktop() {
 	# link desktop config files to their expected location.
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/kanshi/* /home/${user}/.config/kanshi/
-	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mango/* /home/${user}/.config/mango/
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/mwc/* /home/${user}/.config/mwc/
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/qtile/* /home/${user}/.config/qtile/
@@ -172,7 +172,7 @@ configs_laptop() {
 	# link laptop config files to their expected location.
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/kanshi/* /home/${user}/.config/kanshi/
-	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/maomao/* /home/${user}/.config/maomao/
+	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/mango/* /home/${user}/.config/mango/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/mwc/* /home/${user}/.config/mwc/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/niri/* /home/${user}/.config/niri/
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/qtile/* /home/${user}/.config/qtile/
