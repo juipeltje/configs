@@ -6,6 +6,10 @@ formatter = { command = "shfmt" }
 name = "nix"
 language-servers = [ "nixd", "nil" ]
 
+[[language]]
+name = "c"
+formatter = { command = "clang-format" }
+
 [language-server.nixd]
 command = "nixd"
 

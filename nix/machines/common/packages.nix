@@ -70,6 +70,7 @@
         shfmt
         nixd
         ruff
+        clang-tools
 
         # Other
         lm_sensors
