@@ -17,4 +17,4 @@ command = "nixd"
 command = ["nixfmt"]
 
 [language-server.nixd.config.nixd.options.home-manager]
-expr = "(builtins.getFlake (toString /home/joppe/repos/configs/nix)).homeConfigurations.\"joppe@Void-Rig\".options"
+expr = "(builtins.getFlake (toString ~/repos/configs/nix)).homeConfigurations.\"joppe@Void-Rig\".options"

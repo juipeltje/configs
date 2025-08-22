@@ -5,19 +5,28 @@ line-number = "absolute"
 mouse = false
 bufferline = "multiple"
 color-modes = true
+continue-comments = false
+auto-format = false
+completion-timeout = 5
+completion-trigger-len = 1
+trim-final-newlines = true
+trim-trailing-whitespace = true
 
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
+normal = "bar"
 select = "underline"
 
 [editor.file-picker]
 hidden = false
 
 [editor.statusline]
-left = ["mode", "separator", "version-control", "separator", "file-name", "file-modification-indicator", "read-only-indicator", "spinner"]
-right = ["position", "total-line-numbers"]
-separator = " | "
+left = ["mode", "spacer", "separator", "spacer", "version-control", "spacer", "separator", "file-name", "file-modification-indicator", "read-only-indicator", "spinner"]
+right = ["position", "separator", "total-line-numbers"]
+separator = "|"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.soft-wrap]
+enable = true
