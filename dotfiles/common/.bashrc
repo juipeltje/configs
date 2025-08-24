@@ -35,6 +35,7 @@ alias fugc='nix-collect-garbage; nix-collect-garbage -d; nix-store --optimise'
 alias vpn-up='wg-quick up /etc/wireguard/be-bru-wg-102.conf'
 alias vpn-down='wg-quick down /etc/wireguard/be-bru-wg-102.conf'
 alias do-script='~/repos/configs/scripts/darkorbit-afk-script.sh'
+alias rip-cd='cyanrip -s 6 -C ~/Downloads/album-art/Front.jpg -Q'
 #alias A3='eval "$(/home/joppe/anaconda3/bin/conda shell.bash hook)"'
 #alias gpu-split-size='export PYTORCH_HIP_ALLOC_CONF=garbage_collection_threshold:0.6,max_split_size_mb:128'
 #alias launch-a1111='./webui.sh --upcast-sampling --medvram-sdxl'
@@ -44,4 +45,3 @@ PS1="\[\e[0;32m\] \u@\h  \W  \[\e[m\]"
 # neofetch
 # echo -e "\033[96;1;3mHi Joppe! Glad to see you're still using Arch btw ;)\033[0m"
 # echo -e "\033[34;1;3mHi Joppe! Glad to see you're still using Arch btw ;)\033[0m"
-
