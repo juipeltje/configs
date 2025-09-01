@@ -75,6 +75,7 @@
         # Other
         lm_sensors
         curl
+        via
       ];
 
       # configure deadbeef plugins
@@ -91,9 +92,9 @@
       # Workstation-specific packages.
       home.packages = with pkgs; [
         # Python packages
-        (python313.withPackages (subpkgs: with subpkgs; [ 
+        (python313.withPackages (subpkgs: with subpkgs; [
           (callPackage ./../../derivations/yoda/derivation.nix { })
-          qtile 
+          qtile
           qtile-extras
           dbus-fast
           pyxdg
@@ -101,19 +102,19 @@
         ]))
       ];
     })
-    
+
     (lib.mkIf (hostName == "Void-Lappie") {
       # Laptop-specific packages.
       home.packages = with pkgs; [
         # Python packages
-        (python313.withPackages (subpkgs: with subpkgs; [ 
-          qtile 
+        (python313.withPackages (subpkgs: with subpkgs; [
+          qtile
           qtile-extras
           dbus-fast
           pyxdg
           iwlib
         ]))
-        
+
         # Control screen brightness.
         brightnessctl
 
@@ -123,5 +124,3 @@
     })
   ];
 }
-
-

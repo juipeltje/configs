@@ -6,7 +6,7 @@
   home.file = {
     "Appimages/Vita3K.AppImage" = {
       enable = true;
-      source = pkgs.fetchurl rec {                              
+      source = pkgs.fetchurl rec {
         pname = "Vita3K";
         version = "3807";
         url = "https://github.com/${pname}/${pname}-builds/releases/download/${version}/${pname}-x86_64.AppImage";
@@ -17,7 +17,7 @@
 
     "Appimages/DuckStation.AppImage" = {
       enable = true;
-      source = pkgs.fetchurl rec {                              
+      source = pkgs.fetchurl rec {
         pname = "DuckStation";
         version = "0.1-9226";
         url = "https://github.com/stenzek/duckstation/releases/download/v${version}/${pname}-x64.AppImage";

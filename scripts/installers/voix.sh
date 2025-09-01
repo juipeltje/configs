@@ -291,6 +291,11 @@ pipewire() {
 	ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 }
 
+udev() {
+	mkdir -p /etc/udev/rules.d
+	echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"' > /etc/udev/rules.d/92-viia.rules
+}
+
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
@@ -344,6 +349,10 @@ select opt_2 in "${options_2[@]}"; do
 		# Pipewire
 		echo -e "${green}configuring pipewire...${color_reset}"
 		pipewire
+
+		# udev
+		echo -e "${green}Installing udev rules...${color_reset}"
+		udev
 
 		# Add user to groups
 		echo -e "${green}Adding user to groups...${color_reset}"
@@ -407,6 +416,10 @@ select opt_2 in "${options_2[@]}"; do
 		# Pipewire
 		echo -e "${green}configuring pipewire...${color_reset}"
 		pipewire
+
+		# udev
+		echo -e "${green}Installing udev rules...${color_reset}"
+		udev
 
 		# Add user to groups
 		echo -e "${green}Adding user to groups...${color_reset}"
