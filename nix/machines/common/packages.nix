@@ -76,6 +76,9 @@
         lm_sensors
         curl
         via
+        gtypist
+        klavaro
+        libsForQt5.ktouch
       ];
 
       # configure deadbeef plugins
