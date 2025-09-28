@@ -12,9 +12,13 @@ exec ~/repos/configs/scripts/autostart/workstation-autostart.sh
 
 ## keybindings
 
-# switch the focused output
+# switch the focused output with arrow keys
 bindsym $mod+Control+Down focus output DP-1
 bindsym $mod+Control+Up focus output DP-2
+
+# switch the focused output with vim keys
+bindsym $mod+Control+j focus output DP-1
+bindsym $mod+Control+k focus output DP-2
 
 # enable/disable adaptive sync
 bindsym $mod+Control+a exec kanshictl switch gaming

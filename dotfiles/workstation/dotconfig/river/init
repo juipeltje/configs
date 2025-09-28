@@ -10,13 +10,21 @@ riverctl spawn ~/repos/configs/scripts/autostart/workstation-autostart.sh
 
 # Keybindings
 
-# switch focus between outputs
+# switch focus between outputs with arrow keys
 riverctl map normal Super+Control Up focus-output DP-2
 riverctl map normal Super+Control Down focus-output DP-1
 
-# send the focused view to the next/previous output
+# switch focus between outputs with vim keys
+riverctl map normal Super+Control K focus-output DP-2
+riverctl map normal Super+Control J focus-output DP-1
+
+# send the focused view to the next/previous output with arrow keys
 riverctl map normal Super+Control+Shift Up send-to-output -current-tags DP-2
 riverctl map normal Super+Control+Shift Down send-to-output -current-tags DP-1
+
+# send the focused view to the next/previous output with vim keys
+riverctl map normal Super+Control+Shift K send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift J send-to-output -current-tags DP-1
 
 # enable/disable adaptive sync
 riverctl map normal Super+Control A spawn 'kanshictl switch gaming'

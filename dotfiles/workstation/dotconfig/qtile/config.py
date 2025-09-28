@@ -19,18 +19,26 @@ keys.extend(
 if qtile.core.name == "x11":
     keys.extend(
         [
-            # Switch focus between monitors
+            # Switch focus between monitors with arrow keys
             Key([mod, "control"], "Down", lazy.to_screen(0)),
             Key([mod, "control"], "Up", lazy.to_screen(1)),
+
+            # Switch focus between monitors with vim keys
+            Key([mod, "control"], "j", lazy.to_screen(0)),
+            Key([mod, "control"], "k", lazy.to_screen(1)),
         ]
     )
 
 elif qtile.core.name == "wayland":
     keys.extend(
         [
-            # Switch focus between monitors
+            # Switch focus between monitors with arrow keys
             Key([mod, "control"], "Down", lazy.to_screen(1)),
             Key([mod, "control"], "Up", lazy.to_screen(0)),
+
+            # Switch focus between monitors with vim keys
+            Key([mod, "control"], "j", lazy.to_screen(1)),
+            Key([mod, "control"], "k", lazy.to_screen(0)),
         ]
     )
 

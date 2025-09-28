@@ -41,13 +41,13 @@ riverctl map normal Super F spawn "${terminal} -e yazi"
 riverctl map normal Super W spawn ${webbrowser}
 
 # open pavucontrol
-riverctl map normal Super A spawn pavucontrol
+riverctl map normal Super P spawn pavucontrol
 
 # open application launcher
 riverctl map normal Super Space spawn fuzzel
 
 # open LLM launcher
-riverctl map normal Super L spawn ~/repos/configs/scripts/dmenu/llm-launcher.sh
+riverctl map normal Super A spawn ~/repos/configs/scripts/dmenu/llm-launcher.sh
 
 # open theme switcher
 riverctl map normal Super+Shift T spawn ~/repos/configs/scripts/dmenu/theme-switcher.sh
@@ -76,18 +76,30 @@ riverctl map normal Super+Control Q exit
 # close the focused view
 riverctl map normal Super Q close
 
-# focus the next/previous view in the layout stack
+# focus the next/previous view in the layout stack with arrow keys
 riverctl map normal Super Right focus-view next
 riverctl map normal Super Left focus-view previous
 
-# swap the focused view with the next/previous view in the layout stack
+# focus the next/previous view in the layout stack with vim keys
+riverctl map normal Super L focus-view next
+riverctl map normal Super H focus-view previous
+
+# swap the focused view with the next/previous view in the layout stack with arrow keys
 riverctl map normal Super+Shift Right swap next
 riverctl map normal Super+Shift Left swap previous
+
+# swap the focused view with the next/previous view in the layout stack with vim keys
+riverctl map normal Super+Shift L swap next
+riverctl map normal Super+Shift H swap previous
 
 # bump the focused view to the top of the layout stack
 riverctl map normal Super Return zoom
 
 # decrease/increase the main ratio of rivertile(1)
+riverctl map normal Super minus send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super equal send-layout-cmd rivertile "main-ratio +0.05"
+
+# decrease/increase the main ratio of rivertile(1) with numpad
 riverctl map normal Super KP_Subtract send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super KP_Add send-layout-cmd rivertile "main-ratio +0.05"
 

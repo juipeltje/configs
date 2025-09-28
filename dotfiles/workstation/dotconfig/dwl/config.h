@@ -129,7 +129,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* If you want to use the windows key for MODKEY, use WLR_MODIFIER_LOGO */
 #define MODKEY WLR_MODIFIER_LOGO
 
-#define TAGKEYS(KEY, SKEY, TAG) \                                               
+#define TAGKEYS(KEY, SKEY, TAG) \
   {MODKEY,                       KEY,                     view,         {.ui = 1 << TAG} }, \
   {MODKEY | WLR_MODIFIER_CTRL,   KEY,                     toggleview,   {.ui = 1 << TAG} }, \
   {MODKEY | WLR_MODIFIER_SHIFT,  SKEY,                    tag,          {.ui = 1 << TAG} }, \
@@ -167,13 +167,13 @@ static const Key keys[] = {
     {MODKEY,                          XKB_KEY_w,              spawn,           {.v = webbrowser} },
 
     /* open pavucontrol */
-    {MODKEY,                          XKB_KEY_a,              spawn,           {.v = pavucontrol} },
+    {MODKEY,                          XKB_KEY_p,              spawn,           {.v = pavucontrol} },
 
     /* open application launcher */
     {MODKEY,                          XKB_KEY_space,          spawn,           {.v = launcher} },
 
     /* open LLM launcher */
-    {MODKEY,                          XKB_KEY_l,              spawn,           SHCMD("~/repos/configs/scripts/dmenu/llm-launcher.sh") },
+    {MODKEY,                          XKB_KEY_a,              spawn,           SHCMD("~/repos/configs/scripts/dmenu/llm-launcher.sh") },
 
     /* open theme switcher */
     {MODKEY | WLR_MODIFIER_SHIFT,     XKB_KEY_T,              spawn,           SHCMD("~/repos/configs/scripts/dmenu/theme-switcher.sh") },
@@ -202,14 +202,22 @@ static const Key keys[] = {
     /* close the focused window */
     {MODKEY,                          XKB_KEY_q,              killclient,      {0} },
 
-    /* focus the next/previous window in the stack */
+    /* focus the next/previous window in the stack with arrow keys */
     {MODKEY,                          XKB_KEY_Right,          focusstack,      {.i = +1} },
     {MODKEY,                          XKB_KEY_Left,           focusstack,      {.i = -1} },
+
+    /* focus the next/previous window in the stack with vim keys */
+    {MODKEY,                          XKB_KEY_l,              focusstack,      {.i = +1} },
+    {MODKEY,                          XKB_KEY_h,              focusstack,      {.i = -1} },
 
     /* move the focused window to the master position */
     {MODKEY,                          XKB_KEY_Return,         zoom,            {0} },
 
     /* decrease/increase the master/stack ratio */
+    {MODKEY,                          XKB_KEY_minus,          setmfact,        {.f = -0.05f} },
+    {MODKEY,                          XKB_KEY_equal,          setmfact,        {.f = +0.05f} },
+
+    /* decrease/increase the master/stack ratio with numpad */
     {MODKEY,                          XKB_KEY_KP_Subtract,    setmfact,        {.f = -0.05f} },
     {MODKEY,                          XKB_KEY_KP_Add,         setmfact,        {.f = +0.05f} },
 
@@ -239,13 +247,21 @@ static const Key keys[] = {
     TAGKEYS(XKB_KEY_KP_Home,          XKB_KEY_KP_Home,        6),
     TAGKEYS(XKB_KEY_KP_Up,            XKB_KEY_KP_Up,          7),
 
-    /* move focus between outputs */
+    /* move focus between outputs with arrow keys */
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Up,             focusmon,        {.i = WLR_DIRECTION_UP} },
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Down,           focusmon,        {.i = WLR_DIRECTION_DOWN} },
 
-    /* send the focused window to the next/previous output */
+    /* move focus between outputs with vim keys */
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_k,              focusmon,        {.i = WLR_DIRECTION_UP} },
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_j,              focusmon,        {.i = WLR_DIRECTION_DOWN} },
+
+    /* send the focused window to the next/previous output with arrow keys */
     {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Up, tagmon,      {.i = WLR_DIRECTION_UP} },
     {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Down, tagmon,    {.i = WLR_DIRECTION_DOWN} },
+
+    /* send the focused window to the next/previous output with vim keys */
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_K,  tagmon,      {.i = WLR_DIRECTION_UP} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_J,    tagmon,    {.i = WLR_DIRECTION_DOWN} },
 
     /* enable/disable adaptive sync */
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_a,              spawn,           {.v = kanshi_gaming} },

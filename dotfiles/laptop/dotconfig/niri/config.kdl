@@ -22,7 +22,7 @@ cursor {
   xcursor-size 24
 }
 
-// hotkey overlay 
+// hotkey overlay
 hotkey-overlay {
   skip-at-startup
 }
@@ -46,7 +46,7 @@ input {
 //  mode "3440x1440@164.999"
 //  position x=0 y=1080
 //}
-  
+
 //output "DP-2" {
 //  mode "2560x1080@74.991"
 //  position x=0 y=0
@@ -171,13 +171,13 @@ binds {
   Mod+W { spawn "librewolf"; }
 
   // open pavucontrol
-  Mod+A { spawn "pavucontrol"; }
+  Mod+P { spawn "pavucontrol"; }
 
   // open application launcher
   Mod+Space { spawn "fuzzel"; }
 
   // open LLM launcher
-  Mod+L { spawn "~/repos/configs/scripts/dmenu/llm-launcher.sh"; }
+  Mod+A { spawn "~/repos/configs/scripts/dmenu/llm-launcher.sh"; }
 
   // open theme switcher
   Mod+Shift+T { spawn "~/repos/configs/scripts/dmenu/theme-switcher.sh"; }
@@ -215,29 +215,47 @@ binds {
   // close a window
   Mod+Q { close-window; }
 
-  // switch focused column/window
+  // switch focused column/window with arrow keys
   Mod+Right { focus-column-right; }
   Mod+Left { focus-column-left; }
   Mod+Up { focus-window-up; }
   Mod+Down { focus-window-down; }
 
+  // switch focused column/window with vim keys
+  Mod+L { focus-column-right; }
+  Mod+H { focus-column-left; }
+  Mod+K { focus-window-up; }
+  Mod+J { focus-window-down; }
+
   // focus the first or last column in the row
   Mod+Home { focus-column-first; }
   Mod+End { focus-column-last; }
 
-  // move the focused column/window
+  // move the focused column/window with arrow keys
   Mod+Shift+Right { move-column-right; }
   Mod+Shift+Left { move-column-left; }
   Mod+Shift+Up { move-window-up; }
   Mod+Shift+Down { move-window-down; }
 
+  // move the focused column/window with vim keys
+  Mod+Shift+L { move-column-right; }
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+K { move-window-up; }
+  Mod+Shift+J { move-window-down; }
+
   // resize columns/windows
+  Mod+equal { set-column-width "+10%"; }
+  Mod+minus { set-column-width "-10%"; }
+  Mod+Alt+equal { set-window-height "+10%"; }
+  Mod+Alt+minus { set-window-height "-10%"; }
+
+  // resize columns/windows with numpad
   Mod+KP_Add { set-column-width "+10%"; }
   Mod+KP_Subtract { set-column-width "-10%"; }
   Mod+Alt+KP_Add { set-window-height "+10%"; }
   Mod+Alt+KP_Subtract { set-window-height "-10%"; }
 
-  // toggle floating 
+  // toggle floating
   Mod+Shift+Space { toggle-window-floating; }
 
   // toggle fullscreen
@@ -257,6 +275,16 @@ binds {
   Mod+Shift+End { move-column-to-last; }
 
   // switch to workspaces
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+
+  // switch to workspaces with numpad
   Mod+KP_End { focus-workspace 1; }
   Mod+KP_Down { focus-workspace 2; }
   Mod+KP_Next { focus-workspace 3; }
@@ -267,6 +295,16 @@ binds {
   Mod+KP_Up { focus-workspace 8; }
 
   // move columns/windows to workspaces
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+  Mod+Shift+4 { move-column-to-workspace 4; }
+  Mod+Shift+5 { move-column-to-workspace 5; }
+  Mod+Shift+6 { move-column-to-workspace 6; }
+  Mod+Shift+7 { move-column-to-workspace 7; }
+  Mod+Shift+8 { move-column-to-workspace 8; }
+
+  // move columns/windows to workspaces with numpad
   Mod+Shift+KP_End { move-column-to-workspace 1; }
   Mod+Shift+KP_Down { move-column-to-workspace 2; }
   Mod+Shift+KP_Next { move-column-to-workspace 3; }
@@ -276,13 +314,17 @@ binds {
   Mod+Shift+KP_Home { move-column-to-workspace 7; }
   Mod+Shift+KP_Up { move-column-to-workspace 8; }
 
-  // move focused window in or out of a column
+  // move focused window in or out of a column with arrow keys
   Mod+Alt+Shift+Right { consume-or-expel-window-right; }
   Mod+Alt+Shift+Left { consume-or-expel-window-left; }
 
+  // move focused window in or out of a column with vim keys
+  Mod+Alt+Shift+L { consume-or-expel-window-right; }
+  Mod+Alt+Shift+H { consume-or-expel-window-left; }
+
   // move window from the right to the bottom of the focused column
   Mod+Comma { consume-window-into-column; }
-  
+
   // expel the bottom window from the focused column to the right
   Mod+Period { expel-window-from-column; }
 }

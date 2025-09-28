@@ -11,6 +11,7 @@
       settings = {
         "privacy.clearOnShutdown.history" = true;
         "privacy.clearOnShutdown.downloads" = true;
+        "browser.startup.homepage" = "https://duckduckgo.com/?t=ffab";
       };
 
       profiles = {
@@ -18,10 +19,10 @@
           id = 0;
           isDefault = true;
           name = "default";
-          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
+          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin tridactyl ];
           search = {
-            default = "SearXNG";
-            privateDefault = "SearXNG";
+            default = "ddg";
+            privateDefault = "ddg";
             force = true;
             engines = {
               "SearXNG" = {
