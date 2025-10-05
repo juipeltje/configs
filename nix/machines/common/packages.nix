@@ -17,7 +17,7 @@
         blueman
 
         # Mail
-        evolution # gnome-keyring has to be installed on the host system!
+        thunderbird
 
         # Terminal
         alacritty

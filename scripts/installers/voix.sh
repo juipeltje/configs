@@ -81,7 +81,6 @@ packages=(
 	"cronie"
 	"curl"
 	"xtools"
-	"gnome-keyring"
 	"pass"
 	"pass-otp"
 )
