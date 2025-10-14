@@ -49,6 +49,7 @@
         mkvtoolnix
         ffmpeg
         streamrip
+        yt-dlp
         imagemagick
         corrupter
 
