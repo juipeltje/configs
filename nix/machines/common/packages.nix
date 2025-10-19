@@ -77,6 +77,7 @@
         lm_sensors
         curl
         via
+        unstable.displaycal
         gtypist
         klavaro
         libsForQt5.ktouch

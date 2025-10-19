@@ -293,6 +293,7 @@ pipewire() {
 udev() {
 	mkdir -p /etc/udev/rules.d
 	echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"' > /etc/udev/rules.d/92-viia.rules
+	echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="0765", ATTRS{idProduct}=="5020", GROUP="users", MODE="0660"' > /etc/udev/rules.d/90-displaycal.rules
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
