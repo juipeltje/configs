@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # common autostart script to be executed by window managers.
-gtklock -d &
+#gtklock -d &
 swaybg -i ~/Pictures/background/background.jpg -m fill &
 kanshi &
 waybar &

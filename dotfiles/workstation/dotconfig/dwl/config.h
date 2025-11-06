@@ -250,18 +250,26 @@ static const Key keys[] = {
     /* move focus between outputs with arrow keys */
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Up,             focusmon,        {.i = WLR_DIRECTION_UP} },
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Down,           focusmon,        {.i = WLR_DIRECTION_DOWN} },
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Left,           focusmon,        {.i = WLR_DIRECTION_LEFT} },
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_Right,          focusmon,        {.i = WLR_DIRECTION_RIGHT} },
 
     /* move focus between outputs with vim keys */
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_k,              focusmon,        {.i = WLR_DIRECTION_UP} },
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_j,              focusmon,        {.i = WLR_DIRECTION_DOWN} },
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_h,              focusmon,        {.i = WLR_DIRECTION_LEFT} },
+    {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_l,              focusmon,        {.i = WLR_DIRECTION_RIGHT} },
 
     /* send the focused window to the next/previous output with arrow keys */
     {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Up, tagmon,      {.i = WLR_DIRECTION_UP} },
     {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Down, tagmon,    {.i = WLR_DIRECTION_DOWN} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Left, tagmon,    {.i = WLR_DIRECTION_LEFT} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_Right, tagmon,   {.i = WLR_DIRECTION_RIGHT} },
 
     /* send the focused window to the next/previous output with vim keys */
     {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_K,  tagmon,      {.i = WLR_DIRECTION_UP} },
-    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_J,    tagmon,    {.i = WLR_DIRECTION_DOWN} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_J,  tagmon,      {.i = WLR_DIRECTION_DOWN} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_H,  tagmon,      {.i = WLR_DIRECTION_LEFT} },
+    {MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, XKB_KEY_L,  tagmon,      {.i = WLR_DIRECTION_RIGHT} },
 
     /* enable/disable adaptive sync */
     {MODKEY | WLR_MODIFIER_CTRL,      XKB_KEY_a,              spawn,           {.v = kanshi_gaming} },

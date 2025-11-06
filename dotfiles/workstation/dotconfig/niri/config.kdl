@@ -261,21 +261,29 @@ binds {
   Mod+Shift+Home { move-column-to-first; }
   Mod+Shift+End { move-column-to-last; }
 
-  // focus the bottom or top monitor with arrow keys
+  // focus monitor with arrow keys
   Mod+Ctrl+Down { focus-monitor-down; }
   Mod+Ctrl+Up { focus-monitor-up; }
+  Mod+Ctrl+Left { focus-monitor-left; }
+  Mod+Ctrl+Right { focus-monitor-right; }
 
-  // focus the bottom or top monitor with vim keys
+  // focus monitor with vim keys
   Mod+Ctrl+J { focus-monitor-down; }
   Mod+Ctrl+K { focus-monitor-up; }
+  Mod+Ctrl+H { focus-monitor-left; }
+  Mod+Ctrl+L { focus-monitor-right; }
 
-  // move column/window to bottom or top monitor with arrow keys
+  // move column/window to monitor with arrow keys
   Mod+Ctrl+Shift+Down { move-column-to-monitor-down; }
   Mod+Ctrl+Shift+Up { move-column-to-monitor-up; }
+  Mod+Ctrl+Shift+Left { move-column-to-monitor-left; }
+  Mod+Ctrl+Shift+Right { move-column-to-monitor-right; }
 
-  // move column/window to bottom or top monitor with vim keys
+  // move column/window to monitor with vim keys
   Mod+Ctrl+Shift+J { move-column-to-monitor-down; }
   Mod+Ctrl+Shift+K { move-column-to-monitor-up; }
+  Mod+Ctrl+Shift+H { move-column-to-monitor-left; }
+  Mod+Ctrl+Shift+L { move-column-to-monitor-right; }
 
   // switch to workspaces
   Mod+1 { focus-workspace 1; }

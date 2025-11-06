@@ -11,19 +11,27 @@ riverctl spawn ~/repos/configs/scripts/autostart/workstation-autostart.sh
 # Keybindings
 
 # switch focus between outputs with arrow keys
-riverctl map normal Super+Control Up focus-output DP-2
+riverctl map normal Super+Control Up focus-output DP-3
+riverctl map normal Super+Control Left focus-output DP-2
+riverctl map normal Super+Control Right focus-output DP-1
 riverctl map normal Super+Control Down focus-output DP-1
 
 # switch focus between outputs with vim keys
-riverctl map normal Super+Control K focus-output DP-2
+riverctl map normal Super+Control K focus-output DP-3
+riverctl map normal Super+Control H focus-output DP-2
+riverctl map normal Super+Control L focus-output DP-1
 riverctl map normal Super+Control J focus-output DP-1
 
 # send the focused view to the next/previous output with arrow keys
-riverctl map normal Super+Control+Shift Up send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift Up send-to-output -current-tags DP-3
+riverctl map normal Super+Control+Shift Left send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift Right send-to-output -current-tags DP-1
 riverctl map normal Super+Control+Shift Down send-to-output -current-tags DP-1
 
 # send the focused view to the next/previous output with vim keys
-riverctl map normal Super+Control+Shift K send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift K send-to-output -current-tags DP-3
+riverctl map normal Super+Control+Shift H send-to-output -current-tags DP-2
+riverctl map normal Super+Control+Shift L send-to-output -current-tags DP-1
 riverctl map normal Super+Control+Shift J send-to-output -current-tags DP-1
 
 # enable/disable adaptive sync
