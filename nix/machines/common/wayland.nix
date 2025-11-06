@@ -14,7 +14,7 @@
         hyprland
         niri
         inputs.mango.packages.x86_64-linux.mango
-        #mwc_git
+        # mwc_git
 
         # Terminal
         foot

@@ -11,14 +11,14 @@
         heroic-unwrapped # unwrapped version seems to be required in order for games to be able to launch on non-NixOS. might also be required for other packages?
         prismlauncher
         # mcpelauncher-ui-qt
-  
+
         # Emulators
         pcsx2
         rpcs3
         shadps4
-        dolphin-emu
+        unstable.dolphin-emu
         flycast
-    
+
         # Benchmarking
         mangohud
 
