@@ -11,7 +11,7 @@
 
   // choose the order of the modules
   // include modules-left
-  "include": "~/.config/waybar/river-config",
+  "include": "~/.config/waybar/niri-config",
 
   // modules configuration
   "clock#time": {

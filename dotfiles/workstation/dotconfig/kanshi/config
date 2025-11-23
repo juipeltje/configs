@@ -6,8 +6,8 @@ profile desktop {
 		adaptive_sync off
 	}
 
-	output DP-2 {
-		mode 3840x2160@59.997Hz
+	output "LG Electronics LG TV SSCR2 0x01010101" {
+		mode 3840x2160@60.000Hz
 		position 0,1080
 		scale 1
 		adaptive_sync off
@@ -29,8 +29,8 @@ profile gaming {
         adaptive_sync on
     }
 
-    output DP-2 {
-		mode 3840x2160@59.997Hz
+    output "LG Electronics LG TV SSCR2 0x01010101" {
+		mode 3840x2160@60.000Hz
 		position 0,1080
 		scale 1
         adaptive_sync on

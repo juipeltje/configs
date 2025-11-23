@@ -138,7 +138,7 @@ swapfile() {
 	chmod 0600 /swapfile
 	mkswap -U clear /swapfile
 	swapon /swapfile
-	echo "/swapfile none swap defaults 0 0" >>/etc/fstab
+	echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 }
 
 grub() {
@@ -147,8 +147,8 @@ grub() {
 	tar -xf /home/${user}/Downloads/void-linux.tar -C /home/${user}/Downloads/void-grub-theme
 	mkdir -p /boot/grub/themes
 	cp -r /home/${user}/Downloads/void-grub-theme /boot/grub/themes/void
-	echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >>/etc/default/grub
-	echo "GRUB_DISABLE_OS_PROBER=false" >>/etc/default/grub
+	echo 'GRUB_THEME="/boot/grub/themes/void/theme.txt"' >> /etc/default/grub
+	echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 	rm -r /home/${user}/Downloads/void-grub-theme
 	rm -r /home/${user}/Downloads/void-linux.tar
 	swap_uuid=$(cat /etc/fstab | head -n1 | awk '{print $1}')
@@ -360,11 +360,11 @@ select opt_2 in "${options_2[@]}"; do
 
 		# Kernel modules
 		echo -e "${green}Adding kernel modules to load on boot...${color_reset}"
-		echo "i2c-dev" >/etc/modules-load.d/i2c.conf
-		echo "i2c-piix4" >/etc/modules-load.d/i2c-piix4.conf
-		echo "options vfio-pci ids=10de:1287,10de:0e0f" >/etc/modprobe.d/vfio.conf
-		echo "softdep drm pre: vfio-pci" >>/etc/modprobe.d/vfio.conf
-		echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" >/etc/dracut.conf.d/10-vfio.conf
+		echo "i2c-dev" > /etc/modules-load.d/i2c.conf
+		echo "i2c-piix4" > /etc/modules-load.d/i2c-piix4.conf
+		echo "options vfio-pci ids=10de:1287,10de:0e0f" > /etc/modprobe.d/vfio.conf
+		echo "softdep drm pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
+		echo -e "force_drivers+=\" vfio_pci vfio vfio_iommu_type1 \"" > /etc/dracut.conf.d/10-vfio.conf
 		dracut --force
 
 		# Swap

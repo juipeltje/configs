@@ -50,6 +50,7 @@
         ffmpeg
         streamrip
         # yt-dlp
+        deno
         imagemagick
         corrupter
 
