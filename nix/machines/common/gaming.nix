@@ -38,14 +38,14 @@
         # Benchmarking
         unigine-heaven
         unigine-valley
-        unigine-superposition
+        # unigine-superposition
       ];
     })
 
     (lib.mkIf (hostName == "Void-Rig" || hostName == "Void-Lappie") {
       home.packages = with pkgs; [
         # qcma
-        (libsForQt5.callPackage ./../../derivations/qcma/qcma.nix { })
+        # (libsForQt5.callPackage ./../../derivations/qcma/qcma.nix { })
       ];
     })
 

@@ -42,7 +42,7 @@
         mpv
         kodi-wayland
         feh
-        deadbeef-with-plugins
+        # deadbeef-with-plugins
         cyanrip
         picard
         makemkv
@@ -81,7 +81,7 @@
         unstable.displaycal
         gtypist
         klavaro
-        libsForQt5.ktouch
+        kdePackages.ktouch
       ];
 
       # configure deadbeef plugins

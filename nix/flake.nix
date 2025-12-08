@@ -2,14 +2,14 @@
   description = "juipeltje's flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     hyprland.url = "github:hyprwm/Hyprland";
     mango.url = "github:DreamMaoMao/mango";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, mango, chaotic, home-manager, nur, ... } @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, hyprland, mango, chaotic, home-manager, nur, ... } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,7 +33,7 @@
     homeConfigurations = {
       "joppe@Void-Rig" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { 
+        extraSpecialArgs = {
           inherit inputs;
           hostName = "Void-Rig";
         };
@@ -46,7 +46,7 @@
 
       "joppe@Void-Lappie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { 
+        extraSpecialArgs = {
           inherit inputs;
           hostName = "Void-Lappie";
         };
@@ -56,10 +56,10 @@
           ./machines/laptop/home.nix
         ];
       };
-      
+
       "deck@Deckie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { 
+        extraSpecialArgs = {
           inherit inputs;
           hostName = "Deckie";
         };

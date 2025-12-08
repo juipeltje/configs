@@ -9,7 +9,7 @@
       home.packages = with pkgs; [
         # Compositors
         dwl
-        river
+        river-classic
         swayfx
         hyprland
         niri
