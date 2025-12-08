@@ -55,6 +55,8 @@ packages=(
 	"xz"
 	"gvfs"
 	"fuse3"
+	"gparted"
+	"ntfs-3g"
 
 	# Multimedia
 	"pipewire"
@@ -70,7 +72,6 @@ packages=(
 
 	# Other
 	"git"
-	"gparted"
 	"wget"
 	"polkit-gnome"
 	"nano"
