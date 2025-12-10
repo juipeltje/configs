@@ -10,7 +10,7 @@ options=(
 	"  Dracula"
 )
 
-theme=$(echo -e "${options[@]}" | fuzzel -d --width=14 --placeholder="Select a theme:" | awk '{print tolower($2)}')
+theme=$(echo -e "${options[@]}" | fuzzel -d --placeholder="Select a theme:" | awk '{print tolower($2)}')
 
 # Functions
 theme_switch() {

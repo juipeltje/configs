@@ -7,7 +7,7 @@ options=(
 )
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	color=$( echo -e "${options[@]}" | fuzzel -d -w 12 --placeholder="Select RGB light color:" | awk '{print tolower($2)}' )
+	color=$( echo -e "${options[@]}" | fuzzel -d --placeholder="Select RGB light color:" | awk '{print tolower($2)}' )
 else
 	color=$( echo -e "${options[@]}" | rofi -dmenu -p "Select RGB light color:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}' )
 fi

@@ -24,7 +24,7 @@ wayland_vars=(
 dbus=dbus-run-session
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	op=$(echo -e "${options[@]}" | fuzzel -d -w 12 --placeholder="Select a compositor:" | awk '{print tolower($2)}')
+	op=$(echo -e "${options[@]}" | fuzzel -d --placeholder="Select a compositor:" | awk '{print tolower($2)}')
 else
 	op=$(echo -e "${options[@]}" | rofi -dmenu -p "Select a compositor:" -theme-str 'window {width: 300px;}' | awk '{print tolower($2)}')
 fi

@@ -7,7 +7,7 @@ options=(
 )
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	op=$( echo -e "${options[@]}" | fuzzel -d -w 10 --placeholder="Select LLM:" | awk '{print tolower($2)}' )
+	op=$( echo -e "${options[@]}" | fuzzel -d --placeholder="Select LLM:" | awk '{print tolower($2)}' )
 	terminal=foot
 else
 	op=$( echo -e "${options[@]}" | rofi -dmenu -p "Select LLM:" -theme-str 'window {width: 250px;}' | awk '{print tolower($2)}' )

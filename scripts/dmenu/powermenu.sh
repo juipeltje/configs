@@ -2,7 +2,7 @@
 
 # Powermenu script
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	op=$( echo -e "  Poweroff\n  Reboot\n󰒲  Suspend\n󰤄  Hibernate\n  Lock" | fuzzel -d -w 8 --placeholder="Powermenu:" | awk '{print tolower($2)}' )
+	op=$( echo -e "  Poweroff\n  Reboot\n󰒲  Suspend\n󰤄  Hibernate\n  Lock" | fuzzel -d -w 15 --placeholder="Powermenu:" | awk '{print tolower($2)}' )
 else
 	op=$( echo -e " Poweroff\n Reboot" | rofi -dmenu -p "Powermenu:" -theme-str 'window {width: 200px;}' | awk '{print tolower($2)}' )
 fi
