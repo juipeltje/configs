@@ -17,7 +17,7 @@ alias xd='~/repos/configs/scripts/installers/dotfiles.sh'
 #
 # Nix aliases
 alias ni="dbus-run-session sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon"
-alias hi="dbus-run-session nix run --extra-experimental-features 'nix-command flakes' home-manager/release-25.05 -- switch --extra-experimental-features 'nix-command flakes'"
+alias hi="dbus-run-session nix run --extra-experimental-features 'nix-command flakes' home-manager/release-25.11 -- switch --extra-experimental-features 'nix-command flakes'"
 alias nu='nix flake update --flake ~/repos/configs/nix; home-manager switch --flake ~/repos/configs/nix'
 alias hs='home-manager switch --flake ~/repos/configs/nix'
 #
