@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# active-workspace event has two args separated by the \x1E separator sequence
-#   - workspace index
-#   - workspace output
-#
+# Waybar script that displays status of vpn connection
+
 mwc-ipc subscribe | while read -r line; do
   # if the line starts with active-workspace
   if [[ "$line" == active-workspace* ]]; then
