@@ -90,6 +90,9 @@
         ruff
         clang-tools
 
+        # Multimedia
+        feishin
+
         # other
         unstable.displaycal
         gtypist
