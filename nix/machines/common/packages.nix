@@ -10,15 +10,6 @@
 
       # list of packages to install in user environment.
       home.packages = with pkgs; [
-        # Networking
-        transmission_4-gtk
-
-        # Bluetooth
-        blueman
-
-        # Mail
-        thunderbird
-
         # Terminal
         alacritty
         kitty
@@ -30,9 +21,6 @@
         p7zip
         xdg-utils
 
-        # Office suite
-        libreoffice
-
         # Notifications
         libnotify
 
@@ -40,16 +28,13 @@
         playerctl
         pavucontrol
         mpv
-        kodi-wayland
         feh
-        # deadbeef-with-plugins
         cyanrip
         picard
         makemkv
         mkvtoolnix
         ffmpeg
         streamrip
-        # yt-dlp
         deno
         imagemagick
         corrupter
@@ -64,24 +49,10 @@
         # AI
         ollama-rocm
 
-        # Text editors
-        helix
-
-        # LSP
-        bash-language-server
-        shfmt
-        nixd
-        ruff
-        clang-tools
-
         # Other
         lm_sensors
         curl
         via
-        unstable.displaycal
-        gtypist
-        klavaro
-        kdePackages.ktouch
       ];
 
       # configure deadbeef plugins
@@ -93,6 +64,39 @@
         })
       ];
     }
+
+    (lib.mkIf (hostName == "Void-Rig" || hostName == "Void-Lappie") {
+      # Workstation- and laptop-specific packages.
+      home.packages = with pkgs; [
+        # Networking
+        transmission_4-gtk
+
+        # Bluetooth
+        blueman
+
+        # Mail
+        thunderbird
+
+        # Office suite
+        libreoffice
+
+        # Text editors
+        helix
+
+        # LSP
+        bash-language-server
+        shfmt
+        nixd
+        ruff
+        clang-tools
+
+        # other
+        unstable.displaycal
+        gtypist
+        klavaro
+        kdePackages.ktouch
+      ];
+    })
 
     (lib.mkIf (hostName == "Void-Rig") {
       # Workstation-specific packages.
@@ -126,6 +130,13 @@
 
         # Control volume with volume function keys.
         pulsemixer
+      ];
+    })
+
+    (lib.mkIf (hostName == "Void-Server") {
+      # Server-specific packages.
+      home.packages = with pkgs; [
+        navidrome
       ];
     })
   ];
