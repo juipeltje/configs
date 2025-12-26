@@ -23,7 +23,7 @@
     # Nix settings
     ./../common/nix.nix
     # Packages settings
-    # ./../common/packages.nix
+    ./../common/packages.nix
     # Theme settings
     ./../common/theming.nix
     # Wayland settings
