@@ -7,7 +7,7 @@ let
     JELLYFINDIR="~/.jellyfin"
     FFMPEGDIR="${pkgs.jellyfin-ffmpeg}/bin"
 
-    $JELLYFINDIR/jellyfin/jellyfin \
+    jellyfin \
       -d $JELLYFINDIR/data \
       -C $JELLYFINDIR/cache \
       -c $JELLYFINDIR/config \
