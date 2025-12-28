@@ -196,7 +196,8 @@ configs_server() {
 	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/sway/* /home/${user}/.config/sway/
 	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/swayidle/* /home/${user}/.config/swayidle/
 	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/tofi/* /home/${user}/.config/tofi/
-	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/waybar/* /home/${user}/.config/waybar/
+	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/waybar/* /home/${user}/.config/waybar/
 
 	# Navidrome
 	mkdir -p /home/${user}/.config/navidrome
