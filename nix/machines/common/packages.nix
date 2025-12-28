@@ -46,7 +46,6 @@ in
         picard
         makemkv
         mkvtoolnix
-        ffmpeg
         streamrip
         deno
         imagemagick
@@ -104,6 +103,7 @@ in
         clang-tools
 
         # Multimedia
+        ffmpeg
         feishin
 
         # other
