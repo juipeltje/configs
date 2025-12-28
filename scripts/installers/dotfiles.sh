@@ -21,6 +21,7 @@ options_1=(
 options_2=(
 	"desktop"
 	"laptop"
+	"server"
 	"virtual machine"
 )
 
@@ -183,6 +184,25 @@ configs_laptop() {
 	ln -s /home/${user}/repos/configs/dotfiles/laptop/dotconfig/waybar/* /home/${user}/.config/waybar/
 }
 
+configs_server() {
+	# link server config files to their expected location.
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/hypr/* /home/${user}/.config/hypr/
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/kanshi/* /home/${user}/.config/kanshi/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/mango/* /home/${user}/.config/mango/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/mwc/* /home/${user}/.config/mwc/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/niri/* /home/${user}/.config/niri/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/qtile/* /home/${user}/.config/qtile/
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/river/* /home/${user}/.config/river/
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/sway/* /home/${user}/.config/sway/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/swayidle/* /home/${user}/.config/swayidle/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/tofi/* /home/${user}/.config/tofi/
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/waybar/* /home/${user}/.config/waybar/
+
+	# Navidrome
+	mkdir -p /home/${user}/.config/navidrome
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/navidrome/* /home/${user}/.config/navidrome/
+}
+
 echo -e "${green}This script will install dotfiles in the user's home folder using symlinks (user: ${user}).
 Confirm you understand this keeping in mind that something could go wrong and brick your system.${color_reset}"
 
@@ -202,7 +222,7 @@ select opt_1 in "${options_1[@]}"; do
 	esac
 done
 
-echo -e "${green}One last question: are you using a desktop, laptop, or virtual machine?${color_reset}"
+echo -e "${green}One last question: are you using a desktop, laptop, server, or virtual machine?${color_reset}"
 
 select opt_2 in "${options_2[@]}"; do
 	case ${opt_2} in
@@ -228,6 +248,19 @@ select opt_2 in "${options_2[@]}"; do
 		make_directories
 		configs
 		configs_laptop
+
+		echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
+		exit 69
+		;;
+	"server")
+		echo -e "${green}Continuing install script with settings for server...${color_reset}"
+
+		# Install config files
+		echo -e "${green}Installing config files...${color_reset}"
+		rm_default_configs
+		make_directories
+		configs
+		configs_server
 
 		echo -e "${bright_green}Finished!! Enjoy your dots :)${color_reset}"
 		exit 69

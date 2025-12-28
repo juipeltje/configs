@@ -1,0 +1,10 @@
+#### swayfx server config
+
+# Include the common config
+include ~/.config/sway/common.conf
+
+# Autostart programs
+exec ~/repos/configs/scripts/autostart/server-autostart.sh
+
+# monitor configuration
+#output eDP-1 resolution 1920x1080@60.001Hz position 0,0

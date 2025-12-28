@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# River server config
+
+# import the common config script
+riverctl spawn ~/.config/river/common.sh
+
+# Autostart programs
+riverctl spawn ~/repos/configs/scripts/autostart/server-autostart.sh
+
+# set scratchpad terminal dimensions
+riverctl rule-add -app-id scratchpad dimensions 960 700
