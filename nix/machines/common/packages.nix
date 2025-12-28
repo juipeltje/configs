@@ -5,14 +5,12 @@ let
   jellyfin-launcher = pkgs.writeShellScriptBin "jellyfin-launcher" ''
     # script for running Jellyfin with the required variables/flags.
     JELLYFINDIR="~/.jellyfin"
-    FFMPEGDIR="${pkgs.jellyfin-ffmpeg}/bin"
 
     jellyfin \
       -d $JELLYFINDIR/data \
       -C $JELLYFINDIR/cache \
       -c $JELLYFINDIR/config \
       -l $JELLYFINDIR/log \
-      --ffmpeg $FFMPEGDIR/ffmpeg
   '';
 in
 {
