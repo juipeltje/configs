@@ -56,6 +56,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.config/mpv
 	rm -rf /home/${user}/.config/mwc
 	rm -rf /home/${user}/.config/nano
+	rm -rf /home/${user}/.config/navidrome
 	rm -rf /home/${user}/.config/niri
 	rm -rf /home/${user}/.config/pipewire
 	rm -rf /home/${user}/.config/qtile

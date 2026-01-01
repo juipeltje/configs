@@ -1,18 +1,7 @@
 # Home Manager packages configuration
 
 { config, hostName, lib, pkgs, ... }:
-let
-  jellyfin-launcher = pkgs.writeShellScriptBin "jellyfin-launcher" ''
-    # script for running Jellyfin with the required variables/flags.
-    JELLYFINDIR="~/.jellyfin"
 
-    jellyfin \
-      -d $JELLYFINDIR/data \
-      -C $JELLYFINDIR/cache \
-      -c $JELLYFINDIR/config \
-      -l $JELLYFINDIR/log \
-  '';
-in
 {
   config = lib.mkMerge [
     {
@@ -153,7 +142,6 @@ in
         navidrome
         jellyfin
         jellyfin-ffmpeg
-        jellyfin-launcher
       ];
     })
   ];
