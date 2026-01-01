@@ -5,10 +5,10 @@
 # redirect stderr and stdout to logfile.
 user=joppe
 log=/home/${user}/log/jellyfin/$(date +%d-%m-%Y).log
-JELLYFINDIR="/home/joppe/.jellyfin"
+JELLYFINDIR="/home/${user}/.jellyfin"
 exec 1>>${log} 2>&1
 
-until jellyfin -d $JELLYFINDIR/data -C $JELLYFINDIR/cache -c $JELLYFINDIR/config -l $JELLYFINDIR/log; do
+until /home/${user}/.nix-profile/bin/jellyfin -d $JELLYFINDIR/data -C $JELLYFINDIR/cache -c $JELLYFINDIR/config -l $JELLYFINDIR/log; do
   echo "Jellyfin crashed! if this keeps happening, please check your logs."
   sleep 1
 done
