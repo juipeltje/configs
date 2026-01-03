@@ -46,6 +46,7 @@ packages=(
 	"openssh"
 	"wireguard-dkms"
 	"wireguard-tools"
+	"ufw"
 
 	# Bluetooth
 	"bluez"
@@ -119,6 +120,7 @@ services() {
 	ln -sf /etc/sv/socklog-unix /var/service/
 	ln -sf /etc/sv/nanoklogd /var/service/
 	ln -sf /etc/sv/cronie /var/service/
+	ln -sf /etc/sv/ufw /var/service/
 	cp -rf /home/${user}/repos/configs/void-stuff/common/etc/sv/nix-daemon /etc/sv/
 	cp -rf /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
 	sed -i "s/GETTY_ARGS.*/GETTY_ARGS=\"--autologin ${user} --noclear\"/" /etc/sv/agetty-autologin-tty1/conf
@@ -295,6 +297,22 @@ udev() {
 	mkdir -p /etc/udev/rules.d
 	echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"' > /etc/udev/rules.d/92-viia.rules
 	echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="0765", ATTRS{idProduct}=="5020", GROUP="users", MODE="0660"' > /etc/udev/rules.d/90-displaycal.rules
+}
+
+ufw() {
+	ufw enable
+	ufw limit SSH
+}
+
+ufw_desktop() {
+	ufw allow Transmission
+}
+
+ufw_server() {
+	ufw allow 4533/tcp
+	ufw allow 8096/tcp
+	ufw allow 7359/udp
+	ufw allow 51820/udp
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.

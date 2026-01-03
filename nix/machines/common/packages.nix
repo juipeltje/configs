@@ -48,6 +48,11 @@
         # AI
         ollama-rocm
 
+        # Containers
+        podman
+        podman-compose
+        podman-tui
+
         # Other
         lm_sensors
         curl

@@ -13,7 +13,7 @@
     # Appimage settings
     ./../common/appimages.nix
     # Container settings
-    ./../common/containers.nix
+    # ./../common/containers.nix
     # Driver settings
     ./../common/drivers.nix
     # Gaming settings
