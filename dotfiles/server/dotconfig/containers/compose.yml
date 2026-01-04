@@ -62,7 +62,7 @@ services:
     ports:
       - 11434:11434/tcp
     environment:
-      - 'HSA_OVERRIDE_GFX_VERSION=10.3.0'
+      - 'HSA_OVERRIDE_GFX_VERSION=9.0.0'
     volumes:
       - "/12TB-HDD/ollama:/root/.ollama"
     devices:
