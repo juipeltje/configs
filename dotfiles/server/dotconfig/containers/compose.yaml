@@ -44,8 +44,9 @@ services:
       - 8096:8096/tcp
       - 7359:7359/udp
     volumes:
-      - "/12TB-HDD/jellyfin/config:/config"
       - "/12TB-HDD/jellyfin/cache:/cache"
+      - "/12TB-HDD/jellyfin/config:/config"
+      - "/12TB-HDD/jellyfin/data:/data"
       - "/12TB-HDD/Videos/Filmpies/Tor-rented/Films:/Films:ro"
       - "/12TB-HDD/Videos/Filmpies/Tor-rented/Series:/Series:ro"
     devices:
