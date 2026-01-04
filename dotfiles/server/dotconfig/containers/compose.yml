@@ -54,13 +54,13 @@ services:
       - "/dev/dri:/dev/dri"
 
   ollama:
-    image: ollama/ollama
+    image: ollama/ollama:rocm
     container_name: ollama
     user: 1000:1000
     userns_mode: "keep-id"
     restart: unless-stopped
     ports:
-      - 11434:11434
+      - 11434:11434/tcp
     environment:
       - 'HSA_OVERRIDE_GFX_VERSION=10.3.0'
     volumes:
