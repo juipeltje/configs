@@ -10,7 +10,7 @@ hostname=$(cat /etc/hostname)
 AUTOSTART="/home/joppe/repos/configs/scripts/autostart/common-autostart.sh"
 
 # Mounting the root directory as a shared mount (important for Podman).
-# mount --make-rshared /
+mount --make-rshared /
 
 # Symlink drivers to /run directory for nix packages.
 if [ -d "$DRIVERS" ]; then

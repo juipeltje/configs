@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 1000:1000
+    userns_mode: "keep-id"
+    restart: unless-stopped
+    ports:
+      - "4533:4533/tcp"
+    environment:
+      ND_COVERARTPRIORITY: "front.*, embedded"
+      ND_COVERJPEGQUALITY: 100
+      ND_DEEZER_ENABLED: true
+      ND_DEEZER_LANGUAGE: "en"
+      ND_DEFAULT_DOWNSAMPLINGFORMAT: "opus"
+      ND_DEFAULT_LANGUAGE: "en"
+      ND_DEFAULT_THEME: "Dark"
+      ND_DEFAULTUIVOLUME: 100
+      ND_ENABLEARTWORKPRECACHE: true
+      ND_ENABLECOVERANIMATION: true
+      ND_ENABLEDOWNLOADS: true
+      ND_ENABLEEXTERNALSERVICES: true
+      ND_ENABLEFAVOURITES: true
+      ND_ENABLEGRAVATAR: false
+      ND_IMAGECACHESIZE: "100MB"
+      ND_SCANNER_ENABLED: true
+      ND_SCANNER_SCHEDULE: "@every 24h"
+    volumes:
+      - "/12TB-HDD/Navidrome/Data:/data"
+      - "/12TB-HDD/Navidrome/Music:/music:ro"
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    user: 1000:1000
+    userns_mode: "keep-id"
+    restart: unless-stopped
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - "/12TB-HDD/jellyfin/config:/config"
+      - "/12TB-HDD/jellyfin/cache:/cache"
+      - "/12TB-HDD/Videos/Filmpies/Tor-rented/Films:/Films:ro"
+      - "/12TB-HDD/Videos/Filmpies/Tor-rented/Series:/Series:ro"
+    devices:
+      - "/dev/dri:/dev/dri"

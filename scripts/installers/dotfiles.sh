@@ -41,6 +41,7 @@ rm_default_configs() {
 	rm -rf /home/${user}/.bashrc
 	rm -rf /home/${user}/.bash_profile
 	rm -rf /home/${user}/.config/alacritty
+	rm -rf /home/${user}/.config/containers
 	rm -rf /home/${user}/.config/fastfetch
 	rm -rf /home/${user}/.config/foot
 	rm -rf /home/${user}/.config/fuzzel
@@ -80,6 +81,7 @@ make_directories() {
 
 	# create directories for configs.
 	mkdir -p /home/${user}/.config/alacritty
+	mkdir -p /home/${user}/.config/containers
 	mkdir -p /home/${user}/.config/fastfetch
 	mkdir -p /home/${user}/.config/foot
 	mkdir -p /home/${user}/.config/fuzzel
@@ -123,6 +125,7 @@ configs() {
 	ln -s /home/${user}/repos/configs/dotfiles/common/.bash_profile /home/${user}/
 	mkdir -p /home/${user}/.config
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/alacritty/* /home/${user}/.config/alacritty/
+	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/containers/* /home/${user}/.config/containers/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/fastfetch/* /home/${user}/.config/fastfetch/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/foot/* /home/${user}/.config/foot/
 	ln -s /home/${user}/repos/configs/dotfiles/common/dotconfig/fuzzel/* /home/${user}/.config/fuzzel/
@@ -187,6 +190,7 @@ configs_laptop() {
 
 configs_server() {
 	# link server config files to their expected location.
+	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/containers/* /home/${user}/.config/containers/
 	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/hypr/* /home/${user}/.config/hypr/
 	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/kanshi/* /home/${user}/.config/kanshi/
 	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/mango/* /home/${user}/.config/mango/

@@ -45,9 +45,6 @@
         s-tui
         stress-ng
 
-        # AI
-        ollama-rocm
-
         # Containers
         podman
         podman-compose
@@ -98,6 +95,9 @@
         ffmpeg
         feishin
 
+        # AI
+        ollama-rocm
+
         # other
         unstable.displaycal
         gtypist
@@ -144,9 +144,9 @@
     (lib.mkIf (hostName == "Void-Server") {
       # Server-specific packages.
       home.packages = with pkgs; [
-        navidrome
-        jellyfin
-        jellyfin-ffmpeg
+        # navidrome
+        # jellyfin
+        # jellyfin-ffmpeg
       ];
     })
   ];
