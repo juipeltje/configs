@@ -52,3 +52,17 @@ services:
       - "/12TB-HDD/Videos/Filmpies/Tor-rented/Series:/Series:ro"
     devices:
       - "/dev/dri:/dev/dri"
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    user: 1000:1000
+    userns_mode: "keep-id"
+    restart: unless-stopped
+    ports:
+      - 11434:11434
+    volumes:
+      - "/12TB-HDD/ollama:/root/.ollama"
+    devices:
+      - "/dev/dri:/dev/dri"
+      - "/dev/kfd:/dev/kfd"
