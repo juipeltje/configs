@@ -61,8 +61,6 @@ services:
     restart: unless-stopped
     ports:
       - 11434:11434/tcp
-    environment:
-      - HSA_OVERRIDE_GFX_VERSION="9.0.0"
     volumes:
       - "/12TB-HDD/ollama:/root/.ollama"
     devices:

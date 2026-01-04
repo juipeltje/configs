@@ -1,2 +1,3 @@
+PATH=/home/joppe/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
 @reboot sleep 5; /home/joppe/repos/configs/scripts/cron/server/openrgb.sh
 @reboot /home/joppe/repos/configs/scripts/cron/server/podman-compose.sh
