@@ -1,5 +1,8 @@
 version: "3"
 
+x-podman:
+  in_pod: false
+
 services:
   navidrome:
     image: deluan/navidrome:latest
