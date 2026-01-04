@@ -47,6 +47,7 @@ services:
       - "/12TB-HDD/jellyfin/cache:/cache"
       - "/12TB-HDD/jellyfin/config:/config"
       - "/12TB-HDD/jellyfin/data:/data"
+      - "/12TB-HDD/jellyfin/log:/log"
       - "/12TB-HDD/Videos/Filmpies/Tor-rented/Films:/Films:ro"
       - "/12TB-HDD/Videos/Filmpies/Tor-rented/Series:/Series:ro"
     devices:
