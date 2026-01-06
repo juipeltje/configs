@@ -8,13 +8,8 @@
       # Install wayland related packages
       home.packages = with pkgs; [
         # Compositors
-        dwl
         river-classic
         swayfx
-        hyprland
-        niri
-        inputs.mango.packages.x86_64-linux.mango
-        # mwc_git
 
         # Terminal
         foot
@@ -26,20 +21,11 @@
         mako
 
         # Run launcher
-        tofi
         fuzzel
-
-        # Wallpaper tools
-        swaybg
-        mpvpaper
 
         # Xwayland
         xwayland
         xwayland-satellite
-
-        # gtklock modules
-        gtklock-powerbar-module
-        gtklock-playerctl-module
 
         # Display configuration
         kanshi
@@ -89,6 +75,26 @@
         })
       ];
     }
+
+    (lib.mkIf (hostName == "Void-Rig" || hostName == "Void-Lappie") {
+      # Workstation- and laptop-specific packages.
+      home.packages = with pkgs; [
+        # Compositors
+        dwl
+        hyprland
+        niri
+        inputs.mango.packages.x86_64-linux.mango
+        # mwc_git
+
+        # Wallpaper tools
+        swaybg
+        mpvpaper
+
+        # gtklock modules
+        gtklock-powerbar-module
+        gtklock-playerctl-module
+      ];
+    })
 
     (lib.mkIf (hostName == "Void-Rig") {
       nixpkgs.overlays = [

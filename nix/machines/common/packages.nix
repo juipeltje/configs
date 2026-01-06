@@ -21,22 +21,11 @@
         p7zip
         xdg-utils
 
+        # Text editors
+        helix
+
         # Notifications
         libnotify
-
-        # Multimedia
-        playerctl
-        pavucontrol
-        mpv
-        feh
-        cyanrip
-        picard
-        makemkv
-        mkvtoolnix
-        streamrip
-        deno
-        imagemagick
-        corrupter
 
         # Fetch tools
         fastfetch
@@ -46,23 +35,13 @@
         stress-ng
 
         # Containers
-        podman
-        podman-compose
-        podman-tui
+        # podman
+        # podman-compose
+        # podman-tui
 
         # Other
         lm_sensors
         curl
-        via
-      ];
-
-      # configure deadbeef plugins
-      nixpkgs.overlays = [
-        (final: prev: {
-          deadbeef-with-plugins = prev.deadbeef-with-plugins.override {
-            plugins = with prev.deadbeefPlugins; [ mpris2 ];
-          };
-        })
       ];
     }
 
@@ -81,9 +60,6 @@
         # Office suite
         libreoffice
 
-        # Text editors
-        helix
-
         # LSP
         bash-language-server
         shfmt
@@ -92,6 +68,18 @@
         clang-tools
 
         # Multimedia
+        playerctl
+        pavucontrol
+        mpv
+        feh
+        cyanrip
+        picard
+        makemkv
+        mkvtoolnix
+        streamrip
+        deno
+        imagemagick
+        corrupter
         ffmpeg
         feishin
 
@@ -99,6 +87,7 @@
         ollama-rocm
 
         # other
+        via
         unstable.displaycal
         gtypist
         klavaro
