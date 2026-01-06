@@ -190,23 +190,12 @@ configs_laptop() {
 
 configs_server() {
 	# link server config files to their expected location.
-	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/containers/* /home/${user}/.config/containers/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/hypr/* /home/${user}/.config/hypr/
+	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/containers/* /home/${user}/.config/containers/
 	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/kanshi/* /home/${user}/.config/kanshi/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/mango/* /home/${user}/.config/mango/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/mwc/* /home/${user}/.config/mwc/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/niri/* /home/${user}/.config/niri/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/qtile/* /home/${user}/.config/qtile/
 	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/river/* /home/${user}/.config/river/
 	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/sway/* /home/${user}/.config/sway/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/swayidle/* /home/${user}/.config/swayidle/
-	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/tofi/* /home/${user}/.config/tofi/
 	ln -s /home/${user}/repos/configs/dotfiles/workstation/dotconfig/waybar/* /home/${user}/.config/waybar/
 	# ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/waybar/* /home/${user}/.config/waybar/
-
-	# Navidrome
-	mkdir -p /home/${user}/.config/navidrome
-	ln -s /home/${user}/repos/configs/dotfiles/server/dotconfig/navidrome/* /home/${user}/.config/navidrome/
 }
 
 echo -e "${green}This script will install dotfiles in the user's home folder using symlinks (user: ${user}).

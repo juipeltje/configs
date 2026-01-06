@@ -313,6 +313,7 @@ ufw_server() {
 	ufw allow 8096/tcp
 	ufw allow 7359/udp
 	ufw allow 51820/udp
+	ufw allow 11434/tcp
 }
 
 echo -e "${green}This script will install both global system configurations as well as dotfiles in the user's home folder.
