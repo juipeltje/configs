@@ -53,7 +53,20 @@
 
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
-          ./machines/server/home.nix
+          ./machines/server/joppe/home.nix
+        ];
+      };
+
+      "navidrome@Void-Server" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          hostName = "Void-Server";
+        };
+
+        modules = [
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
+          ./machines/server/navidrome/home.nix
         ];
       };
 

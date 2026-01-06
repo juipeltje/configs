@@ -10,24 +10,18 @@
 
   programs.home-manager.enable = true;
   imports = [
-    # Appimage settings
-    # ./../common/appimages.nix
-    # Container settings
-    # ./../common/containers.nix
     # Driver settings
-    ./../common/drivers.nix
-    # Gaming settings
-    # ./../common/gaming.nix
+    ./../../common/drivers.nix
     # Librewolf settings
-    ./../common/librewolf.nix
+    ./../../common/librewolf.nix
     # Nix settings
-    ./../common/nix.nix
+    ./../../common/nix.nix
     # Packages settings
-    ./../common/packages.nix
+    ./../../common/packages.nix
     # Theme settings
-    ./../common/theming.nix
+    ./../../common/theming.nix
     # Wayland settings
-    ./../common/wayland.nix
+    ./../../common/wayland.nix
   ];
 
   # The state version is required and should stay at the version you
