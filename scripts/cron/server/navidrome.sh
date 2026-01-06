@@ -3,7 +3,7 @@
 # Script that starts Navidrome with the required flags, and sends logs to a file.
 
 # redirect stderr and stdout to logfile.
-user=joppe
+user=navidrome
 log=/home/${user}/log/navidrome/$(date +%d-%m-%Y).log
 exec 1>>${log} 2>&1
 

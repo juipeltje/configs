@@ -10,12 +10,8 @@
 
   programs.home-manager.enable = true;
   imports = [
-    # Driver settings
-    # ./../../common/drivers.nix
-    # Nix settings
-    ./../../common/nix.nix
-    # Packages settings
-    ./packages.nix
+    # Navidrome settings
+    ./navidrome.nix
   ];
 
   # The state version is required and should stay at the version you
