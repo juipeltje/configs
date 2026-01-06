@@ -12,6 +12,8 @@
   imports = [
     # Navidrome settings
     ./navidrome.nix
+    # Nix settings
+    ./../../common/nix.nix
   ];
 
   # The state version is required and should stay at the version you
