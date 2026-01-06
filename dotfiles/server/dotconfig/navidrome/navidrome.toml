@@ -14,6 +14,6 @@ EnableDownloads = true
 EnableExternalServices = true
 EnableFavourites = true
 EnableGravatar = false
-ImageCacheSize = "100MB"
+ImageCacheSize = "500MB"
 Scanner.Enabled = true
 Scanner.Schedule = "@every 24h"
