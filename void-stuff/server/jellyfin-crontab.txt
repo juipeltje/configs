@@ -1,0 +1,1 @@
+@reboot /home/jellyfin/repos/configs/scripts/cron/server/jellyfin.sh

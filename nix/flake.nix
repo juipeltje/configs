@@ -70,6 +70,19 @@
         ];
       };
 
+      "jellyfin@Void-Server" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          hostName = "Void-Server";
+        };
+
+        modules = [
+          { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
+          ./machines/server/jellyfin/home.nix
+        ];
+      };
+
       "joppe@Void-Lappie" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
