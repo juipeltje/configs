@@ -10,6 +10,8 @@
 
   programs.home-manager.enable = true;
   imports = [
+    # Driver settings
+    ./../../common/drivers.nix
     # Jellyfin settings
     ./jellyfin.nix
     # Nix settings
