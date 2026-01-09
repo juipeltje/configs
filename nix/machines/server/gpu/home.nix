@@ -4,16 +4,16 @@
 
 {
   home = {
-    username = "jellyfin";
-    homeDirectory = "/home/jellyfin";
+    username = "gpu";
+    homeDirectory = "/home/gpu";
   };
 
   programs.home-manager.enable = true;
   imports = [
     # Driver settings
     ./../../common/drivers.nix
-    # Jellyfin settings
-    ./jellyfin.nix
+    # Package settings
+    ./packages.nix
     # Nix settings
     ./../../common/nix.nix
   ];

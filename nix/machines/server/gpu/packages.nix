@@ -6,9 +6,13 @@
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # Install Jellyfin packages in home environment.
+  # Install packages for gpu-related services in home environment.
   home.packages = with pkgs; [
+    # Jellyfin
     jellyfin
-    jellyfin-ffmpeg
-  ];
+    # jellyfin-ffmpeg
+
+    # Ollama
+    ollama-rocm
+ ];
 }

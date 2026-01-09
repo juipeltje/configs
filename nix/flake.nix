@@ -70,7 +70,7 @@
         ];
       };
 
-      "jellyfin@Void-Server" = home-manager.lib.homeManagerConfiguration {
+      "gpu@Void-Server" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs;
@@ -79,7 +79,7 @@
 
         modules = [
           { nixpkgs.overlays = [ overlay-unstable nur.overlays.default chaotic.overlays.default ]; }
-          ./machines/server/jellyfin/home.nix
+          ./machines/server/gpu/home.nix
         ];
       };
 
