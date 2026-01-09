@@ -1,1 +1,2 @@
 @reboot /home/gpu/repos/configs/scripts/cron/server/jellyfin.sh
+@reboot /home/gpu/repos/configs/scripts/cron/server/ollama.sh

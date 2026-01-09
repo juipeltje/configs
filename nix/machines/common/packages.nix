@@ -85,6 +85,7 @@
 
         # AI
         ollama-rocm
+        oterm
 
         # other
         via
