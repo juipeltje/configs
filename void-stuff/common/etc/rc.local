@@ -6,6 +6,7 @@
 
 # Variables
 DRIVERS="/home/joppe/.local/state/nix/profiles/profile/drivers"
+SERVER_DRIVERS="/home/gpu/.local/state/nix/profiles/profile/drivers"
 hostname=$(cat /etc/hostname)
 AUTOSTART="/home/joppe/repos/configs/scripts/autostart/common-autostart.sh"
 
@@ -13,9 +14,16 @@ AUTOSTART="/home/joppe/repos/configs/scripts/autostart/common-autostart.sh"
 mount --make-rshared /
 
 # Symlink drivers to /run directory for nix packages.
-if [ -d "$DRIVERS" ]; then
-  ln -sf $DRIVERS/opengl-driver /run/
-  ln -sf $DRIVERS/opengl-driver-32 /run/
+if [ "$hostname" = "Void-Rig" ] || [ "$hostname" = "Void-Lappie" ]; then
+  if [ -d "$DRIVERS" ]; then
+    ln -sf $DRIVERS/opengl-driver /run/
+    ln -sf $DRIVERS/opengl-driver-32 /run/
+  fi
+elif [ "$hostname" = "Void-Server" ]; then
+  if [ -d "$SERVER_DRIVERS" ]; then
+    ln -sf $SERVER_DRIVERS/opengl-driver /run/
+    ln -sf $SERVER_DRIVERS/opengl-driver-32 /run/
+  fi
 fi
 
 # Restore volume settings for soundcards with alsactl.
@@ -26,8 +34,7 @@ if [ -f "$AUTOSTART" ]; then
   sudo -u joppe sed -i -E "s/(^gtklock.*|^#gtklock.*)/gtklock -d \&/g" /home/joppe/repos/configs/scripts/autostart/common-autostart.sh
 fi
 
-# Host-specific commands to be run.
+# Unblock all devices on laptop with rfkill (all devices are softblocked at every boot for some reason).
 if [ "$hostname" = "Void-Lappie" ]; then
-  # Unblock all devices with rfkill (all devices are softblocked at every boot for some reason).
   rfkill unblock all
 fi
