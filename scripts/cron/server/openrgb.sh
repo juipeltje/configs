@@ -9,5 +9,5 @@ exec 1>>${log} 2>&1
 
 until openrgb -p /home/${user}/.config/OpenRGB/off.orp; do
   echo "OpenRGB crashed! if this keeps happening, please check your logs."
-  sleep 1
+  sleep 5
 done

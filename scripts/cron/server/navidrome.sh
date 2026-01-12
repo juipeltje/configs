@@ -9,5 +9,5 @@ exec 1>>${log} 2>&1
 
 until /home/${user}/.nix-profile/bin/navidrome -c /home/${user}/.config/navidrome/navidrome.toml; do
   echo "Navidrome crashed! if this keeps happening, please check your logs."
-  sleep 1
+  sleep 5
 done
