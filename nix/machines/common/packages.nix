@@ -90,8 +90,8 @@
         # other
         via
         unstable.displaycal
-        gtypist
-        klavaro
+        # gtypist
+        # klavaro
         kdePackages.ktouch
       ];
     })
